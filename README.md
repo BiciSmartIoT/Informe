@@ -28,9 +28,13 @@
 #### Relación de Integrantes
 
 U20231a804 — Bustamante Leveau, Cameron Charllotte   
+
 U202311745 — Uribe Livia, Renzo Sebastián
+
 U202311842 — Espinoza Quijandria, Oscar Leonardo
+
 U202311828 — Landauri Preciado, Stephano Mayrzon
+
 U202220219 — Belahonia Miranda, Fabrisio
 
 ---
@@ -84,19 +88,19 @@ Abril, 2026
 
 
 
-- [Capítulo I: Presentación]()
-  - [1.1. Startup Profile]()
-    - [1.1.1. Descripción de la Startup]()
-    - [1.1.2. Perfiles de integrantes del equipo]()
-  - [1.2. Solution Profile]()
-    - [1.2.1. Antecedentes y problemática]()
-    - [1.2.2. Lean UX Process]()
-      - [1.2.2.1. Lean UX Problem Statements]()
-      - [1.2.2.2. Lean UX Assumptions ]()
-      - [1.2.2.3. Lean UX Hypothesis Statements]()
-      - [1.2.2.4. Lean UX Canvas]()
-  - [1.3. Segmentos objetivo]()
-
+- [Capítulo I: Presentación](#capítulo-i-presentación)
+  - [1.1. Startup Profile](#1.1.-startup-profile)
+    - [1.1.1. Descripción de la Startup](#1.1.1.-descripción-de-la-startup)
+    - [1.1.2. Perfiles de integrantes del equipo](#1.1.2.-perfiles-de-integrantes-del-equipo)
+  - [1.2. Solution Profile](#1.2.-solution-profile)
+    - [1.2.1. Antecedentes y problemática](#1.2.1.-antecedentes-y-problemática)
+    - [1.2.2. Lean UX Process](#1.2.2.-lean-ux-process)
+      - [1.2.2.1. Lean UX Problem Statements](#1.2.2.1.-lean-ux-problem-statements)
+      - [1.2.2.2. Lean UX Assumptions](#1.2.2.2.-lean-ux-assumptions)
+      - [1.2.2.3. Lean UX Hypothesis Statements](#1.2.2.3.-lean-ux-hypothesis-statements)
+      - [1.2.2.4. Lean UX Canvas](#1.2.2.4.-lean-ux-canvas)
+  - [1.3. Segmentos objetivo](#1.3.-segmentos-objetivo)
+  
 
 
 
