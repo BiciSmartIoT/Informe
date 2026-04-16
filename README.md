@@ -134,16 +134,24 @@ Se identificaron los siguientes patrones:
 ### 2.3.1 User Personas
 
 **Persona 1: Ciclista Urbano**
+
+<img src="/assets/images/user1.png" alt="user1" width=auto>
+
 - Edad: 22 años  
 - Ocupación: Estudiante  
 - Necesidad: Seguridad al estacionar  
 - Dolor: Miedo al robo  
 
+
 **Persona 2: Ciclista Deportivo**
+
+<img src="/assets/images/user3.png" alt="user2" width=auto>
+
 - Edad: 34 años  
 - Ocupación: Profesional  
 - Necesidad: Seguridad en rutas largas  
 - Dolor: Accidentes sin asistencia  
+
 
 ### 2.3.2. User Task Matrix
 
@@ -169,14 +177,23 @@ Ciclista Urbano & Ciclista Deportivo
 
 ### 2.3.3 User Journey Mapping
 
+##### **Segmento 1: Ciclistas Urbano**
+
+<img src="/assets/images/ujm.png" alt="UJM 1" width=auto>
+
+##### **Segmento 2:Ciclista Deportivo**
+
+<img src="/assets/images/ujm2.png" alt="UJM 2" width=auto>
 
 
 ### 2.3.4 Empathy Mapping
-
+<img src="/assets/images/empathy1.png" alt="quadrants" width=auto>
+<img src="/assets/images/empathy2.png" alt="analysis" width=auto>
 
 
 ## 2.4 Big Picture EventStorming
 
+<img src="/assets/images/evenstorming" alt="ES" width=auto>
 
 
 ## 2.5 Ubiquitous Language
