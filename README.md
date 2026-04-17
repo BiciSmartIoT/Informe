@@ -4,9 +4,8 @@
 
 ### 2.1.1. Análisis competitivo 
 
-| **Competitive Analysis Landscape** | **Escriba en el recuadro la pregunta que busca responder o el objetivo de este análisis.** |
-| :---- | :---- |
-| ¿Por qué llevar a cabo este análisis?  | Deseamos analizar a nuestros competidores para identificar oportunidades de diferenciación mediante el uso de tecnología IoT, enfocándonos en la seguridad activa (anti-robo y monitoreo en tiempo real), ya que la mayoría de soluciones actuales se centran únicamente en la movilidad y no en la protección del usuario y su bicicleta. |
+¿Por qué llevar a cabo este análisis?  
+- Deseamos analizar a nuestros competidores para identificar oportunidades de diferenciación mediante el uso de tecnología IoT, enfocándonos en la seguridad activa (anti-robo y monitoreo en tiempo real), ya que la mayoría de soluciones actuales se centran únicamente en la movilidad y no en la protección del usuario y su bicicleta.
 
 |  |  |   BiciSmartIOT |  CityBikeLima |  Grin | Lime |
 | :---- | :---- | ----- | :---- | :---- | :---- |
