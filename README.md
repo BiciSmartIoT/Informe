@@ -1,4 +1,3 @@
-<img width="1240" height="3641" alt="impact-map" src="https://github.com/user-attachments/assets/22a23d92-03f3-4267-a213-16a0f4c4850a" /><img width="1240" height="3641" alt="impact-map" src="https://github.com/user-attachments/assets/a31a138b-2fbb-4a8e-9d8b-aeebcabd4ebe" /># Informe
 
 ## Capítulo III: Requirements Specification. 
 
@@ -1476,71 +1475,78 @@
 
 
 ### 3.2. Impact Mapping.
-![impact-map](./feature/chapter03/impact-map)
-### 3.3. Product Backlog.
 
-Product Backlog – Sistema de Bicicletas IoT (Completo)
-Orden	ID	Tipo	Título	Story Points
-1	US01	User	Registro de usuario estudiante	5
-2	US02	User	Registro de usuario arrendador	5
-3	TS01	Technical	Endpoints de autenticación (IAM)	8
-4	US03	User	Iniciar sesión	3
-5	US04	User	Recuperar contraseña	3
-6	US05	User	Editar perfil	3
-7	US06	User	Cerrar sesión	2
-8	US07	User	Registrar bicicleta IoT	5
-9	TS02	Technical	Endpoints de gestión de bicicletas	8
-10	US08	User	Editar bicicleta	3
-11	US09	User	Disponibilidad de bicicleta	2
-12	US10	User	Eliminar bicicleta	2
-13	US12	User	Buscar bicicletas por GPS	5
-14	TS03	Technical	Endpoints de búsqueda con geolocalización	5
-15	SPIKE01	Spike	Evaluación de mapas (Google Maps vs Mapbox)	3
-16	US13	User	Filtrar bicicletas	3
-17	US14	User	Ver detalles de bicicleta	3
-18	US15	User	Reservar bicicleta	5
-19	TS04	Technical	Endpoints de reservas y alquiler	8
-20	US16	User	Cancelar reserva	3
-21	US17	User	Confirmar inicio de alquiler	5
-22	US18	User	Finalizar alquiler	5
-23	US19	User	Vincular método de pago	3
-24	TS05	Technical	Endpoints de pagos y liquidaciones	8
-25	US20	User	Pago automático	5
-26	US21	User	Confirmación de pago	2
-27	US23	User	Historial de pagos	3
-28	SPIKE02	Spike	Comunicación con dispositivos IoT (MQTT vs HTTP)	5
-29	TS06	Technical	Integración con Smart Lock	13
-30	US25	User	Desbloquear bicicleta (Smart Lock)	8
-31	US26	User	Bloqueo automático	5
-32	US27	User	Inicio automático (sensor)	5
-33	TS08	Technical	Procesamiento de sensores IoT	8
-34	US28	User	Detección de uso	3
-35	SPIKE03	Spike	Procesamiento de datos en tiempo real	5
-36	TS07	Technical	Procesamiento GPS en tiempo real	13
-37	US29	User	Ubicación en tiempo real	8
-38	US30	User	Seguimiento de recorrido	5
-39	US31	User	Estado de bicicleta	3
-40	US32	User	Historial de rutas	3
-41	TS09	Technical	Sistema de alertas IoT	8
-42	SPIKE04	Spike	Seguridad IoT y eventos de riesgo	5
-43	US33	User	Detección de robo	8
-44	US34	User	Geocerca	5
-45	US35	User	Botón SOS	3
-46	US36	User	Notificaciones de seguridad	3
-47	TS10	Technical	Sistema de notificaciones push	5
-48	SPIKE05	Spike	Evaluación de servicios de notificaciones	3
-49	US37	User	Notificaciones de reserva	2
-50	US38	User	Notificaciones de alquiler	2
-51	US39	User	Notificaciones de pago	2
-52	US40	User	Notificaciones de incidencias	3
-53	TS11	Technical	Panel admin y monitoreo	5
-54	SPIKE06	Spike	Escalabilidad en la nube (AWS/Azure)	5
-55	US41	User	Panel de métricas	5
-56	US42	User	Gestionar usuarios	3
-57	US43	User	Gestionar bicicletas	3
-58	US44	User	Monitoreo en tiempo real	8
-59	SPIKE07	Spike	Seguridad y protección de datos	5
-60	US45	User	Ver landing page	2
-61	US46	User	Ver beneficios	2
-62	US47	User	Acceso a login desde landing	2
-63	US48	User	Descargar app	2
+<img width="1240" height="3641" alt="impact-map" src="https://github.com/user-attachments/assets/22a23d92-03f3-4267-a213-16a0f4c4850a" />
+
+## 3.3. Product Backlog
+
+### Product Backlog – Sistema de Bicicletas IoT (Completo)
+
+| Orden | ID | Tipo | Título | Story Points |
+|-------|----|------|--------|--------------|
+| 1 | US01 | User | Registro de usuario estudiante | 5 |
+| 2 | US02 | User | Registro de usuario arrendador | 5 |
+| 3 | TS01 | Technical | Endpoints de autenticación (IAM) | 8 |
+| 4 | US03 | User | Iniciar sesión | 3 |
+| 5 | US04 | User | Recuperar contraseña | 3 |
+| 6 | US05 | User | Editar perfil | 3 |
+| 7 | US06 | User | Cerrar sesión | 2 |
+| 8 | US07 | User | Registrar bicicleta IoT | 5 |
+| 9 | TS02 | Technical | Endpoints de gestión de bicicletas | 8 |
+| 10 | US08 | User | Editar bicicleta | 3 |
+| 11 | US09 | User | Disponibilidad de bicicleta | 2 |
+| 12 | US10 | User | Eliminar bicicleta | 2 |
+| 13 | US12 | User | Buscar bicicletas por GPS | 5 |
+| 14 | TS03 | Technical | Endpoints de búsqueda con geolocalización | 5 |
+| 15 | SPIKE01 | Spike | Evaluación de mapas (Google Maps vs Mapbox) | 3 |
+| 16 | US13 | User | Filtrar bicicletas | 3 |
+| 17 | US14 | User | Ver detalles de bicicleta | 3 |
+| 18 | US15 | User | Reservar bicicleta | 5 |
+| 19 | TS04 | Technical | Endpoints de reservas y alquiler | 8 |
+| 20 | US16 | User | Cancelar reserva | 3 |
+| 21 | US17 | User | Confirmar inicio de alquiler | 5 |
+| 22 | US18 | User | Finalizar alquiler | 5 |
+| 23 | US19 | User | Vincular método de pago | 3 |
+| 24 | TS05 | Technical | Endpoints de pagos y liquidaciones | 8 |
+| 25 | US20 | User | Pago automático | 5 |
+| 26 | US21 | User | Confirmación de pago | 2 |
+| 27 | US23 | User | Historial de pagos | 3 |
+| 28 | SPIKE02 | Spike | Comunicación con dispositivos IoT (MQTT vs HTTP) | 5 |
+| 29 | TS06 | Technical | Integración con Smart Lock | 13 |
+| 30 | US25 | User | Desbloquear bicicleta (Smart Lock) | 8 |
+| 31 | US26 | User | Bloqueo automático | 5 |
+| 32 | US27 | User | Inicio automático (sensor) | 5 |
+| 33 | TS08 | Technical | Procesamiento de sensores IoT | 8 |
+| 34 | US28 | User | Detección de uso | 3 |
+| 35 | SPIKE03 | Spike | Procesamiento de datos en tiempo real | 5 |
+| 36 | TS07 | Technical | Procesamiento GPS en tiempo real | 13 |
+| 37 | US29 | User | Ubicación en tiempo real | 8 |
+| 38 | US30 | User | Seguimiento de recorrido | 5 |
+| 39 | US31 | User | Estado de bicicleta | 3 |
+| 40 | US32 | User | Historial de rutas | 3 |
+| 41 | TS09 | Technical | Sistema de alertas IoT | 8 |
+| 42 | SPIKE04 | Spike | Seguridad IoT y eventos de riesgo | 5 |
+| 43 | US33 | User | Detección de robo | 8 |
+| 44 | US34 | User | Geocerca | 5 |
+| 45 | US35 | User | Botón SOS | 3 |
+| 46 | US36 | User | Notificaciones de seguridad | 3 |
+| 47 | TS10 | Technical | Sistema de notificaciones push | 5 |
+| 48 | SPIKE05 | Spike | Evaluación de servicios de notificaciones | 3 |
+| 49 | US37 | User | Notificaciones de reserva | 2 |
+| 50 | US38 | User | Notificaciones de alquiler | 2 |
+| 51 | US39 | User | Notificaciones de pago | 2 |
+| 52 | US40 | User | Notificaciones de incidencias | 3 |
+| 53 | TS11 | Technical | Panel admin y monitoreo | 5 |
+| 54 | SPIKE06 | Spike | Escalabilidad en la nube (AWS/Azure) | 5 |
+| 55 | US41 | User | Panel de métricas | 5 |
+| 56 | US42 | User | Gestionar usuarios | 3 |
+| 57 | US43 | User | Gestionar bicicletas | 3 |
+| 58 | US44 | User | Monitoreo en tiempo real | 8 |
+| 59 | SPIKE07 | Spike | Seguridad y protección de datos | 5 |
+| 60 | US45 | User | Ver landing page | 2 |
+| 61 | US46 | User | Ver beneficios | 2 |
+| 62 | US47 | User | Acceso a login desde landing | 2 |
+| 63 | US48 | User | Descargar app | 2 |
+
+
+
