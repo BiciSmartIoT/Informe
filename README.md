@@ -1,4 +1,4 @@
-# Informe
+<img width="1240" height="3641" alt="impact-map" src="https://github.com/user-attachments/assets/22a23d92-03f3-4267-a213-16a0f4c4850a" /><img width="1240" height="3641" alt="impact-map" src="https://github.com/user-attachments/assets/a31a138b-2fbb-4a8e-9d8b-aeebcabd4ebe" /># Informe
 
 ## Capítulo III: Requirements Specification. 
 
@@ -795,125 +795,58 @@
 
 
     
-    <tr>
       
-    </table>
-  开玩笑
+</table>
 
-    <br>
 
-    <!-- US46 -->
-    <table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-        <tr class="header-row">
-            <th>Story ID</th>
-            <th>User</th>
-            <th>Priority</th>
-            <th>Epic</th>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4"><strong>US46</strong> - Visitante - Media - EP10</td>
-        </tr>
-        <tr class="title-row">
-            <td colspan="4">Título:</td>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4" class="content-cell">Ver características y beneficios</td>
-        </tr>
-        <tr class="description-row">
-            <td colspan="4">Descripción:</td>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4" class="content-cell">Como visitante quiero ver las características y beneficios de la aplicación para decidir si me registro.</td>
-        </tr>
-        <tr class="acceptance-row">
-            <td colspan="4">Criterios de Aceptación:</td>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4" class="content-cell">
-                <strong>Escenario 1: Listado de características principales</strong><br> Dado que accedo a la landing page, cuando veo la sección de características, entonces el sistema muestra una lista con las funcionalidades destacadas de la app.<br><br>
-                <strong>Escenario 2: Beneficios para estudiantes</strong><br> Dado que soy estudiante, cuando busco beneficios específicos, entonces el sistema muestra ventajas como tarifas especiales y validación con correo universitario.<br><br>
-                <strong>Escenario 3: Beneficios para arrendadores</strong><br> Dado que soy arrendador, cuando busco beneficios para publicar mis bicicletas, entonces el sistema muestra ventajas como pagos automáticos y visibilidad.<br><br>
-                <strong>Escenario 4: Comparativa con otros servicios</strong><br> Dado que quiero entender la propuesta de valor, cuando veo la sección comparativa, entonces el sistema muestra una tabla comparativa con otras alternativas de movilidad.
-            </td>
-        </tr>
-    </table>
+<!-- US46 -->
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
+    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+    <tr><td colspan="4" class="content-cell"><strong>Ver características y beneficios</strong></td></tr>
+    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
+    <tr><td colspan="4" class="content-cell">Como visitante quiero ver las características y beneficios de la aplicación para decidir si me registro.</td></tr>
+    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
+    <tr><td colspan="4" class="content-cell">
+        <strong>Escenario 1: Listado de características principales</strong><br> Dado que accedo a la landing page, cuando veo la sección de características, entonces el sistema muestra una lista con las funcionalidades destacadas de la app.<br><br>
+        <strong>Escenario 2: Beneficios para estudiantes</strong><br> Dado que soy estudiante, cuando busco beneficios específicos, entonces el sistema muestra ventajas como tarifas especiales y validación con correo universitario.<br><br>
+        <strong>Escenario 3: Beneficios para arrendadores</strong><br> Dado que soy arrendador, cuando busco beneficios para publicar mis bicicletas, entonces el sistema muestra ventajas como pagos automáticos y visibilidad.<br><br>
+        <strong>Escenario 4: Comparativa con otros servicios</strong><br> Dado que quiero entender la propuesta de valor, cuando veo la sección comparativa, entonces el sistema muestra una tabla comparativa con otras alternativas de movilidad.
+    </td></tr>
+</table>
 
-    <br>
+<br>
 
-    <!-- US47 -->
-    <table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-        <tr class="header-row">
-            <th>Story ID</th>
-            <th>User</th>
-            <th>Priority</th>
-            <th>Epic</th>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4"><strong>US47</strong> - Visitante - Alta - EP10</td>
-        </tr>
-        <tr class="title-row">
-            <td colspan="4">Título:</td>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4" class="content-cell">Acceder a registro o inicio de sesión</td>
-        </tr>
-        <tr class="description-row">
-            <td colspan="4">Descripción:</td>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4" class="content-cell">Como visitante quiero acceder fácilmente a las opciones de registro o inicio de sesión desde la landing page para comenzar a usar la plataforma.</td>
-        </tr>
-        <tr class="acceptance-row">
-            <td colspan="4">Criterios de Aceptación:</td>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4" class="content-cell">
-                <strong>Escenario 1: Botones visibles de registro y login</strong><br> Dado que accedo a la landing page, cuando veo el encabezado o la sección principal, entonces el sistema muestra botones destacados para "Registrarse" e "Iniciar sesión".<br><br>
-                <strong>Escenario 2: Redirección a la app o formulario web</strong><br> Dado que presiono el botón de registro, cuando el sistema procesa la acción, entonces me redirige al formulario de registro de la aplicación.<br><br>
-                <strong>Escenario 3: Enlace directo desde secciones promocionales</strong><br> Dado que veo una sección promocional, cuando presiono "Comenzar ahora", entonces el sistema me lleva directamente al registro.<br><br>
-                <strong>Escenario 4: Opción de inicio de sesión con redes sociales</strong><br> Dado que quiero iniciar sesión rápidamente, cuando selecciono la opción de Google o Facebook, entonces el sistema permite el acceso mediante autenticación social.
-            </td>
-        </tr>
-    </table>
+<!-- US47 -->
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
+    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+    <tr><td colspan="4" class="content-cell"><strong>Acceder a registro o inicio de sesión</strong></td></tr>
+    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
+    <tr><td colspan="4" class="content-cell">Como visitante quiero acceder fácilmente a las opciones de registro o inicio de sesión desde la landing page para comenzar a usar la plataforma.</td></tr>
+    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
+    <tr><td colspan="4" class="content-cell">
+        <strong>Escenario 1: Botones visibles de registro y login</strong><br> Dado que accedo a la landing page, cuando veo el encabezado o la sección principal, entonces el sistema muestra botones destacados para "Registrarse" e "Iniciar sesión".<br><br>
+        <strong>Escenario 2: Redirección a la app o formulario web</strong><br> Dado que presiono el botón de registro, cuando el sistema procesa la acción, entonces me redirige al formulario de registro de la aplicación.<br><br>
+        <strong>Escenario 3: Enlace directo desde secciones promocionales</strong><br> Dado que veo una sección promocional, cuando presiono "Comenzar ahora", entonces el sistema me lleva directamente al registro.<br><br>
+        <strong>Escenario 4: Opción de inicio de sesión con redes sociales</strong><br> Dado que quiero iniciar sesión rápidamente, cuando selecciono la opción de Google o Facebook, entonces el sistema permite el acceso mediante autenticación social.
+    </td></tr>
+</table>
 
-    <br>
+<br>
 
-    <!-- US48 -->
-    <table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-        <tr class="header-row">
-            <th>Story ID</th>
-            <th>User</th>
-            <th>Priority</th>
-            <th>Epic</th>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4"><strong>US48</strong> - Visitante - Media - EP10</td>
-        </tr>
-        <tr class="title-row">
-            <td colspan="4">Título:</td>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4" class="content-cell">Descargar la aplicación</td>
-        </tr>
-        <tr class="description-row">
-            <td colspan="4">Descripción:</td>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4" class="content-cell">Como visitante quiero descargar la aplicación desde la landing page para instalarla en mi dispositivo móvil.</td>
-        </tr>
-        <tr class="acceptance-row">
-            <td colspan="4">Criterios de Aceptación:</td>
-        </tr>
-        <tr class="content-row">
-            <td colspan="4" class="content-cell">
-                <strong>Escenario 1: Botones de descarga visibles</strong><br> Dado que accedo a la landing page, cuando veo la sección de descarga, entonces el sistema muestra botones destacados para "App Store" y "Google Play".<br><br>
-                <strong>Escenario 2: Código QR para descarga directa</strong><br> Dado que quiero descargar desde mi móvil, cuando escaneo el código QR visible en la página, entonces el sistema me redirige a la tienda de aplicaciones correspondiente.<br><br>
-                <strong>Escenario 3: Enlace a las tiendas oficiales</strong><br> Dado que presiono el botón de descarga, cuando el sistema procesa la acción, entonces me redirige a App Store (iOS) o Google Play (Android).<br><br>
-                <strong>Escenario 4: Vista previa de la app (screenshots)</strong><br> Dado que quiero ver cómo es la aplicación antes de descargarla, cuando veo la sección de vista previa, entonces el sistema muestra capturas de pantalla de la app.
-            </td>
-        </tr>
-    </table>
-
+<!-- US48 -->
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
+    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+    <tr><td colspan="4" class="content-cell"><strong>Descargar la aplicación</strong></td></tr>
+    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
+    <tr><td colspan="4" class="content-cell">Como visitante quiero descargar la aplicación desde la landing page para instalarla en mi dispositivo móvil.</td></tr>
+    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
+    <tr><td colspan="4" class="content-cell">
+        <strong>Escenario 1: Botones de descarga visibles</strong><br> Dado que accedo a la landing page, cuando veo la sección de descarga, entonces el sistema muestra botones destacados para "App Store" y "Google Play".<br><br>
+        <strong>Escenario 2: Código QR para descarga directa</strong><br> Dado que quiero descargar desde mi móvil, cuando escaneo el código QR visible en la página, entonces el sistema me redirige a la tienda de aplicaciones correspondiente.<br><br>
+        <strong>Escenario 3: Enlace a las tiendas oficiales</strong><br> Dado que presiono el botón de descarga, cuando el sistema procesa la acción, entonces me redirige a App Store (iOS) o Google Play (Android).<br><br>
+        <strong>Escenario 4: Vista previa de la app (screenshots)</strong><br> Dado que quiero ver cómo es la aplicación antes de descargarla, cuando veo la sección de vista previa, entonces el sistema muestra capturas de pantalla de la app.
+    </td></tr>
+</table>
 
 
 
@@ -1543,7 +1476,7 @@
 
 
 ### 3.2. Impact Mapping.
-ya hay uimg
+![impact-map](./feature/chapter03/impact-map)
 ### 3.3. Product Backlog.
 
 Product Backlog – Sistema de Bicicletas IoT (Completo)
