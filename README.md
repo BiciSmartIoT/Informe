@@ -1504,71 +1504,80 @@
 ### 3.2. Impact Mapping.
 
 <img width=100% height=100% alt="impact-map" src="https://github.com/user-attachments/assets/22a23d92-03f3-4267-a213-16a0f4c4850a" />
-## 3.3. Product Backlog
+<br>
 
-### Product Backlog – Sistema de Bicicletas IoT (Completo)
 
-| Orden | ID | Tipo | Título | Story Points |
-|-------|----|------|--------|--------------|
-| 1 | US01 | User | Registro de usuario estudiante | 5 |
-| 2 | US02 | User | Registro de usuario arrendador | 5 |
-| 3 | TS01 | Technical | Endpoints de autenticación (IAM) | 8 |
-| 4 | US03 | User | Iniciar sesión | 3 |
-| 5 | US04 | User | Recuperar contraseña | 3 |
-| 6 | US05 | User | Editar perfil | 3 |
-| 7 | US06 | User | Cerrar sesión | 2 |
-| 8 | US07 | User | Registrar bicicleta IoT | 5 |
-| 9 | TS02 | Technical | Endpoints de gestión de bicicletas | 8 |
-| 10 | US08 | User | Editar bicicleta | 3 |
-| 11 | US09 | User | Disponibilidad de bicicleta | 2 |
-| 12 | US10 | User | Eliminar bicicleta | 2 |
-| 13 | US12 | User | Buscar bicicletas por GPS | 5 |
-| 14 | TS03 | Technical | Endpoints de búsqueda con geolocalización | 5 |
-| 15 | SPIKE01 | Spike | Evaluación de mapas (Google Maps vs Mapbox) | 3 |
-| 16 | US13 | User | Filtrar bicicletas | 3 |
-| 17 | US14 | User | Ver detalles de bicicleta | 3 |
-| 18 | US15 | User | Reservar bicicleta | 5 |
-| 19 | TS04 | Technical | Endpoints de reservas y alquiler | 8 |
-| 20 | US16 | User | Cancelar reserva | 3 |
-| 21 | US17 | User | Confirmar inicio de alquiler | 5 |
-| 22 | US18 | User | Finalizar alquiler | 5 |
-| 23 | US19 | User | Vincular método de pago | 3 |
-| 24 | TS05 | Technical | Endpoints de pagos y liquidaciones | 8 |
-| 25 | US20 | User | Pago automático | 5 |
-| 26 | US21 | User | Confirmación de pago | 2 |
-| 27 | US23 | User | Historial de pagos | 3 |
-| 28 | SPIKE02 | Spike | Comunicación con dispositivos IoT (MQTT vs HTTP) | 5 |
-| 29 | TS06 | Technical | Integración con Smart Lock | 8 |
-| 30 | US25 | User | Desbloquear bicicleta (Smart Lock) | 8 |
-| 31 | US26 | User | Bloqueo automático | 5 |
-| 32 | US27 | User | Inicio automático (sensor) | 5 |
-| 33 | TS08 | Technical | Procesamiento de sensores IoT | 8 |
-| 34 | US28 | User | Detección de uso | 3 |
-| 35 | SPIKE03 | Spike | Procesamiento de datos en tiempo real | 5 |
-| 36 | TS07 | Technical | Procesamiento GPS en tiempo real | 8 |
-| 37 | US29 | User | Ubicación en tiempo real | 8 |
-| 38 | US30 | User | Seguimiento de recorrido | 5 |
-| 39 | US31 | User | Estado de bicicleta | 3 |
-| 40 | US32 | User | Historial de rutas | 3 |
-| 41 | TS09 | Technical | Sistema de alertas IoT | 8 |
-| 42 | SPIKE04 | Spike | Seguridad IoT y eventos de riesgo | 5 |
-| 47 | TS10 | Technical | Sistema de notificaciones push | 5 |
-| 48 | SPIKE05 | Spike | Evaluación de servicios de notificaciones | 3 |
-| 49 | US37 | User | Notificaciones de reserva | 2 |
-| 50 | US38 | User | Notificaciones de alquiler | 2 |
-| 51 | US39 | User | Notificaciones de pago | 2 |
-| 52 | US40 | User | Notificaciones de incidencias | 3 |
-| 53 | TS11 | Technical | Panel admin y monitoreo | 5 |
-| 54 | SPIKE06 | Spike | Escalabilidad en la nube (AWS/Azure) | 5 |
-| 55 | US41 | User | Panel de métricas | 5 |
-| 56 | US42 | User | Gestionar usuarios | 3 |
-| 57 | US43 | User | Gestionar bicicletas | 3 |
-| 58 | US44 | User | Monitoreo en tiempo real | 8 |
-| 59 | SPIKE07 | Spike | Seguridad y protección de datos | 5 |
-| 60 | US45 | User | Ver landing page | 2 |
-| 61 | US46 | User | Ver beneficios | 2 |
-| 62 | US47 | User | Acceso a login desde landing | 2 |
-| 63 | US48 | User | Descargar app | 2 |
+### 3.3. Product Backlog.
 
+ Product Backlog – Sistema de Bicicletas IoT 
+Esta tabla presenta de forma organizada las principales funcionalidades que se deben desarrollar en el sistema IoT, priorizadas según las necesidades del usuario y los objetivos del negocio. Dichas funcionalidades se dividen en User Stories (historias de usuario) y Technical Stories (historias técnicas), permitiendo estructurar su desarrollo de acuerdo con su nivel de importancia.
+
+El propósito de esta clasificación es optimizar la implementación, enfocándose primero en aquellas funcionalidades que generan mayor valor. Entre ellas destacan la gestión de pacientes, el registro de tratamientos y síntomas, la configuración de recordatorios, así como la vinculación entre cuidadores y pacientes, además de otros componentes clave para el funcionamiento del sistema IoT. Asimismo, se considera el esfuerzo necesario para cada tarea mediante Story Points, facilitando una mejor planificación.
+
+De esta manera, se establece una guía clara para el equipo de desarrollo, asegurando que las funcionalidades críticas se aborden desde las etapas iniciales del proyecto.
+<br>
+
+
+| Orden | User Story ID | Título | Descripción | Story Points (1/2/3/5/8) |
+|------|--------------|--------|-------------|--------------------------|
+| 1 | US01 | Registro de usuario estudiante | Permitir a estudiantes crear una cuenta en la plataforma. | 5 |
+| 2 | US02 | Registro de usuario arrendador | Permitir a arrendadores registrarse para gestionar bicicletas. | 5 |
+| 3 | TS01 | Autenticación (IAM) | Implementar endpoints para registro, login y gestión de autenticación. | 8 |
+| 4 | US03 | Iniciar sesión | Permitir a los usuarios acceder a la plataforma con sus credenciales. | 3 |
+| 5 | US04 | Recuperar contraseña | Permitir a los usuarios restablecer su contraseña. | 3 |
+| 6 | US05 | Editar perfil | Permitir a los usuarios modificar su información personal. | 3 |
+| 7 | US06 | Cerrar sesión | Permitir a los usuarios cerrar su sesión de forma segura. | 2 |
+| 8 | US07 | Registrar bicicleta IoT | Permitir registrar una bicicleta con sensores IoT en el sistema. | 5 |
+| 9 | TS02 | Gestión de bicicletas | Desarrollar endpoints para administrar bicicletas registradas. | 8 |
+| 10 | US08 | Editar bicicleta | Permitir modificar la información de una bicicleta. | 3 |
+| 11 | US09 | Disponibilidad de bicicleta | Permitir marcar una bicicleta como disponible o no. | 2 |
+| 12 | US10 | Eliminar bicicleta | Permitir eliminar una bicicleta del sistema. | 2 |
+| 13 | US12 | Buscar bicicletas por GPS | Permitir encontrar bicicletas cercanas usando geolocalización. | 5 |
+| 14 | TS03 | Búsqueda geolocalizada | Implementar endpoints de búsqueda con ubicación. | 5 |
+| 15 | SPIKE01 | Evaluación de mapas | Analizar herramientas como Google Maps o Mapbox. | 3 |
+| 16 | US13 | Filtrar bicicletas | Permitir aplicar filtros en la búsqueda de bicicletas. | 3 |
+| 17 | US14 | Ver detalles de bicicleta | Mostrar información detallada de una bicicleta. | 3 |
+| 18 | US15 | Reservar bicicleta | Permitir reservar una bicicleta disponible. | 5 |
+| 19 | TS04 | Gestión de reservas | Desarrollar endpoints para reservas y alquileres. | 8 |
+| 20 | US16 | Cancelar reserva | Permitir cancelar una reserva realizada. | 3 |
+| 21 | US17 | Inicio de alquiler | Permitir iniciar el uso de una bicicleta reservada. | 5 |
+| 22 | US18 | Finalizar alquiler | Permitir finalizar el alquiler de una bicicleta. | 5 |
+| 23 | US19 | Método de pago | Permitir registrar un método de pago. | 3 |
+| 24 | TS05 | Pagos y liquidaciones | Implementar endpoints para procesamiento de pagos. | 8 |
+| 25 | US20 | Pago automático | Realizar cobros automáticos al finalizar el alquiler. | 5 |
+| 26 | US21 | Confirmación de pago | Notificar al usuario que el pago fue realizado. | 2 |
+| 27 | US23 | Historial de pagos | Permitir visualizar pagos realizados. | 3 |
+| 28 | SPIKE02 | Comunicación IoT | Evaluar protocolos como MQTT vs HTTP. | 5 |
+| 29 | TS06 | Integración Smart Lock | Implementar conexión con dispositivos de bloqueo inteligente. | 8 |
+| 30 | US25 | Desbloquear bicicleta | Permitir desbloquear la bicicleta desde la app. | 8 |
+| 31 | US26 | Bloqueo automático | Permitir el bloqueo automático tras finalizar uso. | 5 |
+| 32 | US27 | Inicio automático | Detectar inicio mediante sensores IoT. | 5 |
+| 33 | TS08 | Sensores IoT | Procesar datos provenientes de sensores. | 8 |
+| 34 | US28 | Detección de uso | Identificar cuando la bicicleta está en uso. | 3 |
+| 35 | SPIKE03 | Datos en tiempo real | Analizar procesamiento en tiempo real. | 5 |
+| 36 | TS07 | GPS en tiempo real | Implementar procesamiento de ubicación en tiempo real. | 8 |
+| 37 | US29 | Ubicación en tiempo real | Mostrar la ubicación actual de la bicicleta. | 8 |
+| 38 | US30 | Seguimiento de recorrido | Permitir visualizar rutas recorridas. | 5 |
+| 39 | US31 | Estado de bicicleta | Mostrar estado actual (disponible, en uso, etc.). | 3 |
+| 40 | US32 | Historial de rutas | Permitir consultar recorridos anteriores. | 3 |
+| 41 | TS09 | Alertas IoT | Implementar sistema de alertas. | 8 |
+| 42 | SPIKE04 | Seguridad IoT | Evaluar riesgos y eventos de seguridad. | 5 |
+| 43 | TS10 | Notificaciones push | Implementar sistema de notificaciones. | 5 |
+| 44 | SPIKE05 | Servicios de notificación | Evaluar herramientas de notificación. | 3 |
+| 45 | US37 | Notificaciones de reserva | Enviar alertas sobre reservas. | 2 |
+| 46 | US38 | Notificaciones de alquiler | Enviar alertas sobre alquileres. | 2 |
+| 47 | US39 | Notificaciones de pago | Enviar alertas de pagos realizados. | 2 |
+| 48 | US40 | Notificaciones de incidencias | Enviar alertas de problemas detectados. | 3 |
+| 49 | TS11 | Panel admin | Desarrollar panel de administración. | 5 |
+| 50 | SPIKE06 | Escalabilidad cloud | Evaluar AWS o Azure. | 5 |
+| 51 | US41 | Panel de métricas | Mostrar indicadores del sistema. | 5 |
+| 52 | US42 | Gestionar usuarios | Permitir administración de usuarios. | 3 |
+| 53 | US43 | Gestionar bicicletas | Permitir administración de bicicletas. | 3 |
+| 54 | US44 | Monitoreo en tiempo real | Visualizar estado del sistema en vivo. | 8 |
+| 55 | SPIKE07 | Seguridad de datos | Evaluar protección de datos. | 5 |
+| 56 | US45 | Landing page | Mostrar página principal informativa. | 2 |
+| 57 | US46 | Ver beneficios | Mostrar beneficios del servicio. | 2 |
+| 58 | US47 | Acceso a login | Permitir ir al login desde landing. | 2 |
+| 59 | US48 | Descargar app | Permitir descarga de la aplicación. | 2 |
 
 
