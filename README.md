@@ -1538,14 +1538,14 @@
 | 26 | US21 | User | Confirmación de pago | 2 |
 | 27 | US23 | User | Historial de pagos | 3 |
 | 28 | SPIKE02 | Spike | Comunicación con dispositivos IoT (MQTT vs HTTP) | 5 |
-| 29 | TS06 | Technical | Integración con Smart Lock | 13 |
+| 29 | TS06 | Technical | Integración con Smart Lock | 8 |
 | 30 | US25 | User | Desbloquear bicicleta (Smart Lock) | 8 |
 | 31 | US26 | User | Bloqueo automático | 5 |
 | 32 | US27 | User | Inicio automático (sensor) | 5 |
 | 33 | TS08 | Technical | Procesamiento de sensores IoT | 8 |
 | 34 | US28 | User | Detección de uso | 3 |
 | 35 | SPIKE03 | Spike | Procesamiento de datos en tiempo real | 5 |
-| 36 | TS07 | Technical | Procesamiento GPS en tiempo real | 13 |
+| 36 | TS07 | Technical | Procesamiento GPS en tiempo real | 8 |
 | 37 | US29 | User | Ubicación en tiempo real | 8 |
 | 38 | US30 | User | Seguimiento de recorrido | 5 |
 | 39 | US31 | User | Estado de bicicleta | 3 |
