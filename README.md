@@ -59,26 +59,11 @@ Abril, 2026
 |   TB2     |           |                           |                                           |
 |   TF      |           |                           |                                           |
 
-<h2> Student Outcome</h2>
+## Student Outcome
 
-<table border="1" cellpadding="8" cellspacing="0" width="100%">
-  <thead>
-    <tr>
-      <th>Criterio específico</th>
-      <th>Acciones realizadas</th>
-      <th>Conclusiones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <tr>
-      <td></td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+| Criterio específico | Acciones realizadas | Conclusiones |
+|---------------------|---------------------|--------------|
+| blabalbabbalba | **Bustamante Leveau, Cameron Charllotte:**<br>**TB1:** <br><br>**Uribe Livia, Renzo Sebastián:**<br>**TB1:** <br><br>**Espinoza Quijandria, Oscar Leonardo:**<br>**TB1:** <br><br>**Landauri Preciado, Stephano Mayrzon:**<br>**TB1:** <br><br>**Belahonia Miranda, Fabrisio**:<br> TB1:Aporté liderazgo conjunto en la definición de User Stories, estructurando claramente las necesidades del usuario y facilitando la priorización de requerimientos. Participé en el Impact Mapping, ayudando a identificar objetivos, actores y resultados, lo que permitió alinear el trabajo del equipo con el valor del negocio. Además, contribuí en la construcción del Product Backlog, organizando y priorizando tareas para mejorar la planificación. También trabajé en un bounded context, delimitando responsabilidades y límites del sistema, lo que permitió una mejor comprensión del dominio y una colaboración más ordenada.| **TB1:** blabalbaba. |
 
 ## Project Report Collaboration Insights 
 
@@ -127,7 +112,7 @@ Valores: Confiabilidad, Responsabilidad, Seguridad, Innovación y Prevención te
 | U202311745 — Uribe Livia, Renzo Sebastián ![Integrante-Renzo](/assets/images/Chapter-1/Renzo.png) |Cuento con una sólida formación en desarrollo Full Stack, con dominio en tecnologías como React, Vue.js y Node.js, además de experiencia en bases de datos relacionales y no relacionales (SQL y MongoDB). Mi perfil técnico se complementa con habilidades en desarrollo móvil nativo usando Kotlin y Jetpack Compose. Me distingo por mi enfoque proactivo y mi capacidad para gestionar proyectos académicos con éxito, siempre orientado a crear soluciones digitales innovadoras en el ámbito de la inteligencia artificial y la productividad. |
 | U202311842 — Espinoza Quijandria, Oscar Leonardo ![Integrante-Oscar](/assets/images/Chapter-1/Oscar.jpg) | |
 | U202311828 — Landauri Preciado, Stephano Mayrzon ![Integrante-Stephano](/assets/images/Chapter-1/Stephano-Landauri.jpg) | |
-| U202220219 — Belahonia Miranda, Fabrisio ![Integrante-Fabrisio](/assets/images/Chapter-1/fabrisio.png) | |
+| U202220219 — Belahonia Miranda, Fabrisio Andre ![Integrante-Fabrisio](/assets/images/Chapter-1/fafafa.jpeg) |Estudiante de Ingeniería de Software de 7mo ciclo, con interés en el área de ciberseguridad. Se caracteriza por ser responsable, ordenado y empático, con buena capacidad para el trabajo en equipo y resolución de problemas. Busca fortalecer sus habilidades en entornos tecnológicos y de seguridad informática. |
 
 ## 1.2. Solution Profile
 
