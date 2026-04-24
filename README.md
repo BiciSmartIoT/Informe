@@ -20,7 +20,7 @@ Con el objetivo de definir la mejor arquitectura del dominio.
 
 ---
 
-### 🔹 Opción 1
+###  Opción 1
 
 En esta estructura se mantienen los bounded contexts completamente separados, cada uno enfocado en una funcionalidad específica del sistema.
 
@@ -121,7 +121,7 @@ Booking usa el modelo de Bicycle sin modificarlo.
  *Anti-Corruption Layer (ACL)*  
 Se usa una capa intermedia para traducir datos IoT (sensores, GPS) a un formato entendible por el sistema.
 
-✔ Esto evita que la lógica de negocio dependa directamente del hardware.
+ Esto evita que la lógica de negocio dependa directamente del hardware.
 
 ---
 
@@ -165,9 +165,7 @@ Este diagrama muestra que BiciSmartIOT opera dentro de un ecosistema compuesto p
 
 El sistema principal BiciSmartIOT App se conecta con servicios externos como Google Maps API para geolocalización y rutas, una pasarela de pagos para procesar Yape, Plin o tarjetas, y dispositivos IoT instalados en las bicicletas para obtener ubicación GPS, estado del smart lock, sensores de movimiento y telemetría en tiempo real.
 
-<p align="center">
-  <img src="assets/images/Chapter-4/system_landscape_diagram.png" width="700"/>
-</p>
+<img src="assets/images/Chapter-4/System%20Landscape%20Diagram.png" width="700"/>
 
 ### 4.1.3.2. Software Architecture Context Level Diagram
 
