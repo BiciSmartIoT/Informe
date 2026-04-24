@@ -161,6 +161,14 @@ Esto permite que **BiciSmartIOT** sea:
 
 ### 4.1.3.1. Software Architecture System Landscape Diagram
 
+Este diagrama muestra que BiciSmartIOT opera dentro de un ecosistema compuesto por tres tipos principales de usuarios: estudiantes, arrendadores y administradores. Los estudiantes interactúan con la aplicación para buscar bicicletas cercanas, realizar reservas, iniciar y finalizar alquileres, consultar rutas y realizar pagos digitales. Los arrendadores registran y administran sus bicicletas inteligentes, revisan disponibilidad, historial de alquileres y liquidaciones. Por otro lado, los administradores supervisan usuarios, bicicletas registradas, métricas del sistema y monitoreo IoT.
+
+El sistema principal BiciSmartIOT App se conecta con servicios externos como Google Maps API para geolocalización y rutas, una pasarela de pagos para procesar Yape, Plin o tarjetas, y dispositivos IoT instalados en las bicicletas para obtener ubicación GPS, estado del smart lock, sensores de movimiento y telemetría en tiempo real.
+
+<p align="center">
+  <img src="assets/images/Chapter-4/system_landscape_diagram.png" width="700"/>
+</p>
+
 ### 4.1.3.2. Software Architecture Context Level Diagram
 
 ### 4.1.3.3. Software Architecture Container Level Diagram
