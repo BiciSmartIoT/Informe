@@ -50,12 +50,12 @@ En esta estructura se mantienen los bounded contexts completamente separados, ca
 ---
 ![Opción 1](assets/images/Chapter-4/opcion_1.png)
 
-### 🔹 Opción 2
+### Opción 2
 
 Esta alternativa propone unir los contextos de Bicycle Management + IoT Monitoring en un solo bounded context.
 
 #### Nuevo Contexto
-👉 **Smart Bicycle Management (Bici + IoT)**
+**Smart Bicycle Management (Bici + IoT)**
 
 #### Relaciones
 - User Management → Booking *(Customer/Supplier)*
@@ -75,7 +75,7 @@ Esta alternativa propone unir los contextos de Bicycle Management + IoT Monitori
 ---
 ![Opción 2](assets/images/Chapter-4/opcion_2.png)
 
-### 🔹 Opción 3 (RECOMENDADA)
+###  Opción 3 (RECOMENDADA)
 
 Esta alternativa propone una arquitectura equilibrada con bounded contexts bien definidos y relaciones claras, separando correctamente responsabilidades críticas del sistema.
 
@@ -101,24 +101,24 @@ Esta alternativa propone una arquitectura equilibrada con bounded contexts bien 
 
 #### Relaciones entre contextos
 
-🔹 **1. User → Booking**  
-👉 *Customer/Supplier*  
+ **1. User → Booking**  
+ *Customer/Supplier*  
 User provee información de usuarios y Booking la consume.
 
-🔹 **2. Bicycle → Booking**  
-👉 *Shared Kernel*  
+ **2. Bicycle → Booking**  
+ *Shared Kernel*  
 Comparten el modelo de bicicleta y disponibilidad, evitando inconsistencias.
 
-🔹 **3. Booking → Payment**  
-👉 *Customer/Supplier*  
+ **3. Booking → Payment**  
+ *Customer/Supplier*  
 Booking envía información de alquiler para que Payment procese el cobro.
 
-🔹 **4. Booking → Bicycle**  
-👉 *Conformist*  
+ **4. Booking → Bicycle**  
+ *Conformist*  
 Booking usa el modelo de Bicycle sin modificarlo.
 
-🔹 **5. IoT Monitoring → Bicycle**  
-👉 *Anti-Corruption Layer (ACL)*  
+ **5. IoT Monitoring → Bicycle**  
+ *Anti-Corruption Layer (ACL)*  
 Se usa una capa intermedia para traducir datos IoT (sensores, GPS) a un formato entendible por el sistema.
 
 ✔ Esto evita que la lógica de negocio dependa directamente del hardware.
@@ -137,7 +137,7 @@ Se usa una capa intermedia para traducir datos IoT (sensores, GPS) a un formato 
 
 ---
 
-### ✅ Elección
+###  Elección
 
 Elegimos la **Opción 3**, ya que proporciona el mejor equilibrio entre:
 
