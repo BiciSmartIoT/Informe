@@ -48,6 +48,7 @@ En esta estructura se mantienen los bounded contexts completamente separados, ca
 - Mayor overhead en comunicación  
 
 ---
+![Opción 1](assets/images/Chapter-4/opcion_1.png)
 
 ### 🔹 Opción 2
 
@@ -72,6 +73,7 @@ Esta alternativa propone unir los contextos de Bicycle Management + IoT Monitori
 - Riesgo de crear un “mega contexto” difícil de mantener  
 
 ---
+![Opción 2](assets/images/Chapter-4/opcion_2.png)
 
 ### 🔹 Opción 3 (RECOMENDADA)
 
@@ -95,6 +97,7 @@ Esta alternativa propone una arquitectura equilibrada con bounded contexts bien 
   Sensores, GPS, smart lock  
 
 ---
+![Opción 3](assets/images/Chapter-4/opcion_3.png)
 
 #### Relaciones entre contextos
 
