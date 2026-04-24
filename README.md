@@ -181,6 +181,14 @@ Además, BiciSmartIOT se comunica con sistemas externos como Google Maps API par
 
 ### 4.1.3.3. Software Architecture Container Level Diagram
 
+Este diagrama muestra que el sistema BiciSmartIOT está compuesto por varios contenedores principales: una aplicación móvil utilizada por estudiantes y arrendadores, una aplicación web administrativa para la gestión del sistema, una API en la nube que centraliza la lógica de negocio, una base de datos que almacena usuarios, bicicletas, reservas, pagos y rutas, y un módulo IoT encargado de procesar la información proveniente de los dispositivos instalados en las bicicletas.
+
+Además, la API se conecta con servicios externos como Google Maps API para mostrar ubicaciones, rutas y bicicletas cercanas, así como con una pasarela de pagos para procesar cobros digitales mediante Yape, Plin o tarjetas. Por otro lado, los dispositivos IoT se comunican mediante un broker MQTT para enviar datos de GPS, sensores de movimiento y estado del smart lock en tiempo real.
+
+<p align="center">
+  <img src="assets/images/Chapter-4/c4_container.png" width="700"/>
+</p>
+
 ### 4.1.3.4. Software Architecture Deployment Diagram
 
 <div id='4.2.'><h3>4.2. Tactical-Level Domain-Driven Design</h3></div>
