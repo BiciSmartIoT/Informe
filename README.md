@@ -165,7 +165,9 @@ Este diagrama muestra que BiciSmartIOT opera dentro de un ecosistema compuesto p
 
 El sistema principal BiciSmartIOT App se conecta con servicios externos como Google Maps API para geolocalización y rutas, una pasarela de pagos para procesar Yape, Plin o tarjetas, y dispositivos IoT instalados en las bicicletas para obtener ubicación GPS, estado del smart lock, sensores de movimiento y telemetría en tiempo real.
 
-<img src="assets/images/Chapter-4/System%20Landscape%20Diagram.png" width="700"/>
+<p align="center">
+  <img src="assets/images/Chapter-4/system_landscape_diagram.png" width="700"/>
+</p>
 
 ### 4.1.3.2. Software Architecture Context Level Diagram
 
