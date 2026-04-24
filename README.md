@@ -191,6 +191,14 @@ Además, la API se conecta con servicios externos como Google Maps API para most
 
 ### 4.1.3.4. Software Architecture Deployment Diagram
 
+Este diagrama muestra que el sistema BiciSmartIOT se despliega en tres entornos principales: Microsoft Azure Cloud, dispositivos cliente y bicicletas físicas con dispositivos IoT. En Azure, el sistema utiliza App Service para alojar la API principal desarrollada en Spring Boot/Java, una base de datos en Azure Database for MySQL para almacenar usuarios, bicicletas, reservas, pagos, rutas y eventos IoT, además de un servicio de documentación Swagger para probar los endpoints de la API.
+
+Los usuarios acceden al sistema mediante una aplicación móvil Android, mientras que los administradores pueden acceder desde una aplicación web administrativa. Las bicicletas cuentan con dispositivos IoT integrados con GPS, sensores de movimiento y smart lock, los cuales envían datos en tiempo real mediante un broker MQTT o Azure IoT Hub. Todas las comunicaciones entre componentes utilizan protocolos seguros como HTTPS y MQTT/TLS.
+
+<p align="center">
+  <img src="assets/images/Chapter-4/c4_deploy.png" width="700"/>
+</p>
+
 <div id='4.2.'><h3>4.2. Tactical-Level Domain-Driven Design</h3></div>
 <div id='4.2.1.'><h4>4.2.1. Bounded Context: Notifications-Encargado de alertas e información al usuario</h4></div>
 <div id='4.2.1.1.'><h5>4.2.1.1. Domain Layer</h5></div>
