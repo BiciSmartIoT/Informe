@@ -63,7 +63,7 @@ A diferencia de los competidores, BiciSmartIOT no se enfoca en alquilar vehícul
 
 ### 2.2.1. Diseño de entrevistas
 
-<h4>📌 Segmento 1: Estudiantes universitarios</h4>
+<h4> Segmento 1: Estudiantes universitarios</h4>
 <ul>
   <li>¿Qué medios de transporte utilizas actualmente para llegar a tu universidad?</li>
   <li>¿Cuánto gastas en promedio al mes en transporte y cómo afecta eso a tu economía?</li>
@@ -74,7 +74,7 @@ A diferencia de los competidores, BiciSmartIOT no se enfoca en alquilar vehícul
   <li>¿Qué nivel de importancia le das a la sostenibilidad y al cuidado del medio ambiente en tu elección de transporte?</li>
 </ul>
 
-<h4>📌 Segmento 2: Arriendatarios mayoristas (tiendas, talleres, negocios)</h4>
+<h4> Segmento 2: Arriendatarios mayoristas (tiendas, talleres, negocios)</h4>
 <ul>
   <li>¿Qué cantidad de bicicletas o scooters disponibles tienes actualmente que podrías destinar al alquiler?</li>
   <li>¿Qué factores considerarías importantes para asociarte con una aplicación de micromovilidad (confianza, seguridad, volumen de clientes, soporte técnico)?</li>
@@ -199,6 +199,8 @@ Estudiante & Proveedor
 ---
 
 ## 2.4 Big Picture EventStorming PUNTO QUE ME FALTA
+
+<img src="/assets/images/evenstorming.png" alt="quadrants" width=auto>
 
 Eventos clave:
 
