@@ -1,3 +1,169 @@
+## 4.1.2. Context Mapping
+
+En esta sección desarrollamos un conjunto de context maps para visualizar las relaciones entre los bounded contexts del sistema **BiciSmartIOT**. A partir de la información recolectada (user stories, funcionalidades IoT, pagos, reservas, etc.), exploramos distintas alternativas de diseño, evaluando cómo cambiaría la arquitectura al dividir, agrupar o reorganizar capacidades del sistema.
+
+Durante el análisis se consideraron preguntas clave como:
+
+- ¿Qué sucede si movemos funcionalidades IoT a otro contexto?
+- ¿Qué pasa si unimos pagos con reservas?
+- ¿Cómo evitar dependencias fuertes entre módulos?
+- ¿Qué pasa si duplicamos modelos o usamos un shared service?
+
+Finalmente, evaluamos cada alternativa usando patrones de Domain-Driven Design como:
+
+- Customer/Supplier
+- Conformist
+- Shared Kernel
+- Anti-Corruption Layer (ACL)
+
+Con el objetivo de definir la mejor arquitectura del dominio.
+
+---
+
+### 🔹 Opción 1
+
+En esta estructura se mantienen los bounded contexts completamente separados, cada uno enfocado en una funcionalidad específica del sistema.
+
+#### Bounded Contexts
+- Authentication & User Management
+- Bicycle Management
+- Booking & Reservation
+- Payments & Billing
+- IoT Monitoring
+
+#### Relaciones
+- User Management → Booking *(Customer/Supplier)*
+- Bicycle Management → Booking *(Customer/Supplier)*
+- Booking → Payments *(Customer/Supplier)*
+- IoT Monitoring → Bicycle Management *(ACL)*
+
+#### Ventajas
+- Alta separación de responsabilidades  
+- Escalabilidad independiente  
+- Bajo acoplamiento  
+
+#### Desventajas
+- Mayor complejidad de integración  
+- Sincronización entre contextos más difícil  
+- Mayor overhead en comunicación  
+
+---
+
+### 🔹 Opción 2
+
+Esta alternativa propone unir los contextos de Bicycle Management + IoT Monitoring en un solo bounded context.
+
+#### Nuevo Contexto
+👉 **Smart Bicycle Management (Bici + IoT)**
+
+#### Relaciones
+- User Management → Booking *(Customer/Supplier)*
+- Smart Bicycle Management → Booking *(Customer/Supplier)*
+- Booking → Payments *(Customer/Supplier)*
+
+#### Ventajas
+- Simplificación de arquitectura  
+- Comunicación directa entre sensores IoT y bicicletas  
+- Menor latencia en monitoreo  
+
+#### Desventajas
+- Mezcla de responsabilidades (hardware + lógica de negocio)  
+- Mayor complejidad interna  
+- Riesgo de crear un “mega contexto” difícil de mantener  
+
+---
+
+### 🔹 Opción 3 (RECOMENDADA)
+
+Esta alternativa propone una arquitectura equilibrada con bounded contexts bien definidos y relaciones claras, separando correctamente responsabilidades críticas del sistema.
+
+#### Bounded Contexts definidos
+
+- **User Management**  
+  Registro, login, perfil  
+
+- **Bicycle Management**  
+  Registro de bicicletas, disponibilidad  
+
+- **Booking Management**  
+  Reservas, inicio y fin de alquiler  
+
+- **Payment Management**  
+  Pagos digitales (Yape, Plin, tarjeta)  
+
+- **IoT Monitoring**  
+  Sensores, GPS, smart lock  
+
+---
+
+#### Relaciones entre contextos
+
+🔹 **1. User → Booking**  
+👉 *Customer/Supplier*  
+User provee información de usuarios y Booking la consume.
+
+🔹 **2. Bicycle → Booking**  
+👉 *Shared Kernel*  
+Comparten el modelo de bicicleta y disponibilidad, evitando inconsistencias.
+
+🔹 **3. Booking → Payment**  
+👉 *Customer/Supplier*  
+Booking envía información de alquiler para que Payment procese el cobro.
+
+🔹 **4. Booking → Bicycle**  
+👉 *Conformist*  
+Booking usa el modelo de Bicycle sin modificarlo.
+
+🔹 **5. IoT Monitoring → Bicycle**  
+👉 *Anti-Corruption Layer (ACL)*  
+Se usa una capa intermedia para traducir datos IoT (sensores, GPS) a un formato entendible por el sistema.
+
+✔ Esto evita que la lógica de negocio dependa directamente del hardware.
+
+---
+
+#### Ventajas
+- Separación clara de responsabilidades  
+- Escalabilidad por módulos  
+- Protección del dominio ante IoT (ACL)  
+- Arquitectura mantenible y flexible  
+
+#### Desventajas
+- Requiere diseño inicial más cuidadoso  
+- Más contratos entre contextos  
+
+---
+
+### ✅ Elección
+
+Elegimos la **Opción 3**, ya que proporciona el mejor equilibrio entre:
+
+- Separación de responsabilidades  
+- Escalabilidad del sistema  
+- Facilidad de mantenimiento  
+- Integración con IoT sin acoplar el dominio  
+
+Al utilizar patrones como **Shared Kernel** y **Anti-Corruption Layer**, se logra una arquitectura robusta donde el sistema puede evolucionar sin afectar otros módulos.
+
+Esto permite que **BiciSmartIOT** sea:
+
+- Escalable  
+- Seguro  
+- Modular  
+- Preparado para crecimiento futuro  
+
+---
+
+## 4.1.3. Software Architecture
+
+### 4.1.3.1. Software Architecture System Landscape Diagram
+
+### 4.1.3.2. Software Architecture Context Level Diagram
+
+### 4.1.3.3. Software Architecture Container Level Diagram
+
+### 4.1.3.4. Software Architecture Deployment Diagram
+
 <div id='4.2.'><h3>4.2. Tactical-Level Domain-Driven Design</h3></div>
 <div id='4.2.1.'><h4>4.2.1. Bounded Context: Notifications-Encargado de alertas e información al usuario</h4></div>
 <div id='4.2.1.1.'><h5>4.2.1.1. Domain Layer</h5></div>
