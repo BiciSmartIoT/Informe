@@ -202,56 +202,57 @@ Propósito: Registro de reservas
 
 
 ---------------------------------------------------------------
-<div id='4.2.3.'><h4>4.2.3. Bounded Context: Notifications</h4></div>
+<div id='4.2.3.'><h4>4.2.3. Bounded Context: Providing</h4></div>
 <div id='4.2.3.1.'><h5>4.2.1.1. Domain Layer</h5></div>
 Subcapamodel<br>
 
+| Tipo         | Nombre                     | Descripción                                                 | Responsabilidad Principal                | Relación con otros elementos                   |
+| ------------ | -------------------------- | ----------------------------------------------------------- | ---------------------------------------- | ---------------------------------------------- |
+| Aggregate    | Bicycle                    | Representa una bicicleta registrada en la plataforma.       | Centralizar la información del vehículo. | Relacionado con Rental (Renting) y User (IAM). |
+| Aggregate    | BicycleCatalog             | Representa el conjunto de bicicletas de un arrendador.      | Gestionar el listado de bicicletas.      | Relacionado con Bicycle.                       |
+| Value Object | BicycleStatus              | Estado de la bicicleta (disponible, no disponible, en uso). | Controlar disponibilidad del vehículo.   | Asociado a Bicycle.                            |
+| Value Object | BicycleType                | Tipo de bicicleta (eléctrica, montaña, urbana).             | Clasificar bicicletas.                   | Asociado a Bicycle.                            |
+| Value Object | Location                   | Ubicación de la bicicleta.                                  | Representar coordenadas geográficas.     | Asociado a Bicycle y Tracking.                 |
+| Value Object | Price                      | Tarifa de alquiler.                                         | Definir costo por uso.                   | Asociado a Bicycle.                            |
+| Command      | RegisterBicycleCommand     | Registrar una nueva bicicleta.                              | Crear una bicicleta en el sistema.       | Usa Bicycle y User.                            |
+| Command      | UpdateBicycleCommand       | Actualizar datos de bicicleta.                              | Modificar información del vehículo.      | Usa Bicycle.                                   |
+| Command      | DeleteBicycleCommand       | Eliminar bicicleta.                                         | Dar de baja una bicicleta.               | Usa Bicycle.                                   |
+| Command      | ChangeBicycleStatusCommand | Cambiar estado de disponibilidad.                           | Controlar visibilidad en búsquedas.      | Usa Bicycle.                                   |
+| Query        | GetBicyclesByOwnerQuery    | Obtener bicicletas de un arrendador.                        | Listar bicicletas propias.               | Consulta Bicycle.                              |
+| Query        | GetBicycleDetailQuery      | Obtener detalle de bicicleta.                               | Mostrar información completa.            | Consulta Bicycle.                              |
+| Query        | GetAvailableBicyclesQuery  | Obtener bicicletas disponibles.                             | Mostrar bicicletas habilitadas.          | Consulta Bicycle.                              |
 
-| Tipo         | Nombre                        | Descripción                                               | Responsabilidad Principal                             | Relación con otros elementos                   |
-| ------------ | ----------------------------- | --------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------- |
-| Aggregate    | Notification                  | Representa una notificación enviada al usuario.           | Centralizar la gestión de notificaciones del sistema. | Relacionado con User (IAM), Rental y Payments. |
-| Value Object | NotificationType              | Tipo de notificación (reserva, pago, alerta, incidencia). | Clasificar las notificaciones.                        | Asociado a Notification.                       |
-| Value Object | NotificationStatus            | Estado de la notificación (enviada, leída, fallida).      | Controlar el estado de entrega.                       | Asociado a Notification.                       |
-| Value Object | Message                       | Contenido del mensaje de la notificación.                 | Estandarizar el texto enviado al usuario.             | Asociado a Notification.                       |
-| Command      | SendNotificationCommand       | Enviar una notificación.                                  | Crear y despachar una notificación al usuario.        | Usa Notification.                              |
-| Command      | MarkAsReadNotificationCommand | Marcar notificación como leída.                           | Actualizar estado de lectura.                         | Usa Notification.                              |
-| Command      | SendBulkNotificationCommand   | Enviar múltiples notificaciones.                          | Gestionar envío masivo.                               | Usa Notification.                              |
-| Query        | GetUserNotificationsQuery     | Obtener notificaciones de un usuario.                     | Listar notificaciones del usuario.                    | Consulta Notification.                         |
-| Query        | GetUnreadNotificationsQuery   | Obtener notificaciones no leídas.                         | Filtrar notificaciones pendientes.                    | Consulta Notification.                         |
-| Query        | GetNotificationDetailQuery    | Obtener detalle de notificación.                          | Mostrar información específica.                       | Consulta Notification.                         |
+
 
 Sub-capa Services<br>
 
-| Tipo      | Nombre                     | Descripción                               | Responsabilidad Principal                   | Relación con otros elementos                                          |
-| --------- | -------------------------- | ----------------------------------------- | ------------------------------------------- | --------------------------------------------------------------------- |
-| Interface | NotificationCommandService | Servicio para comandos de notificaciones  | Declarar métodos para envío y actualización | Implementado por NotificationCommandServiceImpl. Usado en Application |
-| Interface | NotificationQueryService   | Servicio para consultas de notificaciones | Declarar métodos de consulta                | Implementado por NotificationQueryServiceImpl. Usado en Application   |
-
+| Tipo      | Nombre                | Descripción                           | Responsabilidad Principal    | Relación con otros elementos                                     |
+| --------- | --------------------- | ------------------------------------- | ---------------------------- | ---------------------------------------------------------------- |
+| Interface | BicycleCommandService | Servicio para comandos de bicicletas  | Declarar métodos de gestión  | Implementado por BicycleCommandServiceImpl. Usado en Application |
+| Interface | BicycleQueryService   | Servicio para consultas de bicicletas | Declarar métodos de consulta | Implementado por BicycleQueryServiceImpl. Usado en Application   |
 
 
 <div id='4.2.3.1.'><h5>4.2.3.2. Interface Layer</h5></div>
 
-Sub-capa REST<br>
+Sub-capa REST <br>
 
-| Tipo       | Nombre                                       | Descripción                             | Responsabilidad Principal              | Relación con otros elementos     |
-| ---------- | -------------------------------------------- | --------------------------------------- | -------------------------------------- | -------------------------------- |
-| Controller | NotificationController                       | Controlador REST para notificaciones    | Gestiona solicitudes de notificaciones | Usa services y resources         |
-| Resource   | NotificationRequestResource                  | Estructura de petición de notificación  | Representa datos de entrada            | Usado por NotificationController |
-| Resource   | NotificationResponseResource                 | Estructura de respuesta de notificación | Devuelve datos al cliente              | Usado por NotificationController |
-| Assembler  | SendNotificationCommandFromResourceAssembler | Convierte request en comando            | Traducir entrada a dominio             | Usado por NotificationController |
-| Assembler  | NotificationResourceFromEntityAssembler      | Convierte entidad a response            | Traducir dominio a salida              | Usado por NotificationController |
-
+| Tipo       | Nombre                                    | Descripción                          | Responsabilidad Principal               | Relación con otros elementos |
+| ---------- | ----------------------------------------- | ------------------------------------ | --------------------------------------- | ---------------------------- |
+| Controller | BicycleController                         | Controlador REST para bicicletas     | Gestiona operaciones CRUD de bicicletas | Usa services y resources     |
+| Resource   | BicycleRequestResource                    | Estructura de petición de bicicleta  | Representa datos de entrada             | Usado por BicycleController  |
+| Resource   | BicycleResponseResource                   | Estructura de respuesta de bicicleta | Devuelve datos al cliente               | Usado por BicycleController  |
+| Assembler  | CreateBicycleCommandFromResourceAssembler | Convierte request en comando         | Traducir entrada a dominio              | Usado por BicycleController  |
+| Assembler  | BicycleResourceFromEntityAssembler        | Convierte entidad a response         | Traducir dominio a salida               | Usado por BicycleController  |
 
 
 <div id='4.2.3.1.'><h5>4.2.3.3. Aplications Layer</h5></div>
 
-Sub-capa Internal
+Sub-capa Internal<br>
 
-| Tipo    | Nombre                         | Descripción                                  | Responsabilidad Principal      | Relación con otros elementos          |
-| ------- | ------------------------------ | -------------------------------------------- | ------------------------------ | ------------------------------------- |
-| Service | NotificationCommandServiceImpl | Implementación de comandos de notificaciones | Ejecutar envío y actualización | Implementa NotificationCommandService |
-| Service | NotificationQueryServiceImpl   | Implementación de consultas                  | Obtener notificaciones         | Implementa NotificationQueryService   |
-
+| Tipo    | Nombre                    | Descripción                              | Responsabilidad Principal                          | Relación con otros elementos     |
+| ------- | ------------------------- | ---------------------------------------- | -------------------------------------------------- | -------------------------------- |
+| Service | BicycleCommandServiceImpl | Implementación de comandos de bicicletas | Ejecutar lógica de registro, edición y eliminación | Implementa BicycleCommandService |
+| Service | BicycleQueryServiceImpl   | Implementación de consultas              | Obtener datos de bicicletas                        | Implementa BicycleQueryService   |
 
 
 <div id='4.2.3.1.'><h5>4.2.3.4. Infrastructure Layer</h5></div>
@@ -259,47 +260,60 @@ Sub-capa Internal
 
 Sub-capa Infrastructure <br>
 
-
-| Tipo       | Nombre                 | Descripción                    | Responsabilidad Principal          | Relación con otros elementos |
-| ---------- | ---------------------- | ------------------------------ | ---------------------------------- | ---------------------------- |
-| Repository | NotificationRepository | Persistencia de notificaciones | Guardar y consultar notificaciones | Relacionado con Notification |
+| Tipo       | Nombre            | Descripción               | Responsabilidad Principal | Relación con otros elementos |
+| ---------- | ----------------- | ------------------------- | ------------------------- | ---------------------------- |
+| Repository | BicycleRepository | Repositorio de bicicletas | Persistencia de datos     | Relacionado con Bicycle      |
 
 
 <div id='4.2.3.1.'><h5>4.2.3.5. Bounded Context Software Architecture Component Level Diagrams</h5></div>
 
-(Insertar diagrama de componentes del contexto Notifications)
+(Insertar diagrama de componentes del contexto Providing)
 
 
 <div id='4.2.3.1.'><h5>4.2.3.6. Bounded Context Software Architecture Code Level Diagram</h5></div>
 
 <div id='4.2.3.1.'><h5>4.2.3.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
 
-Este diagrama UML representa la arquitectura del sistema de notificaciones. Se basa en el enfoque CQRS, separando comandos (envío y actualización de notificaciones) de consultas (visualización y filtrado).
+Este diagrama UML representa la arquitectura del contexto de gestión de bicicletas. Se organiza bajo principios de diseño orientado a objetos y sigue el enfoque CQRS.
 
-La entidad principal es Notification, que gestiona toda la comunicación hacia el usuario.
+La entidad principal es Bicycle, encargada de centralizar la información del vehículo.
 
 Este contexto interactúa con:
 
-Renting (eventos de reserva y alquiler)
-Payments (confirmaciones y penalizaciones)
-IoT & Device Control (alertas técnicas)
-IAM (usuarios)
+* Renting (uso de bicicletas en alquiler)
+* Tracking & Monitoring (ubicación y estado en tiempo real)
+* IoT & Device Control (sensores y smart lock)
+* IAM (propietario de la bicicleta)
+
+
 
 <div id='4.2.3.1.'><h5>4.2.3.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
 
-NOTIFICATIONS
+BICYCLES
 
-Propósito: Registro de notificaciones enviadas a usuarios
+Propósito: Registro de bicicletas del sistema
 
-| Campo      | Tipo      | Descripción                      |
-| ---------- | --------- | -------------------------------- |
-| id         | Long (PK) | Identificador de la notificación |
-| user_id    | Long (FK) | Usuario receptor                 |
-| type       | varchar   | Tipo de notificación             |
-| message    | varchar   | Contenido                        |
-| status     | varchar   | Estado (enviada, leída)          |
-| created_at | datetime  | Fecha de creación                |
+| Campo      | Tipo      | Descripción                   |
+| ---------- | --------- | ----------------------------- |
+| id         | Long (PK) | Identificador de la bicicleta |
+| owner_id   | Long (FK) | Arrendador                    |
+| type       | varchar   | Tipo de bicicleta             |
+| status     | varchar   | Estado                        |
+| price      | decimal   | Tarifa                        |
+| latitude   | decimal   | Ubicación                     |
+| longitude  | decimal   | Ubicación                     |
+| created_at | datetime  | Fecha de registro             |
 
+BICYCLE_HISTORY
+
+Propósito: Historial de cambios de estado y uso
+
+| Campo      | Tipo      | Descripción      |
+| ---------- | --------- | ---------------- |
+| id         | Long (PK) | Identificador    |
+| bicycle_id | Long (FK) | Bicicleta        |
+| status     | varchar   | Estado           |
+| timestamp  | datetime  | Fecha del cambio |
 
 
 
