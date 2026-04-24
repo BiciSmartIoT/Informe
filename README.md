@@ -171,6 +171,14 @@ El sistema principal BiciSmartIOT App se conecta con servicios externos como Goo
 
 ### 4.1.3.2. Software Architecture Context Level Diagram
 
+Este diagrama muestra que el sistema BiciSmartIOT, representado como una única entidad, interactúa con tres tipos principales de usuarios: estudiantes, que utilizan la aplicación para buscar bicicletas cercanas, reservar, desbloquear y finalizar alquileres; arrendadores, que registran y administran sus bicicletas inteligentes; y administradores, que gestionan usuarios, bicicletas registradas y el monitoreo general del sistema. 
+
+Además, BiciSmartIOT se comunica con sistemas externos como Google Maps API para mostrar ubicaciones y rutas, una pasarela de pagos para procesar pagos digitales mediante Yape, Plin o tarjeta, y dispositivos IoT instalados en las bicicletas para enviar datos en tiempo real como ubicación GPS, estado del candado inteligente y movimiento.
+
+<p align="center">
+  <img src="assets/images/Chapter-4/c4_context.png" width="700"/>
+</p>
+
 ### 4.1.3.3. Software Architecture Container Level Diagram
 
 ### 4.1.3.4. Software Architecture Deployment Diagram
