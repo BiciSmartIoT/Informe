@@ -197,5 +197,115 @@ Propósito: Registro de reservas
 | expiration_time  | datetime  | Expiración       |
 | status           | varchar   | Estado           |
 
+
+
+
+
+---------------------------------------------------------------
+<div id='4.2.3.'><h4>4.2.3. Bounded Context: Notifications</h4></div>
+<div id='4.2.3.1.'><h5>4.2.1.1. Domain Layer</h5></div>
+Subcapamodel<br>
+
+
+| Tipo         | Nombre                        | Descripción                                               | Responsabilidad Principal                             | Relación con otros elementos                   |
+| ------------ | ----------------------------- | --------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------- |
+| Aggregate    | Notification                  | Representa una notificación enviada al usuario.           | Centralizar la gestión de notificaciones del sistema. | Relacionado con User (IAM), Rental y Payments. |
+| Value Object | NotificationType              | Tipo de notificación (reserva, pago, alerta, incidencia). | Clasificar las notificaciones.                        | Asociado a Notification.                       |
+| Value Object | NotificationStatus            | Estado de la notificación (enviada, leída, fallida).      | Controlar el estado de entrega.                       | Asociado a Notification.                       |
+| Value Object | Message                       | Contenido del mensaje de la notificación.                 | Estandarizar el texto enviado al usuario.             | Asociado a Notification.                       |
+| Command      | SendNotificationCommand       | Enviar una notificación.                                  | Crear y despachar una notificación al usuario.        | Usa Notification.                              |
+| Command      | MarkAsReadNotificationCommand | Marcar notificación como leída.                           | Actualizar estado de lectura.                         | Usa Notification.                              |
+| Command      | SendBulkNotificationCommand   | Enviar múltiples notificaciones.                          | Gestionar envío masivo.                               | Usa Notification.                              |
+| Query        | GetUserNotificationsQuery     | Obtener notificaciones de un usuario.                     | Listar notificaciones del usuario.                    | Consulta Notification.                         |
+| Query        | GetUnreadNotificationsQuery   | Obtener notificaciones no leídas.                         | Filtrar notificaciones pendientes.                    | Consulta Notification.                         |
+| Query        | GetNotificationDetailQuery    | Obtener detalle de notificación.                          | Mostrar información específica.                       | Consulta Notification.                         |
+
+Sub-capa Services<br>
+
+| Tipo      | Nombre                     | Descripción                               | Responsabilidad Principal                   | Relación con otros elementos                                          |
+| --------- | -------------------------- | ----------------------------------------- | ------------------------------------------- | --------------------------------------------------------------------- |
+| Interface | NotificationCommandService | Servicio para comandos de notificaciones  | Declarar métodos para envío y actualización | Implementado por NotificationCommandServiceImpl. Usado en Application |
+| Interface | NotificationQueryService   | Servicio para consultas de notificaciones | Declarar métodos de consulta                | Implementado por NotificationQueryServiceImpl. Usado en Application   |
+
+
+
+<div id='4.2.3.1.'><h5>4.2.3.2. Interface Layer</h5></div>
+
+Sub-capa REST<br>
+
+| Tipo       | Nombre                                       | Descripción                             | Responsabilidad Principal              | Relación con otros elementos     |
+| ---------- | -------------------------------------------- | --------------------------------------- | -------------------------------------- | -------------------------------- |
+| Controller | NotificationController                       | Controlador REST para notificaciones    | Gestiona solicitudes de notificaciones | Usa services y resources         |
+| Resource   | NotificationRequestResource                  | Estructura de petición de notificación  | Representa datos de entrada            | Usado por NotificationController |
+| Resource   | NotificationResponseResource                 | Estructura de respuesta de notificación | Devuelve datos al cliente              | Usado por NotificationController |
+| Assembler  | SendNotificationCommandFromResourceAssembler | Convierte request en comando            | Traducir entrada a dominio             | Usado por NotificationController |
+| Assembler  | NotificationResourceFromEntityAssembler      | Convierte entidad a response            | Traducir dominio a salida              | Usado por NotificationController |
+
+
+
+<div id='4.2.3.1.'><h5>4.2.3.3. Aplications Layer</h5></div>
+
+Sub-capa Internal
+
+| Tipo    | Nombre                         | Descripción                                  | Responsabilidad Principal      | Relación con otros elementos          |
+| ------- | ------------------------------ | -------------------------------------------- | ------------------------------ | ------------------------------------- |
+| Service | NotificationCommandServiceImpl | Implementación de comandos de notificaciones | Ejecutar envío y actualización | Implementa NotificationCommandService |
+| Service | NotificationQueryServiceImpl   | Implementación de consultas                  | Obtener notificaciones         | Implementa NotificationQueryService   |
+
+
+
+<div id='4.2.3.1.'><h5>4.2.3.4. Infrastructure Layer</h5></div>
+
+
+Sub-capa Infrastructure <br>
+
+
+| Tipo       | Nombre                 | Descripción                    | Responsabilidad Principal          | Relación con otros elementos |
+| ---------- | ---------------------- | ------------------------------ | ---------------------------------- | ---------------------------- |
+| Repository | NotificationRepository | Persistencia de notificaciones | Guardar y consultar notificaciones | Relacionado con Notification |
+
+
+<div id='4.2.3.1.'><h5>4.2.3.5. Bounded Context Software Architecture Component Level Diagrams</h5></div>
+
+(Insertar diagrama de componentes del contexto Notifications)
+
+
+<div id='4.2.3.1.'><h5>4.2.3.6. Bounded Context Software Architecture Code Level Diagram</h5></div>
+
+<div id='4.2.3.1.'><h5>4.2.3.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
+
+Este diagrama UML representa la arquitectura del sistema de notificaciones. Se basa en el enfoque CQRS, separando comandos (envío y actualización de notificaciones) de consultas (visualización y filtrado).
+
+La entidad principal es Notification, que gestiona toda la comunicación hacia el usuario.
+
+Este contexto interactúa con:
+
+Renting (eventos de reserva y alquiler)
+Payments (confirmaciones y penalizaciones)
+IoT & Device Control (alertas técnicas)
+IAM (usuarios)
+
+<div id='4.2.3.1.'><h5>4.2.3.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
+
+NOTIFICATIONS
+
+Propósito: Registro de notificaciones enviadas a usuarios
+
+| Campo      | Tipo      | Descripción                      |
+| ---------- | --------- | -------------------------------- |
+| id         | Long (PK) | Identificador de la notificación |
+| user_id    | Long (FK) | Usuario receptor                 |
+| type       | varchar   | Tipo de notificación             |
+| message    | varchar   | Contenido                        |
+| status     | varchar   | Estado (enviada, leída)          |
+| created_at | datetime  | Fecha de creación                |
+
+
+
+
+
+  
+
+
   
 
