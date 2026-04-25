@@ -1421,8 +1421,68 @@ Se interactúa con otros *bounded contexts* como:
 - `N:1` con **DEVICES**
 
 
-  
-
 
   
+## Conclusiones
+
+El desarrollo de BiciSmartIoT aborda una problemática real de la micromovilidad mediante la aplicación de tecnologías del Internet de las Cosas (IoT), permitiendo la interconexión entre dispositivos físicos y sistemas digitales para mejorar la seguridad de los ciclistas. A través de sensores, conectividad y procesamiento de datos en tiempo real, se logra un monitoreo continuo del estado y ubicación de la bicicleta.
+
+El proyecto evidencia cómo el enfoque IoT permite transformar un objeto tradicional en un sistema inteligente, capaz de detectar eventos, generar alertas y comunicarse con aplicaciones móviles. Esto demuestra el valor del IoT en escenarios reales, donde la captura y análisis de datos en tiempo real son clave para la toma de decisiones y la prevención de incidentes.
+
+Desde la perspectiva arquitectónica, la integración de dispositivos IoT con plataformas backend y aplicaciones móviles, junto con el uso de principios como separación por contextos y diseño modular, permite construir una solución escalable y flexible. Esto facilita la interoperabilidad entre componentes como sensores, gateways y servicios en la nube.
+
+Asimismo, el proyecto resalta la importancia de aspectos críticos en sistemas IoT, como la eficiencia energética, la conectividad continua y la gestión de eventos en tiempo real, elementos fundamentales para garantizar un funcionamiento confiable en entornos urbanos.
+
+En conclusión, BiciSmartIoT demuestra el potencial del Internet de las Cosas para generar soluciones innovadoras en la micromovilidad, integrando hardware y software en un ecosistema inteligente que mejora la seguridad, optimiza la gestión de información y abre oportunidades para futuras aplicaciones dentro de entornos urbanos conectados.
+
+
+
+## Bibliografía
+
+- Özkan, O., Babur, Ö., & van den Brand, M. (2023). Domain-Driven Design in Software Development: A Systematic Literature Review on Implementation, Challenges, and Effectiveness. arXiv [https://arxiv.org/abs/2310.01905?](https://arxiv.org/abs/2310.01905?)
+  
+- Jaiswal, S. K., & Agrawal, R. (2024). Domain-Driven Design (DDD) – Bridging the Gap between Business Requirements and Object-Oriented Modeling. International Journal of Innovative Research in Engineering and Management, 11(2), 79–83. [https://www.mendeley.com/catalogue/1f528922-e954-3d7d-9a33-1570ec4959f0/](https://www.mendeley.com/catalogue/1f528922-e954-3d7d-9a33-1570ec4959f0/)
+  
+- Losa García, A. (2023). Diseño e implementación de una arquitectura de software para una aplicación de análisis del mercado eléctrico [Trabajo universitario, Universitat Politècnica de València] [https://riunet.upv.es/handle/10251/198322](https://riunet.upv.es/handle/10251/198322)
+ 
+
+## Anexos.
+
+### Jira
+
+- Link Product Backlog:
+  
+[https://upc-team-rhhq7so6.atlassian.net/jira/software/projects/US/boards/1/backlog?atlOrigin=eyJpIjoiZWM3ZmY5NTA3ZGU0NDIwNzg4OWNjNzFhZTEwM2I1YWIiLCJwIjoiaiJ9](https://upc-team-rhhq7so6.atlassian.net/jira/software/projects/US/boards/1/backlog?atlOrigin=eyJpIjoiZWM3ZmY5NTA3ZGU0NDIwNzg4OWNjNzFhZTEwM2I1YWIiLCJwIjoiaiJ9)
+
+### Miro
+
+- Link Event Storming - Message Flow - Context Mapping:
+  [https://miro.com/welcomeonboard/bzlvNUFBNC84d2tOeUhyalU5N1ZmcXZ6MEJFSDI3ZWNRVjNIZGs1QzMzODR3WnkwUFgwamtEQ09zSFJPME9YL0pvcUZwNDFuQ2o5K0N6N2FmREx1bWpPZ21SQTBZMnA0ZnA5SElYVGdUeGxpcjF2QWxwczZqYVFlVjVvcDNPUVNBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=963990692894](https://miro.com/welcomeonboard/bzlvNUFBNC84d2tOeUhyalU5N1ZmcXZ6MEJFSDI3ZWNRVjNIZGs1QzMzODR3WnkwUFgwamtEQ09zSFJPME9YL0pvcUZwNDFuQ2o5K0N6N2FmREx1bWpPZ21SQTBZMnA0ZnA5SElYVGdUeGxpcjF2QWxwczZqYVFlVjVvcDNPUVNBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=963990692894)
+
+- Link Bounded Context Canvas:
+  
+[https://miro.com/welcomeonboard/My9hUE5GVzB4QWNmZ2V0UGhwdEJYZ2pZUm1nREpDNlBocXFhQ1JTU1JpdGFaTVMzK1dCUEJnRnJVdVNTSitIMWxBUmM0akJBZVlXQjRKNTNLaCtFMmpPZ21SQTBZMnA0ZnA5SElYVGdUeGtpMWtsWkR2VnJuZ1lYcnNONzBmSWhBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=93301827789](https://miro.com/welcomeonboard/My9hUE5GVzB4QWNmZ2V0UGhwdEJYZ2pZUm1nREpDNlBocXFhQ1JTU1JpdGFaTVMzK1dCUEJnRnJVdVNTSitIMWxBUmM0akJBZVlXQjRKNTNLaCtFMmpPZ21SQTBZMnA0ZnA5SElYVGdUeGtpMWtsWkR2VnJuZ1lYcnNONzBmSWhBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=93301827789)
+
+### Domain-Driven Software Architecture / C4 Diagrams
+
+- Link a Structurizr:
+[https://structurizr.com/share/106219/13db1628-7b4d-4d6a-abfb-f37559b7c04b](https://structurizr.com/share/106219/13db1628-7b4d-4d6a-abfb-f37559b7c04b)
+
+### Figma
+
+- Figmas Landing Page:
+  
+[https://www.figma.com/design/1ocJneCEXxx2KhRRFpnmIa/Landing-Page---App-Movil?node-id=0-1&t=9TnkBaXYcU0P3wkw-1](https://www.figma.com/design/1ocJneCEXxx2KhRRFpnmIa/Landing-Page---App-Movil?node-id=0-1&t=9TnkBaXYcU0P3wkw-1)
+
+- Figmas Mobile App:
+  
+[https://www.figma.com/proto/SC6RkHiZJlWAASax41hHuC/Untitled?node-id=87-1899&p=f&t=JnHcl5VBKm8r38WJ-1&scaling=min-zoom&content-scaling=fixed&page-id=24%3A6075&starting-point-node-id=54%3A3736](https://www.figma.com/proto/SC6RkHiZJlWAASax41hHuC/Untitled?node-id=87-1899&p=f&t=JnHcl5VBKm8r38WJ-1&scaling=min-zoom&content-scaling=fixed&page-id=24%3A6075&starting-point-node-id=54%3A3736)
+
+### Landing Page
+
+[https://1acc0238-2520-12612-g4-bikelab.github.io/BikeLab_Landing/](https://1acc0238-2520-12612-g4-bikelab.github.io/BikeLab_Landing/)
+
+### Entrevistas:
+
+https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220219_upc_edu_pe/IQD7wtivAYpDTZwMfQqnEvyJAQNAH0HprycbeRPEep9VSnU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=i2TXMO
 
