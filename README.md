@@ -10,6 +10,7 @@
 #### **Periodo 202610**
 
 #### Desarollo De Soluciones IOT
+#### Codigo del curso: 1ASI0572
 
 
 #### **NRC:** 6766
