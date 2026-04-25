@@ -789,6 +789,7 @@ En el núcleo del dominio se encuentran los agregados principales como Rental y 
 <div align="center">
 <img src="assets/images/Chapter-4/Bounded Context Database Design Diagram_renting.jpeg">
 </div>
+
 ### RENTALS
 
 **Propósito:** Registro de alquileres de bicicletas
@@ -809,8 +810,8 @@ En el núcleo del dominio se encuentran los agregados principales como Rental y 
 - `1:1` opcional con **RESERVATIONS**
 
 
-
 ### RESERVATIONS
+
 
 **Propósito:** Reservas previas de bicicletas
 
@@ -845,604 +846,136 @@ En el núcleo del dominio se encuentran los agregados principales como Rental y 
 **Relaciones:**
 - `1:1` con **RENTALS**
 
+----------------------------------------------------------------
+<div id='4.2.2.'><h4>4.2.2. Bounded Context: Payments</h4></div>
 
+<div id='4.2.2.1.'><h5>4.2.2.1. Domain Layer</h5></div>
 
+Subcapamodel<br>
 
-### 4.2.2. Bounded Context: **Payments**
-
-#### 4.2.2.1. Domain Layer
-
-**Agregados y Entidades**
-
-* **PaymentMethod** *(Aggregate Root)*
-  Atributos: `PaymentMethodId`, `UserId`, `Type{card|yape|plin}`, `Status{Pending|Verified|Failed|Disabled}`, `PspTokenRef`, `Brand?`, `Last4?`, `IsDefault`, `CreatedAt`.
-  Invariantes:
-
-  * Un usuario puede marcar **un** método por defecto.
-  * `Status=Verified` exige token válido del PSP.
-    Operaciones: `verify(pspToken)`, `setDefault()`, `disable()`.
-
-* **Authorization** *(Aggregate Root)*
-  Atributos: `AuthorizationId`, `UserId`, `ReservationId?`, `RentalId?`, `AmountEstimate(Money)`, `Currency`, `Status{Created|Authorized|Failed|Voided}`, `HoldExpiresAt?`, `PspAuthRef`.
-  Invariantes:
-
-  * Solo se puede **capturar** si `Status=Authorized`.
-  * Una reserva/alquiler tiene a lo sumo **una** autorización activa.
-    Operaciones: `markAuthorized(pspRef, hold)`, `fail(reason)`, `void()`.
-
-* **Charge** *(Aggregate Root)*
-  Atributos: `ChargeId`, `UserId`, `RentalId`, `AuthorizationId?`, `AmountFinal(Money)`, `Currency`, `Status{Captured|Failed|Refunded}`, `Breakdown{unlock, perMinute, penalties?}`, `PspChargeRef`, `CreatedAt`.
-  Invariantes:
-
-  * `Captured` requiere confirmación PSP o política de “pending\_capture” con conciliación.
-    Operaciones: `capture(amount)`, `refund(partial?)`.
-
-* **Penalty** *(Entidad ligada a Charge/Authorization)*
-  Atributos: `PenaltyId`, `RentalId`, `Type{overdue|out_of_zone|damage}`, `Amount(Money)`, `Status{Pending|Charged|Failed}`, `Reason?`.
-
-* **Payout** *(Aggregate Root)*
-  Atributos: `PayoutId`, `ProviderId`, `Period{start,end}`, `Amount(Money)`, `Status{Scheduled|Processing|Paid|Failed}`, `PspPayoutRef?`, `CreatedAt`, `PaidAt?`.
-  Invariantes:
-
-  * Un período y proveedor generan **un único** payout (idempotencia por `ProviderId+Period`).
-    Operaciones: `schedule()`, `markPaid(ref)`, `fail(reason)`.
-
-**Value Objects**
-
-* `Money{amount, currency}` (inmut.)
-* `FeeBreakdown{unlock, perMinute, perKm?, penalties}`
-* `WalletId/ExternalRef` (cuando aplique)
-* `PspError(code,message)` (mapea errores externos a internos)
-
-**Servicios de Dominio**
-
-* **FeeCalculatorService**: calcula totales según tarifas vigentes.
-* **AntiFraudPolicy** (básica S1): verificación mínima de riesgo (monto, historial de fallas).
-* **PayoutPolicy**: define frecuencia (S1 semanal), mínimos y retenciones.
-
-**Repositorios (interfaces)**
-
-* `PaymentMethodRepository`, `AuthorizationRepository`, `ChargeRepository`, `PenaltyRepository`, `PayoutRepository`.
-
-**Eventos publicados**
-
-* `PaymentMethodVerified {userId, methodId, type}`
-* `PaymentAuthorized {authorizationId, userId, rentalId?, reservationId?, amount, currency, holdExpiresAt}`
-* `PaymentCaptured {chargeId, userId, rentalId, amount, currency}`
-* `PaymentFailed {context, id, reason}`
-* `PenaltyCharged {penaltyId, rentalId, amount, type}`
-* `RefundProcessed {chargeId, amount}`
-* `PayoutSettled {payoutId, providerId, amount, period}`
-
-**Suscripciones (entrantes)**
-
-* De **Renting**:
-
-  * `ReservationCreated` *(opcional si se preautoriza en reserva)*
-  * `RentalStarted` → **Authorize**
-  * `RentalFinished` → **Capture**
-  * `PenaltyApplied` → **ChargePenalty**
-* De **Providing**:
-
-  * `ProviderVerified` (checklist de payout)
-* De **IAM**:
-
-  * `UserSuspended` (bloquear cargos nuevos)
-
-**Políticas clave**
-
-* Autorización **previa** al inicio; captura **al finalizar**.
-* Reintentos con backoff en fallas PSP; idempotencia por `Idempotency-Key`.
-* No se expone **datos sensibles** (solo `PspTokenRef`).
+| Tipo         | Nombre                  | Descripción                                      | Responsabilidad Principal                         | Relación con otros elementos          |
+| ------------ | ----------------------- | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------- |
+| Aggregate    | Payment                 | Representa un pago de un alquiler                | Gestionar el proceso de pago                      | Relacionado con Rental (Renting)      |
+| Aggregate    | PaymentMethod           | Método de pago del usuario                       | Gestionar métodos de pago                         | Relacionado con User (IAM)            |
+| Value Object | PaymentAmount           | Monto del pago                                  | Representar valor monetario                       | Asociado a Payment                    |
+| Value Object | PaymentStatus           | Estado del pago                                 | Controlar flujo del pago                          | Asociado a Payment                    |
+| Value Object | PaymentType             | Tipo de método de pago                          | Clasificar método                                 | Asociado a PaymentMethod              |
+| Command      | CreatePaymentCommand    | Crear pago                                      | Registrar un nuevo pago                           | Usa Payment y Rental                  |
+| Command      | ProcessPaymentCommand   | Procesar pago                                   | Validar y confirmar pago                          | Usa PaymentMethod                     |
+| Query        | GetUserPaymentsQuery    | Obtener pagos del usuario                       | Consultar historial                               | Consulta Payment                      |
+| Query        | GetPaymentDetailQuery   | Obtener detalle de pago                         | Mostrar información específica                    | Consulta Payment                      |
 
 ---
 
-#### 4.2.2.2. Interface Layer
+Sub-capa Services<br>
 
-**Base path:** `/api/v1/payments` · **Auth:** Bearer · **Formato:** JSON
-
-**Métodos de pago (User)**
-
-* `POST /methods` → alta/verify de método
-  Body:
-
-  ```
-  { "type":"card|yape|plin", "pspToken":"tok_…" , "setDefault":true|false }
-  ```
-
-  201:
-
-  ```
-  { "methodId":"pm_…", "status":"Verified", "brand":"VISA", "last4":"1234", "isDefault":true }
-  ```
-* `GET /methods` → listar propios
-* `POST /methods/{id}:default` → marcar por defecto
-* `POST /methods/{id}:disable` → deshabilitar
-
-**Autorización/Captura (desde Renting o app del usuario)**
-
-* `POST /authorizations`
-  Body:
-
-  ```
-  { "reservationId":"res_…", "rentalId":null, "amount":"12.50", "currency":"PEN", "methodId":"pm_…" }
-  ```
-
-  201:
-
-  ```
-  { "authorizationId":"auth_…", "status":"Authorized", "holdExpiresAt":"…" }
-  ```
-* `POST /charges` *(captura)*
-  Body:
-
-  ```
-  { "rentalId":"rent_…", "authorizationId":"auth_…", "amount":"18.20", "currency":"PEN", "breakdown":{ "unlock":"1.50","perMinute":"16.70" } }
-  ```
-
-  201:
-
-  ```
-  { "chargeId":"ch_…", "status":"Captured", "receiptId":"inv_…" }
-  ```
-
-**Penalidades y reembolsos**
-
-* `POST /penalties`
-  Body:
-
-  ```
-  { "rentalId":"rent_…", "type":"overdue|out_of_zone|damage", "amount":"5.00", "currency":"PEN" }
-  ```
-
-  201:
-
-  ```
-  { "penaltyId":"pen_…", "status":"Charged" }
-  ```
-* `POST /charges/{id}:refund`
-  Body: `{ "amount":"3.00" }` → 200 `{ "status":"Refunded" }`
-
-**Payouts (Proveedor/Admin)**
-
-* `GET /payouts?mine=true` → listar del proveedor
-* `POST /payouts:simulate` *(preview)*
-  Body: `{ "periodStart":"YYYY-MM-DD", "periodEnd":"YYYY-MM-DD" }`
-* `POST /payouts:run` *(admin/job manual)* → crea `Payout(Scheduled)`
-* `GET /payouts/{id}` → estado del payout
-
-**Historial**
-
-* `GET /users/me/charges?from=&to=&status=`
-* `GET /providers/me/payouts?from=&to=&status=`
-
-**Webhooks**
-
-* `POST /webhooks/psp` *(firma HMAC/JWK)* → recibe `authorized|captured|failed|payout.paid|charge.refunded`.
-
-**Errores comunes**
-
-* `402 PAYMENT_REQUIRED` (AUTH\_DECLINED, CAPTURE\_FAILED)
-* `409 INVALID_STATE` (capturar sin auth)
-* `422 METHOD_NOT_VERIFIED`, `422 INVALID_AMOUNT`
-* `503 PSP_UNAVAILABLE`
-
-**Trazabilidad con US**
-US20/US21/US22 (métodos, pagar), US23 (penalidades), US24 (historial), US25 (payouts).
+| Tipo      | Nombre                | Descripción                           | Responsabilidad Principal                      | Relación con otros elementos             |
+| --------- | --------------------- | ------------------------------------- | ---------------------------------------------- | ---------------------------------------- |
+| Interface | PaymentCommandService | Servicio de comandos de pagos         | Declarar operaciones de creación y proceso     | Implementado por PaymentCommandServiceImpl |
+| Interface | PaymentQueryService   | Servicio de consultas de pagos        | Declarar operaciones de consulta               | Implementado por PaymentQueryServiceImpl |
 
 ---
 
-#### 4.2.2.3. Application Layer
+<div id='4.2.2.2.'><h5>4.2.2.2. Interface Layer</h5></div>
 
-**Use Cases / Command Handlers**
+Sub-capa REST<br>
 
-* `AddPaymentMethod(cmd)` → `PaymentMethod.verify(pspToken)` via `PspClient.tokenVerify()` → guardar → `PaymentMethodVerified`.
-* `AuthorizePayment(cmd)` → valida método por defecto o `methodId` → `AntiFraudPolicy.check()` → `PspClient.authorize()` → `Authorization.markAuthorized(pspRef, hold)` → `PaymentAuthorized`.
-* `CapturePayment(cmd)` → busca `Authorization(Authorized)` → `PspClient.capture()` → crear `Charge(Captured)` con `Breakdown` → `PaymentCaptured`.
-* `ChargePenalty(cmd)` → `PspClient.charge(amount)` → `Penalty.Charged` → `PenaltyCharged`.
-* `RefundCharge(cmd)` → `PspClient.refund()` → `RefundProcessed`.
-* `SchedulePayoutsJob()` → agrega `Payout(Scheduled)` por proveedor/periodo → `ProcessPayout(cmd)` → `PspClient.payout()` → `PayoutSettled`.
-
-**Event Handlers**
-
-* `OnRentalStarted` ← Renting → `AuthorizePayment(reservationId/rentalId, estimate)` (si el flujo es asíncrono).
-* `OnRentalFinished` ← Renting → `CapturePayment(rentalId, total)` (asíncrono).
-* `OnPenaltyApplied` ← Renting → `ChargePenalty(rentalId,type,amount)`.
-
-**Puertos (Ports)**
-
-* `PspClient` (ACL a la pasarela: Stripe/Yape/Plin/Agregador)
-
-  * `tokenVerify(pspToken)`, `authorize(amount,currency,methodRef, idempotencyKey)`, `capture(pspAuthRef, amount, key)`, `charge(amount, methodRef, key)`, `refund(pspChargeRef, amount?, key)`, `payout(providerExternalRef, amount, key)`
-* `EventPublisherPort` (outbox → `payments.events.*`)
-* `ClockPort`, `IdempotencyStorePort` (Redis), `ConfigPort` (fees/currency)
-
-**Consistencia e Idempotencia**
-
-* **Transactional Outbox** para todos los eventos.
-* Idempotency-Key = `contextId` (`reservationId`/`rentalId`/`payoutPeriod+providerId`).
-* Retries con backoff; DLQ para errores PSP.
-
-**Métricas S1**
-
-* Tasa de **éxito** `authorize/capture`.
-* GMV por día/periodo; contracargos (si aplica).
-* Tiempo promedio de **payout**.
-
-**Reglas de seguridad**
-
-* Nunca loguear `pspToken` ni PAN; enmascarar `last4/brand`.
-* Validar **webhook signature**; tolerar *replay* con nonce/ts.
+| Tipo       | Nombre                               | Descripción                                | Responsabilidad Principal                        | Relación con otros elementos           |
+| ---------- | ------------------------------------ | ------------------------------------------ | ------------------------------------------------ | -------------------------------------- |
+| Controller | PaymentController                    | Controlador REST de pagos                  | Gestionar solicitudes de pagos                   | Usa services y resources               |
+| Resource   | PaymentRequestResource               | Petición de pago                           | Representar datos de entrada                     | Usado por PaymentController            |
+| Resource   | PaymentResponseResource              | Respuesta de pago                          | Devolver información al cliente                  | Usado por PaymentController            |
+| Resource   | PaymentMethodRequestResource         | Petición de método de pago                 | Representar datos de entrada                     | Usado por PaymentController            |
+| Resource   | PaymentMethodResponseResource        | Respuesta de método de pago                | Devolver datos al cliente                        | Usado por PaymentController            |
+| Assembler  | PaymentCommandFromResourceAssembler  | Convierte request a comando                | Traducir entrada a dominio                       | Usado por PaymentController            |
+| Assembler  | PaymentResourceFromEntityAssembler   | Convierte entidad a response               | Traducir dominio a salida                        | Usado por PaymentController            |
 
 ---
 
-#### 4.2.2.4. Infrastructure Layer
-
-**Adaptadores**
-
-* **Repos (MySQL/JPA)**: `SqlPaymentMethodRepository`, `SqlAuthorizationRepository`, `SqlChargeRepository`, `SqlPenaltyRepository`, `SqlPayoutRepository`.
-* **PSP Client (HTTP)**: `StripeAdapter` / `YapePlinAdapter` (timeout, retries, circuit breaker).
-* **Mensajería**: `OutboxPublisher` → `payments.events.*`; `WebhookHandler` firmado.
-* **Idempotencia/Caché**: Redis (`idemp:{key}` con TTL), locks para evitar *double-capture*.
-* **Clock/Config**: adaptadores simples.
-
-**Esquema SQL mínimo**
-
-```
-CREATE TABLE pay_methods(
-  id BIGINT PRIMARY KEY,
-  user_id BIGINT NOT NULL,
-  type VARCHAR(10) NOT NULL,             -- card|yape|plin
-  status VARCHAR(12) NOT NULL,           -- Pending|Verified|Failed|Disabled
-  psp_token_ref VARCHAR(120) NOT NULL,
-  brand VARCHAR(20), last4 CHAR(4),
-  is_default BOOLEAN DEFAULT FALSE,
-  created_at TIMESTAMP NOT NULL,
-  UNIQUE(user_id, is_default) WHERE is_default = TRUE
-);
-
-CREATE TABLE pay_authorizations(
-  id BIGINT PRIMARY KEY,
-  user_id BIGINT NOT NULL,
-  reservation_id BIGINT NULL,
-  rental_id BIGINT NULL,
-  amount DECIMAL(10,2) NOT NULL,
-  currency CHAR(3) NOT NULL,
-  status VARCHAR(12) NOT NULL,           -- Created|Authorized|Failed|Voided
-  psp_auth_ref VARCHAR(120),
-  hold_expires_at TIMESTAMP NULL,
-  created_at TIMESTAMP NOT NULL,
-  UNIQUE(reservation_id),
-  UNIQUE(rental_id)
-);
-
-CREATE TABLE pay_charges(
-  id BIGINT PRIMARY KEY,
-  user_id BIGINT NOT NULL,
-  rental_id BIGINT NOT NULL,
-  authorization_id BIGINT NULL,
-  amount DECIMAL(10,2) NOT NULL,
-  currency CHAR(3) NOT NULL,
-  status VARCHAR(12) NOT NULL,           -- Captured|Failed|Refunded
-  breakdown JSON,
-  psp_charge_ref VARCHAR(120),
-  receipt_id VARCHAR(60),
-  created_at TIMESTAMP NOT NULL,
-  INDEX idx_user (user_id),
-  UNIQUE(rental_id)
-);
-
-CREATE TABLE pay_penalties(
-  id BIGINT PRIMARY KEY,
-  rental_id BIGINT NOT NULL,
-  type VARCHAR(20) NOT NULL,             -- overdue|out_of_zone|damage
-  amount DECIMAL(10,2) NOT NULL,
-  currency CHAR(3) NOT NULL,
-  status VARCHAR(12) NOT NULL,           -- Pending|Charged|Failed
-  reason VARCHAR(200),
-  created_at TIMESTAMP NOT NULL,
-  INDEX idx_rental (rental_id)
-);
-
-CREATE TABLE pay_payouts(
-  id BIGINT PRIMARY KEY,
-  provider_id BIGINT NOT NULL,
-  period_start DATE NOT NULL,
-  period_end DATE NOT NULL,
-  amount DECIMAL(10,2) NOT NULL,
-  status VARCHAR(12) NOT NULL,           -- Scheduled|Processing|Paid|Failed
-  psp_payout_ref VARCHAR(120),
-  created_at TIMESTAMP NOT NULL,
-  paid_at TIMESTAMP NULL,
-  UNIQUE(provider_id, period_start, period_end)
-);
-
-CREATE TABLE payments_outbox(
-  id BIGINT PRIMARY KEY,
-  aggregate_id BIGINT NOT NULL,
-  event_type VARCHAR(80) NOT NULL,
-  payload JSON NOT NULL,
-  status VARCHAR(12) NOT NULL DEFAULT 'PENDING',
-  attempts INT NOT NULL DEFAULT 0,
-  created_at TIMESTAMP NOT NULL,
-  published_at TIMESTAMP NULL
-);
-```
-
-**Topología de eventos**
-
-* **Salida:** `payments.method.verified`, `payments.authorized`, `payments.captured`, `payments.failed`, `payments.penalty.charged`, `payments.payout.settled`, `payments.refund.processed`.
-* **Entrada:** `renting.rental.started`, `renting.rental.finished`, `renting.penalty.applied`, `providing.provider.verified`.
-
-**Operación y observabilidad**
-
-* **Logs** estructurados sin PII/PCI.
-* **Métricas**: `payments_authorize_success_total`, `payments_capture_success_total`, `payments_payout_paid_total`, `psp_latency_seconds`.
-* **Alertas**: tasa de fallo PSP > umbral; backlog de outbox.
-
-**Seguridad**
-
-* TLS, secretos en **KeyVault**.
-* Webhooks con validación de firma y ventana de tiempo.
-* Cumplimiento PCI-DSS (tokenización vía PSP; no almacenamos PAN/CVV).
-
-#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams 
-Este diagrama representa la descomposición interna del container IAM Application, correspondiente al bounded context de identidad y autenticación (IAM) dentro de la plataforma de bicicletas. Se trata de un backend desarrollado bajo los principios de Clean Architecture y Domain-Driven Design (DDD), ilustrado en el Nivel 3 del C4 Model (Component Diagram).
-
-<img src="/assets/images/Chapter-4/bdc1.png" alt="bdc1" width=auto>
-
-Este diagrama muestra la descomposición interna del container Renting Application.
-
-<img src="/assets/images/Chapter-4/bdc2.png" alt="bdc1" width=auto>
-
-El Providing Bounded Context se centra en la gestión de los vehículos que los proveedores ponen a disposición de los usuarios.
-
-<img src="/assets/images/Chapter-4/bdc3.png" alt="bdc1" width=auto>
-
-Dominio Vehicles:
-
-<img src="/assets/images/Chapter-4/dc2.png" alt="bdc1" width=auto>
-
-#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams 
-##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams 
-Este diagrama de clases ilustra la capa de dominio del bounded context IAM, con sus Agregados, Entidades y Value Objects.
-
-<img src="/assets/images/Chapter-4/uml1.png" alt="bdc1" width=auto>
-
-Diagrama del dominio Renting:
-
-<img src="/assets/images/Chapter-4/uml3.png" alt="bdc1" width=auto>
-
-Diagrama del dominio Providing:
-
-<img src="/assets/images/Chapter-4/uml5.png" alt="bdc1" width=auto>
-
-Diagrama del dominio Vehicles:
-
-<img src="/assets/images/Chapter-4/dc1.png" alt="bdc1" width=auto>
-
-##### 4.2.2.6.2. Bounded Context Database Design Diagram
-El siguiente diagrama muestra el diseño de la base de datos relacional para el contexto IAM, incluyendo las tablas principales relacionadas con usuarios, credenciales y verificaciones.
-
-<img src="/assets/images/Chapter-4/uml2.png" alt="bdc1" width=auto>
-
-Tabla: users
-| Nombre           | Descripción                                                         |
-|------------------|---------------------------------------------------------------------|
-| id               | Identificador único del usuario (UUID, PK).                          |
-| full_name        | Nombre completo del ciclista/proveedor.                              |
-| username         | Nombre de usuario único (opcional, para login/display).              |
-| email            | Correo electrónico único del usuario (identificador de login).       |
-| status           | Estado del usuario: Pending, Active, Suspended.                      |
-| reputation_avg   | Promedio de calificaciones recibidas por el usuario (0.00–5.00).     |
-| reputation_count | Cantidad de calificaciones recibidas.                                |
-| avatar_url       | URL de la foto de perfil (opcional).                                |
-| created_at       | Fecha y hora de creación del registro.                              |
-| updated_at       | Fecha y hora de la última actualización.                            |
-
-Tabla: credentials
-| Nombre              | Descripción                                                         |
-|---------------------|---------------------------------------------------------------------|
-| id                  | Identificador único de la credencial (UUID, PK).                    |
-| user_id             | Referencia al usuario propietario (FK → users.id).                  |
-| password_hash       | Hash de la contraseña (Argon2/BCrypt).                              |
-| password_salt       | Salt usado en el hash (si aplica).                                  |
-| mfa_enabled         | Booleano: indica si MFA/TOTP está activado.                         |
-| failed_attempts     | Contador de intentos fallidos de login.                             |
-| locked_until        | Timestamp hasta el cual la cuenta está bloqueada.                   |
-| last_login_at       | Fecha y hora del último inicio de sesión exitoso.                   |
-| password_changed_at | Fecha y hora de la última modificación de contraseña.               |
-
-Tabla: verifications
-| Nombre            | Descripción                                                           |
-|-------------------|-----------------------------------------------------------------------|
-| id                | Identificador único de la verificación (UUID, PK).                    |
-| user_id           | Usuario relacionado (FK → users.id).                                  |
-| token             | Token de verificación único enviado por email.                        |
-| issued_at         | Fecha y hora en que se emitió el token.                               |
-| expires_at        | Fecha y hora de expiración del token.                                 |
-| used_at           | Fecha y hora en que el token fue usado (null si no usado).            |
-| type              | Tipo de verificación (email, university_domain, etc.).                |
-| university_domain | Dominio universitario validado (ej. `uni.edu`) — opcional.            |
-
-Tabla: roles
-| Nombre      | Descripción                                               |
-|-------------|-----------------------------------------------------------|
-| id          | Identificador único del rol (UUID, PK).                   |
-| name        | Nombre del rol (User, Provider, Admin, etc.).             |
-| grants      | Conjunto de permisos/alcances del rol (JSON / array).     |
-| description | Descripción breve del propósito del rol.                  |
-
-Tabla: user_roles
-| Nombre      | Descripción                                               |
-|-------------|-----------------------------------------------------------|
-| user_id     | Referencia al usuario (FK → users.id).                    |
-| role_id     | Referencia al rol (FK → roles.id).                        |
-| assigned_at | Fecha y hora en que se asignó el rol.                     |
-| granted_by  | (Opcional) ID del admin o proceso que asignó el rol.      |
-
-Tabla: refresh_tokens (opcional, para sesiones seguras)
-| Nombre      | Descripción                                               |
-|-------------|-----------------------------------------------------------|
-| id          | Identificador único del refresh token (UUID, PK).         |
-| user_id     | Usuario asociado (FK → users.id).                         |
-| token_hash  | Hash del refresh token (no se guarda en texto plano).     |
-| issued_at   | Fecha y hora de emisión.                                  |
-| expires_at  | Fecha y hora de expiración.                               |
-| revoked     | Booleano: true si fue revocado.                           |
-| revoked_at  | Fecha y hora de revocación (si aplica).                   |
-| device_info | Metadata del dispositivo/navegador (opcional).            |
-
-
-Contexto Renting:
-
-<img src="/assets/images/Chapter-4/uml4.png" alt="bdc1" width=auto>
-
-Tabla: rentals  
-| Nombre         | Descripción                                                                 |
-|----------------|-----------------------------------------------------------------------------|
-| id             | Identificador único del alquiler (UUID, PK).                                |
-| user_id        | Identificador del usuario que alquila (FK → users en IAM).                  |
-| bicycle_id     | Identificador de la bicicleta alquilada (FK → bicycles en Inventory).       |
-| station_start  | Estación donde inicia el alquiler (FK → stations).                         |
-| station_end    | Estación donde termina el alquiler (FK → stations).                        |
-| start_time     | Fecha y hora de inicio del alquiler.                                        |
-| end_time       | Fecha y hora de fin del alquiler (puede ser NULL si está en curso).         |
-| status         | Estado del alquiler: Active, Completed, Cancelled.                          |
-| total_cost     | Costo total del alquiler calculado.                                         |
-| created_at     | Fecha y hora de creación del registro.                                      |
-| updated_at     | Fecha y hora de la última actualización.                                    |
-
-
-Tabla: rental_details  
-| Nombre        | Descripción                                                                 |
-|---------------|-----------------------------------------------------------------------------|
-| id            | Identificador único del detalle (UUID, PK).                                 |
-| rental_id     | Identificador del alquiler asociado (FK → rentals).                         |
-| segment_start | Punto de inicio del tramo (coordenadas GPS o estación).                     |
-| segment_end   | Punto de fin del tramo (coordenadas GPS o estación).                        |
-| distance_km   | Distancia recorrida en kilómetros en el tramo.                              |
-| duration_min  | Duración del tramo en minutos.                                              |
-| cost_segment  | Costo parcial asociado al tramo.                                            |
-| created_at    | Fecha y hora de creación del registro.                                      |
-
-Tabla: payments  
-| Nombre        | Descripción                                                                 |
-|---------------|-----------------------------------------------------------------------------|
-| id            | Identificador único del pago (UUID, PK).                                    |
-| rental_id     | Identificador del alquiler asociado (FK → rentals).                         |
-| amount        | Monto pagado en la transacción.                                             |
-| method        | Método de pago: CreditCard, DebitCard, Wallet, Cash.                        |
-| status        | Estado del pago: Pending, Successful, Failed, Refunded.                     |
-| transaction_at| Fecha y hora de la transacción.                                             |
-| created_at    | Fecha y hora de creación del registro.                                      |
-
-
-Tabla: stations  
-| Nombre        | Descripción                                                                 |
-|---------------|-----------------------------------------------------------------------------|
-| id            | Identificador único de la estación (UUID, PK).                              |
-| code          | Código único de la estación.                                                |
-| name          | Nombre de la estación.                                                      |
-| location      | Dirección o coordenadas de ubicación.                                       |
-| capacity      | Número máximo de bicicletas que puede albergar.                             |
-| available     | Cantidad de bicicletas disponibles en el momento.                           |
-| created_at    | Fecha y hora de creación del registro.                                      |
-| updated_at    | Fecha y hora de la última actualización.                                    |
-
-Contexto Providing:
-<img src="/assets/images/Chapter-4/uml6.png" alt="bdc1" width=auto>
-
-Proveedor
-
-| Nombre        | Descripción                                  |
-|--------------|-----------------------------------------------|
-| id_proveedor  | Identificador único del proveedor (PK).      |
-| nombre       | Nombre o razón social del proveedor.        |
-| email         | Correo electrónico del proveedor.                |
-| telefono      | Número de contacto del proveedor.                |
-
-
-Bicicleta
-
-| Nombre        | Descripción                                              |
-| ------------- | -------------------------------------------------------- |
-| id\_vehiculo  | Identificador único del vehículo (PK).                   |
-| tipo          | Tipo de vehículo (`bicicleta` o `scooter`).              |
-| marca         | Marca del vehículo.                                      |
-| modelo        | Modelo del vehículo.                                     |
-| año           | Año de fabricación del vehículo.                         |
-| id\_proveedor | Relación con el proveedor que registró el vehículo (FK). |
-| id\_categoria | Relación con la categoría asignada (FK).                 |
-
-
-Categoría
-
-| Nombre        | Descripción                             |
-|---------------|-----------------------------------------|
-| id_categoria  | Identificador único de la categoría (PK). |
-| nombre        | Nombre de la categoría (urbana, MTB, etc.). |
-| descripcion   | Breve descripción de la categoría.       |
-
-
-Historial
-
-| Nombre        | Descripción                                          |
-|---------------|------------------------------------------------------|
-| id_historial  | Identificador único del registro en el historial (PK). |
-| id_bicicleta  | Relación con la bicicleta registrada (FK).            |
-| fecha         | Fecha y hora del cambio o evento.                    |
-| estado        | Estado de la bicicleta (ej. activa, en reparación).  |
-| comentario    | Observaciones o detalles adicionales.                |
-
-Contexto Vehicles:
-<img src="/assets/images/Chapter-4/er2.png" alt="bdc1" width=auto>
-
-Usuario
-| Nombre      | Descripción                          |
-| ----------- | ------------------------------------ |
-| id\_usuario | Identificador único del usuario (PK) |
-| nombre      | Nombre completo                      |
-| email       | Correo electrónico único             |
-| telefono    | Número de contacto                   |
-| created\_at | Fecha de creación                    |
-| updated\_at | Fecha de última actualización        |
-
-Vehiculo 
-| Nombre         | Descripción                              |
-| -------------- | ---------------------------------------- |
-| id\_vehiculo   | Identificador único del vehículo (PK)    |
-| tipo           | Tipo de vehículo (bicicleta o scooter)   |
-| marca          | Marca del vehículo                       |
-| modelo         | Modelo del vehículo                      |
-| anio           | Año de fabricación                       |
-| id\_proveedor  | FK al proveedor que registró el vehículo |
-| id\_categoria  | FK a la categoría del vehículo           |
-| serial\_number | Número de serie opcional                 |
-| created\_at    | Fecha de creación                        |
-| updated\_at    | Fecha de actualización                   |
-
-Categoria
-| Nombre        | Descripción                              |
-| ------------- | ---------------------------------------- |
-| id\_categoria | Identificador único de la categoría (PK) |
-| nombre        | Nombre de la categoría                   |
-| descripcion   | Breve descripción                        |
-| created\_at   | Fecha de creación                        |
-| updated\_at   | Fecha de última actualización            |
-
-Historial de uso
-
-| Nombre        | Descripción                                    |
-| ------------- | ---------------------------------------------- |
-| id\_historial | Identificador del registro de uso (PK)         |
-| id\_vehiculo  | FK al vehículo usado                           |
-| id\_usuario   | FK al usuario que usó el vehículo              |
-| fecha\_inicio | Fecha y hora de inicio del uso                 |
-| fecha\_fin    | Fecha y hora de fin del uso                    |
-| estado        | Estado del uso (activo, finalizado, cancelado) |
-| comentario    | Observaciones o notas                          |
+<div id='4.2.2.3.'><h5>4.2.2.3. Application Layer</h5></div>
 
+Sub-capa Internal<br>
+
+| Tipo    | Nombre                    | Descripción                                 | Responsabilidad Principal                 | Relación con otros elementos              |
+| ------- | ------------------------- | ------------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Service | PaymentCommandServiceImpl | Implementación de comandos de pago          | Ejecutar lógica de creación y procesamiento | Implementa PaymentCommandService          |
+| Service | PaymentQueryServiceImpl   | Implementación de consultas de pagos        | Obtener historial y detalle               | Implementa PaymentQueryService            |
+
+---
+
+<div id='4.2.2.4.'><h5>4.2.2.4. Infrastructure Layer</h5></div>
+
+Sub-capa Infrastructure<br>
+
+| Tipo       | Nombre                    | Descripción                           | Responsabilidad Principal        | Relación con otros elementos |
+| ---------- | ------------------------- | ------------------------------------- | -------------------------------- | ---------------------------- |
+| Repository | PaymentRepository         | Repositorio de pagos                  | Persistencia de pagos            | Relacionado con Payment      |
+| Repository | PaymentMethodRepository   | Repositorio de métodos de pago        | Persistencia de métodos          | Relacionado con PaymentMethod|
+
+---
+
+<div id='4.2.2.5.'><h5>4.2.2.5. Bounded Context Software Architecture Component Level Diagrams</h5></div>
+
+Este diagrama representa la arquitectura del Bounded Context Payments, mostrando la interacción entre la capa de dominio, aplicación, interfaz e infraestructura para la gestión de pagos.
+
+<div align="center">
+<img src="assets/images/Chapter-4/bdc1.png">
+</div>
+
+---
+
+<div id='4.2.2.6.'><h5>4.2.2.6. Bounded Context Software Architecture Code Level Diagram</h5></div>
+
+<div id='4.2.2.6.1'><h5>4.2.2.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
+
+Este diagrama UML representa la estructura del dominio Payments, mostrando los agregados principales como Payment y PaymentMethod, así como los Value Objects que controlan el estado y tipo de pago.
+
+<div align="center">
+<img src="assets/images/Chapter-4/uml1.png">
+</div>
+
+---
+
+<div id='4.2.2.6.2'><h5>4.2.2.6.2 Bounded Context Database Design Diagram</h5></div>
+
+<div align="center">
+<img src="assets/images/Chapter-4/uml2.png">
+</div>
+
+---
+
+### PAYMENTS
+
+**Propósito:** Registro de pagos de alquileres
+
+| Campo          | Tipo        | Descripción                              |
+| -------------- | ----------- | ---------------------------------------- |
+| `id`           | Long (PK)   | Identificador del pago                   |
+| `rental_id`    | Long (FK)   | Alquiler asociado (Renting)              |
+| `amount`       | decimal     | Monto total                             |
+| `status`       | varchar     | Estado (`PENDING`, `SUCCESS`, `FAILED`) |
+| `method`       | varchar     | Método (`CARD`, `YAPE`, `PLIN`)         |
+| `payment_date` | datetime    | Fecha del pago                          |
+
+**Relaciones:**
+- `1:1` con **RENTALS**
+
+---
+
+### PAYMENT_METHODS
+
+**Propósito:** Métodos de pago de usuarios
+
+| Campo        | Tipo      | Descripción                          |
+| ------------ | --------- | ------------------------------------ |
+| `id`         | Long (PK) | Identificador                        |
+| `user_id`    | Long (FK) | Usuario (IAM)                        |
+| `type`       | varchar   | Tipo (`CARD`, `YAPE`, `PLIN`)        |
+| `status`     | varchar   | Estado (`ACTIVE`, `DISABLED`)        |
+| `created_at` | datetime  | Fecha de registro                    |
+
+**Relaciones:**
+- `N:1` con **USERS** (IAM)
 
 
 ---------------------------------------------------------------
