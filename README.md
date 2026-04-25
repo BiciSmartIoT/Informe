@@ -4,17 +4,135 @@ En esta sección se aborda la perspectiva estratégica del enfoque Domain-Driven
 
 ## 4.1.1. Design-Level EventStorming
 
-El Event Storming se llevó a cabo en una sesión colaborativa con la participación de los miembros del equipo, incluyendo un facilitador y un relator. Durante la sesión, se utilizaron notas adhesivas de colores para representar eventos de dominio, comandos, actores, agregados y otros elementos clave del sistema.
+Para descubrir el dominio de **BiciSmartIOT** realizamos un *Design-Level
+EventStorming* en una sesión virtual de Miro. A diferencia del Big Picture,
+esta variante se enfoca en agregados, comandos, políticas y read models, por
+lo que construimos el board de manera **incremental en 7 pasos**: cada paso
+añade un nuevo tipo de sticky para enriquecer el modelo sin saturarlo, y al
+final converge en los Bounded Contexts candidatos del sistema.
 
-El objetivo principal fue capturar una visión integral del flujo de eventos dentro del dominio de BiciSmartIoT, identificar puntos críticos del sistema, comprender las interacciones entre usuarios, dispositivos IoT y servicios externos, y descubrir posibles bounded contexts.
+### Convenciones de color (notación clásica de EventStorming)
 
-A continuación, se detallan los pasos seguidos y los resultados obtenidos en cada una de las fases del Event Storming.
+| Color    | Significado                                                       |
+|----------|-------------------------------------------------------------------|
+| Naranja  | **Evento de Dominio** — un hecho de negocio en pasado.            |
+| Azul     | **Comando** — una intención que dispara un evento.                |
+| Amarillo | **Actor** — quién dispara el comando (Estudiante, Arrendador, Sistema, Dispositivo IoT). |
+| Lavanda  | **Agregado** — el objeto que custodia el invariante.              |
+| Púrpura  | **Política** — regla reactiva del tipo "cuando ocurre X entonces Y". |
+| Verde    | **Read Model** — vista de lectura que un actor consulta.          |
+| Rosa     | **Sistema externo** — Yape, Plin, Niubiz, Google Maps, Firebase.  |
 
 ---
 
-### Antes de la sesión:
+### Paso 1 — Pivotal Events
 
-Primero, se preparó el espacio de trabajo utilizando un mural digital en Miro, donde se definieron las reglas básicas para la participación. Se estableció que todas las ideas eran bienvenidas, sin importar su nivel de detalle, con el objetivo de fomentar la colaboración, la creatividad y la exploración completa del dominio.
+Comenzamos identificando los **eventos pivotales**: hitos de negocio que
+articulan el dominio y ordenan cronológicamente toda la historia. Cada sticky
+naranja corresponde a un hecho de negocio en pasado (Cuenta Creada, Bicicleta
+Desbloqueada, Alquiler Iniciado, Robo Potencial Detectado, Bicicleta
+Liberada, etc.).
+
+![Paso 1 — Pivotal Events](assets/images/Chapter-4/Pivot.png)
+
+
+---
+
+### Paso 2 — Agregamos los Comandos
+
+Sobre cada evento colocamos el **comando** (azul) que lo provocó. Los
+comandos son intenciones explícitas: *Reservar Bicicleta*, *Desbloquear
+Bicicleta*, *Autorizar Pago*. Esta etapa expone qué decisiones toma el
+sistema y permite separar lo que el usuario pide de lo que el sistema hace.
+
+![Paso 2 — Comandos](assets/images/Chapter-4/Comandos.png)
+
+
+---
+
+### Paso 3 — Agregamos los Actores
+
+Identificamos **quién dispara cada comando**. Aparecen cuatro tipos de
+actores en el dominio: el **Estudiante** (alquila), el **Arrendador**
+(publica), el **Sistema** (orquestador automatizado) y el **Dispositivo
+IoT** (cerradura + GPS). Esto nos permite distinguir qué partes del flujo
+son automáticas y cuáles las inicia una persona.
+
+![Paso 3 — Actores](assets/images/Chapter-4/Actores.png)
+
+
+---
+
+### Paso 4 — Agregamos las Políticas
+
+Las **políticas** (púrpura) son reglas reactivas del tipo *"cuando ocurre X
+entonces Y"*. Encadenan eventos con nuevos comandos:
+
+- *Si stock < 5 → notificar arrendador.*
+- *Al iniciar alquiler → activar tracking.*
+- *Si fuera de zona segura → emitir alerta.*
+- *Patrón sospechoso → alerta crítica.*
+- *Pago OK → liberar bicicleta.*
+
+Hacer las políticas explícitas es lo que convierte un EventStorming en una
+verdadera radiografía del dominio.
+
+![Paso 4 — Políticas](assets/images/Chapter-4/politicas.png)
+
+
+---
+
+### Paso 5 — Agregamos los Read Models
+
+Sumamos las **vistas de lectura** (verde) que los actores consultan
+**antes** de disparar comandos:
+
+- **Catálogo de Bicicletas** — el estudiante busca antes de reservar.
+- **Mapa en Tiempo Real** — el estudiante encuentra la bici más cercana.
+- **Historial de Viajes** — el estudiante revisa sus alquileres pasados.
+
+Distinguir read models del resto evita confundir lectura con escritura, una
+fuente común de mal diseño.
+
+![Paso 5 — Read Models](assets/images/Chapter-4/Read_Models.png)
+
+
+---
+
+### Paso 6 — Agregamos los Sistemas Externos
+
+Los stickies rosa marcan las **dependencias externas** del dominio:
+
+- **Yape / Plin / Visa Niubiz** — pasarelas de pago peruanas.
+- **Google Maps / GPS Satélites** — geolocalización.
+- **Firebase Cloud Messaging** — notificaciones push.
+
+Documentar estas integraciones desde temprano nos evita acoplar el modelo
+de dominio con detalles de infraestructura.
+
+![Paso 6 — Sistemas Externos](assets/images/Chapter-4/Sistemas_Externos.png)
+
+
+---
+
+### Paso 7 — Agregados y Bounded Contexts
+
+Por último agrupamos los stickies según el **agregado** (lavanda) que los
+encapsula y trazamos las fronteras de los **Bounded Contexts** candidatos.
+El board final muestra cómo el dominio se divide naturalmente en **7
+contextos especializados**:
+
+1. **IAM** — registro y validación de cuentas (Estudiante UPC / Arrendador).
+2. **Providing** — publicación de bicicletas, tarifas y zonas operativas.
+3. **IoT & Device Control** — comandos al hardware (cerradura, GPS, OTA).
+4. **Renting** — orquestador del alquiler end-to-end.
+5. **Tracking & Monitoring** — telemetría GPS, geofencing y anti-robo.
+6. **Payments** — autorización y procesamiento de pagos.
+7. **Notifications** — entrega multicanal (push, email, SMS).
+
+![Paso 7 — Agregados y Bounded Contexts](assets/images/Chapter-4/Agregados%20_Bounded_Contexts.png)
+
+---
 
 ## 4.1.2. Context Mapping
 
