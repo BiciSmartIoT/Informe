@@ -1,3 +1,21 @@
+# 4.1. Strategic-Level Domain-Driven Design
+
+En esta sección se aborda la perspectiva estratégica del enfoque Domain-Driven Design (DDD), la cual se centra en definir los límites del dominio y establecer una visión clara de cómo las diferentes partes del sistema interactúan entre sí. A través de técnicas como Event Storming, Context Mapping y la definición de una arquitectura de software adecuada, se busca garantizar que el diseño del sistema esté alineado con los objetivos del negocio y las necesidades de los usuarios.
+
+## 4.1.1. Design-Level EventStorming
+
+El Event Storming se llevó a cabo en una sesión colaborativa con la participación de los miembros del equipo, incluyendo un facilitador y un relator. Durante la sesión, se utilizaron notas adhesivas de colores para representar eventos de dominio, comandos, actores, agregados y otros elementos clave del sistema.
+
+El objetivo principal fue capturar una visión integral del flujo de eventos dentro del dominio de BiciSmartIoT, identificar puntos críticos del sistema, comprender las interacciones entre usuarios, dispositivos IoT y servicios externos, y descubrir posibles bounded contexts.
+
+A continuación, se detallan los pasos seguidos y los resultados obtenidos en cada una de las fases del Event Storming.
+
+---
+
+### Antes de la sesión:
+
+Primero, se preparó el espacio de trabajo utilizando un mural digital en Miro, donde se definieron las reglas básicas para la participación. Se estableció que todas las ideas eran bienvenidas, sin importar su nivel de detalle, con el objetivo de fomentar la colaboración, la creatividad y la exploración completa del dominio.
+
 ## 4.1.2. Context Mapping
 
 En esta sección desarrollamos un conjunto de context maps para visualizar las relaciones entre los bounded contexts del sistema **BiciSmartIOT**. A partir de la información recolectada (user stories, funcionalidades IoT, pagos, reservas, etc.), exploramos distintas alternativas de diseño, evaluando cómo cambiaría la arquitectura al dividir, agrupar o reorganizar capacidades del sistema.
@@ -75,7 +93,7 @@ Esta alternativa propone unir los contextos de Bicycle Management + IoT Monitori
 ---
 ![Opción 2](assets/images/Chapter-4/opcion_2.png)
 
-###  Opción 3
+###  Opción 3 
 
 Esta alternativa propone una arquitectura equilibrada con bounded contexts bien definidos y relaciones claras, separando correctamente responsabilidades críticas del sistema.
 
