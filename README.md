@@ -242,6 +242,101 @@ de bicicletas con protección anti-robo en tiempo real.
 El resto de *contexts* se modelan en las siguientes secciones mediante
 **Domain Message Flows** y **Bounded Context Canvases**, garantizando
 consistencia y claridad en la arquitectura estratégica.
+
+## 4.1.1.2 Domain Message Flows Modeling
+
+El **Domain Storytelling** es una técnica visual y colaborativa que facilita
+la exploración del conocimiento dentro del dominio del negocio, cuyo
+propósito principal es generar una comprensión común sobre lo que se
+desarrolla en un proceso específico, involucrando tanto a los expertos del
+negocio como a los equipos técnicos.
+
+En este sentido, elaboramos los *domain storytelling* tomando como
+referencia las interacciones entre los *bounded contexts* identificados en
+**BiciSmartIOT**, con el fin de analizar y comprender de manera más clara
+la lógica del negocio: alquiler self-service de bicicletas, integración con
+hardware IoT y protección anti-robo en tiempo real.
+
+> **Notación utilizada en todos los escenarios.**
+> - **Persona** → actor (Estudiante, Arrendador, Administrador).
+> - **Nube morada** → Bounded Context (Renting, Payments, IoT & Device
+>   Control, Tracking, Notifications, IAM, Providing).
+> - **Engranaje** → System (aplicación móvil, web, dispositivo físico,
+>   pasarela externa).
+> - **Flecha punteada numerada** → mensaje en orden cronológico (de emisor
+>   a receptor).
+> - **Sticky azul** → Command · **Naranja** → Event · **Verde** → Query.
+> - **Caja amarilla** → contenido del mensaje (campos relevantes).
+
+---
+
+### Escenario 1: Arrendador se registra y publica su primera bicicleta
+
+**Objetivo:** un dueño de flota se registra en la plataforma, valida su RUC,
+publica una bicicleta y la enlaza con un dispositivo IoT para activar la
+oferta en el marketplace.
+
+![Escenario 1 — Arrendador se registra y publica](assets/images/Chapter-4/DS_01_arrendador_publica.png)
+
+---
+
+### Escenario 2: Estudiante se registra con correo UPC y recibe la bienvenida
+
+**Objetivo:** un estudiante crea su cuenta usando su correo institucional
+@upc.edu.pe, el sistema valida el dominio y se le envía una notificación de
+bienvenida vía Firebase Cloud Messaging.
+
+![Escenario 2 — Estudiante se registra con correo UPC](assets/images/Chapter-4/DS_02_estudiante_registro.png)
+
+---
+
+### Escenario 3: Estudiante alquila una bicicleta end-to-end
+
+**Objetivo:** el estudiante busca una bicicleta cercana, la reserva,
+autoriza el pago en Yape/Plin/Visa Niubiz y el sistema desbloquea
+automáticamente la cerradura IoT para iniciar el alquiler.
+
+![Escenario 3 — Alquiler end-to-end](assets/images/Chapter-4/DS_03_alquiler_e2e.png)
+
+---
+
+### Escenario 4: Verificación de estado del dispositivo IoT antes del alquiler
+
+**Objetivo:** antes de confirmar la reserva, el sistema asegura que el
+dispositivo IoT acoplado a la bicicleta tiene batería suficiente y conexión
+estable, garantizando la captura de datos en tiempo real durante el viaje.
+
+![Escenario 4 — Verificación del dispositivo IoT](assets/images/Chapter-4/DS_04_verificacion_dispositivo.png)
+
+---
+
+### Escenario 5: Detección de robo en tiempo real y alerta crítica
+
+**Objetivo:** el sistema procesa los pings GPS, detecta que la bicicleta
+salió de la zona segura con un patrón sospechoso, dispara una alerta crítica
+al arrendador y, tras la confirmación, bloquea remotamente la cerradura.
+
+![Escenario 5 — Detección de robo en tiempo real](assets/images/Chapter-4/DS_05_deteccion_robo.png)
+
+---
+
+### Escenario 6: Finalización del alquiler, cobro final y devolución
+
+**Objetivo:** el estudiante finaliza el alquiler, el dispositivo IoT bloquea
+la bicicleta, *Payments* calcula el monto final, *Notifications* envía el
+recibo y la plataforma libera la bicicleta para el siguiente alquiler.
+
+![Escenario 6 — Finalización del alquiler](assets/images/Chapter-4/DS_06_finalizacion_alquiler.png)
+
+---
+
+> **Cierre.** Estos seis escenarios cubren los flujos críticos del dominio
+> de BiciSmartIOT y ejercitan la totalidad de los siete *bounded contexts*
+> identificados en la sección 4.1.1.1. La consistencia en la notación
+> permite que esta sección sirva como insumo directo para los **Bounded
+> Context Canvases** de la sección siguiente, donde cada contexto se
+> documenta en detalle.
+
 ## 4.1.2. Context Mapping
 
 En esta sección desarrollamos un conjunto de context maps para visualizar las relaciones entre los bounded contexts del sistema **BiciSmartIOT**. A partir de la información recolectada (user stories, funcionalidades IoT, pagos, reservas, etc.), exploramos distintas alternativas de diseño, evaluando cómo cambiaría la arquitectura al dividir, agrupar o reorganizar capacidades del sistema.
