@@ -202,7 +202,8 @@ Estudiante & Proveedor
 
 <img src="/assets/images/evenstorming.png" alt="quadrants" width=auto>
 
-Eventos clave:
+
+#### Eventos clave:
 
 - Bicicleta estacionada  
 - Movimiento detectado  
@@ -210,7 +211,13 @@ Eventos clave:
 - Alerta enviada  
 - Ubicación actualizada  
 - GeoFence activado  
-- Bicicleta fuera de zona  
+- Bicicleta fuera de zona
+
+
+#### Enlace al EventStorming:
+https://miro.com/welcomeonboard/Wjdub09ldkR1djZCRGJ5cnZLaGRrOHhvQXRaNkt3NmpEK2lWODkya3YxbFN0ZWxRb3RRaEI0VGJUVEhFS0xoZEVMcEJPUlZ6cWpyTDJrK2VjWGpKY1lvWG5vc3V3VWNMMk4yaXoxRnZtWm85dVBOWDFRQU8xT2NsUDNhWWtmeW9BS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=807617270017
+
+
 
 ---
 
