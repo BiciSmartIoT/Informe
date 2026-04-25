@@ -1095,23 +1095,117 @@ Propósito: Historial de cambios de estado y uso
 | status     | varchar   | Estado           |
 | timestamp  | datetime  | Fecha del cambio |
 
-## 4.2.4. Bounded Context: Tracking & Monitoring  (OSCAR)
+## 4.2.4. Bounded Context: Tracking & Monitoring
+
+El bounded context Tracking & Monitoring está encargado del seguimiento en tiempo real de las bicicletas, permitiendo registrar ubicación GPS, visualizar rutas recorridas, controlar el estado actual de la bicicleta y monitorear eventos generados por sensores IoT. Este contexto se relaciona con las user stories de ubicación en tiempo real, seguimiento de recorrido, estado de bicicleta e historial de rutas. Además, se conecta con el contexto de Providing, ya que la ubicación de la bicicleta está asociada al registro de bicicletas y al tracking del sistema.
 
 ### 4.2.4.1. Domain Layer
 
+En esta capa se definen las entidades principales, agregados, value objects, comandos, queries, eventos de dominio y servicios del sistema encargados del seguimiento en tiempo real de bicicletas.
+
+| Tipo           | Nombre                          | Descripción                                                                 | Responsabilidad Principal                                                           | Relación con otros elementos                            |
+| -------------- | ------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| Aggregate      | TrackingSession                 | Representa una sesión activa de seguimiento de una bicicleta.               | Controlar el inicio, actualización y finalización del seguimiento en tiempo real.   | Relacionado con Bicycle, RouteHistory y LocationUpdate. |
+| Aggregate      | RouteHistory                    | Representa el historial de recorridos realizados por una bicicleta.         | Guardar las rutas recorridas para consultas posteriores.                            | Relacionado con TrackingSession y Bicycle.              |
+| Entity         | LocationUpdate                  | Registra una actualización puntual de ubicación GPS.                        | Almacenar latitud, longitud, precisión y fecha de actualización.                    | Pertenece a TrackingSession.                            |
+| Entity         | BicycleMonitoringStatus         | Representa el estado operativo actual de una bicicleta.                     | Determinar si la bicicleta está disponible, en uso, detenida, offline o con alerta. | Se relaciona con Bicycle y eventos IoT.                 |
+| Value Object   | Coordinates                     | Objeto que contiene latitud y longitud.                                     | Representar una ubicación geográfica inmutable.                                     | Usado por LocationUpdate y RouteHistory.                |
+| Value Object   | GPSAccuracy                     | Representa el nivel de precisión de la señal GPS.                           | Validar si una ubicación puede ser usada correctamente.                             | Asociado a LocationUpdate.                              |
+| Value Object   | TrackingStatus                  | Estado del seguimiento: ACTIVE, PAUSED, FINISHED.                           | Controlar el ciclo de vida del tracking.                                            | Asociado a TrackingSession.                             |
+| Value Object   | MonitoringStatus                | Estado de bicicleta: AVAILABLE, IN_USE, STOPPED, OFFLINE, ALERT.            | Representar el estado actual de la bicicleta.                                       | Asociado a BicycleMonitoringStatus.                     |
+| Command        | StartTrackingCommand            | Comando para iniciar el seguimiento de una bicicleta.                       | Activar una nueva sesión de tracking.                                               | Usa TrackingSession y Bicycle.                          |
+| Command        | UpdateLocationCommand           | Comando para registrar una nueva ubicación GPS.                             | Guardar una actualización de coordenadas en tiempo real.                            | Usa LocationUpdate.                                     |
+| Command        | StopTrackingCommand             | Comando para finalizar el seguimiento.                                      | Cerrar la sesión y guardar la ruta final.                                           | Usa TrackingSession y RouteHistory.                     |
+| Command        | UpdateMonitoringStatusCommand   | Comando para actualizar el estado de una bicicleta.                         | Cambiar el estado actual de la bicicleta según eventos IoT.                         | Usa BicycleMonitoringStatus.                            |
+| Query          | GetCurrentLocationQuery         | Consulta para obtener la ubicación actual de una bicicleta.                 | Mostrar la posición actual en el mapa.                                              | Consulta LocationUpdate.                                |
+| Query          | GetRouteHistoryQuery            | Consulta para obtener rutas anteriores.                                     | Recuperar el historial de recorridos.                                               | Consulta RouteHistory.                                  |
+| Query          | GetBicycleMonitoringStatusQuery | Consulta para obtener el estado actual de una bicicleta.                    | Mostrar disponibilidad, conexión o uso actual.                                      | Consulta BicycleMonitoringStatus.                       |
+| Domain Event   | LocationUpdated                 | Evento generado cuando se actualiza la ubicación GPS.                       | Notificar que existe una nueva posición de bicicleta.                               | Consumido por mapas, monitoreo y notificaciones.        |
+| Domain Event   | TrackingStarted                 | Evento generado al iniciar el seguimiento.                                  | Registrar el inicio del monitoreo.                                                  | Relacionado con Renting e IoT.                          |
+| Domain Event   | TrackingFinished                | Evento generado al finalizar el seguimiento.                                | Cerrar la ruta recorrida.                                                           | Relacionado con RouteHistory.                           |
+| Domain Event   | BicycleStatusChanged            | Evento generado cuando cambia el estado de una bicicleta.                   | Comunicar cambios de disponibilidad o uso.                                          | Relacionado con Providing y Notifications.              |
+| Domain Service | RouteCalculationService         | Servicio que calcula distancia y duración de rutas.                         | Procesar coordenadas para obtener recorrido, distancia y tiempo.                    | Usa LocationUpdate y RouteHistory.                      |
+| Domain Service | MonitoringStatusService         | Servicio que evalúa eventos IoT para determinar el estado de una bicicleta. | Detectar bicicleta en uso, detenida, offline o con alerta.                          | Usa BicycleMonitoringStatus y eventos IoT.              |
+
 ### 4.2.4.2. Interface Layer
+
+| Tipo           | Nombre                                     | Descripción                                              | Responsabilidad Principal                                        | Relación con otros elementos                     |
+| -------------- | ------------------------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------ |
+| Controller     | TrackingController                         | Controlador REST para operaciones de seguimiento.        | Exponer endpoints para iniciar, actualizar y finalizar tracking. | Usa TrackingApplicationService.                  |
+| Controller     | MonitoringController                       | Controlador REST para consultar estados de bicicletas.   | Permitir al cliente consultar estado y ubicación actual.         | Usa MonitoringApplicationService.                |
+| Event Consumer | GPSLocationEventConsumer                   | Consumidor de eventos GPS enviados por dispositivos IoT. | Recibir coordenadas y enviar UpdateLocationCommand.              | Consume eventos del contexto IoT Device Control. |
+| Event Consumer | MotionDetectedEventConsumer                | Consumidor de eventos de movimiento.                     | Detectar si una bicicleta está en uso o detenida.                | Relacionado con sensores IoT.                    |
+| DTO            | TrackingSessionResponse                    | Respuesta con datos de una sesión de tracking.           | Enviar información de la sesión al cliente.                      | Usado por TrackingController.                    |
+| DTO            | LocationUpdateRequest                      | Payload con latitud, longitud, precisión y timestamp.    | Transportar datos GPS hacia la aplicación.                       | Usado por TrackingController.                    |
+| DTO            | CurrentLocationResponse                    | Respuesta con la ubicación actual de la bicicleta.       | Mostrar la posición actual en el mapa.                           | Usado por MonitoringController.                  |
+| DTO            | RouteHistoryResponse                       | Respuesta con el recorrido histórico.                    | Mostrar rutas anteriores al usuario.                             | Usado por TrackingController.                    |
+| DTO            | BicycleMonitoringStatusResponse            | Respuesta con el estado actual de la bicicleta.          | Mostrar disponibilidad, uso o alerta.                            | Usado por MonitoringController.                  |
+| Assembler      | TrackingSessionResourceFromEntityAssembler | Convierte entidad TrackingSession a respuesta.           | Traducir dominio a DTO.                                          | Usado por TrackingController.                    |
+| Assembler      | LocationUpdateCommandFromResourceAssembler | Convierte request en comando.                            | Traducir entrada HTTP a comando de aplicación.                   | Usado por TrackingController.                    |
 
 ### 4.2.4.3. Application Layer
 
+| Tipo                | Nombre                                 | Descripción                                       | Responsabilidad Principal                            | Relación con otros elementos                            |
+| ------------------- | -------------------------------------- | ------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------- |
+| Application Service | TrackingApplicationService             | Servicio principal para casos de uso de tracking. | Orquestar comandos y consultas de seguimiento.       | Invocado por TrackingController.                        |
+| Application Service | MonitoringApplicationService           | Servicio principal para monitoreo de bicicletas.  | Coordinar consultas de estado y ubicación.           | Invocado por MonitoringController.                      |
+| Command Handler     | StartTrackingCommandHandler            | Handler para iniciar una sesión de seguimiento.   | Crear TrackingSession y publicar TrackingStarted.    | Usa TrackingSessionRepository.                          |
+| Command Handler     | UpdateLocationCommandHandler           | Handler para registrar coordenadas GPS.           | Guardar LocationUpdate y publicar LocationUpdated.   | Usa LocationUpdateRepository.                           |
+| Command Handler     | StopTrackingCommandHandler             | Handler para finalizar tracking.                  | Cerrar sesión y generar RouteHistory.                | Usa TrackingSessionRepository y RouteHistoryRepository. |
+| Command Handler     | UpdateMonitoringStatusCommandHandler   | Handler para actualizar estado de bicicleta.      | Modificar BicycleMonitoringStatus según eventos IoT. | Usa MonitoringStatusService.                            |
+| Query Handler       | GetCurrentLocationQueryHandler         | Handler para obtener ubicación actual.            | Recuperar la última ubicación GPS registrada.        | Usa LocationUpdateRepository.                           |
+| Query Handler       | GetRouteHistoryQueryHandler            | Handler para consultar historial de rutas.        | Obtener rutas previas por usuario o bicicleta.       | Usa RouteHistoryRepository.                             |
+| Query Handler       | GetBicycleMonitoringStatusQueryHandler | Handler para consultar estado actual.             | Recuperar disponibilidad, conexión o alerta.         | Usa BicycleMonitoringStatusRepository.                  |
+
 ### 4.2.4.4. Infrastructure Layer
+
+| Tipo              | Nombre                            | Descripción                          | Responsabilidad Principal                                       | Relación con otros elementos                      |
+| ----------------- | --------------------------------- | ------------------------------------ | --------------------------------------------------------------- | ------------------------------------------------- |
+| Repository        | TrackingSessionRepository         | Repositorio de sesiones de tracking. | Persistir sesiones activas y finalizadas.                       | Relacionado con TrackingSession.                  |
+| Repository        | LocationUpdateRepository          | Repositorio de ubicaciones GPS.      | Guardar coordenadas recibidas en tiempo real.                   | Relacionado con LocationUpdate.                   |
+| Repository        | RouteHistoryRepository            | Repositorio de historial de rutas.   | Almacenar rutas finalizadas.                                    | Relacionado con RouteHistory.                     |
+| Repository        | BicycleMonitoringStatusRepository | Repositorio de estados de bicicleta. | Persistir estado actual de monitoreo.                           | Relacionado con BicycleMonitoringStatus.          |
+| External Adapter  | GoogleMapsAdapter                 | Adaptador para servicios de mapas.   | Mostrar ubicaciones y rutas en mapa.                            | Usado por consultas de ubicación.                 |
+| Message Consumer  | IoTTrackingMessageConsumer        | Consumidor de mensajes IoT.          | Recibir GPS, movimiento y estado desde MQTT/IoT Hub.            | Alimenta los event consumers.                     |
+| Message Publisher | TrackingEventPublisher            | Publicador de eventos del contexto.  | Emitir LocationUpdated, TrackingStarted y BicycleStatusChanged. | Consumido por Notifications, Providing y Renting. |
 
 ### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+<p align="center">
+  <img src="assets/images/Chapter-4/cld_1.png" width="700"/>
+</p>
+
 ### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+<p align="center">
+  <img src="assets/images/Chapter-4/code_d.png" width="700"/>
+</p>
 
 #### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
 
+Este diagrama UML representa la arquitectura del bounded context Tracking & Monitoring. Se organiza bajo principios de diseño orientado a objetos y sigue el enfoque CQRS, separando comandos para modificar el estado del sistema y consultas para obtener información de monitoreo.
+
+El agregado principal es TrackingSession, encargado de controlar el ciclo de vida del seguimiento de una bicicleta. LocationUpdate registra las coordenadas GPS recibidas desde los dispositivos IoT, mientras que RouteHistory almacena el recorrido finalizado. Además, BicycleMonitoringStatus permite conocer el estado actual de la bicicleta, como disponible, en uso, detenida, offline o en alerta.
+
+Este contexto interactúa con:
+- Providing, para actualizar la ubicación y estado de las bicicletas.
+- Renting, para iniciar o finalizar el seguimiento durante un alquiler.
+- IoT & Device Control, para recibir datos GPS, movimiento y conexión.
+- Notifications, para generar alertas ante eventos importantes.
+
+<p align="center">
+  <img src="assets/images/Chapter-4/class_diagram.png" width="700"/>
+</p>
+
 #### 4.2.4.6.2. Bounded Context Database Design Diagram
+
+La base de datos del bounded context Tracking & Monitoring permite almacenar sesiones de seguimiento, actualizaciones GPS, historial de rutas, estado actual de monitoreo y eventos generados durante el recorrido.
+
+La tabla tracking_sessions registra cada sesión activa o finalizada. La tabla location_updates almacena las coordenadas recibidas periódicamente. La tabla route_histories conserva el resumen de los recorridos realizados. La tabla bicycle_monitoring_status mantiene el estado actual de cada bicicleta, mientras que tracking_events registra eventos relevantes como pérdida de conexión, movimiento sospechoso o cambios de estado.
+
+<p align="center">
+  <img src="assets/images/Chapter-4/data_base.png" width="700"/>
+</p>
 
 ## 4.2.5. Bounded Context: IoT & Device Control
 
