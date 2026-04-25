@@ -122,7 +122,7 @@ encapsula y trazamos las fronteras de los **Bounded Contexts** candidatos.
 El board final muestra cómo el dominio se divide naturalmente en **7
 contextos especializados**:
 
-1. **IAM** — registro y validación de cuentas (Estudiante UPC / Arrendador).
+1. **IAM** — registro y validación de cuentas (Estudiante / Arrendador).
 2. **Providing** — publicación de bicicletas, tarifas y zonas operativas.
 3. **IoT & Device Control** — comandos al hardware (cerradura, GPS, OTA).
 4. **Renting** — orquestador del alquiler end-to-end.
@@ -154,7 +154,7 @@ EventStorming anterior.
 Se priorizó **Start-with-Value** para ubicar primero los flujos que
 diferencian a BiciSmartIOT en el mercado peruano: alquiler self-service
 por minuto, protección anti-robo en tiempo real basada en GPS y
-geofencing, y un marketplace que conecta a estudiantes UPC con
+geofencing, y un marketplace que conecta a estudiantes con
 arrendadores independientes. De forma complementaria, se revisaron
 **eventos pivote** para detectar cambios de estado entre subdominios (por
 ejemplo: pago autorizado, desbloqueo de bicicleta, salida de zona segura,
@@ -197,7 +197,7 @@ candidatos** para BiciSmartIOT:
 
 | Candidate Context | Eventos clave asociados | Clasificación | Descripción | Justificación |
 |---|---|---|---|---|
-| **IAM** | `User Created`, `UPC Email Verified`, `Renter Approved`, `Session Started` | Generic | Gestión de identidad, autenticación y acceso por rol (Estudiante / Arrendador). | Es transversal y necesario para operar, pero no representa diferenciación de negocio en el mercado de alquiler. |
+| **IAM** | `User Created`, `Email Verified`, `Renter Approved`, `Session Started` | Generic | Gestión de identidad, autenticación y acceso por rol (Estudiante / Arrendador). | Es transversal y necesario para operar, pero no representa diferenciación de negocio en el mercado de alquiler. |
 | **Providing** | `Bicycle Published`, `Fare Defined`, `Operating Zone Set`, `Bicycle Paused` | Supporting | Publicación y mantenimiento del catálogo de bicicletas por parte de los arrendadores. | Habilita la oferta del marketplace, pero la lógica es estándar de e-commerce y no constituye el núcleo diferenciador. |
 | **IoT & Device Control** | `Device Registered`, `Device Paired`, `Bicycle Unlocked`, `Bicycle Released`, `Bicycle Locked`, `Device Low Battery` | Core | Comandos al hardware (cerradura + GPS) y emparejamiento con la bicicleta vía MQTT/BLE. | Es indispensable para el modelo *self-service* y la calidad de captura de telemetría que sustenta toda la operación. |
 | **Renting** | `Bicycle Reserved`, `Rental Started`, `Rental Finished`, `Reservation Expired` | Core | Orquestación del ciclo de vida del alquiler end-to-end. | Contiene la propuesta de valor principal de BiciSmartIOT: alquilar una bicicleta en segundos sin intervención humana. |
@@ -280,13 +280,12 @@ oferta en el marketplace.
 
 ---
 
-### Escenario 2: Estudiante se registra con correo UPC y recibe la bienvenida
+### Escenario 2: Estudiante se registra con correo  y recibe la bienvenida
 
-**Objetivo:** un estudiante crea su cuenta usando su correo institucional
-@upc.edu.pe, el sistema valida el dominio y se le envía una notificación de
+**Objetivo:** un estudiante crea su cuenta usando su correo institucional, el sistema valida el dominio y se le envía una notificación de
 bienvenida vía Firebase Cloud Messaging.
 
-![Escenario 2 — Estudiante se registra con correo UPC](assets/images/Chapter-4/DS_02_estudiante_registro.png)
+![Escenario 2 — Estudiante se registra con correo](assets/images/Chapter-4/DS_02_estudiante_registro.png)
 
 ---
 
