@@ -1171,11 +1171,23 @@ En esta capa se definen las entidades principales, agregados, value objects, com
 
 ### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+Este diagrama representa la arquitectura interna del bounded context **Tracking & Monitoring**, mostrando cómo se organizan sus principales componentes por capas. En la capa de interfaz se encuentran los controladores encargados de recibir solicitudes desde la aplicación móvil y el panel administrativo, así como los consumidores de eventos provenientes de dispositivos IoT.
+
+La capa de aplicación coordina los casos de uso principales, como iniciar el seguimiento de una bicicleta, actualizar su ubicación, consultar su estado actual y recuperar el historial de rutas. La capa de dominio contiene los elementos centrales del negocio, como **TrackingSession**, **LocationUpdate**, **RouteHistory** y **BicycleMonitoringStatus**, los cuales permiten controlar el seguimiento en tiempo real y el estado operativo de cada bicicleta.
+
+Finalmente, la capa de infraestructura se encarga de la persistencia de datos, la integración con Google Maps y la recepción de eventos IoT. Este diseño permite separar responsabilidades, facilitar el mantenimiento del sistema y asegurar que el monitoreo de bicicletas pueda evolucionar sin afectar otros bounded contexts.
+
 <p align="center">
   <img src="assets/images/Chapter-4/cld_1.png" width="700"/>
 </p>
 
 ### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+Este diagrama muestra con mayor detalle la estructura de código del bounded context **Tracking & Monitoring**, representando las principales clases, entidades, value objects, comandos, consultas, eventos de dominio y servicios de dominio utilizados en el seguimiento de bicicletas.
+
+El agregado principal es **TrackingSession**, encargado de gestionar el ciclo de vida del seguimiento, desde su inicio hasta su finalización. La entidad **LocationUpdate** registra cada actualización GPS recibida desde los dispositivos IoT, mientras que **RouteHistory** conserva el resumen del recorrido realizado. Además, **BicycleMonitoringStatus** permite conocer el estado actual de la bicicleta, como disponible, en uso, detenida, sin conexión o en alerta.
+
+El diseño sigue el enfoque **CQRS** (separación entre comandos y consultas), donde los comandos modifican el estado del sistema y las consultas recuperan información sin alterarla. También se utilizan eventos de dominio como **LocationUpdated**, **TrackingStarted** y **TrackingFinished**, que permiten comunicar cambios importantes a otros contextos como Notifications, Renting y Providing.
 
 <p align="center">
   <img src="assets/images/Chapter-4/code_d.png" width="700"/>
