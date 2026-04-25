@@ -776,15 +776,9 @@ Sub-capa Infrastructure <br>
 
 <div id='4.2.1.1.'><h5>4.2.1.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
 
-Este diagrama UML representa la arquitectura del flujo de alquiler de bicicletas inteligentes. Se basa en principios de diseño orientado a objetos y sigue el enfoque CQRS (Command Query Responsibility Segregation).
+Este diagrama UML representa la arquitectura del Bounded Context Renting, centrado en la gestión del proceso de alquiler de bicicletas. El modelo sigue principios de diseño orientado a objetos y adopta un enfoque basado en DDD (Domain-Driven Design) junto con CQRS, separando las operaciones de comandos y consultas.
 
-Las entidades principales son Rental y Reservation, que gestionan el ciclo completo del alquiler.
-
-Se interactúa con otros bounded contexts como:
-
-* Providing (bicicletas)
-* Payments (pagos)
-* IoT & Device Control (inicio y fin físico del alquiler)
+En el núcleo del dominio se encuentran los agregados principales como Rental y Reservation, responsables de gestionar el ciclo de vida del alquiler y las reservas previas. Además, se utilizan Value Objects como RentalTime, RentalStatus y ReservationStatus, que permiten representar el estado y duración del alquiler de forma clara y consistente.
 
 <div align="center">
 <img src="assets/images/Chapter-4/Bounded Context Domain Layer Class Diagrams_renting.png">
@@ -1525,16 +1519,9 @@ Sub-capa Infrastructure <br>
 
 <div id='4.2.3.1.'><h5>4.2.3.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
 
-Este diagrama UML representa la arquitectura del contexto de gestión de bicicletas. Se organiza bajo principios de diseño orientado a objetos y sigue el enfoque CQRS.
+Este diagrama UML representa la arquitectura del Bounded Context Providing, enfocado en la gestión de bicicletas dentro de la plataforma. El modelo sigue principios de diseño orientado a objetos y adopta un enfoque basado en DDD (Domain-Driven Design) junto con CQRS, separando las operaciones de comandos y consultas.
 
-La entidad principal es Bicycle, encargada de centralizar la información del vehículo.
-
-Este contexto interactúa con:
-
-* Renting (uso de bicicletas en alquiler)
-* Tracking & Monitoring (ubicación y estado en tiempo real)
-* IoT & Device Control (sensores y smart lock)
-* IAM (propietario de la bicicleta)
+En el núcleo del dominio se encuentran los agregados principales como Bicycle y BicycleCatalog, responsables de gestionar la información y organización de las bicicletas. Además, se utilizan Value Objects como BicycleStatus, BicycleType, Location y Price, que permiten modelar el dominio de forma más clara y consistente, evitando el uso de tipos genéricos sin contexto.
 
 
 <div align="center">
@@ -1546,7 +1533,7 @@ Este contexto interactúa con:
 
 
 <div align="center">
-<img src="assets/images/Chapter-4/Bounded Context Database Design Diagram_proving.png">
+<img src="assets/images/Chapter-4/Bounded Context Database Design Diagram_proving.jpeg">
 </div>
 
 BICYCLES
