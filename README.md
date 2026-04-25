@@ -372,9 +372,12 @@ Sub-capa Infrastructure <br>
 
 
 <div id='4.2.1.1.'><h5>4.2.1.5. Bounded Context Software Architecture Component Level Diagrams</h5></div>
+<div align="center">
+<img src="assets/images/Chapter-4/Bounded Context Software Architecture Component Level Diagrams_renting.jpeg">
+</div>
+
 
 <div id='4.2.1.1.'><h5>4.2.1.6. Bounded Context Software Architecture Code Level Diagram</h5></div>
-
 
 <div id='4.2.1.1.'><h5>4.2.1.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
 
@@ -389,13 +392,13 @@ Se interactúa con otros bounded contexts como:
 * IoT & Device Control (inicio y fin físico del alquiler)
 
 <div align="center">
-<img src="assets/images/Chapter-4/name.jpeg">
+<img src="assets/images/Chapter-4/Bounded Context Domain Layer Class Diagrams_renting.png">
 </div>
 
-<div id='4.2.1.1.'><h5>4.2.1.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
+<div id='4.2.1.1.'><h5>4.2.1.6.2 Bounded Context Database Design Diagram</h5></div>
 
 <div align="center">
-<img src="assets/images/Chapter-4/name2.jpeg">
+<img src="assets/images/Chapter-4/Bounded Context Database Design Diagram_renting.jpeg">
 </div>
 ### RENTALS
 
