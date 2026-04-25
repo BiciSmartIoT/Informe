@@ -1580,6 +1580,207 @@ Propósito: Historial de cambios de estado y uso
 
 #### 4.2.4.6.2. Bounded Context Database Design Diagram
 
+## 4.2.5. Bounded Context: IoT & Device Control
+
+Este *bounded context* es **core** y se encarga de la **interacción con el
+hardware y los sensores**: registra los dispositivos IoT acoplados a cada
+bicicleta, los empareja con su bicicleta correspondiente, ejecuta comandos
+físicos (unlock / lock / lockdown) vía MQTT y publica la telemetría que
+alimenta a *Tracking & Monitoring*.
+
+---
+
+### 4.2.5.1. Domain Layer
+
+#### Sub-capa model
+
+| Tipo | Nombre | Descripción | Responsabilidad Principal | Relación con otros elementos |
+|---|---|---|---|---|
+| Aggregate | **Device** | Representa un dispositivo IoT (cerradura + GPS) acoplado a una bicicleta. | Gestionar el ciclo de vida del dispositivo y su estado físico. | Relacionado con Pairing, Bicycle (Providing) y TelemetryReading. |
+| Aggregate | **Pairing** | Representa el vínculo seguro entre un Device y una Bicycle. | Mantener la relación device ↔ bicicleta y validar tokens. | Relacionado con Device y Bicycle (Providing). |
+| Aggregate | **TelemetryReading** | Representa una lectura de telemetría (batería, conexión, GPS). | Almacenar la telemetría histórica del dispositivo. | Asociado a Device. Consumido por Tracking. |
+| Value Object | **LockState** | Estado físico de la cerradura (`LOCKED` / `UNLOCKED` / `LOCKDOWN`). | Controlar el estado actual de la cerradura. | Asociado a Device. |
+| Value Object | **DeviceStatus** | Estado operativo (`ONLINE` / `OFFLINE` / `LOW_BATTERY`). | Gestionar disponibilidad para alquiler. | Asociado a Device. |
+| Value Object | **FirmwareVersion** | Versión semántica del firmware OTA (major.minor.patch). | Controlar las actualizaciones OTA. | Asociado a Device. |
+| Value Object | **BatteryLevel** | Nivel de batería en porcentaje (0-100). | Decidir cuándo pausar el dispositivo. | Asociado a Device y TelemetryReading. |
+| Value Object | **PairingToken** | Token de un solo uso con expiración. | Asegurar que el pairing sea único e irrepetible. | Asociado a Pairing. |
+| Command | **RegisterDeviceCommand** | Registrar un nuevo dispositivo IoT en la plataforma. | Crear la entidad Device. | Usa Device. |
+| Command | **PairDeviceCommand** | Emparejar un Device con una Bicycle. | Crear un Pairing válido. | Usa Pairing y Device. |
+| Command | **UnlockBicycleCommand** | Enviar comando MQTT de desbloqueo a la cerradura. | Activar la cerradura. | Usa Device. |
+| Command | **ReleaseBicycleCommand** | Devolver la bicicleta al cierre del alquiler. | Liberar la cerradura. | Usa Device. |
+| Command | **ActivateLockdownCommand** | Activar modo bloqueo anti-robo de forma remota. | Bloquear remotamente. | Usa Device. |
+| Command | **UpdateFirmwareCommand** | Lanzar una actualización OTA al dispositivo. | Actualizar versión de firmware. | Usa Device. |
+| Query | **GetDeviceStatusQuery** | Obtener el estado actual del dispositivo. | Mostrar estado al sistema. | Consulta Device. |
+| Query | **GetPairingByBicycleQuery** | Obtener el pairing por bicicleta. | Encontrar el Device asociado. | Consulta Pairing. |
+| Query | **GetTelemetryHistoryQuery** | Obtener el historial de telemetría de un dispositivo. | Análisis y diagnósticos. | Consulta TelemetryReading. |
+
+#### Sub-capa Services
+
+| Tipo | Nombre | Descripción | Responsabilidad Principal | Relación con otros elementos |
+|---|---|---|---|---|
+| Interface | **DeviceCommandService** | Servicio para comandos relacionados con dispositivos. | Declarar métodos para registrar, desbloquear, bloquear y actualizar firmware. | Implementado por `DeviceCommandServiceImpl`. Usado en capa Application. |
+| Interface | **PairingCommandService** | Servicio para comandos relacionados con emparejamientos. | Declarar métodos para emparejar y desemparejar dispositivos. | Implementado por `PairingCommandServiceImpl`. Usado en capa Application. |
+| Interface | **DeviceQueryService** | Servicio para consultas de dispositivos. | Declarar métodos para obtener estado y configuración. | Implementado por `DeviceQueryServiceImpl`. Usado en capa Application. |
+| Interface | **TelemetryQueryService** | Servicio para consultas de telemetría. | Declarar métodos para obtener historial y agregaciones. | Implementado por `TelemetryQueryServiceImpl`. Usado en capa Application. |
+
+---
+
+### 4.2.5.2. Interface Layer
+
+#### Sub-capa REST
+
+| Tipo | Nombre | Descripción | Responsabilidad Principal | Relación con otros elementos |
+|---|---|---|---|---|
+| Controller | **DeviceController** | Controlador REST para gestionar dispositivos. | Recibe solicitudes del cliente sobre registro, unlock, lock y firmware. | Utiliza `DeviceCommandService`, `DeviceQueryService` y los assemblers de Device. |
+| Controller | **PairingController** | Controlador REST para gestionar emparejamientos. | Maneja solicitudes de creación y cancelación de pairings. | Utiliza `PairingCommandService` y los assemblers de Pairing. |
+| Resource | **DeviceRequestResource** | Estructura de petición para registro o comando físico. | Representa los datos de entrada del cliente. | Usado por `DeviceController`. |
+| Resource | **DeviceResponseResource** | Estructura de respuesta del dispositivo. | Devuelve el estado del Device al cliente. | Usado por `DeviceController`. |
+| Resource | **PairingRequestResource** | Estructura de petición para crear un pairing. | Representa los datos de entrada del cliente. | Usado por `PairingController`. |
+| Resource | **PairingResponseResource** | Estructura de respuesta de pairing. | Devuelve los datos al cliente. | Usado por `PairingController`. |
+| Assembler | **RegisterDeviceCommandFromResourceAssembler** | Convierte el request en comando de dominio. | Traducir la entrada a `RegisterDeviceCommand`. | Usado por `DeviceController`. |
+| Assembler | **DeviceResourceFromEntityAssembler** | Convierte la entidad Device en respuesta. | Traducir el dominio a la respuesta REST. | Usado por `DeviceController`. |
+
+---
+
+### 4.2.5.3. Application Layer
+
+#### Sub-capa Internal
+
+| Tipo | Nombre | Descripción | Responsabilidad Principal | Relación con otros elementos |
+|---|---|---|---|---|
+| Service | **DeviceCommandServiceImpl** | Implementación del servicio de comandos para dispositivos. | Ejecutar la lógica de registro, unlock, lock y actualización OTA. | Implementa `DeviceCommandService`. Usa repositorios y `MqttBrokerAdapter`. |
+| Service | **PairingCommandServiceImpl** | Implementación del servicio de pairing. | Ejecutar la lógica de emparejamiento y validación de tokens. | Implementa `PairingCommandService`. Usa `PairingRepository` y `BleProvisioningAdapter`. |
+| Service | **DeviceQueryServiceImpl** | Implementación de consultas de dispositivos. | Obtener estado y configuración. | Implementa `DeviceQueryService`. |
+| Service | **TelemetryQueryServiceImpl** | Implementación de consultas de telemetría. | Obtener historial y agregaciones. | Implementa `TelemetryQueryService`. |
+
+---
+
+### 4.2.5.4. Infrastructure Layer
+
+#### Sub-capa Infrastructure
+
+| Tipo | Nombre | Descripción | Responsabilidad Principal | Relación con otros elementos |
+|---|---|---|---|---|
+| Repository | **DeviceRepository** | Repositorio para gestionar dispositivos. | Persistencia de datos del Device. | Relacionado con Device. |
+| Repository | **PairingRepository** | Repositorio para gestionar emparejamientos. | Persistencia de pairings. | Relacionado con Pairing. |
+| Repository | **TelemetryRepository** | Repositorio para gestionar lecturas de telemetría. | Persistencia de TelemetryReading. | Relacionado con TelemetryReading. |
+| Adapter | **MqttBrokerAdapter** | Cliente MQTT para enviar comandos al hardware. | Publicar comandos en `/bicismart/{deviceId}/cmd` con QoS 2 y mTLS. | Conecta con AWS IoT Core. |
+| Adapter | **BleProvisioningAdapter** | Cliente BLE para emparejamiento inicial. | Provisionar credenciales del Device vía Bluetooth Low Energy. | Conecta con la app móvil del arrendador. |
+| Adapter | **OtaUpdateAdapter** | Adaptador de actualizaciones OTA. | Empujar firmware al dispositivo de forma segura. | Conecta con bucket S3 de firmware. |
+
+---
+
+### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Component Level Diagram — IoT & Device Control](assets/images/Chapter-4/IoT_Component_Level.png)
+
+> *Figura 4.2.5.1 — Diagrama de componentes (C4) del Bounded Context IoT & Device Control. Se observan los controladores REST, los servicios de comandos y queries, los aggregates del dominio, los repositorios JPA y el adaptador MQTT que conecta con AWS IoT Core y los dispositivos físicos.*
+
+---
+
+### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+#### 4.2.5.6.1 Bounded Context Domain Layer Class Diagrams
+
+Este diagrama UML representa la arquitectura del flujo de control de
+dispositivos IoT. Se basa en principios de diseño orientado a objetos y
+sigue el enfoque **CQRS** (Command Query Responsibility Segregation).
+
+Las entidades principales son **Device**, **Pairing** y **TelemetryReading**,
+que gestionan el ciclo de vida del hardware acoplado a cada bicicleta.
+
+Se interactúa con otros *bounded contexts* como:
+
+- **Providing** (relación con Bicycle al emparejar)
+- **Renting** (recibe los comandos de unlock/release durante el alquiler)
+- **Tracking & Monitoring** (consume los pings GPS publicados)
+
+![UML Class Diagram — IoT & Device Control](assets/images/Chapter-4/IoT_Class_Diagram.png)
+
+> *Figura 4.2.5.2 — Diagrama UML del Domain Layer del BC IoT & Device Control con sus aggregates, commands, queries, services y value objects.*
+
+---
+
+#### 4.2.5.6.2 Bounded Context Database Design Diagram
+
+![Database Design Diagram — IoT & Device Control](assets/images/Chapter-4/IoT_Database_Design.png)
+
+> *Figura 4.2.5.3 — Diseño de base de datos del BC IoT & Device Control. La entidad central `devices` se relaciona con `pairings` (emparejamientos device ↔ bicicleta), `telemetry_readings` (telemetría histórica) y `firmware_updates` (gestión de OTA).*
+
+##### DEVICES
+
+**Propósito:** Registro maestro de dispositivos IoT acoplados a las bicicletas.
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | Long (PK) | Identificador único del dispositivo. |
+| `mac_address` | varchar | Dirección MAC física del módulo IoT. |
+| `firmware_version` | varchar | Versión semántica del firmware (`x.y.z`). |
+| `battery_level` | int | Nivel de batería 0-100. |
+| `lock_state` | varchar | Estado (`LOCKED`, `UNLOCKED`, `LOCKDOWN`). |
+| `device_status` | varchar | Estado (`ONLINE`, `OFFLINE`, `LOW_BATTERY`). |
+| `registered_at` | datetime | Fecha de registro inicial. |
+
+**Relaciones:**
+
+- `1:N` con **PAIRINGS**
+- `1:N` con **TELEMETRY_READINGS**
+- `1:N` con **FIRMWARE_UPDATES**
+
+##### PAIRINGS
+
+**Propósito:** Vínculo seguro entre un Device y una Bicycle.
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | Long (PK) | Identificador único. |
+| `device_id` | Long (FK) | Dispositivo emparejado. |
+| `bicycle_id` | Long (FK) | Bicicleta emparejada (Providing). |
+| `pairing_token` | varchar | Token de un solo uso. |
+| `paired_at` | datetime | Fecha de emparejamiento. |
+| `status` | varchar | Estado (`ACTIVE`, `REVOKED`). |
+
+**Relaciones:**
+
+- `N:1` con **DEVICES**
+- `N:1` con **BICYCLES** (Providing)
+
+##### TELEMETRY_READINGS
+
+**Propósito:** Lecturas históricas de telemetría del dispositivo.
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | Long (PK) | Identificador único. |
+| `device_id` | Long (FK) | Dispositivo emisor. |
+| `battery_level` | int | Nivel de batería en el momento. |
+| `is_online` | bool | Estado de conexión. |
+| `lat` | double | Latitud GPS. |
+| `lon` | double | Longitud GPS. |
+| `recorded_at` | datetime | Timestamp de la lectura. |
+
+**Relaciones:**
+
+- `N:1` con **DEVICES**
+
+##### FIRMWARE_UPDATES
+
+**Propósito:** Bitácora de actualizaciones OTA aplicadas a cada dispositivo.
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | Long (PK) | Identificador. |
+| `device_id` | Long (FK) | Dispositivo actualizado. |
+| `from_version` | varchar | Versión anterior. |
+| `to_version` | varchar | Versión nueva. |
+| `requested_at` | datetime | Inicio de la actualización. |
+| `completed_at` | datetime | Fin de la actualización (nullable). |
+| `status` | varchar | Estado (`PENDING`, `IN_PROGRESS`, `COMPLETED`, `FAILED`). |
+
+**Relaciones:**
+
+- `N:1` con **DEVICES**
+
 
   
 
