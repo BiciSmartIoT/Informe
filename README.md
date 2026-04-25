@@ -516,7 +516,23 @@ Propósito: Historial de cambios de estado y uso
 | status     | varchar   | Estado           |
 | timestamp  | datetime  | Fecha del cambio |
 
+## 4.2.4. Bounded Context: Tracking & Monitoring  (OSCAR)
 
+### 4.2.4.1. Domain Layer
+
+### 4.2.4.2. Interface Layer
+
+### 4.2.4.3. Application Layer
+
+### 4.2.4.4. Infrastructure Layer
+
+### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+#### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+#### 4.2.4.6.2. Bounded Context Database Design Diagram
 
 
   
