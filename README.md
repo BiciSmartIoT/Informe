@@ -1517,8 +1517,9 @@ Sub-capa Infrastructure <br>
 
 <div id='4.2.3.1.'><h5>4.2.3.5. Bounded Context Software Architecture Component Level Diagrams</h5></div>
 
-(Insertar diagrama de componentes del contexto Providing)
-
+<div align="center">
+<img src="assets/images/Chapter-4/Bounded Context Software Architecture Component Level Diagrams_proving.jpeg">
+</div>
 
 <div id='4.2.3.1.'><h5>4.2.3.6. Bounded Context Software Architecture Code Level Diagram</h5></div>
 
@@ -1536,8 +1537,17 @@ Este contexto interactúa con:
 * IAM (propietario de la bicicleta)
 
 
+<div align="center">
+<img src="assets/images/Chapter-4/Bounded Context Domain Layer Class Diagrams_proving.png">
+</div>
 
-<div id='4.2.3.1.'><h5>4.2.3.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
+
+<div id='4.2.3.1.'><h5>4.2.3.6.2 Bounded Context Database Design Diagram</h5></div>
+
+
+<div align="center">
+<img src="assets/images/Chapter-4/Bounded Context Database Design Diagram_proving.png">
+</div>
 
 BICYCLES
 
