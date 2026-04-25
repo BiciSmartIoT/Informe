@@ -761,42 +761,42 @@ CREATE TABLE payments_outbox(
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams 
 Este diagrama representa la descomposición interna del container IAM Application, correspondiente al bounded context de identidad y autenticación (IAM) dentro de la plataforma de bicicletas. Se trata de un backend desarrollado bajo los principios de Clean Architecture y Domain-Driven Design (DDD), ilustrado en el Nivel 3 del C4 Model (Component Diagram).
 
-<img src="/assets/images/bdc1.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/bdc1.png" alt="bdc1" width=auto>
 
 Este diagrama muestra la descomposición interna del container Renting Application.
 
-<img src="/assets/images/bdc2.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/bdc2.png" alt="bdc1" width=auto>
 
 El Providing Bounded Context se centra en la gestión de los vehículos que los proveedores ponen a disposición de los usuarios.
 
-<img src="/assets/images/bdc3.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/bdc3.png" alt="bdc1" width=auto>
 
 Dominio Vehicles:
 
-<img src="/assets/images/dc2.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/dc2.png" alt="bdc1" width=auto>
 
 #### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams 
 ##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams 
 Este diagrama de clases ilustra la capa de dominio del bounded context IAM, con sus Agregados, Entidades y Value Objects.
 
-<img src="/assets/images/uml1.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/uml1.png" alt="bdc1" width=auto>
 
 Diagrama del dominio Renting:
 
-<img src="/assets/images/uml3.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/uml3.png" alt="bdc1" width=auto>
 
 Diagrama del dominio Providing:
 
-<img src="/assets/images/uml5.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/uml5.png" alt="bdc1" width=auto>
 
 Diagrama del dominio Vehicles:
 
-<img src="/assets/images/dc1.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/dc1.png" alt="bdc1" width=auto>
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram
 El siguiente diagrama muestra el diseño de la base de datos relacional para el contexto IAM, incluyendo las tablas principales relacionadas con usuarios, credenciales y verificaciones.
 
-<img src="/assets/images/uml2.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/uml2.png" alt="bdc1" width=auto>
 
 Tabla: users
 | Nombre           | Descripción                                                         |
@@ -868,7 +868,7 @@ Tabla: refresh_tokens (opcional, para sesiones seguras)
 
 Contexto Renting:
 
-<img src="/assets/images/uml4.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/uml4.png" alt="bdc1" width=auto>
 
 Tabla: rentals  
 | Nombre         | Descripción                                                                 |
@@ -923,7 +923,7 @@ Tabla: stations
 | updated_at    | Fecha y hora de la última actualización.                                    |
 
 Contexto Providing:
-<img src="/assets/images/uml6.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/uml6.png" alt="bdc1" width=auto>
 
 Proveedor
 
@@ -968,7 +968,7 @@ Historial
 | comentario    | Observaciones o detalles adicionales.                |
 
 Contexto Vehicles:
-<img src="/assets/images/er2.png" alt="bdc1" width=auto>
+<img src="/assets/images/Chapter-4/er2.png" alt="bdc1" width=auto>
 
 Usuario
 | Nombre      | Descripción                          |
