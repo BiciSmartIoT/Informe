@@ -75,7 +75,7 @@ Esta alternativa propone unir los contextos de Bicycle Management + IoT Monitori
 ---
 ![Opción 2](assets/images/Chapter-4/opcion_2.png)
 
-###  Opción 3 (RECOMENDADA)
+###  Opción 3
 
 Esta alternativa propone una arquitectura equilibrada con bounded contexts bien definidos y relaciones claras, separando correctamente responsabilidades críticas del sistema.
 
