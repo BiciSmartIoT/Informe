@@ -133,7 +133,115 @@ contextos especializados**:
 ![Paso 7 — Agregados y Bounded Contexts](assets/images/Chapter-4/Agregados%20_Bounded_Contexts.png)
 
 ---
+## 4.1.1.1 Candidate Context Discovery
 
+En esta sección se describe el proceso seguido por el equipo para descubrir
+los *bounded contexts* candidatos de **BiciSmartIOT** a partir del
+Design-Level EventStorming. El objetivo fue identificar límites naturales
+del dominio de alquiler de bicicletas con IoT integrado, priorizar las
+partes con mayor valor estratégico para el negocio y preparar una base
+clara para el modelado posterior (Domain Message Flows y Bounded Context
+Canvases).
+
+La sesión se realizó en Miro con una duración aproximada de **1 hora 50
+minutos** (dentro del límite recomendado de 2 horas). Como insumos se
+utilizaron la línea de tiempo de eventos pivotales, los comandos asociados,
+los actores identificados y los puntos de dolor detectados en la sesión de
+EventStorming anterior.
+
+### Técnica aplicada: Start-with-Value (complementada con Look-for-Pivotal-Events)
+
+Se priorizó **Start-with-Value** para ubicar primero los flujos que
+diferencian a BiciSmartIOT en el mercado peruano: alquiler self-service
+por minuto, protección anti-robo en tiempo real basada en GPS y
+geofencing, y un marketplace que conecta a estudiantes UPC con
+arrendadores independientes. De forma complementaria, se revisaron
+**eventos pivote** para detectar cambios de estado entre subdominios (por
+ejemplo: pago autorizado, desbloqueo de bicicleta, salida de zona segura,
+robo potencial detectado, devolución).
+
+El proceso se organizó en tres pasos documentados:
+
+1. **Identificación de valor estratégico:** cada miembro del equipo
+   respondió a la pregunta: *"¿Qué parte del sistema genera directamente
+   valor para los usuarios y diferencia la solución de otras similares?"*.
+
+   ![Identificación de valor — post-its de valor estratégico](assets/images/Chapter-4/Value_Identification.png)
+
+2. **Agrupación de eventos en torno al valor:** luego se agruparon los
+   eventos por afinidad de negocio y cohesión funcional, emergiendo
+   clústeres naturales alrededor de identidad y acceso, publicación de
+   bicicletas, control de dispositivos IoT, alquiler, tracking
+   anti-robo, pagos y notificaciones.
+
+   ![Agrupación de eventos en clústeres por candidate context](assets/images/Chapter-4/Agregados%20_Bounded_Contexts.png)
+
+3. **Clasificación Core, Supporting y Generic:** con los clústeres ya
+   estabilizados, se clasificaron los *candidate contexts* según su aporte
+   de diferenciación al negocio y su rol dentro del ecosistema. En esta
+   fase se distinguieron los contextos núcleo que sostienen la propuesta
+   de valor de BiciSmartIOT (alquiler self-service + anti-robo IoT), los
+   contextos de soporte operacional y los contextos genéricos de
+   plataforma.
+
+   ![Matriz Core / Supporting / Generic](assets/images/Chapter-4/Core_Generic_Supporting.png)
+
+Con esta tercera iteración, el equipo dejó una base consistente para pasar
+al detalle de *candidate contexts* y su justificación estratégica en la
+siguiente subsección.
+
+### Candidate Contexts identificados
+
+Como resultado de la sesión, se identificaron **siete bounded contexts
+candidatos** para BiciSmartIOT:
+
+| Candidate Context | Eventos clave asociados | Clasificación | Descripción | Justificación |
+|---|---|---|---|---|
+| **IAM** | `User Created`, `UPC Email Verified`, `Renter Approved`, `Session Started` | Generic | Gestión de identidad, autenticación y acceso por rol (Estudiante / Arrendador). | Es transversal y necesario para operar, pero no representa diferenciación de negocio en el mercado de alquiler. |
+| **Providing** | `Bicycle Published`, `Fare Defined`, `Operating Zone Set`, `Bicycle Paused` | Supporting | Publicación y mantenimiento del catálogo de bicicletas por parte de los arrendadores. | Habilita la oferta del marketplace, pero la lógica es estándar de e-commerce y no constituye el núcleo diferenciador. |
+| **IoT & Device Control** | `Device Registered`, `Device Paired`, `Bicycle Unlocked`, `Bicycle Released`, `Bicycle Locked`, `Device Low Battery` | Core | Comandos al hardware (cerradura + GPS) y emparejamiento con la bicicleta vía MQTT/BLE. | Es indispensable para el modelo *self-service* y la calidad de captura de telemetría que sustenta toda la operación. |
+| **Renting** | `Bicycle Reserved`, `Rental Started`, `Rental Finished`, `Reservation Expired` | Core | Orquestación del ciclo de vida del alquiler end-to-end. | Contiene la propuesta de valor principal de BiciSmartIOT: alquilar una bicicleta en segundos sin intervención humana. |
+| **Tracking & Monitoring** | `Location Updated`, `Left Safe Zone`, `Suspicious Movement Detected`, `Theft Potential Detected` | Core | Procesamiento de telemetría GPS, geofencing y detección de patrones anómalos. | Es lo que diferencia a BiciSmartIOT del resto: protección anti-robo en tiempo real basada en datos. |
+| **Payments** | `Payment Authorized`, `Payment Processed`, `Payment Failed`, `Refund Issued` | Supporting | Cobros y conexión con pasarelas peruanas (Yape, Plin, Visa Niubiz). | Es clave para monetización y activación del servicio, aunque no constituye el núcleo diferencial de la plataforma. |
+| **Notifications** | `Notification Sent`, `Notification Confirmed`, `False Alarm Marked`, `Delivery Failed` | Generic | Mensajería multicanal: push, email y SMS para alertas e información al usuario. | Capacidad genérica de plataforma resuelta con servicios estándar (FCM, Twilio); no aporta diferenciación al negocio. |
+
+### Clasificación estratégica
+
+Como parte del análisis Start-with-Value, se representó gráficamente la
+clasificación de los *bounded contexts* en una matriz de dos ejes:
+
+- **Business Differentiation** (eje X): grado en que el contexto aporta
+  valor estratégico o diferenciación frente a otras soluciones del
+  mercado.
+- **Model Complexity** (eje Y): nivel de complejidad requerido para
+  implementar y mantener el contexto.
+
+En esta matriz de clasificación de *bounded contexts*, se distribuyeron
+los siete contextos en los tres tipos:
+
+- **Core:** `Renting`, `IoT & Device Control`, `Tracking & Monitoring`.
+- **Supporting:** `Providing`, `Payments`.
+- **Generic:** `IAM`, `Notifications`.
+
+![Clasificación estratégica de los Bounded Contexts](assets/images/Chapter-4/Classification_Matrix.png)
+
+### Resultados
+
+Se definieron **siete bounded contexts candidatos**, de los cuales:
+
+- **3 Core** (`Renting`, `IoT & Device Control`, `Tracking & Monitoring`).
+- **2 Supporting** (`Providing`, `Payments`).
+- **2 Generic** (`IAM`, `Notifications`).
+
+La aplicación de la técnica Start-with-Value permitió asegurar que la
+atención principal del diseño táctico se concentre en `Renting`,
+`IoT & Device Control` y `Tracking & Monitoring`, dado que allí reside la
+propuesta de valor diferenciadora de BiciSmartIOT: alquiler self-service
+de bicicletas con protección anti-robo en tiempo real.
+
+El resto de *contexts* se modelan en las siguientes secciones mediante
+**Domain Message Flows** y **Bounded Context Canvases**, garantizando
+consistencia y claridad en la arquitectura estratégica.
 ## 4.1.2. Context Mapping
 
 En esta sección desarrollamos un conjunto de context maps para visualizar las relaciones entre los bounded contexts del sistema **BiciSmartIOT**. A partir de la información recolectada (user stories, funcionalidades IoT, pagos, reservas, etc.), exploramos distintas alternativas de diseño, evaluando cómo cambiaría la arquitectura al dividir, agrupar o reorganizar capacidades del sistema.
