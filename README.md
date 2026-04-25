@@ -375,6 +375,7 @@ Sub-capa Infrastructure <br>
 
 <div id='4.2.1.1.'><h5>4.2.1.6. Bounded Context Software Architecture Code Level Diagram</h5></div>
 
+
 <div id='4.2.1.1.'><h5>4.2.1.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
 
 Este diagrama UML representa la arquitectura del flujo de alquiler de bicicletas inteligentes. Se basa en principios de diseño orientado a objetos y sigue el enfoque CQRS (Command Query Responsibility Segregation).
@@ -386,39 +387,74 @@ Se interactúa con otros bounded contexts como:
 * Providing (bicicletas)
 * Payments (pagos)
 * IoT & Device Control (inicio y fin físico del alquiler)
+
+<div align="center">
+<img src="assets/images/Chapter-4/name.jpeg">
+</div>
+
 <div id='4.2.1.1.'><h5>4.2.1.6.1 Bounded Context Domain Layer Class Diagrams</h5></div>
 
-RENTALS
+<div align="center">
+<img src="assets/images/Chapter-4/name2.jpeg">
+</div>
+### RENTALS
 
-Propósito: Registro de alquileres realizados
+**Propósito:** Registro de alquileres de bicicletas
 
-| Campo      | Tipo      | Descripción                |
-| ---------- | --------- | -------------------------- |
-| id         | Long (PK) | Identificador del alquiler |
-| user_id    | Long (FK) | Referencia a usuario       |
-| bicycle_id | Long (FK) | Referencia a bicicleta     |
-| start_time | datetime  | Fecha de inicio            |
-| end_time   | datetime  | Fecha de fin               |
-| status     | varchar   | Estado del alquiler        |
-| total_cost | decimal   | Costo total                |
-chequear esto
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| `id` | Long (PK) | Identificador único del alquiler |
+| `user_id` | Long (FK) | Usuario que realiza el alquiler (IAM) |
+| `bicycle_id` | Long (FK) | Bicicleta alquilada (Providing) |
+| `start_time` | datetime | Inicio del alquiler |
+| `end_time` | datetime | Fin del alquiler |
+| `status` | varchar | Estado (`ACTIVE`, `FINISHED`, `CANCELLED`) |
+| `total_cost` | decimal | Costo total calculado |
 
-RESERVATIONS
-
-Propósito: Registro de reservas
-
-| Campo            | Tipo      | Descripción      |
-| ---------------- | --------- | ---------------- |
-| id               | Long (PK) | Identificador    |
-| user_id          | Long (FK) | Usuario          |
-| bicycle_id       | Long (FK) | Bicicleta        |
-| reservation_time | datetime  | Fecha de reserva |
-| expiration_time  | datetime  | Expiración       |
-| status           | varchar   | Estado           |
+**Relaciones:**
+- `N:1` con **USERS** (IAM)
+- `N:1` con **BICYCLES** (Providing)
+- `1:1` opcional con **RESERVATIONS**
 
 
 
----------------------------------------------------------------
+### RESERVATIONS
+
+**Propósito:** Reservas previas de bicicletas
+
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| `id` | Long (PK) | Identificador único |
+| `user_id` | Long (FK) | Usuario que reserva |
+| `bicycle_id` | Long (FK) | Bicicleta reservada |
+| `status` | varchar | Estado (`ACTIVE`, `CANCELLED`, `EXPIRED`) |
+| `reserved_at` | datetime | Fecha de reserva |
+| `expiration_time` | datetime | Tiempo límite de la reserva |
+
+**Relaciones:**
+- `N:1` con **USERS** (IAM)
+- `N:1` con **BICYCLES** (Providing)
+- `1:1` con **RENTALS** (cuando se convierte)
+
+
+
+###  PAYMENTS
+
+**Propósito:** Procesamiento de pagos de alquileres
+
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| `id` | Long (PK) | Identificador |
+| `rental_id` | Long (FK) | Alquiler asociado |
+| `amount` | decimal | Monto |
+| `status` | varchar | Estado del pago |
+| `payment_date` | datetime | Fecha |
+
+**Relaciones:**
+- `1:1` con **RENTALS**
+
+
+
 
 ### 4.2.2. Bounded Context: **Payments**
 
