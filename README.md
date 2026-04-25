@@ -336,6 +336,81 @@ recibo y la plataforma libera la bicicleta para el siguiente alquiler.
 > Context Canvases** de la sección siguiente, donde cada contexto se
 > documenta en detalle.
 
+## 4.1.1.3 Bounded Context Canvases
+
+En esta sección el equipo presenta sus *Bounded Context Canvases*,
+empezando por los importantes. Cada canvas sigue el **template oficial V1
+de DDD-Crew (Annegret Junker, codecentric AG)** y resume — en una sola
+página — el propósito, la clasificación estratégica, los roles, los
+mensajes que entran y salen, el lenguaje ubicuo, las decisiones de negocio,
+los supuestos, las métricas de verificación y las preguntas abiertas de
+cada *bounded context*.
+
+---
+
+### IAM
+
+Contexto **genérico** para la identificación y acceso de los usuarios
+(estudiantes y arrendadores).
+
+![Bounded Context Canvas — IAM](assets/images/Chapter-4/BCC_iam.png)
+
+---
+
+### Providing
+
+Contexto **supporting** que administra el catálogo de bicicletas, las
+tarifas y las zonas operativas definidas por los arrendadores.
+
+![Bounded Context Canvas — Providing](assets/images/Chapter-4/BCC_providing.png)
+
+---
+
+### IoT & Device Control
+
+Contexto **core** que registra y opera los dispositivos IoT (cerradura +
+GPS) acoplados a cada bicicleta vía MQTT/BLE.
+
+![Bounded Context Canvas — IoT & Device Control](assets/images/Chapter-4/BCC_iot_device_control.png)
+
+---
+
+### Renting
+
+Contexto **core** que orquesta el ciclo de vida del alquiler — buscar,
+reservar, iniciar, monitorear y finalizar — y constituye el flujo
+principal de valor de la plataforma.
+
+![Bounded Context Canvas — Renting](assets/images/Chapter-4/BCC_renting.png)
+
+---
+
+### Tracking & Monitoring
+
+Contexto **core** que procesa la telemetría GPS, evalúa geofences y
+detecta patrones de movimiento sospechoso para disparar alertas anti-robo.
+
+![Bounded Context Canvas — Tracking & Monitoring](assets/images/Chapter-4/BCC_tracking_monitoring.png)
+
+---
+
+### Payments
+
+Contexto **supporting** que calcula cobros, autoriza pagos y procesa
+reembolsos integrándose con pasarelas peruanas (Yape, Plin, Visa Niubiz).
+
+![Bounded Context Canvas — Payments](assets/images/Chapter-4/BCC_payments.png)
+
+---
+
+### Notifications
+
+Contexto **genérico** que entrega mensajes oportunos al estudiante y al
+arrendador a través de push, SMS y email, gestionando confirmaciones y
+falsas alarmas.
+
+![Bounded Context Canvas — Notifications](assets/images/Chapter-4/BCC_notifications.png)
+
 ## 4.1.2. Context Mapping
 
 En esta sección desarrollamos un conjunto de context maps para visualizar las relaciones entre los bounded contexts del sistema **BiciSmartIOT**. A partir de la información recolectada (user stories, funcionalidades IoT, pagos, reservas, etc.), exploramos distintas alternativas de diseño, evaluando cómo cambiaría la arquitectura al dividir, agrupar o reorganizar capacidades del sistema.
