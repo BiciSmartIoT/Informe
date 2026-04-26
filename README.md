@@ -68,23 +68,23 @@ Abril, 2026
 ### **TB1**  
 
 <p align="center">
-  <img src="assets/images/is1.jpg" width="600"/>
+  <img src="assets/images/is1.jpeg" width="600"/>
 </p>
 
 <p align="center">
-  <img src="assets/images/is2.jpg" width="600"/>
+  <img src="assets/images/is2.jpeg" width="600"/>
 </p>
 
 <p align="center">
-  <img src="assets/images/is3.jpg" width="600"/>
+  <img src="assets/images/is3.jpeg" width="600"/>
 </p>
 
 <p align="center">
-  <img src="assets/images/is4.jpg" width="600"/>
+  <img src="assets/images/is4.jpeg" width="600"/>
 </p>
 
 <p align="center">
-  <img src="assets/images/is5.jpg" width="600"/>
+  <img src="assets/images/is5.jpeg" width="600"/>
 </p>
 
 # Índice
