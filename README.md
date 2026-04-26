@@ -245,15 +245,16 @@ Valores: Confiabilidad, Responsabilidad, Seguridad, Innovación y Prevención te
 
 ### 1.2.1. Antecedentes y problemática
 
-Para el análisis de los antecedentes y la problemática se ha empleado la técnica de las 5 'W's y 2 'H's:
+Para el análisis de los antecedentes y la problemática se ha empleado la técnica de las 5 W’s y 2 H’s:
 
-*   **¿Quién? (Who):** Ciclistas urbanos y deportistas aficionados que utilizan sus bicicletas con frecuencia como medio de transporte principal, por salud o recreación.
-*   **¿Qué ocurre? (What):** Incremento en el índice de robos de bicicletas estacionadas y una alta incidencia de accidentes o caídas en las que el ciclista no recibe asistencia inmediata por la falta de un sistema de prevención y alerta automática.
-*   **¿Dónde? (Where):** Principalmente en vías metropolitanas con alto tráfico vehicular, estacionamientos en la vía pública frente a edificios o universidades, y durante rutas en carreteras o zonas remotas.
-*   **¿Cuándo? (When):** Ocurre diariamente en todos los rangos horarios. En el día, el problema recae cuando estacionan su vehículo en un espacio público de forma temporal, mientras que de noche o en vías alejadas las condiciones favorecen atracos directos o accidentes no divisados por terceros.
-*   **¿Por qué sucede? (Why):** Porque las medidas de seguridad tradicionales, tales como las cadenas y candados convencionales, son elementos vulnerables y pasivos. No advierten al dueño de la situación, y no existe una infraestructura estandarizada de alarmas o alertas inmediatas vinculadas a IoT que sean económicamente viables para este público.
-*   **¿Cómo sucede? (How):** Generalmente, el robo ocurre de forma rápida vulnerando el control perimetral (cortando el candado de seguridad, forzándolo, etc.), para luego darse a la fuga sin que la víctima tenga un sistema rápido de geolocalización. En colisiones, ocurre de manera repentina contra un vehículo externo, perdiendo la posibilidad de solicitar auxilio inmediato si el usuario queda inhabilitado.
-*   **¿Cuánto afecta? (How Much):** Produce un evidente daño económico frente a la pérdida total de la inversión para la máquina, e impacta física y mentalmente al ciclista, desincentivando directamente a los demás habitantes acerca de la viabilidad de la bicicleta como medio de transporte seguro.
+¿Quién? (Who): Usuarios urbanos que utilizan la bicicleta como medio de transporte, personas que realizan actividades al aire libre y equipos de emergencia o contingencia que requieren movilidad constante y confiable.
+¿Qué ocurre? (What): Incremento en el índice de robos de bicicletas estacionadas y alta incidencia de accidentes o caídas en las que el usuario no recibe asistencia inmediata debido a la ausencia de sistemas de alerta automatizados.
+¿Dónde? (Where): Principalmente en zonas urbanas con alto tráfico vehicular, espacios públicos, estacionamientos en vía pública, alrededores de instituciones, y también en rutas alejadas o zonas de difícil acceso.
+¿Cuándo? (When): Ocurre durante todo el día. En horarios diurnos, al dejar la bicicleta estacionada temporalmente en espacios públicos; y en horarios nocturnos o zonas aisladas, donde aumentan los riesgos de robo o accidentes sin asistencia.
+¿Por qué sucede? (Why): Debido a que los sistemas de seguridad tradicionales son pasivos y vulnerables. No brindan notificaciones ni monitoreo en tiempo real, y no existe una infraestructura accesible de alerta inmediata integrada con tecnologías IoT.
+¿Cómo sucede? (How): Generalmente el robo ocurre de forma rápida, vulnerando el sistema de seguridad físico. En el caso de accidentes, estos pueden suceder de manera repentina sin que el usuario pueda solicitar ayuda, especialmente en zonas alejadas.
+¿Cuánto afecta? (How Much): Genera pérdidas económicas significativas por la sustracción del vehículo, además de impactos físicos y emocionales en los usuarios. También reduce la confianza en el uso de la bicicleta como medio de transporte seguro.
+
 
 ### 1.2.2. Lean UX Process
 
