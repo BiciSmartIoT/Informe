@@ -259,8 +259,10 @@ Para el análisis de los antecedentes y la problemática se ha empleado la técn
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
-Hemos observado que los ciclistas urbanos y deportivos en la actualidad enfrentan altos niveles de inseguridad respecto a los robos sigilosos o violentos de sus bicicletas, y a los riesgos de accidentes viales fuera del radar de terceros. Los sistemas de resguardo con candados tradicionales carecen de capacidades de rastreo o notificación remota. 
-¿Cómo podríamos crear un sistema inteligente, accesible y discreto, apoyado en la tecnología del Internet de las Cosas y de fácil integración con aplicativos móviles, que permita a los ciclistas rastrear sus vehículos 24/7 y que sea capaz de alertar a contactos de emergencia en caso de detección de anomalías repentinas en la integridad del equipo o manipulación sin autorización?
+
+Hemos observado que los usuarios urbanos, personas que se desplazan en exteriores y equipos de emergencia enfrentan altos niveles de inseguridad respecto a los robos sigilosos o violentos de sus bicicletas, así como riesgos asociados a incidentes fuera del alcance de terceros. Los sistemas de resguardo tradicionales con candados carecen de capacidades de rastreo o notificación remota.
+
+¿Cómo podríamos crear un sistema inteligente, accesible y discreto, apoyado en tecnología de Internet de las Cosas y de fácil integración con aplicativos móviles, que permita a estos usuarios rastrear sus bicicletas 24/7 y que sea capaz de alertar a contactos de emergencia ante la detección de anomalías repentinas en la integridad del vehículo o situaciones de riesgo?
 
 #### 1.2.2.2. Lean UX Assumptions
 1.  **Creemos que** los usuarios dueños de bicicletas de mediano a alto valor adquisitivo estarán muy dispuestos a invertir en la compra de un dispositivo IoT de seguridad si se les garantiza la visibilidad de su posición de forma continua.
