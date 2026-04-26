@@ -2040,7 +2040,7 @@ https://miro.com/welcomeonboard/Wjdub09ldkR1djZCRGJ5cnZLaGRrOHhvQXRaNkt3NmpEK2lW
 
 ### 3.2. Impact Mapping.
 
-<img width=100% height=100% alt="impact-map" src="https://github.com/user-attachments/assets/22a23d92-03f3-4267-a213-16a0f4c4850a" />
+<img width=100% height=100% alt="impact-map" src="/assets/images/impact-maping.png" />
 <br>
 
 
