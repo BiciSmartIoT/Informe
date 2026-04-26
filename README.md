@@ -50,15 +50,11 @@ Abril, 2026
 
 
 
-
 ## Registro de Versiones del Informe
 
 |   Versión |   Fecha   |           Autor           |               Descripción  de modificación               |
 |-----------|-----------|---------------------------|-------------------------------------------|
-|   TB1     |     13/04/2026      |                           |                                           |
-|   TP      |           |                           |                                           |
-|   TB2     |           |                           |                                           |
-|   TF      |           |                           |                                           |
+|   TB1     |     13/04/2026      |  U20231a804 — Bustamante Leveau, Cameron Charllotte   U202311745 — Uribe Livia, Renzo SebastiánU202311842 — Espinoza Quijandria, Oscar LeonardoU202311828 — Landauri Preciado, Stephano MayrzonU202220219 — Belahonia Miranda, Fabrisio |   Se han incluido los siguientes capitulos: Capítulo I: Introducción Capítulo II: Requirements Elicitation & Analysis Capítulo III: Requirements Specification Capítulo IV: Solution Software Design |
 
 ## Student Outcome
 
