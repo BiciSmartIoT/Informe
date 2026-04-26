@@ -67,6 +67,26 @@ Abril, 2026
 
 ### **TB1**  
 
+<p align="center">
+  <img src="assets/images/is1.jpg" width="600"/>
+</p>
+
+<p align="center">
+  <img src="assets/images/is2.jpg" width="600"/>
+</p>
+
+<p align="center">
+  <img src="assets/images/is3.jpg" width="600"/>
+</p>
+
+<p align="center">
+  <img src="assets/images/is4.jpg" width="600"/>
+</p>
+
+<p align="center">
+  <img src="assets/images/is5.jpg" width="600"/>
+</p>
+
 # Índice
 
 ## Capítulo I: Introducción
