@@ -382,19 +382,14 @@ La propuesta de valor se centra en:
 
 ## 1.2.2.5. Lean UX Canvas
 
-| Componente | Descripción |
-|------------|-------------|
-| **Business Problem** | Falta de soluciones accesibles e inteligentes para proteger bicicletas y asistir a ciclistas en situaciones de emergencia. |
-| **Business Outcomes** | Incrementar la adopción del servicio y generar ingresos recurrentes mediante suscripciones al sistema IoT. |
-| **Users** | Estudiantes, trabajadores urbanos y ciclistas entre 18 y 45 años. |
-| **User Outcomes** | Mayor seguridad, confianza y monitoreo constante durante el uso de bicicletas. |
-| **Propuesta de Valor** | Plataforma IoT que integra rastreo GPS, alertas inteligentes y funciones SOS para proteger bicicletas y usuarios en tiempo real. |
-| **Solutions** | Dispositivo IoT conectado a una aplicación móvil con monitoreo, geocercas y alertas automáticas. |
-| **Hypotheses** | Una integración sencilla y monitoreo en tiempo real facilitarán la adopción de la solución. |
-| **What's the most important thing we need to learn first?** | Determinar si los usuarios valoran más la prevención de robos o las funciones de emergencia. |
-| **What's the least amount of work we need to do to learn the next most important thing?** | Realizar entrevistas y validaciones con mockups funcionales antes de desarrollar el hardware final. |
+A continuación, se presenta el Lean UX Canvas elaborado en la herramienta Miro:
 
----
+<img src="assets/images/Chapter-1/LeanUxCanvas.png" alt="Lean UX Canvas">
+
+<hr class="page-break">
+
+Enlace al Lean UX Canvas:
+[https://miro.com/app/board/uXjVHVeCEt0=/?share_link_id=910519530207] 
 
 ## 1.3 Segmentos Objetivo
 
