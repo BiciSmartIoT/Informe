@@ -57,9 +57,46 @@ Lima - Mayo 2026
 | 5.c.1 Trabaja en equipo para proporcionar liderazgo en forma conjunta | **Bustamante Leveau, Cameron Charllotte:**<br>AV1:Contribuí en la fase de Requirements Elicitation & Analysis mediante el análisis competitivo, identificando oportunidades frente a competidores y apoyando la definición de estrategias. Participé y facilité el diseño, registro y análisis de entrevistas, obteniendo insights clave de los usuarios. Asimismo, colaboré en actividades de needfinding como User Personas y User Journey Mapping, promoviendo una mejor comprensión del usuario en el equipo. Finalmente, apoyé en la definición del bounded context de Payments, ayudando a clarificar responsabilidades y alineando al equipo. <br><br>**Uribe Livia, Renzo Sebastián:**<br>**AV1: Contribuí en el desarrollo del proyecto participando en la organización y estructuración de los requerimientos del sistema, apoyando en la identificación de funcionalidades clave y en la comprensión general del dominio. Asimismo, colaboré en el trabajo en equipo durante la elaboración de artefactos como el backlog y la definición inicial de componentes del sistema, manteniendo comunicación constante con el equipo para asegurar coherencia en el avance del proyecto.** <br><br>**Espinoza Quijandria, Oscar Leonardo:**<br>**AV1: Contribuí en la elaboración de la arquitectura del sistema, participando en el diseño de los Context Mapping y en la definición de los bounded contexts, especialmente en el análisis y estructuración del contexto de Tracking & Monitoring. Asimismo, apoyé en la construcción de los diagramas de arquitectura (Landscape, Context, Container y Deployment), asegurando la correcta integración entre componentes IoT, backend y aplicación. Además, colaboré en la organización técnica del proyecto, ayudando a alinear las decisiones de diseño con los requerimientos funcionales y promoviendo una estructura clara y escalable del sistema. **<br><br>**Landauri Preciado, Stephano Mayrzon:**<br>**AV1: Durante el desarrollo del AV1, impulsé un ambiente de trabajo donde cada integrante pudo aportar sus ideas en las distintas etapas del diseño estratégico. En las sesiones de EventStorming, me aseguré de que la dinámica fuera participativa, dando espacio para que el equipo debatiera y llegara a acuerdos sobre la estructura del dominio. Respecto a la planificación, establecimos en conjunto las tareas necesarias para completar el Candidate Context Discovery, el modelado de Domain Message Flows y los Bounded Context Canvases, distribuyendo responsabilidades de manera equitativa. El seguimiento constante de estos entregables nos permitió alcanzar los objetivos del sprint dentro de los tiempos acordados. ** <br><br>**Belahonia Miranda, Fabrisio**:<br> **AV1:Aporté liderazgo conjunto en la definición de User Stories, facilitando su estructuración y promoviendo la claridad en las necesidades del usuario, lo que permitió una mejor priorización de requerimientos. Co-lideré sesiones de Impact Mapping, contribuyendo a identificar objetivos, actores y resultados, alineando al equipo con el valor del negocio. Además, participé activamente en la construcción y priorización del Product Backlog, apoyando la toma de decisiones del equipo. Finalmente, colaboré en la definición de un bounded context, ayudando a delimitar responsabilidades del sistema y mejorando la organización y comunicación del equipo.| **AV1:** En conclusión, el equipo mostró un trabajo basado en la cooperación, la organización y el liderazgo compartido, donde cada miembro participó activamente en la definición de los bounded contexts, la aplicación del proceso Lean UX y el diseño de la arquitectura del sistema. La asignación equilibrada de responsabilidades, el intercambio constante de ideas y la validación conjunta de hipótesis fortalecieron la comunicación y la coordinación del grupo, permitiendo la toma de decisiones consensuadas y una mejor gestión de los desafíos técnicos. Gracias a esta colaboración, se logró estructurar adecuadamente los dominios del proyecto y avanzar de forma ordenada hacia el cumplimiento de los objetivos establecidos. |
 | 5.c.2 Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos | **Bustamante Leveau, Cameron Charllotte:**<br> AV1:Contribuí a la creación de un entorno colaborativo durante la fase de Requirements Elicitation & Analysis, promoviendo la participación activa de todos los integrantes del equipo en entrevistas, needfinding y sesiones de análisis. Apoyé en la definición de metas claras para cada actividad, como la obtención de insights de usuarios y la identificación de oportunidades frente a competidores. Asimismo, colaboré en la planificación y organización de tareas del equipo, asegurando una distribución ordenada del trabajo en actividades como User Personas, User Journey Mapping y EventStorming. Finalmente, apoyé el cumplimiento de los objetivos establecidos, contribuyendo a la entrega ordenada de los artefactos del análisis. <br><br>**Uribe Livia, Renzo Sebastián:**<br>**AV1: Contribuí en la creación de un entorno colaborativo e inclusivo dentro del equipo, participando activamente en las reuniones de trabajo y aportando ideas durante la definición de requerimientos. Asimismo, apoyé en la planificación de tareas y en la organización del trabajo del equipo, manteniendo una comunicación constante para asegurar el cumplimiento de los objetivos establecidos en el proyecto. ** <br><br>**Espinoza Quijandria, Oscar Leonardo:**<br>**AV1: Contribuí en la creación de un entorno colaborativo e inclusivo mediante la participación activa en las sesiones de trabajo técnico, aportando en la definición de la arquitectura del sistema y en la elaboración de los diagramas (Context Mapping, Landscape, Context, Container y Deployment). Apoyé en la planificación de tareas relacionadas al diseño técnico, asegurando que los objetivos sean claros y alineados con los requerimientos del proyecto. Además, promoví la organización del trabajo dentro del equipo, facilitando la integración entre los componentes IoT y la arquitectura del sistema, lo que permitió cumplir con los objetivos establecidos. ** <br><br>**Landauri Preciado, Stephano Mayrzon:**<br>**AV1: Contribuí en la creación de un entorno colaborativo e inclusivo participando activamente en las actividades del equipo y apoyando en la planificación y desarrollo de las tareas asignadas. Asimismo, colaboré en la organización del trabajo y en el seguimiento de los objetivos del proyecto, contribuyendo a mantener una adecuada coordinación entre los integrantes y al cumplimiento de los plazos establecidos. ** <br><br>**Belahonia Miranda, Fabrisio**:<br> AV1:Contribuí a la creación de un entorno colaborativo e inclusivo, promoviendo la participación activa de todos los integrantes del equipo y fomentando la comunicación abierta en las sesiones de trabajo. Apoyé en la definición de metas del sprint y en la planificación de tareas, asegurando que los objetivos sean claros y alcanzables. Además, facilité la organización del trabajo mediante la priorización del Product Backlog y el seguimiento del progreso del equipo, lo que permitió cumplir con los objetivos establecidos dentro de los plazos definidos.| **AV1:** En general, el equipo evidenció una dinámica de trabajo colaborativa e inclusiva, donde cada integrante contribuyó desde su rol al logro de los objetivos propuestos. Mediante el uso de enfoques como Lean UX y herramientas como empathy maps, user personas y bounded contexts, se logró identificar necesidades reales de los usuarios, definir objetivos concretos y organizar las tareas de forma estructurada con un adecuado seguimiento. La comunicación continua, la distribución justa de responsabilidades y la apertura a las ideas de todos los miembros fortalecieron el compromiso del grupo, permitiendo cumplir con los entregables dentro de los plazos establecidos y consolidando un flujo de trabajo eficiente y orientado a resultados.. |
 
-## Project Report Collaboration Insights 
+# Project Report Collaboration Insights
 
-### **AV1**  
+En esta sección se presenta un resumen de las actividades de colaboración realizadas para la elaboración del informe del proyecto.
+
+Se utilizó **GitHub** como plataforma de control de versiones y colaboración en equipo. Se incluye enlace para acceder al repositorio para el reporte del proyecto. [Ver en Github]([https://github.com/BiciSmartIoT/Informe])
+
+Los integrantes del equipo y sus nombres de usuario en GitHub son los siguientes:
+
+| Integrantes                          | Nombre en GitHub               |
+|--------------------------------------|--------------------------------|
+| Bustamante Leveau, Cameron Charllotte| `CameronBustamanteLeveau2`     |
+| Uribe Livia, Renzo Sebastián         | `JKOlimpo`                     |
+| Espinoza Quijandria, Oscar Leonardo  | `Carbocnito5443`               |
+| Landauri Preciado, Stephano Mayrzon  | `Mayrzon02`                    |
+| Belahonia Miranda, Fabrisio          | `devfab17`                     |
+
+Se usó el flujo de trabajo **GitFlow**, que incluye las siguientes ramas principales:
+
+- **main:** Rama principal que contiene la versión estable y consolidada del documento.
+- **develop:** Rama de integración utilizada para fusionar los cambios realizados en las ramas de características.
+- **Chapter/Chapter-name:** Ramas de características utilizadas para desarrollar secciones específicas del informe.
+
+<hr class="page-break">
+
+
+## **AV1**  
+
+**Tareas**
+
+Para el desarrollo del AV1, cada participante del equipo realizó las siguientes tareas:
+
+| Integrantes                          | Tarea asignada                 |
+|--------------------------------------|--------------------------------|
+| Bustamante Leveau, Cameron Charllotte|  - Chapter 2 <br>              |
+| Uribe Livia, Renzo Sebastián         |  - Chapter 1 <br>              |
+| Espinoza Quijandria, Oscar Leonardo  |  - Chapter 4 <br>              |
+| Landauri Preciado, Stephano Mayrzon  |  - Chapter 4 <br>              |
+| Belahonia Miranda, Fabrisio          |  - Chapter 3 <br>              |
+
+<hr class="page-break">
 
 # Índice
 
@@ -201,12 +238,8 @@ Lima - Mayo 2026
   - 4.2.6.6.1. Bounded Context Domain Layer Class Diagrams
   - 4.2.6.6.2. Bounded Context Database Design Diagram
 
+<hr class="page-break">
 
-## Conclusiones
-
-## Bibliografía
-
-## Anexos
 
 # Capítulo I: Presentación
 
