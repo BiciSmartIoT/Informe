@@ -6,52 +6,20 @@
 
 Wireframe Landing Page (Desktop)
 
-Sección Principal de la landing page:
-
 <p align="center">
-
-  <img src="assets/images/Chapter-5/principal.png" width="700">
-
+  <img src="assets/images/Chapter-5/cap1.png" width="700">
 </p>
 
-Sección Características y Beneficios:
-
 <p align="center">
-
-  <img src="assets/images/Chapter-5/caracteristicas.png" width="700">
-
+  <img src="assets/images/Chapter-5/cap2.png" width="700">
 </p>
 
-Sección Antecedentes:
-
 <p align="center">
-
-  <img src="assets/images/Chapter-5/antecedentes.png" width="700">
-
+  <img src="assets/images/Chapter-5/cap3.png" width="700">
 </p>
 
-Sección "Acerca de":
-
 <p align="center">
-
-  <img src="assets/images/Chapter-5/acerca.png" width="700">
-
-</p>
-
-Sección de Formulario de contacto:
-
-<p align="center">
-
-  <img src="assets/images/Chapter-5/formulario.png" width="700">
-
-</p>
-
-Sección de Descargas de aplicación móvil y pie de página:
-
-<p align="center">
-
-  <img src="assets/images/Chapter-5/descargas.png" width="700">
-
+  <img src="assets/images/Chapter-5/cap4.png" width="700">
 </p>
 
 ### 5.3.2 Landing Page Mock-up.
