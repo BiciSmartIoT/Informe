@@ -48,7 +48,57 @@ Wireframe Landing Page (Desktop)
 
 Ciclista 
 
+<p align="center">
+  <img src="assets/images/Chapter-5/m1.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m2.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m3.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m4.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m5.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m6.png" width="700">
+</p>
+
 Arrendador 
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a1.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a2.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a3.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a4.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a5.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a6.png" width="700">
+</p>
+
+### 5.4.1.3 Desktop Applications Wireframes
 
 ### 5.4.2. Applications Wireflow Diagrams
 
