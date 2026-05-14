@@ -109,79 +109,31 @@ Sección de Descargas de aplicación móvil y pie de página:
 
 ### 5.4.2. Applications Wireflow Diagrams
 
-Esta sección presenta la propuesta de Wireflow Diagrams para la plataforma. Cada diagrama conecta las pantallas principales de la aplicación y muestra la secuencia de acciones necesaria para cumplir los objetivos clave según el rol de usuario.
+Applications Wireflows Diagrams (Desktop)
 
-Los wireflows se construyeron a partir de los mock-ups validados y se organizan en tres perspectivas: usuario final, arrendatario y administrador. Esto permite identificar la ruta principal de navegación, los puntos de decisión y las transiciones operativas específicas de cada rol.
+User Goal: Autenticación y gestión de cuenta
 
-#### Wireflow del Usuario
+![Wireflow del Usuario](assets/images/Chapter-5/registroo.png)
 
-![Wireflow del Usuario](assets/images/Chapter-5/usuario.png)
+User Goal: Alquiler de bicicleta
 
-##### Descripción
+![Wireflow del Usuario](assets/images/Chapter-5/arrendando.png)
 
-Este wireflow representa la experiencia integral del cliente durante el servicio de alquiler de bicicletas IoT. El diagrama incluye las etapas de autenticación, exploración, selección, pago, uso de la bicicleta y cierre de servicio, mostrando la continuidad entre pantallas y las decisiones principales del usuario.
 
-##### Explicación del flujo
+User goal: Historial de alquiler de bicicleta
+![Wireflow del Usuario](assets/images/Chapter-5/historial.png)
 
-Ruta principal (de izquierda a derecha):
 
-Crear Cuenta -> Iniciar Sesión -> Página de Inicio -> Explorar Bicicletas -> Detalle de Bicicleta -> Confirmar Reserva -> Método de Pago y QR -> Cobro Final y Comprobante -> Panel de Usuario -> Mapa de Bicicletas Cercanas -> Desbloquear Bicicleta Smart Lock -> Alquiler Activo (Ruta en Vivo) -> Resumen de Finalización -> Bloqueo Automático y Devolución.
+User Goal: Finalización de bicicleta
+![Wireflow del Usuario](assets/images/Chapter-5/finalizar_carrera.png)
 
-Ruta alternativa:
+User Goal:agregar bicicleta
+![Wireflow del Usuario](assets/images/Chapter-5/agregar_bici.jpeg)
 
-Iniciar Sesión -> Recuperar Contraseña -> Iniciar Sesión.
 
-Este recorrido representa el ciclo completo del usuario, desde el acceso al sistema hasta el cierre del alquiler y la emisión del comprobante final.
 
-#### Wireflow del Arrendatario
-
-![Wireflow del Arrendatario](assets/images/Chapter-5/arrendatario.png)
-
-##### Descripción
-
-Este wireflow describe la operación del arrendatario desde su incorporación al sistema hasta la gestión continua de su negocio. El flujo se centra en el dashboard como punto de control para administrar bicicletas, reservas activas, estado de flota, alertas operativas e indicadores económicos.
-
-##### Explicación del flujo
-
-Ruta de entrada:
-
-Crear Cuenta de Arrendador -> Dashboard del Arrendador.
-
-Rutas operativas desde el dashboard:
-
-Dashboard del Arrendador -> Mis Bicicletas -> Registrar Nueva Bicicleta.
-
-Dashboard del Arrendador -> Gestión de Reservas -> Detalle de Alquiler Activo.
-
-Dashboard del Arrendador -> Gestión de Flota.
-
-Dashboard del Arrendador -> Pagos y Ganancias.
-
-Dashboard del Arrendador -> Centro de Notificaciones.
-
-El dashboard funciona como nodo central, concentrando la operación diaria, el control de flota y el monitoreo comercial del arrendatario.
-
-#### Wireflow de Administración
-
-![Wireflow de Administración](assets/images/Chapter-5/admin.png)
-
-##### Descripción
-
-Este wireflow presenta la ruta de supervisión estratégica del rol administrador. El recorrido vincula la gestión de usuarios con el análisis de métricas, la atención de alertas críticas y la coordinación de la flota, permitiendo una visión global para la toma de decisiones de alto nivel.
-
-##### Explicación del flujo
-
-Secuencia de supervisión:
-
-Gestión de Usuarios -> Reportes y Métricas -> Alertas Críticas -> Gestión de Flota.
-
-Este flujo sintetiza la lógica de control administrativo: primero la gestión de actores del sistema, luego la revisión de indicadores, después la atención de eventos críticos y finalmente la toma de acciones operativas sobre la flota.
-
-<div style="page-break-after: always;"></div>
 
 #### Versión móvil del usuario
-
-Esta versión muestra el mismo recorrido del usuario final, pero adaptado a una interfaz móvil. El flujo permite registrar sesión, explorar vehículos, revisar detalles, confirmar acciones y continuar el proceso de alquiler desde el teléfono.
 
 ![User Flow Móvil 1](assets/images/Chapter-5/userflow1.png)
 
@@ -195,9 +147,6 @@ Esta versión muestra el mismo recorrido del usuario final, pero adaptado a una 
 
 <div style="page-break-after: always;"></div>
 
-#### Versión móvil del arrendatario
-
-Esta versión concentra las tareas operativas del arrendatario en una experiencia móvil. Desde estas pantallas es posible acceder al panel, administrar vehículos, consultar actividad y revisar el estado general de la flota.
 
 ![Arrendatario Flow Móvil 1](assets/images/Chapter-5/arrendatarioflow1.png)
 
