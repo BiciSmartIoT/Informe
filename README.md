@@ -138,7 +138,7 @@ Arrendador
 
 ### 5.4.1.3 Desktop Applications Wireframes
 
-### 5.4.2. Applications Wireflow Diagrams
+## 5.4.2. Applications Wireflow Diagrams
 
 Applications Wireflows Diagrams (Desktop)
 
@@ -193,9 +193,13 @@ User Goal:agregar bicicleta
 
 <div style="page-break-after: always;"></div>
 
-### 5.4.3. Applications Mock-ups
+## 5.4.3. Applications Mock-ups
 
-### 5.4.4. Applications User Flow Diagrams
+### 5.4.4.1 Mobile Applications Mock-ups
+
+### 5.4.4.2 Desktop Applications Mock-ups
+
+## 5.4.4. Applications User Flow Diagrams
 
 Esta sección presenta los diagramas de User Flow, organizados por rol y centrados en los objetivos principales del usuario. Cada flujo muestra la ruta de éxito (happy path), las decisiones críticas y las rutas alternativas ante casos de error o cancelación.
 
