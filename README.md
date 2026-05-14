@@ -42,7 +42,7 @@ Wireframe Landing Page (Desktop)
   <img src="assets/images/Chapter-5/ca4.png" width="700">
 </p>
 
-### 5.4.1. Applications Wireframes
+## 5.4.1. Applications Wireframes
 
 ### 5.4.1.2 Mobile Applications Wireframes
 
