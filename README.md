@@ -2,11 +2,110 @@
 
 ## 5.1. Style Guidelines
 
-## 5.3. Landing Page UI Design
+### 5.3.1 Landing Page Wireframe.
 
-## 5.4. Applications UX/UI Design
+Wireframe Landing Page (Desktop)
 
-### 5.4.1. Applications Wireframes
+Sección Principal de la landing page:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/principal.png" width="700">
+
+</p>
+
+Sección Características y Beneficios:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/caracteristicas.png" width="700">
+
+</p>
+
+Sección Antecedentes:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/antecedentes.png" width="700">
+
+</p>
+
+Sección "Acerca de":
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/acerca.png" width="700">
+
+</p>
+
+Sección de Formulario de contacto:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/formulario.png" width="700">
+
+</p>
+
+Sección de Descargas de aplicación móvil y pie de página:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/descargas.png" width="700">
+
+</p>
+
+### 5.3.2 Landing Page Mock-up.
+
+## Mockups Landing Page (Desktop)
+
+Sección Principal de la landing page:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/Prin.png" width="700">
+
+</p>
+
+Sección Características y Beneficios:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/Car.png" width="700">
+
+</p>
+
+Sección Antecedentes:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/Ant.png" width="700">
+
+</p>
+
+Sección "Acerca de":
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/Acer.png" width="700">
+
+</p>
+
+Sección de Formulario de contacto:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/Form.png" width="700">
+
+</p>
+
+Sección de Descargas de aplicación móvil y pie de página:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/Desc.png" width="700">
+
+</p>
+
 
 ### 5.4.2. Applications Wireflow Diagrams
 
