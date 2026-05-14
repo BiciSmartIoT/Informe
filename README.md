@@ -26,54 +26,21 @@ Wireframe Landing Page (Desktop)
 
 ## Mockups Landing Page (Desktop)
 
-Sección Principal de la landing page:
-
 <p align="center">
-
-  <img src="assets/images/Chapter-5/Prin.png" width="700">
-
+  <img src="assets/images/Chapter-5/ca1.png" width="700">
 </p>
 
-Sección Características y Beneficios:
-
 <p align="center">
-
-  <img src="assets/images/Chapter-5/Car.png" width="700">
-
+  <img src="assets/images/Chapter-5/ca2.png" width="700">
 </p>
 
-Sección Antecedentes:
-
 <p align="center">
-
-  <img src="assets/images/Chapter-5/Ant.png" width="700">
-
+  <img src="assets/images/Chapter-5/ca3.png" width="700">
 </p>
 
-Sección "Acerca de":
-
 <p align="center">
-
-  <img src="assets/images/Chapter-5/Acer.png" width="700">
-
+  <img src="assets/images/Chapter-5/ca4.png" width="700">
 </p>
-
-Sección de Formulario de contacto:
-
-<p align="center">
-
-  <img src="assets/images/Chapter-5/Form.png" width="700">
-
-</p>
-
-Sección de Descargas de aplicación móvil y pie de página:
-
-<p align="center">
-
-  <img src="assets/images/Chapter-5/Desc.png" width="700">
-
-</p>
-
 
 ### 5.4.2. Applications Wireflow Diagrams
 
