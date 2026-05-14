@@ -826,13 +826,13 @@
     <tr class="title-row"><td colspan="4">Título:</td></tr>
     <tr><td colspan="4" class="content-cell">Ver características y beneficios</td></tr>
     <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como visitante quiero ver las características y beneficios de la aplicación para decidir si me registro.</td></tr>
+    <tr><td colspan="4" class="content-cell">Como visitante quiero conocer los beneficios de la aplicación según mi tipo de usuario para decidir si me registro como estudiante o arrendador.</td></tr>
     <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
     <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Listado de características principales</strong><br> Dado que accedo a la landing page, cuando veo la sección de características, entonces el sistema muestra una lista con las funcionalidades destacadas de la app.<br><br>
-        <strong>Escenario 2: Beneficios para estudiantes</strong><br> Dado que soy estudiante, cuando busco beneficios específicos, entonces el sistema muestra ventajas como tarifas especiales y validación con correo universitario.<br><br>
-        <strong>Escenario 3: Beneficios para arrendadores</strong><br> Dado que soy arrendador, cuando busco beneficios para publicar mis bicicletas, entonces el sistema muestra ventajas como pagos automáticos y visibilidad.<br><br>
-        <strong>Escenario 4: Comparativa con otros servicios</strong><br> Dado que quiero entender la propuesta de valor, cuando veo la sección comparativa, entonces el sistema muestra una tabla comparativa con otras alternativas de movilidad.
+        <strong>Escenario 1: Beneficios generales de la aplicación</strong><br> Dado que accedo a la landing page, cuando visualizo la sección de beneficios, entonces el sistema muestra ventajas generales del servicio.<br><br>
+        <strong>Escenario 2: Beneficios para estudiantes</strong><br> Dado que soy estudiante, cuando reviso los beneficios para estudiantes, entonces el sistema muestra ventajas como tarifas especiales, validación con correo universitario y acceso a bicicletas cercanas.<br><br>
+        <strong>Escenario 3: Beneficios para arrendadores</strong><br> Dado que soy arrendador, cuando reviso los beneficios para arrendadores, entonces el sistema muestra ventajas como publicación de bicicletas, mayor visibilidad, gestión de reservas y pagos automáticos.<br><br>
+        <strong>Escenario 4: Llamado a la acción según tipo de usuario</strong><br> Dado que identifico el beneficio que se ajusta a mi perfil, cuando selecciono una opción de registro, entonces el sistema me dirige al registro correspondiente según sea estudiante o arrendador.
     </td></tr>
 </table>
 
@@ -1518,66 +1518,68 @@ De esta manera, se establece una guía clara para el equipo de desarrollo, asegu
 <br>
 
 
-| Orden | User Story ID | Título | Descripción | Story Points (1/2/3/5/8) |
-|------|--------------|--------|-------------|--------------------------|
-| 1 | US01 | Registro de usuario estudiante | Permitir a estudiantes crear una cuenta en la plataforma. | 5 |
-| 2 | US02 | Registro de usuario arrendador | Permitir a arrendadores registrarse para gestionar bicicletas. | 5 |
-| 3 | TS01 | Autenticación (IAM) | Implementar endpoints para registro, login y gestión de autenticación. | 8 |
-| 4 | US03 | Iniciar sesión | Permitir a los usuarios acceder a la plataforma con sus credenciales. | 3 |
-| 5 | US04 | Recuperar contraseña | Permitir a los usuarios restablecer su contraseña. | 3 |
-| 6 | US05 | Editar perfil | Permitir a los usuarios modificar su información personal. | 3 |
-| 7 | US06 | Cerrar sesión | Permitir a los usuarios cerrar su sesión de forma segura. | 2 |
-| 8 | US07 | Registrar bicicleta IoT | Permitir registrar una bicicleta con sensores IoT en el sistema. | 5 |
-| 9 | TS02 | Gestión de bicicletas | Desarrollar endpoints para administrar bicicletas registradas. | 8 |
-| 10 | US08 | Editar bicicleta | Permitir modificar la información de una bicicleta. | 3 |
-| 11 | US09 | Disponibilidad de bicicleta | Permitir marcar una bicicleta como disponible o no. | 2 |
-| 12 | US10 | Eliminar bicicleta | Permitir eliminar una bicicleta del sistema. | 2 |
-| 13 | US12 | Buscar bicicletas por GPS | Permitir encontrar bicicletas cercanas usando geolocalización. | 5 |
-| 14 | TS03 | Búsqueda geolocalizada | Implementar endpoints de búsqueda con ubicación. | 5 |
-| 15 | SPIKE01 | Evaluación de mapas | Analizar herramientas como Google Maps o Mapbox. | 3 |
-| 16 | US13 | Filtrar bicicletas | Permitir aplicar filtros en la búsqueda de bicicletas. | 3 |
-| 17 | US14 | Ver detalles de bicicleta | Mostrar información detallada de una bicicleta. | 3 |
-| 18 | US15 | Reservar bicicleta | Permitir reservar una bicicleta disponible. | 5 |
-| 19 | TS04 | Gestión de reservas | Desarrollar endpoints para reservas y alquileres. | 8 |
-| 20 | US16 | Cancelar reserva | Permitir cancelar una reserva realizada. | 3 |
-| 21 | US17 | Inicio de alquiler | Permitir iniciar el uso de una bicicleta reservada. | 5 |
-| 22 | US18 | Finalizar alquiler | Permitir finalizar el alquiler de una bicicleta. | 5 |
-| 23 | US19 | Método de pago | Permitir registrar un método de pago. | 3 |
-| 24 | TS05 | Pagos y liquidaciones | Implementar endpoints para procesamiento de pagos. | 8 |
-| 25 | US20 | Pago automático | Realizar cobros automáticos al finalizar el alquiler. | 5 |
-| 26 | US21 | Confirmación de pago | Notificar al usuario que el pago fue realizado. | 2 |
-| 27 | US23 | Historial de pagos | Permitir visualizar pagos realizados. | 3 |
-| 28 | SPIKE02 | Comunicación IoT | Evaluar protocolos como MQTT vs HTTP. | 5 |
-| 29 | TS06 | Integración Smart Lock | Implementar conexión con dispositivos de bloqueo inteligente. | 8 |
-| 30 | US25 | Desbloquear bicicleta | Permitir desbloquear la bicicleta desde la app. | 8 |
-| 31 | US26 | Bloqueo automático | Permitir el bloqueo automático tras finalizar uso. | 5 |
-| 32 | US27 | Inicio automático | Detectar inicio mediante sensores IoT. | 5 |
-| 33 | TS08 | Sensores IoT | Procesar datos provenientes de sensores. | 8 |
-| 34 | US28 | Detección de uso | Identificar cuando la bicicleta está en uso. | 3 |
-| 35 | SPIKE03 | Datos en tiempo real | Analizar procesamiento en tiempo real. | 5 |
-| 36 | TS07 | GPS en tiempo real | Implementar procesamiento de ubicación en tiempo real. | 8 |
-| 37 | US29 | Ubicación en tiempo real | Mostrar la ubicación actual de la bicicleta. | 8 |
-| 38 | US30 | Seguimiento de recorrido | Permitir visualizar rutas recorridas. | 5 |
-| 39 | US31 | Estado de bicicleta | Mostrar estado actual (disponible, en uso, etc.). | 3 |
-| 40 | US32 | Historial de rutas | Permitir consultar recorridos anteriores. | 3 |
-| 41 | TS09 | Alertas IoT | Implementar sistema de alertas. | 8 |
-| 42 | SPIKE04 | Seguridad IoT | Evaluar riesgos y eventos de seguridad. | 5 |
-| 43 | TS10 | Notificaciones push | Implementar sistema de notificaciones. | 5 |
-| 44 | SPIKE05 | Servicios de notificación | Evaluar herramientas de notificación. | 3 |
-| 45 | US37 | Notificaciones de reserva | Enviar alertas sobre reservas. | 2 |
-| 46 | US38 | Notificaciones de alquiler | Enviar alertas sobre alquileres. | 2 |
-| 47 | US39 | Notificaciones de pago | Enviar alertas de pagos realizados. | 2 |
-| 48 | US40 | Notificaciones de incidencias | Enviar alertas de problemas detectados. | 3 |
-| 49 | TS11 | Panel admin | Desarrollar panel de administración. | 5 |
-| 50 | SPIKE06 | Escalabilidad cloud | Evaluar AWS o Azure. | 5 |
-| 51 | US41 | Panel de métricas | Mostrar indicadores del sistema. | 5 |
-| 52 | US42 | Gestionar usuarios | Permitir administración de usuarios. | 3 |
-| 53 | US43 | Gestionar bicicletas | Permitir administración de bicicletas. | 3 |
-| 54 | US44 | Monitoreo en tiempo real | Visualizar estado del sistema en vivo. | 8 |
-| 55 | SPIKE07 | Seguridad de datos | Evaluar protección de datos. | 5 |
-| 56 | US45 | Landing page | Mostrar página principal informativa. | 2 |
-| 57 | US46 | Ver beneficios | Mostrar beneficios del servicio. | 2 |
-| 58 | US47 | Acceso a login | Permitir ir al login desde landing. | 2 |
-| 59 | US48 | Descargar app | Permitir descarga de la aplicación. | 2 |
+| Orden | User Story ID | Título                                     | Descripción                                                                          | Story Points (1/2/3/5/8) |
+| ----- | ------------- | ------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------ |
+| 1     | US01          | Registro de usuario estudiante             | Permitir a estudiantes crear una cuenta en la plataforma.                            | 5                        |
+| 2     | US02          | Registro de usuario arrendador             | Permitir a arrendadores registrarse para gestionar bicicletas.                       | 5                        |
+| 3     | TS01          | Autenticación (IAM)                        | Implementar endpoints para registro, login y gestión de autenticación.               | 8                        |
+| 4     | US03          | Iniciar sesión                             | Permitir a los usuarios acceder a la plataforma con sus credenciales.                | 3                        |
+| 5     | US04          | Recuperar contraseña                       | Permitir a los usuarios restablecer su contraseña.                                   | 3                        |
+| 6     | US05          | Editar perfil                              | Permitir a los usuarios modificar su información personal.                           | 3                        |
+| 7     | US06          | Cerrar sesión                              | Permitir a los usuarios cerrar su sesión de forma segura.                            | 2                        |
+| 8     | US07          | Registrar bicicleta IoT                    | Permitir registrar una bicicleta con sensores IoT en el sistema.                     | 5                        |
+| 9     | TS02          | Gestión de bicicletas                      | Desarrollar endpoints para administrar bicicletas registradas.                       | 8                        |
+| 10    | US08          | Editar bicicleta                           | Permitir modificar la información de una bicicleta.                                  | 3                        |
+| 11    | US09          | Disponibilidad de bicicleta                | Permitir marcar una bicicleta como disponible o no.                                  | 2                        |
+| 12    | US10          | Eliminar bicicleta                         | Permitir eliminar una bicicleta del sistema.                                         | 2                        |
+| 13    | US11          | Historial de alquileres                    | Permitir consultar alquileres realizados de bicicletas.                              | 3                        |
+| 14    | US12          | Buscar bicicletas por GPS                  | Permitir encontrar bicicletas cercanas usando geolocalización.                       | 5                        |
+| 15    | TS03          | Búsqueda geolocalizada                     | Implementar endpoints de búsqueda con ubicación.                                     | 5                        |
+| 16    | SPIKE01       | Evaluación de mapas                        | Analizar herramientas como Google Maps o Mapbox.                                     | 3                        |
+| 17    | US13          | Filtrar bicicletas                         | Permitir aplicar filtros en la búsqueda de bicicletas.                               | 3                        |
+| 18    | US14          | Ver detalles de bicicleta                  | Mostrar información detallada de una bicicleta.                                      | 3                        |
+| 19    | US15          | Reservar bicicleta                         | Permitir reservar una bicicleta disponible.                                          | 5                        |
+| 20    | TS04          | Gestión de reservas                        | Desarrollar endpoints para reservas y alquileres.                                    | 8                        |
+| 21    | US16          | Cancelar reserva                           | Permitir cancelar una reserva realizada.                                             | 3                        |
+| 22    | US17          | Inicio de alquiler                         | Permitir iniciar el uso de una bicicleta reservada.                                  | 5                        |
+| 23    | US18          | Finalizar alquiler                         | Permitir finalizar el alquiler de una bicicleta.                                     | 5                        |
+| 24    | US19          | Método de pago                             | Permitir registrar un método de pago.                                                | 3                        |
+| 25    | TS05          | Pagos y liquidaciones                      | Implementar endpoints para procesamiento de pagos.                                   | 8                        |
+| 26    | US20          | Pago automático                            | Realizar cobros automáticos al finalizar el alquiler.                                | 5                        |
+| 27    | US21          | Confirmación de pago                       | Notificar al usuario que el pago fue realizado.                                      | 2                        |
+| 28    | US22          | Penalización por tiempo excedido           | Notificar y registrar penalizaciones por exceder el tiempo de alquiler.              | 3                        |
+| 29    | US23          | Historial de pagos                         | Permitir visualizar pagos realizados.                                                | 3                        |
+| 30    | SPIKE02       | Comunicación IoT                           | Evaluar protocolos como MQTT vs HTTP.                                                | 5                        |
+| 31    | TS06          | Integración Smart Lock                     | Implementar conexión con dispositivos de bloqueo inteligente.                        | 8                        |
+| 32    | US24          | Liquidación automática                     | Transferir automáticamente pagos a arrendadores.                                     | 5                        |
+| 33    | US25          | Desbloquear bicicleta                      | Permitir desbloquear la bicicleta desde la app.                                      | 8                        |
+| 34    | US26          | Bloqueo automático                         | Permitir el bloqueo automático tras finalizar uso.                                   | 5                        |
+| 35    | US27          | Inicio automático                          | Detectar inicio mediante sensores IoT.                                               | 5                        |
+| 36    | TS08          | Sensores IoT                               | Procesar datos provenientes de sensores.                                             | 8                        |
+| 37    | US28          | Detección de uso                           | Identificar cuando la bicicleta está en uso.                                         | 3                        |
+| 38    | SPIKE03       | Datos en tiempo real                       | Analizar procesamiento en tiempo real.                                               | 5                        |
+| 39    | TS07          | GPS en tiempo real                         | Implementar procesamiento de ubicación en tiempo real.                               | 8                        |
+| 40    | US29          | Ubicación en tiempo real                   | Mostrar la ubicación actual de la bicicleta.                                         | 8                        |
+| 41    | US30          | Seguimiento de recorrido                   | Permitir visualizar rutas recorridas.                                                | 5                        |
+| 42    | US31          | Estado de bicicleta                        | Mostrar estado actual disponible o en uso.                                           | 3                        |
+| 43    | US32          | Historial de rutas                         | Permitir consultar recorridos anteriores.                                            | 3                        |
+| 44    | SPIKE04       | Seguridad IoT                              | Evaluar riesgos y eventos de seguridad.                                              | 5                        |
+| 45    | SPIKE05       | Servicios de notificación                  | Evaluar herramientas de notificación.                                                | 3                        |
+| 46    | US33          | Notificaciones de reserva                  | Enviar alertas sobre reservas.                                                       | 2                        |
+| 47    | US34          | Notificaciones de inicio y fin de alquiler | Enviar alertas sobre el inicio, finalización y tiempo próximo a vencer del alquiler. | 2                        |
+| 48    | US35          | Notificaciones de pago                     | Enviar alertas sobre pagos realizados, pagos fallidos y penalizaciones.              | 2                        |
+| 49    | US36          | Notificaciones de incidencias o alertas    | Enviar alertas de incidencias o problemas detectados.                                | 3                        |
+| 50    | SPIKE06       | Escalabilidad cloud                        | Evaluar AWS o Azure.                                                                 | 5                        |
+| 51    | US37          | Panel de métricas                          | Mostrar indicadores del sistema.                                                     | 5                        |
+| 52    | US38          | Gestionar usuarios                         | Permitir administración de usuarios.                                                 | 3                        |
+| 53    | US39          | Gestionar bicicletas                       | Permitir administración de bicicletas.                                               | 3                        |
+| 54    | US40          | Monitoreo en tiempo real                   | Visualizar estado del sistema en vivo.                                               | 8                        |
+| 55    | SPIKE07       | Seguridad de datos                         | Evaluar protección de datos.                                                         | 5                        |
+| 56    | US41          | Landing page                               | Mostrar página principal informativa.                                                | 2                        |
+| 57    | US42          | Ver características y beneficios           | Mostrar características y beneficios del servicio para visitantes.                   | 2                        |
+| 58    | US43          | Acceso a login                             | Permitir ir al login desde landing.                                                  | 2                        |
+| 59    | US44          | Descargar app                              | Permitir descarga de la aplicación.                                                  | 2                        |
+
+
 
 
