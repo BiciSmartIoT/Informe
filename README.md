@@ -26,20 +26,58 @@ Wireframe Landing Page (Desktop)
 
 ## Mockups Landing Page (Desktop)
 
+Sección Principal de la landing page:
+
 <p align="center">
-  <img src="assets/images/Chapter-5/ca1.png" width="700">
+
+  <img src="assets/images/Chapter-5/lan-hero.png" width="700">
+
+</p>
+
+Sección Problemática y Características clave:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/lan-problema.png" width="700">
+  <img src="assets/images/Chapter-5/lan-caracteristicas.png" width="700">
+
+
+</p>
+
+Sección Beneficios:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/lan-beneficios.png" width="700">
+
+</p>
+
+Sección "Acerca de":
+
+<p align="center">
+  <img src="assets/images/Chapter-5/lan-nosotros.png" width="700">
+</p>
+
+
+Sección de Precios y Formulario de contacto:
+
+<p align="center">
+  <img src="assets/images/Chapter-5/lan-precios.png" width="700">
+  <img src="assets/images/Chapter-5/lan-contact.png" width="700">
 </p>
 
 <p align="center">
-  <img src="assets/images/Chapter-5/ca2.png" width="700">
+
+  <img src="assets/images/Chapter-5/lan-contact.png" width="700">
+
 </p>
 
-<p align="center">
-  <img src="assets/images/Chapter-5/ca3.png" width="700">
-</p>
+Sección de Descargas de aplicación móvil y pie de página:
 
 <p align="center">
-  <img src="assets/images/Chapter-5/ca4.png" width="700">
+
+  <img src="assets/images/Chapter-5/lan-footer.png" width="700">
+
 </p>
 
 ## 5.4.1. Applications Wireframes
