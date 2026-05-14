@@ -411,6 +411,16 @@ El flujo de usuario cliente se estructura alrededor del objetivo central: alquil
 
 ## 5.5. Applications Prototyping
 
+[img](assets/images/Chapter-5/proto.jpeg)
+
+Link Prototipo:
+[Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220219_upc_edu_pe/IQB-a0BnCjSUR4ZwVEeGGSbBAadbmXSWQ-wATjE8joK3vC4?e=3pUhev&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+enlacees:
+[Arrendador](https://stitch.withgoogle.com/preview/5914202302097093610?node-id=becd46efba38487c905a1fd753300f5c)
+[Arrendatario](https://stitch.withgoogle.com/preview/5914202302097093610?node-id=b293857dd63f455cb7a9769a07d61c5d)
+[Admin](https://stitch.withgoogle.com/preview/5914202302097093610?node-id=630eab06a50841eca5b4bc454a0a4975)
+
+
 ## 5.6. IoT Device Design
 
 ### Introducción y Criterios de Diseño
