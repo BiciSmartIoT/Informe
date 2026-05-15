@@ -112,7 +112,34 @@ DDD presentados previamente.
 | TS08 | T28 | Redactar documentación del Sprint 1 (informe) | 3 | Oscar (Documentación) | Done |
 
 ### 6.2.1.4. Development Evidence for Sprint Review.
+
+## LANDING PAGE:
+
+Debido a la refactorización de un código, además de la realización de solo una persona por elección y consentimiento de todo el grupo, solo se presenta el commit de subida al repositorio principal de la organización.
+Landing:
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| [https://github.com/TF-SolucionesIoT/LandingPage](https://github.com/BiciSmartIoT/front-end.git) | main | 47fea191f279d7aeac5bd1cf043b4b887c3b48e2 | first commit | first commit | 12/05/2026 |
+
+web:
+
+## WEB APPLICATION:
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| [https://github.com/TF-SolucionesIoT/Front-End-IOT](https://github.com/BiciSmartIoT/front-end.git) | main | 79d7aea8 | first commit | first commit | 12/05/2026 |
+| [https://github.com/TF-SolucionesIoT/Front-End-IOT](https://github.com/BiciSmartIoT/front-end.git) | main | 9992216 | Thanks, now that you add a chart/dashboard for “SpO₂” |  | 12/05/2026 |
+| [https://github.com/TF-SolucionesIoT/Front-End-IOT](https://github.com/BiciSmartIoT/front-end.git) | main | 329ec31 | In the “Vitals” section, when clicking on “Heart Rate”, “SpO₂”, or “Blood” |  | 12/05/2026 |
+| [https://github.com/TF-SolucionesIoT/Front-End-IOT](https://github.com/BiciSmartIoT/front-end.git) | main | a341a86 | In the “Treatments” section, add a button labeled “Add Treatment” that a |  | 12/05/2026 |
+| [https://github.com/TF-SolucionesIoT/Front-End-IOT](https://github.com/BiciSmartIoT/front-end.git) | main | 8d09a7b | Add a new section called “Syntomic” to display a history of symptoms wit |  | 12/05/20269 |
+| [https://github.com/TF-SolucionesIoT/Front-End-IOT](https://github.com/BiciSmartIoT/front-end.git)| main | 7c0093a | Add a new section called “Alteration” to display a history of alteration |  | 12/05/2026 |
+
+
 ### 6.2.1.5. Testing Suite Evidence for Sprint Review.
+
+Para este sprint, no nos centramos en elaborar los servicios web, por lo tanto, no hay pruebas unitarias, de integración y de aceptación.
+
 ### 6.2.1.6. Execution Evidence for Sprint Review.
 
 A continuación, se muestran las evidencias de ejecución de la landing page y de la primera versión de la aplicación web.
