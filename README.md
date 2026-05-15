@@ -1,8 +1,8 @@
-<div align="center" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; line-height: 1.8; font-family: 'Segoe UI', Arial, sans-serif;">
+<div align="center">
 
+<img src="./assets/images/Chapter-1/logoupc.png" alt="Logo UPC" width="300"/>
 
-<img src="/assets/images/Chapter-1/logoupc.png" alt="Logo UPC" width="180">
-
+</div>
 ### **Universidad Peruana de Ciencias Aplicadas**
 
 ### **Ingeniería de Software**
