@@ -183,6 +183,20 @@ De manera general, el proceso de despliegue consiste en ingresar a Cloudflare, s
 
 </div>
 
+Depliegue: 
 
+<div align="center">
+
+<img src="./assets/images/deploy_1.png" alt="Deploy 1" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/deploy_2.png" alt="Deploy 2" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/deploy_3.png" alt="Deploy 3" width="800"/>
+
+</div>
 
 ### 6.2.1.9. Team Collaboration Insights during Sprint.
