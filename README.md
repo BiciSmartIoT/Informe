@@ -62,11 +62,11 @@ valor.
 
 | Team Member (Last Name, First Name) | GitHub Username | Landing Page | Web Application |
 |---|---|---|---|
-| Bustamante Leveau, Cameron Charlotte | Pendiente | C | C |
-| Uribe Livia, Renzo Sebastián | Pendiente | C | C |
-| Espinoza Quijandría, Oscar Leonardo | Pendiente | C | C |
-| Landauri Preciado, Stephano Mayzron | Pendiente | C | C |
-| Belahonia Miranda, Fabrisio | Pendiente | C | C |
+| Bustamante Leveau, Cameron Charlotte | CameronBustamanteLeveau2 | C | C |
+| Uribe Livia, Renzo Sebastián | JKOlimpo | C | C |
+| Espinoza Quijandría, Oscar Leonardo | Carbocnito5443 | C | C |
+| Landauri Preciado, Stephano Mayzron | Mayrzon02 | C | C |
+| Belahonia Miranda, Fabrisio | devfab17 | C | C |
 
 ### 6.2.1.3. Sprint Backlog 1.
 
