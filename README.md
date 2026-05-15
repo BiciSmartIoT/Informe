@@ -1,1585 +1,665 @@
+# Capítulo V: Solution UI/UX Design
 
-## Capítulo III: Requirements Specification. 
+## 5.1. Style Guidelines
+Esta sección establece las bases visuales y estéticas del proyecto. El objetivo de las guías de estilo es garantizar la consistencia visual en todas las interfaces, permitiendo que el usuario experimente una identidad de marca unificada, profesional y accesible.
 
-### 3.1. User Stories.
+<div align="center">
 
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr><th colspan="4" align="center"> EP01 – Authentication & Profile Management</th></tr>
-    <tr><th colspan="4" align="center">Como usuario quiero registrarme, iniciar sesión y gestionar mi perfil, para tener acceso seguro y personalizado a la aplicación.</th></tr>
-    <tr><th width="25%">User Story ID</th><th width="75%" colspan="3">Título</th></tr>
-    <tr><td>US01</td><td colspan="3">Registro de usuario estudiante</td></tr>
-    <tr><td>US02</td><td colspan="3">Registro de usuario arrendador</td></tr>
-    <tr><td>US03</td><td colspan="3">Iniciar sesión en la aplicación</td></tr>
-    <tr><td>US04</td><td colspan="3">Recuperar contraseña</td></tr>
-    <tr><td>US05</td><td colspan="3">Editar información de perfil</td></tr>
-    <tr><td>US06</td><td colspan="3">Cerrar sesión</td></tr>
-</table>
+<img src="./assets/images/Chapter-5/guide_1.png" alt="Guide 1 PNG" width="800"/>
 
-<br>
-
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr><th colspan="4" align="center"> EP02 – Bicycle Management (Lender)</th></tr>
-    <tr><th colspan="4" align="center">Como arrendador quiero publicar, editar y administrar mis bicicletas inteligentes para ponerlas a disposición de los usuarios.</th></tr>
-    <tr><th width="25%">User Story ID</th><th width="75%" colspan="3">Título</th></tr>
-    <tr><td>US07</td><td colspan="3">Registrar una bicicleta IoT en la app</td></tr>
-    <tr><td>US08</td><td colspan="3">Editar información de una bicicleta</td></tr>
-    <tr><td>US09</td><td colspan="3">Marcar bicicleta como disponible/no disponible</td></tr>
-    <tr><td>US10</td><td colspan="3">Eliminar bicicleta de la aplicación</td></tr>
-    <tr><td>US11</td><td colspan="3">Consultar historial de alquileres</td></tr>
-</table>
-
-<br>
-
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr><th colspan="4" align="center"> EP03 – Search & Reservation</th></tr>
-    <tr><th colspan="4" align="center">Como usuario quiero buscar y reservar bicicletas inteligentes disponibles para usarlas en mis traslados.</th></tr>
-    <tr><th width="25%">User Story ID</th><th width="75%" colspan="3">Título</th></tr>
-    <tr><td>US12</td><td colspan="3">Buscar bicicletas por cercanía (GPS)</td></tr>
-    <tr><td>US13</td><td colspan="3">Filtrar bicicletas por tipo o características</td></tr>
-    <tr><td>US14</td><td colspan="3">Ver información detallada de la bicicleta y arrendador</td></tr>
-    <tr><td>US15</td><td colspan="3">Realizar reserva de bicicleta</td></tr>
-    <tr><td>US16</td><td colspan="3">Cancelar reserva</td></tr>
-    <tr><td>US17</td><td colspan="3">Confirmar inicio de alquiler</td></tr>
-    <tr><td>US18</td><td colspan="3">Finalizar alquiler</td></tr>
-</table>
-
-<br>
-
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr><th colspan="4" align="center"> EP04 – Digital Payments & Settlements</th></tr>
-    <tr><th colspan="4" align="center">Como usuario quiero realizar pagos digitales de forma segura y como arrendador quiero recibir mis ingresos sin complicaciones.</th></tr>
-    <tr><th width="25%">User Story ID</th><th width="75%" colspan="3">Título</th></tr>
-    <tr><td>US19</td><td colspan="3">Vincular método de pago (Yape, Plin, tarjeta)</td></tr>
-    <tr><td>US20</td><td colspan="3">Pagar alquiler automáticamente</td></tr>
-    <tr><td>US21</td><td colspan="3">Recibir confirmación de pago</td></tr>
-    <tr><td>US22</td><td colspan="3">Recibir notificación de penalización por tiempo excedido</td></tr>
-    <tr><td>US23</td><td colspan="3">Consultar historial de pagos</td></tr>
-    <tr><td>US24</td><td colspan="3">Arrendador recibe liquidación automática</td></tr>
-</table>
-
-<br>
-
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr><th colspan="4" align="center"> EP05 – IoT Control & Automation</th></tr>
-    <tr><th colspan="4" align="center">Como usuario quiero controlar el alquiler mediante tecnología IoT para tener una experiencia automatizada y sin contacto.</th></tr>
-    <tr><th width="25%">User Story ID</th><th width="75%" colspan="3">Título</th></tr>
-    <tr><td>US25</td><td colspan="3">Desbloquear bicicleta mediante app (Smart Lock)</td></tr>
-    <tr><td>US26</td><td colspan="3">Bloquear bicicleta automáticamente al finalizar</td></tr>
-    <tr><td>US27</td><td colspan="3">Inicio automático de alquiler mediante sensor</td></tr>
-    <tr><td>US28</td><td colspan="3">Detección de bicicleta en uso (sensor de movimiento)</td></tr>
-</table>
-
-<br>
-
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr><th colspan="4" align="center"> EP06 – Real-time Monitoring</th></tr>
-    <tr><th colspan="4" align="center">Como usuario quiero visualizar y monitorear información en tiempo real de la bicicleta para mayor control y seguridad.</th></tr>
-    <tr><th width="25%">User Story ID</th><th width="75%" colspan="3">Título</th></tr>
-    <tr><td>US29</td><td colspan="3">Ver ubicación en tiempo real de la bicicleta (GPS)</td></tr>
-    <tr><td>US30</td><td colspan="3">Seguimiento de recorrido durante el alquiler</td></tr>
-    <tr><td>US31</td><td colspan="3">Visualizar estado de la bicicleta (disponible/en uso)</td></tr>
-    <tr><td>US32</td><td colspan="3">Registro de historial de rutas</td></tr>
-</table>
-
-
-<br>
-
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr><th colspan="4" align="center"> EP07 – Notifications</th></tr>
-    <tr><th colspan="4" align="center">Como usuario quiero recibir notificaciones relevantes para estar informado sobre mis actividades.</th></tr>
-    <tr><th width="25%">User Story ID</th><th width="75%" colspan="3">Título</th></tr>
-    <tr><td>US33</td><td colspan="3">Notificaciones de reserva</td></tr>
-    <tr><td>US34</td><td colspan="3">Notificaciones de inicio y fin de alquiler</td></tr>
-    <tr><td>US35</td><td colspan="3">Notificaciones de pago</td></tr>
-    <tr><td>US36</td><td colspan="3">Notificaciones de incidencias o alertas</td></tr>
-</table>
-
-<br>
-
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr><th colspan="4" align="center"> EP08 – Admin Dashboard & IoT Monitoring</th></tr>
-    <tr><th colspan="4" align="center">Como administrador quiero gestionar usuarios y bicicletas inteligentes para asegurar el correcto funcionamiento del sistema.</th></tr>
-    <tr><th width="25%">User Story ID</th><th width="75%" colspan="3">Título</th></tr>
-    <tr><td>US37</td><td colspan="3">Acceder a panel de control con métricas</td></tr>
-    <tr><td>US38</td><td colspan="3">Gestionar usuarios (activar, suspender, eliminar)</td></tr>
-    <tr><td>US39</td><td colspan="3">Gestionar bicicletas registradas</td></tr>
-    <tr><td>US40</td><td colspan="3">Monitorear bicicletas en tiempo real (IoT)</td></tr>
-</table>
-
-<br>
-
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr><th colspan="4" align="center"> EP09 – Landing Page & Visitor Experience</th></tr>
-    <tr><th colspan="4" align="center">Como visitante del sitio quiero explorar la landing page para conocer la aplicación y decidir si registrarme.</th></tr>
-    <tr><th width="25%">User Story ID</th><th width="75%" colspan="3">Título</th></tr>
-    <tr><td>US41</td><td colspan="3">Visualizar información general del servicio</td></tr>
-    <tr><td>US42</td><td colspan="3">Ver características y beneficios</td></tr>
-    <tr><td>US43</td><td colspan="3">Acceder a registro o inicio de sesión</td></tr>
-    <tr><td>US44</td><td colspan="3">Descargar la aplicación</td></tr>
-</table>
-
-#### user storie
-
-<!-- ============================================== -->
-<!-- USER STORIES 01 al 10                          -->
-<!-- ============================================== -->
-
-<!-- US01 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US01</td><td>Estudiante</td><td>Alta</td><td>EP01</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Registro de usuario estudiante</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como estudiante quiero registrarme en la aplicación con mi correo universitario para acceder a los beneficios de usuario.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Registro exitoso con datos válidos</strong><br> Dado que soy un estudiante nuevo, cuando ingreso mi correo universitario y datos personales válidos, entonces mi cuenta se crea exitosamente.<br><br>
-        <strong>Escenario 2: Error por correo no universitario</strong><br> Dado que ingreso un correo que no pertenece a una universidad válida, cuando intento registrarme, entonces el sistema rechaza el registro y solicita un correo institucional.<br><br>
-        <strong>Escenario 3: Validación de campos obligatorios</strong><br> Dado que omito información requerida, cuando intento crear la cuenta, entonces el sistema muestra un mensaje solicitando los datos faltantes.
-    </td></tr>
-</table>
-<br>
-
-<!-- US02 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US02</td><td>Arrendador</td><td>Alta</td><td>EP01</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Registro de usuario arrendador</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como arrendador quiero registrarme en la aplicación con mis datos personales y de negocio para poder publicar mis vehículos.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Registro exitoso con datos válidos</strong><br> Dado que soy un arrendador nuevo, cuando ingreso mi DNI/RUC y datos de contacto válidos, entonces mi cuenta se crea exitosamente.<br><br>
-        <strong>Escenario 2: Error por número de identificación inválido</strong><br> Dado que ingreso un DNI o RUC inválido, cuando intento registrarme, entonces el sistema muestra un mensaje de error de validación.<br><br>
-        <strong>Escenario 3: Confirmación de registro</strong><br> Dado que mi registro es exitoso, cuando el proceso finaliza, entonces recibo una notificación de confirmación.
-    </td></tr>
-</table>
-<br>
-
-<!-- US03 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US03</td><td>Usuario</td><td>Alta</td><td>EP01</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Iniciar sesión en la aplicación</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario registrado quiero iniciar sesión con mi correo y contraseña para acceder a mi cuenta.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Inicio de sesión exitoso</strong><br> Dado que ingreso mis credenciales correctas, cuando el sistema las valida, entonces me otorga acceso a mi cuenta.<br><br>
-        <strong>Escenario 2: Error por credenciales incorrectas</strong><br> Dado que ingreso una contraseña incorrecta, cuando intento autenticarme, entonces el sistema deniega el acceso y muestra un mensaje de error.<br><br>
-        <strong>Escenario 3: Opción "Recordarme"</strong><br> Dado que activo la opción "Recordarme", cuando cierro y vuelvo a abrir la app, entonces mi sesión permanece activa.
-    </td></tr>
-</table>
-<br>
-
-<!-- US04 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US04</td><td>Usuario</td><td>Media</td><td>EP01</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Recuperar contraseña</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero recuperar mi contraseña olvidada mediante un enlace enviado a mi correo para restablecer el acceso a mi cuenta.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Solicitud de enlace de recuperación</strong><br> Dado que olvidé mi contraseña, cuando ingreso mi correo registrado, entonces el sistema envía un enlace de recuperación válido por 30 minutos.<br><br>
-        <strong>Escenario 2: Error por correo no registrado</strong><br> Dado que ingreso un correo no registrado, cuando solicito recuperación, entonces el sistema muestra un mensaje indicando que el correo no existe.<br><br>
-        <strong>Escenario 3: Definición de nueva contraseña</strong><br> Dado que accedo al enlace de recuperación, cuando ingreso mi nueva contraseña, entonces el sistema la actualiza y me permite iniciar sesión.
-    </td></tr>
-</table>
-<br>
-
-<!-- US05 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US05</td><td>Usuario</td><td>Media</td><td>EP01</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Editar información de perfil</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario autenticado quiero editar mi información personal (nombre, teléfono, foto) para mantener mis datos actualizados.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Edición exitosa de datos</strong><br> Dado que modifico un dato personal válido, cuando guardo los cambios, entonces el sistema actualiza mi perfil correctamente.<br><br>
-        <strong>Escenario 2: Error por número de teléfono inválido</strong><br> Dado que ingreso un número de teléfono inválido, cuando intento guardar, entonces el sistema muestra un mensaje de error y no aplica la modificación.<br><br>
-        <strong>Escenario 3: Confirmación de cambios exitosos</strong><br> Dado que los cambios se guardan correctamente, cuando finaliza el proceso, entonces recibo una notificación de actualización exitosa.
-    </td></tr>
-</table>
-<br>
-
-<!-- US06 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US06</td><td>Usuario</td><td>Alta</td><td>EP01</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Cerrar sesión</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario autenticado quiero cerrar sesión de forma segura para proteger mi cuenta en dispositivos compartidos.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Cierre de sesión exitoso</strong><br> Dado que solicito cerrar sesión, cuando el sistema procesa la solicitud, entonces invalida mi sesión actual.<br><br>
-        <strong>Escenario 2: Reingreso con credenciales</strong><br> Dado que mi sesión ha sido cerrada, cuando intento acceder nuevamente, entonces el sistema requiere que ingrese mis credenciales.<br><br>
-        <strong>Escenario 3: Desconexión en dispositivos distintos</strong><br> Dado que cierro sesión en un dispositivo, cuando consulto mi sesión en otro dispositivo, entonces el sistema refleja el estado de inactividad.
-    </td></tr>
-</table>
-<br>
-
-<!-- US07 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US07</td><td>Arrendador</td><td>Alta</td><td>EP02</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Registrar una bicicleta IoT en la app</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como arrendador quiero registrar una bicicleta con dispositivo IoT (ID único, modelo, tipo, ubicación) para ponerla en alquiler.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Registro exitoso de vehículo</strong><br> Dado que ingreso todos los datos válidos del vehículo (ID IoT, tipo, tarifa), cuando registro la bicicleta, entonces el sistema la guarda como "disponible".<br><br>
-        <strong>Escenario 2: Error por ID IoT duplicado</strong><br> Dado que ingreso un ID IoT ya registrado, cuando intento registrar la bicicleta, entonces el sistema muestra un mensaje de error indicando que el ID ya existe.<br><br>
-        <strong>Escenario 3: Confirmación de vehículo en listado</strong><br> Dado que el registro es exitoso, cuando consulto mi listado de bicicletas, entonces el sistema muestra el nuevo vehículo registrado.
-    </td></tr>
-</table>
-<br>
-
-<!-- US08 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US08</td><td>Arrendador</td><td>Media</td><td>EP02</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Editar información de una bicicleta</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como arrendador quiero editar los datos de mis bicicletas (descripción, tarifa, tipo) para mantener la información actualizada.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Edición exitosa de datos</strong><br> Dado que modifico un dato válido de la bicicleta, cuando guardo los cambios, entonces el sistema actualiza la información correctamente.<br><br>
-        <strong>Escenario 2: Error por tarifa inválida</strong><br> Dado que ingreso una tarifa negativa o cero, cuando intento guardar, entonces el sistema muestra un mensaje de error y no aplica la modificación.<br><br>
-        <strong>Escenario 3: Confirmación de cambios</strong><br> Dado que los cambios se guardan correctamente, cuando finaliza el proceso, entonces recibo una notificación de actualización exitosa.
-    </td></tr>
-</table>
-<br>
-
-<!-- US09 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US09</td><td>Arrendador</td><td>Alta</td><td>EP02</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Marcar bicicleta como disponible/no disponible</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como arrendador quiero cambiar el estado de disponibilidad de una bicicleta manualmente para retirarla temporalmente del alquiler (mantenimiento, etc.).</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Cambio a no disponible exitoso</strong><br> Dado que deseo pausar el alquiler de una bicicleta, cuando cambio su estado a "no disponible", entonces el sistema actualiza el estado y la bicicleta deja de mostrarse en búsquedas.<br><br>
-        <strong>Escenario 2: Restricción durante alquiler activo</strong><br> Dado que la bicicleta tiene un alquiler activo, cuando intento marcarla como no disponible, entonces el sistema bloquea el cambio y notifica que el vehículo está en uso.<br><br>
-        <strong>Escenario 3: Confirmación visual del nuevo estado</strong><br> Dado que cambio el estado exitosamente, cuando veo el listado de mis bicicletas, entonces el sistema muestra el nuevo estado con un indicador visual.
-    </td></tr>
-</table>
-<br>
-
-<!-- US10 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US10</td><td>Arrendador</td><td>Baja</td><td>EP02</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Eliminar bicicleta de la aplicación</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como arrendador quiero eliminar una bicicleta de la plataforma para darla de baja definitiva.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Eliminación exitosa</strong><br> Dado que solicito eliminar una bicicleta sin alquileres activos, cuando confirmo la acción, entonces el sistema la elimina de la base de datos.<br><br>
-        <strong>Escenario 2: Confirmación previa a la eliminación</strong><br> Dado que inicio el proceso de eliminación, cuando el sistema detecta la acción, entonces solicita confirmación para evitar eliminaciones accidentales.<br><br>
-        <strong>Escenario 3: Bloqueo por alquileres pendientes</strong><br> Dado que la bicicleta tiene alquileres activos o futuros, cuando intento eliminarla, entonces el sistema bloquea la operación y notifica que no se puede eliminar.
-    </td></tr>
-</table>
-<br>
-
-<!-- US11 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US11</td><td>Arrendador</td><td>Media</td><td>EP02</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Consultar historial de alquileres</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como arrendador quiero ver el historial de alquileres de cada bicicleta (fechas, usuario, monto) para llevar un control de ingresos y uso.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Visualización de historial completo</strong><br> Dado que consulto mis alquileres, cuando el sistema accede a la base de datos, entonces muestra una lista con todos los alquileres realizados.<br><br>
-        <strong>Escenario 2: Filtrado por rango de fechas</strong><br> Dado que deseo ver alquileres de un período específico, cuando selecciono las fechas, entonces el sistema filtra y muestra solo los alquileres de ese rango.<br><br>
-        <strong>Escenario 3: Detalle de cada alquiler</strong><br> Dado que selecciono un alquiler específico, cuando el sistema procesa la solicitud, entonces muestra información detallada (inicio, fin, usuario, monto).
-    </td></tr>
-</table>
-<br>
-
-<!-- US12 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US12</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Buscar bicicletas por cercanía (GPS)</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero ver las bicicletas disponibles ordenadas por distancia a mi ubicación actual (GPS) para encontrar fácilmente una bicicleta cerca de mí.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Uso de ubicación actual</strong><br> Dado que permito el acceso a mi ubicación, cuando el sistema obtiene mis coordenadas, entonces muestra las bicicletas ordenadas por distancia.<br><br>
-        <strong>Escenario 2: Visualización en mapa</strong><br> Dado que busco bicicletas, cuando el sistema carga los resultados, entonces muestra un mapa con marcadores de bicicletas disponibles.<br><br>
-        <strong>Escenario 3: Lista ordenada por distancia</strong><br> Dado que veo los resultados en lista, cuando el sistema los ordena, entonces muestra primero las bicicletas más cercanas a mi ubicación.
-    </td></tr>
-</table>
-<br>
-
-<!-- US13 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US13</td><td>Usuario</td><td>Media</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Filtrar bicicletas por tipo o características</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero filtrar bicicletas por tipo (eléctrica, montaña, urbana) y rango de precio para encontrar la que mejor se adapte a mis necesidades.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Filtro por tipo de vehículo</strong><br> Dado que selecciono un tipo de bicicleta, cuando aplico el filtro, entonces el sistema muestra solo las bicicletas de ese tipo.<br><br>
-        <strong>Escenario 2: Filtro por rango de precio</strong><br> Dado que selecciono un precio mínimo y máximo, cuando aplico el filtro, entonces el sistema muestra solo las bicicletas dentro de ese rango.<br><br>
-        <strong>Escenario 3: Combinación de filtros</strong><br> Dado que aplico múltiples filtros, cuando el sistema procesa la solicitud, entonces muestra las bicicletas que cumplen todos los criterios seleccionados.
-    </td></tr>
-</table>
-<br>
-
-<!-- US14 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US14</td><td>Usuario</td><td>Media</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Ver información detallada de la bicicleta y arrendador</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero ver una pantalla con detalles de la bicicleta (fotos, tarifa, estado) y datos del arrendador para tomar una decisión informada antes de reservar.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Visualización de detalles del vehículo</strong><br> Dado que selecciono una bicicleta, cuando accedo a su pantalla de detalle, entonces el sistema muestra fotos, tipo, tarifa por hora, estado y descripción.<br><br>
-        <strong>Escenario 2: Información del arrendador</strong><br> Dado que veo los detalles de la bicicleta, cuando consulto los datos del propietario, entonces el sistema muestra nombre, calificación y tiempo en la plataforma.<br><br>
-        <strong>Escenario 3: Botón de reserva disponible</strong><br> Dado que la bicicleta está disponible, cuando visualizo los detalles, entonces el sistema muestra un botón habilitado para realizar la reserva.
-    </td></tr>
-</table>
-<br>
-
-<!-- US15 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US15</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Realizar reserva de bicicleta</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero reservar una bicicleta para un horario específico para asegurar su disponibilidad cuando la necesite.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Reserva exitosa</strong><br> Dado que selecciono una bicicleta disponible, cuando elijo fecha y hora de inicio, entonces el sistema bloquea la bicicleta y confirma la reserva.<br><br>
-        <strong>Escenario 2: Reserva con tiempo límite</strong><br> Dado que realizo una reserva, cuando el sistema la procesa, entonces bloquea la bicicleta por 15 minutos para que pueda recogerla.<br><br>
-        <strong>Escenario 3: Confirmación de reserva</strong><br> Dado que la reserva se completa exitosamente, cuando finaliza el proceso, entonces recibo una notificación con un código único de reserva.
-    </td></tr>
-</table>
-<br>
-
-<!-- US16 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US16</td><td>Usuario</td><td>Media</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Cancelar reserva</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero cancelar mi reserva antes de iniciar el alquiler para liberar la bicicleta sin penalización (dentro del plazo).</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Cancelación exitosa</strong><br> Dado que tengo una reserva activa, cuando solicito cancelarla, entonces el sistema libera la bicicleta y actualiza el estado de la reserva a "cancelada".<br><br>
-        <strong>Escenario 2: Confirmación de cancelación</strong><br> Dado que la cancelación se procesa, cuando finaliza la operación, entonces recibo una notificación de cancelación.<br><br>
-        <strong>Escenario 3: Bicicleta disponible nuevamente</strong><br> Dado que cancelo mi reserva, cuando otro usuario busca bicicletas, entonces el sistema muestra la bicicleta como disponible inmediatamente.
-    </td></tr>
-</table>
-<br>
-
-<!-- US17 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US17</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Confirmar inicio de alquiler</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero confirmar el inicio del alquiler cuando tengo la bicicleta físicamente para que el sistema comience a contabilizar el tiempo y costo.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Inicio exitoso de alquiler</strong><br> Dado que estoy junto a la bicicleta reservada, cuando presiono "Iniciar alquiler", entonces el sistema comienza a contabilizar el tiempo de uso.<br><br>
-        <strong>Escenario 2: Conexión con smart lock</strong><br> Dado que inicio el alquiler, cuando el sistema se conecta al candado inteligente, entonces desbloquea la bicicleta automáticamente.<br><br>
-        <strong>Escenario 3: Notificación de inicio</strong><br> Dado que el alquiler comienza exitosamente, cuando el sistema procesa el inicio, entonces recibo una notificación de inicio exitoso.
-    </td></tr>
-</table>
-<br>
-
-<!-- US18 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US18</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Finalizar alquiler</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero finalizar el alquiler al terminar mi recorrido para detener el cobro y liberar la bicicleta.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Finalización exitosa</strong><br> Dado que termino mi recorrido, cuando presiono "Finalizar alquiler", entonces el sistema detiene el contador de tiempo y calcula el monto a pagar.<br><br>
-        <strong>Escenario 2: Bloqueo automático de bicicleta</strong><br> Dado que finalizo el alquiler, cuando el sistema procesa la finalización, entonces envía señal al smart lock para bloquear la bicicleta.<br><br>
-        <strong>Escenario 3: Resumen de pago</strong><br> Dado que el alquiler finaliza correctamente, cuando el sistema completa el proceso, entonces muestra un resumen con el tiempo total y el costo.
-    </td></tr>
-</table>
-<br>
-<!-- US19 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US19</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Vincular método de pago (Yape, Plin, tarjeta)</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero vincular mi cuenta de Yape, Plin o tarjeta de crédito/débito para poder pagar los alquileres de forma digital.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Vinculación exitosa</strong><br>Dado que ingreso datos de pago válidos, cuando el sistema procesa la vinculación, entonces guarda el método de pago asociado a mi cuenta.<br><br>
-        <strong>Escenario 2: Soporte para múltiples métodos</strong><br>Dado que deseo pagar, cuando el sistema muestra las opciones, entonces permite seleccionar entre Yape, Plin o tarjeta.<br><br>
-        <strong>Escenario 3: Validación de seguridad</strong><br>Dado que vinculo una tarjeta, cuando el sistema procesa los datos, entonces valida la información de forma segura.
-    </td></tr>
-</table>
-
-<!-- US20 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US20</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Pagar alquiler automáticamente</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero que el pago del alquiler se realice automáticamente al finalizar el uso para no tener que hacer trámites manuales.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Cálculo automático del monto</strong><br>Dado que finalizo el alquiler, cuando el sistema calcula el tiempo de uso, entonces determina el monto total según la tarifa por minuto.<br><br>
-        <strong>Escenario 2: Cargo al método de pago vinculado</strong><br>Dado que tengo un método de pago registrado, cuando el sistema procesa el pago, entonces realiza el cargo automáticamente.<br><br>
-        <strong>Escenario 3: Confirmación de pago</strong><br>Dado que el pago se completa, cuando finaliza la transacción, entonces muestra un comprobante de pago.
-    </td></tr>
-</table>
-
-<!-- US21 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US21</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Recibir confirmación de pago</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero recibir una confirmación de cada pago realizado para tener un comprobante y control de mis gastos.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Confirmación por correo</strong><br>Dado que se realiza un pago exitoso, cuando el sistema procesa la transacción, entonces envía un comprobante a mi correo.<br><br>
-        <strong>Escenario 2: Notificación push de confirmación</strong><br>Dado que el pago se completa, cuando el sistema registra la transacción, entonces envía una notificación push a mi dispositivo.<br><br>
-        <strong>Escenario 3: Detalle del pago en comprobante</strong><br>Dado que recibo la confirmación, cuando el sistema genera el comprobante, entonces incluye monto, fecha, bicicleta y duración del alquiler.
-    </td></tr>
-</table>
-
-<!-- US22 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US22</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Recibir notificación de penalización por tiempo excedido</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero recibir una notificación si excedo el tiempo de alquiler para conocer la penalización aplicada.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Detección de tiempo excedido</strong><br>Dado que supero el tiempo límite de alquiler, cuando el sistema detecta el exceso, entonces calcula la penalización según las reglas establecidas.<br><br>
-        <strong>Escenario 2: Notificación de penalización</strong><br>Dado que se aplica una penalización, cuando el sistema procesa el cargo adicional, entonces envía una notificación indicando el monto y el motivo.<br><br>
-        <strong>Escenario 3: Detalle en historial de pagos</strong><br>Dado que se cobra una penalización, cuando el sistema registra el pago, entonces muestra el desglose en mi historial.
-    </td></tr>
-</table>
-
-<!-- US23 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US23</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Consultar historial de pagos</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero consultar mi historial de pagos realizados para llevar un registro de mis gastos en la plataforma.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Listado cronológico de pagos</strong><br>Dado que accedo a mi historial, cuando el sistema consulta la base de datos, entonces muestra una lista ordenada por fecha descendente.<br><br>
-        <strong>Escenario 2: Filtros por rango de fechas</strong><br>Dado que deseo ver pagos de un período específico, cuando selecciono las fechas, entonces el sistema filtra y muestra solo los pagos de ese rango.<br><br>
-        <strong>Escenario 3: Detalle de cada transacción</strong><br>Dado que selecciono un pago específico, cuando el sistema procesa la solicitud, entonces muestra fecha, monto, bicicleta, duración y método de pago.
-    </td></tr>
-</table>
-
-<!-- US24 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US24</td><td>Arrendador</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Arrendador recibe liquidación automática</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como arrendador quiero recibir automáticamente el pago por los alquileres de mis bicicletas para no tener que gestionar cobros manualmente.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Transferencia automática</strong><br>Dado que un alquiler finaliza y el pago se completa, cuando el sistema procesa la transacción, entonces transfiere el monto correspondiente a mi cuenta.<br><br>
-        <strong>Escenario 2: Cálculo de comisión de plataforma</strong><br>Dado que se realiza una transacción, cuando el sistema calcula la liquidación, entonces descuenta la comisión de la plataforma antes de transferir.<br><br>
-        <strong>Escenario 3: Notificación de liquidación</strong><br>Dado que la liquidación se completa exitosamente, cuando el sistema procesa la transferencia, entonces envía una notificación con el monto recibido y el detalle del alquiler.
-    </td></tr>
-</table>
-<br>
-
-<!-- US25 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US25</td><td>Usuario</td><td>Alta</td><td>EP03</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Desbloquear bicicleta mediante app (Smart Lock)</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero desbloquear la bicicleta directamente desde la app usando el candado inteligente para iniciar mi alquiler sin llaves físicas.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Desbloqueo remoto</strong><br>Dado que inicio el alquiler, cuando el sistema se conecta al smart lock, entonces envía la señal para desbloquear la bicicleta.<br><br>
-        <strong>Escenario 2: Desbloqueo solo después de reserva confirmada</strong><br>Dado que intento desbloquear una bicicleta sin reserva activa, cuando el sistema valida la solicitud, entonces bloquea el desbloqueo y muestra un mensaje de error.<br><br>
-        <strong>Escenario 3: Feedback visual de desbloqueo</strong><br>Dado que el desbloqueo es exitoso, cuando la bicicleta se libera, entonces la app muestra una confirmación visual y sonora.
-    </td></tr>
-</table>
-<br>
-
-<!-- US26 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US26</td><td>Usuario</td><td>Alta</td><td>EP04</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Bloquear bicicleta automáticamente al finalizar</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero que la bicicleta se bloquee automáticamente al finalizar el alquiler para asegurar que queda correctamente cerrada.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Bloqueo automático</strong><br>Dado que presiono "Finalizar alquiler", cuando el sistema procesa la solicitud, entonces envía señal al smart lock para bloquear la bicicleta.<br><br>
-        <strong>Escenario 2: Confirmación de bloqueo</strong><br>Dado que el bloqueo es exitoso, cuando la bicicleta se asegura, entonces la app muestra una confirmación de bloqueo.<br><br>
-        <strong>Escenario 3: Imposibilidad de desbloquear sin nuevo alquiler</strong><br>Dado que la bicicleta está bloqueada, cuando intento desbloquearla sin un alquiler activo, entonces el sistema deniega el acceso.
-    </td></tr>
-</table>
-<br>
-
-<!-- US27 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US27</td><td>Usuario</td><td>Alta</td><td>EP04</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Inicio automático de alquiler mediante sensor</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero que el alquiler se inicie automáticamente al desbloquear la bicicleta para no tener que realizar pasos adicionales.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Sensor detecta desbloqueo</strong><br>Dado que desbloqueo la bicicleta desde la app, cuando el sensor IoT detecta el desbloqueo, entonces el sistema activa automáticamente el alquiler.<br><br>
-        <strong>Escenario 2: Notificación de inicio automático</strong><br>Dado que el alquiler se inicia automáticamente, cuando el sistema procesa el evento, entonces envía una notificación de inicio exitoso.<br><br>
-        <strong>Escenario 3: Registro de hora de inicio exacta</strong><br>Dado que el alquiler comienza con el desbloqueo, cuando el sensor envía la señal, entonces el sistema registra la hora exacta de inicio.
-    </td></tr>
-</table>
-<br>
-
-<!-- US28 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US28</td><td>Usuario</td><td>Alta</td><td>EP04</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Detección de bicicleta en uso (sensor de movimiento)</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero que el sistema detecte automáticamente cuando la bicicleta está en movimiento para registrar correctamente el tiempo de uso activo.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Sensor de movimiento integrado</strong><br>Dado que la bicicleta tiene un sensor IoT, cuando el usuario comienza a moverse, entonces el sistema detecta el movimiento y confirma que la bicicleta está en uso.<br><br>
-        <strong>Escenario 2: Registro de tiempo solo cuando hay movimiento</strong><br>Dado que la bicicleta está detenida por más de X minutos, cuando el sensor no detecta movimiento, entonces el sistema pausa el registro de tiempo activo.<br><br>
-        <strong>Escenario 3: Reanudación automática al detectar movimiento</strong><br>Dado que la bicicleta estaba detenida, cuando el sensor detecta movimiento nuevamente, entonces el sistema reanuda el registro de tiempo.
-    </td></tr>
-</table>
-<br>
-
-<!-- US29 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US29</td><td>Usuario</td><td>Alta</td><td>EP04</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Ver ubicación en tiempo real de la bicicleta (GPS)</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero ver en un mapa la ubicación actual de la bicicleta que estoy usando para orientarme durante mi recorrido.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Mapa con marcador de ubicación actual</strong><br>Dado que estoy usando una bicicleta, cuando abro el mapa en la app, entonces el sistema muestra un marcador con mi ubicación actual.<br><br>
-        <strong>Escenario 2: Actualización periódica</strong><br>Dado que me estoy moviendo, cuando el GPS de la bicicleta envía coordenadas, entonces el sistema actualiza mi ubicación en el mapa cada 5 segundos.<br><br>
-        <strong>Escenario 3: Indicador de precisión GPS</strong><br>Dado que la señal GPS es débil, cuando el sistema detecta baja precisión, entonces muestra un indicador de precisión limitada.
-    </td></tr>
-</table>
-<br>
-
-<!-- US30 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US30</td><td>Usuario</td><td>Alta</td><td>EP04</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Seguimiento de recorrido durante el alquiler</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero ver la ruta que he recorrido durante mi alquiler para tener un registro de mi trayecto.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Trazado de ruta en tiempo real</strong><br>Dado que estoy en movimiento, cuando el sistema recibe las coordenadas, entonces dibuja una línea continua mostrando mi ruta recorrida.<br><br>
-        <strong>Escenario 2: Distancia recorrida actualizada</strong><br>Dado que avanzo en mi recorrido, cuando el sistema calcula la distancia acumulada, entonces muestra la distancia total recorrida hasta el momento.<br><br>
-        <strong>Escenario 3: Tiempo transcurrido y velocidad promedio</strong><br>Dado que el alquiler está activo, cuando el sistema procesa los datos, entonces muestra el tiempo transcurrido y la velocidad promedio del recorrido.
-    </td></tr>
-</table>
-<br>
-
-<!-- US31 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US31</td><td>Usuario</td><td>Alta</td><td>EP04</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Visualizar estado de la bicicleta (disponible/en uso)</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero ver en tiempo real si una bicicleta está disponible o en uso antes de desplazarme a recogerla.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Indicador visual de estado</strong><br> Dado que busco bicicletas, cuando el sistema muestra los resultados, entonces cada bicicleta tiene un indicador visual (verde = disponible, rojo = en uso).<br><br>
-        <strong>Escenario 2: Actualización en tiempo real</strong><br> Dado que una bicicleta cambia de estado, cuando el sistema recibe la actualización del IoT, entonces refleja el cambio inmediatamente en la interfaz.<br><br>
-        <strong>Escenario 3: Bloqueo de reserva si está en uso</strong><br> Dado que intento reservar una bicicleta en uso, cuando el sistema valida el estado, entonces bloquea la reserva y muestra un mensaje indicando que no está disponible.
-    </td></tr>
-</table>
-<br>
-
-<!-- US32 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US32</td><td>Usuario</td><td>Alta</td><td>EP04</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Registro de historial de rutas</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero consultar el historial de todas mis rutas anteriores para ver mis recorridos pasados.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Listado de rutas por fecha</strong><br> Dado que accedo a mi historial de rutas, cuando el sistema consulta la base de datos, entonces muestra una lista ordenada por fecha descendente.<br><br>
-        <strong>Escenario 2: Resumen de cada ruta</strong><br> Dado que veo el listado de rutas, cuando selecciono una ruta específica, entonces el sistema muestra distancia recorrida, duración y fecha.<br><br>
-        <strong>Escenario 3: Opción de ver ruta en mapa</strong><br> Dado que deseo ver el recorrido completo, cuando selecciono una ruta del historial, entonces el sistema muestra el trazado de la ruta en un mapa interactivo.
-    </td></tr>
-</table>
-<br>
-
-
-<!-- US33 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US33</td><td>Usuario</td><td>Alta</td><td>EP05</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Notificaciones de reserva</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero recibir notificaciones sobre mis reservas para estar informado sobre su estado.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Confirmación de reserva</strong><br> Dado que realizo una reserva exitosa, cuando el sistema procesa la solicitud, entonces envía una notificación de confirmación.<br><br>
-        <strong>Escenario 2: Recordatorio de reserva próxima</strong><br> Dado que tengo una reserva agendada, cuando faltan 30 minutos para la hora de inicio, entonces el sistema envía un recordatorio.<br><br>
-        <strong>Escenario 3: Cancelación de reserva</strong><br> Dado que cancelo mi reserva, cuando el sistema procesa la cancelación, entonces envía una notificación de cancelación exitosa.
-    </td></tr>
-</table>
-<br>
-
-<!-- US34 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US34</td><td>Usuario</td><td>Alta</td><td>EP05</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Notificaciones de inicio y fin de alquiler</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero recibir notificaciones cuando el alquiler comienza y termina para tener control sobre el tiempo de uso.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Notificación de inicio de alquiler</strong><br> Dado que confirmo el inicio del alquiler, cuando el sistema activa el contador de tiempo, entonces envía una notificación de inicio exitoso.<br><br>
-        <strong>Escenario 2: Notificación de finalización de alquiler</strong><br> Dado que finalizo el alquiler, cuando el sistema detiene el contador, entonces envía una notificación con el resumen del tiempo y costo.<br><br>
-        <strong>Escenario 3: Alerta de tiempo próximo a vencer</strong><br> Dado que el alquiler está por terminar, cuando faltan 5 minutos para el tiempo estimado, entonces el sistema envía una notificación de advertencia.
-    </td></tr>
-</table>
-<br>
-
-<!-- US35 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US35</td><td>Usuario</td><td>Alta</td><td>EP05</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Notificaciones de pago</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero recibir notificaciones sobre mis pagos para confirmar las transacciones realizadas.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Confirmación de pago exitoso</strong><br> Dado que se procesa un pago, cuando la transacción es exitosa, entonces el sistema envía una notificación de confirmación con el monto pagado.<br><br>
-        <strong>Escenario 2: Notificación de pago fallido</strong><br> Dado que el pago no puede procesarse, cuando el sistema detecta el fallo, entonces envía una notificación solicitando verificar el método de pago.<br><br>
-        <strong>Escenario 3: Notificación de penalización aplicada</strong><br> Dado que se aplica una penalización por tiempo excedido, cuando el sistema procesa el cargo adicional, entonces envía una notificación detallando el motivo y el monto.
-    </td></tr>
-</table>
-<br>
-
-<!-- US36 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US36</td><td>Usuario</td><td>Alta</td><td>EP05</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Notificaciones de incidencias o alertas</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como usuario quiero recibir notificaciones sobre incidencias o alertas relacionadas con mis alquileres para estar informado.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Alerta de bicicleta no disponible</strong><br> Dado que intento reservar una bicicleta que se vuelve no disponible, cuando el sistema detecta el cambio, entonces envía una notificación informando la indisponibilidad.<br><br>
-        <strong>Escenario 2: Reporte de incidencia del vehículo</strong><br> Dado que otro usuario reporta un problema con la bicicleta que usé, cuando el sistema registra el reporte, entonces me envía una notificación para que pueda responder.<br><br>
-        <strong>Escenario 3: Alerta de mantenimiento programado</strong><br> Dado que una bicicleta que uso frecuentemente entra en mantenimiento, cuando el arrendador la marca como no disponible, entonces el sistema envía una notificación informativa.
-    </td></tr>
-</table>
-<br>
-
-<!-- US37 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US37</td><td>Administrador</td><td>Alta</td><td>EP06</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Acceder a panel de control con métricas</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como administrador quiero acceder a un panel de control con métricas (número de usuarios, alquileres activos, ingresos) para monitorear el rendimiento de la plataforma.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Visualización de métricas clave</strong><br> Dado que accedo al panel de administrador, cuando el sistema carga los datos, entonces muestra indicadores como número de usuarios, alquileres activos e ingresos totales.<br><br>
-        <strong>Escenario 2: Gráficos de tendencias</strong><br> Dado que deseo ver la evolución de la plataforma, cuando el sistema genera reportes, entonces muestra gráficos de alquileres por día, semana o mes.<br><br>
-        <strong>Escenario 3: Exportación de reportes</strong><br> Dado que necesito compartir los datos, cuando solicito exportar, entonces el sistema genera un archivo CSV o PDF con las métricas seleccionadas.
-    </td></tr>
-</table>
-<br>
-
-<!-- US38 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US38</td><td>Administrador</td><td>Alta</td><td>EP06</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Gestionar usuarios (activar, suspender, eliminar)</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como administrador quiero gestionar los usuarios de la plataforma (activar, suspender, eliminar) para mantener un entorno seguro y ordenado.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Listado de usuarios registrados</strong><br> Dado que accedo a la gestión de usuarios, cuando el sistema consulta la base de datos, entonces muestra una lista paginada con todos los usuarios.<br><br>
-        <strong>Escenario 2: Suspensión de usuario infractor</strong><br> Dado que un usuario viola las políticas, cuando selecciono la opción de suspender, entonces el sistema bloquea temporalmente el acceso del usuario.<br><br>
-        <strong>Escenario 3: Eliminación de cuenta</strong><br> Dado que requiero eliminar una cuenta problemática, cuando confirmo la acción, entonces el sistema elimina permanentemente al usuario y sus datos asociados.
-    </td></tr>
-</table>
-<br>
-
-<!-- US39 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US39</td><td>Administrador</td><td>Alta</td><td>EP06</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Gestionar bicicletas registradas</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como administrador quiero gestionar las bicicletas registradas en la plataforma para asegurar que cumplan con los requisitos.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Listado de bicicletas activas</strong><br> Dado que accedo a la gestión de bicicletas, cuando el sistema consulta la base de datos, entonces muestra todas las bicicletas registradas con su estado actual.<br><br>
-        <strong>Escenario 2: Desactivación de bicicleta por incumplimiento</strong><br> Dado que una bicicleta no cumple con los requisitos, cuando selecciono la opción de desactivar, entonces el sistema la marca como "no disponible" en la plataforma.<br><br>
-        <strong>Escenario 3: Revisión de bicicletas reportadas</strong><br> Dado que usuarios reportan problemas con una bicicleta, cuando reviso los reportes, entonces el sistema muestra una lista de bicicletas con incidencias para su evaluación.
-    </td></tr>
-</table>
-<br>
-
-<!-- US40 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US40</td><td>Administrador</td><td>Alta</td><td>EP06</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Monitorear bicicletas en tiempo real (IoT)</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como administrador quiero monitorear las bicicletas en tiempo real a través del IoT para detectar anomalías o problemas operativos.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Mapa con ubicación de todas las bicicletas</strong><br> Dado que accedo al monitoreo IoT, cuando el sistema carga los datos, entonces muestra un mapa con la ubicación en tiempo real de todas las bicicletas.<br><br>
-        <strong>Escenario 2: Estado de conexión de cada bicicleta</strong><br> Dado que monitoreo la flota, cuando el sistema verifica la conectividad, entonces muestra el estado de conexión de cada dispositivo IoT (online/offline).<br><br>
-        <strong>Escenario 3: Alertas de anomalías</strong><br> Dado que una bicicleta presenta un comportamiento anómalo (batería baja, sin movimiento prolongado), cuando el sistema detecta la anomalía, entonces genera una alerta visible en el panel.
-    </td></tr>
-</table>
-<br>
-
-
-<!-- US41 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US41</td><td>Visitante</td><td>Media</td><td>EP07</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Visualizar información general del servicio</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como visitante quiero visualizar información general del servicio en la landing page para entender qué ofrece la plataforma.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Descripción clara del servicio</strong><br> Dado que accedo a la landing page, cuando el sitio carga, entonces muestra una descripción clara del servicio de alquiler de bicicletas IoT.<br><br>
-        <strong>Escenario 2: Sección de cómo funciona</strong><br> Dado que navego por la página, cuando bajo hasta la sección de "Cómo funciona", entonces el sistema muestra los pasos para usar la plataforma.<br><br>
-        <strong>Escenario 3: Testimonios o reseñas destacadas</strong><br> Dado que busco referencias del servicio, cuando veo la sección de testimonios, entonces el sistema muestra reseñas de usuarios reales.<br><br>
-        <strong>Escenario 4: Preguntas frecuentes (FAQ)</strong><br> Dado que tengo dudas sobre el servicio, cuando accedo a la sección de preguntas frecuentes, entonces el sistema muestra respuestas a las consultas más comunes.<br><br>
-        <strong>Escenario 5: Contacto y soporte visible</strong><br> Dado que necesito contactar al equipo, cuando busco información de contacto, entonces el sistema muestra un correo o formulario de contacto disponible.
-    </td></tr>
-</table>
-
-
-<!-- US42 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US42</td><td>Visitante</td><td>Media</td><td>EP07</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Ver características y beneficios</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como visitante quiero conocer los beneficios de la aplicación según mi tipo de usuario para decidir si me registro como estudiante o arrendador.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Beneficios generales de la aplicación</strong><br> Dado que accedo a la landing page, cuando visualizo la sección de beneficios, entonces el sistema muestra ventajas generales del servicio.<br><br>
-        <strong>Escenario 2: Beneficios para estudiantes</strong><br> Dado que soy estudiante, cuando reviso los beneficios para estudiantes, entonces el sistema muestra ventajas como tarifas especiales, validación con correo universitario y acceso a bicicletas cercanas.<br><br>
-        <strong>Escenario 3: Beneficios para arrendadores</strong><br> Dado que soy arrendador, cuando reviso los beneficios para arrendadores, entonces el sistema muestra ventajas como publicación de bicicletas, mayor visibilidad, gestión de reservas y pagos automáticos.<br><br>
-        <strong>Escenario 4: Llamado a la acción según tipo de usuario</strong><br> Dado que identifico el beneficio que se ajusta a mi perfil, cuando selecciono una opción de registro, entonces el sistema me dirige al registro correspondiente según sea estudiante o arrendador.
-    </td></tr>
-</table>
-
-<br>
-
-<!-- US43 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US43</td><td>Visitante</td><td>Media</td><td>EP07</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Acceder a registro o inicio de sesión</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como visitante quiero acceder fácilmente a las opciones de registro o inicio de sesión desde la landing page para comenzar a usar la plataforma.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Botones visibles de registro y login</strong><br> Dado que accedo a la landing page, cuando veo el encabezado o la sección principal, entonces el sistema muestra botones destacados para "Registrarse" e "Iniciar sesión".<br><br>
-        <strong>Escenario 2: Redirección a la app o formulario web</strong><br> Dado que presiono el botón de registro, cuando el sistema procesa la acción, entonces me redirige al formulario de registro de la aplicación.<br><br>
-        <strong>Escenario 3: Enlace directo desde secciones promocionales</strong><br> Dado que veo una sección promocional, cuando presiono "Comenzar ahora", entonces el sistema me lleva directamente al registro.<br><br>
-        <strong>Escenario 4: Opción de inicio de sesión con redes sociales</strong><br> Dado que quiero iniciar sesión rápidamente, cuando selecciono la opción de Google o Facebook, entonces el sistema permite el acceso mediante autenticación social.
-    </td></tr>
-</table>
-
-<br>
-
-<!-- US44 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row"><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-    <tr><td>US44</td><td>Visitante</td><td>Media</td><td>EP07</td></tr>
-    <tr class="title-row"><td colspan="4">Título:</td></tr>
-    <tr><td colspan="4" class="content-cell">Descargar la aplicación</td></tr>
-    <tr class="description-row"><td colspan="4">Descripción:</td></tr>
-    <tr><td colspan="4" class="content-cell">Como visitante quiero descargar la aplicación desde la landing page para instalarla en mi dispositivo móvil.</td></tr>
-    <tr class="acceptance-row"><td colspan="4">Criterios de Aceptación:</td></tr>
-    <tr><td colspan="4" class="content-cell">
-        <strong>Escenario 1: Botones de descarga visibles</strong><br> Dado que accedo a la landing page, cuando veo la sección de descarga, entonces el sistema muestra botones destacados para "App Store" y "Google Play".<br><br>
-        <strong>Escenario 2: Código QR para descarga directa</strong><br> Dado que quiero descargar desde mi móvil, cuando escaneo el código QR visible en la página, entonces el sistema me redirige a la tienda de aplicaciones correspondiente.<br><br>
-        <strong>Escenario 3: Enlace a las tiendas oficiales</strong><br> Dado que presiono el botón de descarga, cuando el sistema procesa la acción, entonces me redirige a App Store (iOS) o Google Play (Android).<br><br>
-        <strong>Escenario 4: Vista previa de la app (screenshots)</strong><br> Dado que quiero ver cómo es la aplicación antes de descargarla, cuando veo la sección de vista previa, entonces el sistema muestra capturas de pantalla de la app.
-    </td></tr>
-</table>
-
-
-
-
-
-
-#### Technical Stories – Sistema de Bicicletas IoT
-<!-- ============================================== -->
-<!-- Technical Stories – IoT Bicycle System         -->
-<!-- ============================================== -->
-
-<!-- TS01 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row">
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>TS01</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP01</td>
-    </tr>
-    <tr class="title-row">
-        <td colspan="4">Título:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Implementar endpoints de autenticación y gestión de usuarios (IAM)</td>
-    </tr>
-    <tr class="description-row">
-        <td colspan="4">Descripción:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Desarrollar endpoints RESTful para el registro, autenticación, recuperación de contraseña y gestión de perfiles de usuarios.</td>
-    </tr>
-    <tr class="acceptance-row">
-        <td colspan="4">Criterios de Aceptación:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">
-            <strong>Escenario 1: Endpoint de registro</strong><br> Dado que el sistema recibe datos válidos, cuando procesa la solicitud, entonces debe crear el usuario correctamente. <br><br>
-            <strong>Escenario 2: Endpoint de login</strong><br> Dado que el sistema recibe credenciales válidas, cuando autentica, entonces debe devolver un token JWT. <br><br>
-            <strong>Escenario 3: Recuperación de contraseña</strong><br> Dado que el usuario solicita recuperación, cuando el sistema procesa, entonces debe enviar enlace. <br><br>
-            <strong>Escenario 4: Actualización de perfil</strong><br> Dado que el usuario envía cambios, cuando el sistema procesa, entonces debe guardar correctamente.
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- TS02 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row">
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>TS02</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP02</td>
-    </tr>
-    <tr class="title-row">
-        <td colspan="4">Título:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Endpoints para gestión de bicicletas IoT (Providing)</td>
-    </tr>
-    <tr class="description-row">
-        <td colspan="4">Descripción:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Implementar endpoints para registrar, editar, eliminar y consultar bicicletas inteligentes con sus datos IoT asociados.</td>
-    </tr>
-    <tr class="acceptance-row">
-        <td colspan="4">Criterios de Aceptación:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">
-            <strong>Escenario 1: Registro de bicicleta</strong><br> Dado que el sistema recibe datos válidos, entonces crea la bicicleta con ID único. <br><br>
-            <strong>Escenario 2: Edición</strong><br> Dado que se actualizan datos, entonces guarda cambios correctamente. <br><br>
-            <strong>Escenario 3: Eliminación</strong><br> Dado que se elimina, entonces se realiza eliminación lógica. <br><br>
-            <strong>Escenario 4: Consulta</strong><br> Dado que se solicita listado, entonces devuelve bicicletas registradas.
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- TS03 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row">
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>TS03</td>
-        <td>Programador</td>
-        <td>Media</td>
-        <td>EP03</td>
-    </tr>
-    <tr class="title-row">
-        <td colspan="4">Título:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Endpoints de catálogo y búsqueda con geolocalización (Vehicles + GPS)</td>
-    </tr>
-    <tr class="description-row">
-        <td colspan="4">Descripción:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Crear endpoints para listar, filtrar y ubicar bicicletas usando coordenadas GPS.</td>
-    </tr>
-    <tr class="acceptance-row">
-        <td colspan="4">Criterios de Aceptación:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">
-            <strong>Escenario 1: Listado general</strong><br> Devuelve bicicletas disponibles. <br><br>
-            <strong>Escenario 2: Filtro por ubicación</strong><br> Devuelve bicicletas cercanas según coordenadas. <br><br>
-            <strong>Escenario 3: Detalle</strong><br> Devuelve información completa del vehículo.
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- TS04 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row">
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>TS04</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP03</td>
-    </tr>
-    <tr class="title-row">
-        <td colspan="4">Título:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Endpoints de reservas y alquiler inteligente (Renting + IoT)</td>
-    </tr>
-    <tr class="description-row">
-        <td colspan="4">Descripción:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Desarrollar endpoints para gestionar reservas y sincronizar el inicio/fin del alquiler con dispositivos IoT.</td>
-    </tr>
-    <tr class="acceptance-row">
-        <td colspan="4">Criterios de Aceptación:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">
-            <strong>Escenario 1: Crear reserva</strong><br> Se registra correctamente. <br><br>
-            <strong>Escenario 2: Cancelar reserva</strong><br> Actualiza estado. <br><br>
-            <strong>Escenario 3: Inicio de alquiler</strong><br> Se activa al desbloquear bicicleta. <br><br>
-            <strong>Escenario 4: Finalizar alquiler</strong><br> Se cierra correctamente.
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- TS05 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row">
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>TS05</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP04</td>
-    </tr>
-    <tr class="title-row">
-        <td colspan="4">Título:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Endpoints de pagos, penalizaciones y liquidaciones (Payments)</td>
-    </tr>
-    <tr class="description-row">
-        <td colspan="4">Descripción:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Implementar endpoints para pagos automáticos basados en tiempo de uso IoT.</td>
-    </tr>
-    <tr class="acceptance-row">
-        <td colspan="4">Criterios de Aceptación:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">
-            <strong>Escenario 1: Registrar pago</strong><br> Se guarda correctamente. <br><br>
-            <strong>Escenario 2: Penalización</strong><br> Se genera por tiempo excedido. <br><br>
-            <strong>Escenario 3: Liquidación</strong><br> Se transfiere al arrendador. <br><br>
-            <strong>Escenario 4: Historial</strong><br> Se consulta correctamente.
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- TS06 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row">
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>TS06</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP05</td>
-    </tr>
-    <tr class="title-row">
-        <td colspan="4">Título:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Integración con Smart Lock (candado inteligente)</td>
-    </tr>
-    <tr class="description-row">
-        <td colspan="4">Descripción:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Implementar comunicación entre backend y dispositivo IoT para bloquear/desbloquear bicicletas.</td>
-    </tr>
-    <tr class="acceptance-row">
-        <td colspan="4">Criterios de Aceptación:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">
-            <strong>Escenario 1: Desbloqueo remoto</strong><br> Dado que el usuario inicia alquiler, entonces el sistema envía señal al candado. <br><br>
-            <strong>Escenario 2: Bloqueo automático</strong><br> Dado que finaliza alquiler, entonces el candado se bloquea. <br><br>
-            <strong>Escenario 3: Error de comunicación</strong><br> Si falla, se registra evento y alerta.
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- TS07 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row">
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>TS07</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP06</td>
-    </tr>
-    <tr class="title-row">
-        <td colspan="4">Título:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Procesamiento de datos GPS en tiempo real</td>
-    </tr>
-    <tr class="description-row">
-        <td colspan="4">Descripción:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Implementar recepción, almacenamiento y consulta de datos de geolocalización.</td>
-    </tr>
-    <tr class="acceptance-row">
-        <td colspan="4">Criterios de Aceptación:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">
-            <strong>Escenario 1: Recepción de coordenadas</strong><br> El dispositivo envía datos y el sistema los guarda. <br><br>
-            <strong>Escenario 2: Actualización</strong><br> Se actualiza ubicación en tiempo real. <br><br>
-            <strong>Escenario 3: Consulta</strong><br> Se puede visualizar ubicación actual.
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- TS08 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr class="header-row">
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>TS08</td>
-        <td>Programador</td>
-        <td>Media</td>
-        <td>EP06</td>
-    </tr>
-    <tr class="title-row">
-        <td colspan="4">Título:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Procesamiento de sensores de uso (IoT)</td>
-    </tr>
-    <tr class="description-row">
-        <td colspan="4">Descripción:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">Implementar lógica para interpretar datos de sensores (movimiento, uso, tiempo).</td>
-    </tr>
-    <tr class="acceptance-row">
-        <td colspan="4">Criterios de Aceptación:</td>
-    </tr>
-    <tr>
-        <td colspan="4" class="content-cell">
-            <strong>Escenario 1: Detección de movimiento</strong><br> El sistema identifica bicicleta en uso. <br><br>
-            <strong>Escenario 2: Registro de tiempo</strong><br> Se calcula duración automáticamente. <br><br>
-            <strong>Escenario 3: Estado</strong><br> Actualiza estado de bicicleta.
-        </td>
-    </tr>
-</table>
-
-
-### Spike storie
-<!-- SPIKE01 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr>
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>SPIKE01</td>
-        <td>Programador</td>
-        <td>Media</td>
-        <td>EP03</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Título</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Geolocalización y visualización en mapas (GPS)</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Descripción</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Evaluar la integración de servicios de mapas para mostrar bicicletas en tiempo real usando datos GPS de dispositivos IoT.</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Criterios de Aceptación</th>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <ul>
-                <li><strong>Escenario 1: Comparación de servicios de mapas</strong><br> Dado que se evalúan Google Maps y Mapbox, cuando se analizan precisión, costos y facilidad de integración, entonces se obtiene un cuadro comparativo.</li>
-                <li><strong>Escenario 2: Prototipo de visualización</strong><br> Dado que se reciben coordenadas GPS de prueba, cuando se muestran en el mapa, entonces se valida la visualización en tiempo real.</li>
-                <li><strong>Escenario 3: Selección de proveedor</strong><br> Dado que se analizan límites y costos, cuando se toma una decisión, entonces se documenta la recomendación.</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- SPIKE02 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr>
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>SPIKE02</td>
-        <td>Programador</td>
-        <td>Media</td>
-        <td>EP05</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Título</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Comunicación con dispositivos IoT (Smart Lock)</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Descripción</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Investigar protocolos de comunicación (MQTT, HTTP, WebSocket) para interactuar con el candado inteligente de las bicicletas.</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Criterios de Aceptación</th>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <ul>
-                <li><strong>Escenario 1: Evaluación de protocolos</strong><br> Dado que se analizan MQTT, HTTP y WebSocket, cuando se comparan latencia y confiabilidad, entonces se documenta la mejor opción.</li>
-                <li><strong>Escenario 2: Prueba de comunicación</strong><br> Dado que se simula un dispositivo IoT, cuando se envía un comando de bloqueo/desbloqueo, entonces se valida la comunicación.</li>
-                <li><strong>Escenario 3: Recomendación técnica</strong><br> Dado que se analizan resultados, cuando se selecciona el protocolo, entonces se documenta la arquitectura recomendada.</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- SPIKE03 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr>
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>SPIKE03</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP06</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Título</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Procesamiento de datos en tiempo real (sensores IoT)</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Descripción</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Evaluar cómo procesar datos de sensores (movimiento, tiempo de uso) en tiempo real.</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Criterios de Aceptación</th>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <ul>
-                <li><strong>Escenario 1: Prueba de ingestión de datos</strong><br> Dado que el dispositivo envía datos continuamente, cuando el sistema los recibe, entonces se valida la captura en tiempo real.</li>
-                <li><strong>Escenario 2: Evaluación de almacenamiento</strong><br> Dado que se generan múltiples eventos, cuando se analizan bases de datos (SQL vs NoSQL), entonces se define la mejor opción.</li>
-                <li><strong>Escenario 3: Conclusión de arquitectura</strong><br> Dado que se evalúan resultados, cuando se define la solución, entonces se documenta la estrategia de procesamiento.</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- SPIKE04 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr>
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>SPIKE04</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP07</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Título</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Sistema de alertas y seguridad IoT</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Descripción</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Investigar cómo detectar eventos de riesgo como robo, manipulación o salida de zona (geocerca).</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Criterios de Aceptación</th>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <ul>
-                <li><strong>Escenario 1: Evaluación de eventos de riesgo</strong><br> Dado que se analizan posibles escenarios (robo, caída, manipulación), cuando se clasifican, entonces se obtiene un listado de eventos críticos.</li>
-                <li><strong>Escenario 2: Prueba de alertas</strong><br> Dado que se simulan eventos, cuando el sistema detecta anomalías, entonces se valida el envío de alertas.</li>
-                <li><strong>Escenario 3: Definición de reglas</strong><br> Dado que se analizan los resultados, cuando se establecen reglas, entonces se documenta el comportamiento del sistema.</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- SPIKE05 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr>
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>SPIKE05</td>
-        <td>Programador</td>
-        <td>Media</td>
-        <td>EP08</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Título</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Notificaciones en tiempo real (Push + eventos IoT)</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Descripción</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Evaluar servicios para envío de notificaciones basadas en eventos del sistema e IoT.</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Criterios de Aceptación</th>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <ul>
-                <li><strong>Escenario 1: Comparación de servicios</strong><br> Dado que se analizan Firebase y OneSignal, cuando se comparan características, entonces se documenta la mejor opción.</li>
-                <li><strong>Escenario 2: Prueba de envío</strong><br> Dado que ocurre un evento (inicio de alquiler), cuando se envía notificación, entonces se valida la entrega.</li>
-                <li><strong>Escenario 3: Selección final</strong><br> Dado que se evalúan resultados, cuando se elige solución, entonces se documenta la decisión.</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- SPIKE06 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr>
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>SPIKE06</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP09</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Título</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Escalabilidad de sistema IoT en la nube</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Descripción</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Evaluar la infraestructura necesaria para soportar múltiples bicicletas conectadas en tiempo real.</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Criterios de Aceptación</th>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <ul>
-                <li><strong>Escenario 1: Pruebas de carga</strong><br> Dado que múltiples dispositivos envían datos, cuando se simula tráfico, entonces se obtienen métricas.</li>
-                <li><strong>Escenario 2: Evaluación de servicios cloud</strong><br> Dado que se analizan AWS IoT, Azure IoT y Firebase, cuando se comparan, entonces se obtiene recomendación.</li>
-                <li><strong>Escenario 3: Arquitectura propuesta</strong><br> Dado que se analizan resultados, cuando se define solución, entonces se documenta arquitectura escalable.</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<!-- SPIKE07 -->
-<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
-    <tr>
-        <th>Story ID</th>
-        <th>User</th>
-        <th>Priority</th>
-        <th>Epic</th>
-    </tr>
-    <tr>
-        <td>SPIKE07</td>
-        <td>Programador</td>
-        <td>Alta</td>
-        <td>EP01</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Título</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Seguridad y protección de datos</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Descripción</th>
-    </tr>
-    <tr>
-        <td colspan="4" align="center">Evaluar mecanismos de seguridad para proteger datos de usuarios y dispositivos IoT.</td>
-    </tr>
-    <tr>
-        <th colspan="4" align="center">Criterios de Aceptación</th>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <ul>
-                <li><strong>Escenario 1: Análisis de normativas</strong><br> Dado que se revisan estándares (ISO 27001, GDPR), cuando se analizan requisitos, entonces se documentan.</li>
-                <li><strong>Escenario 2: Identificación de riesgos</strong><br> Dado que se evalúa el sistema, cuando se detectan vulnerabilidades, entonces se listan.</li>
-                <li><strong>Escenario 3: Propuesta de seguridad</strong><br> Dado que se identifican riesgos, cuando se definen medidas, entonces se documenta solución.</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-
-### 3.2. Impact Mapping.
-
-<img width="100%" height="100%" alt="impact-map" src="assets/images/impactmapping.png" />
 <br><br>
 
+<img src="./assets/images/Chapter-5/guide_1.jpeg" alt="Guide 1 JPEG" width="800"/>
 
-### 3.3. Product Backlog.
+</div>
 
- Product Backlog – Sistema de Bicicletas IoT 
-Esta tabla presenta de forma organizada las principales funcionalidades que se deben desarrollar en el sistema IoT, priorizadas según las necesidades del usuario y los objetivos del negocio. Dichas funcionalidades se dividen en User Stories (historias de usuario) y Technical Stories (historias técnicas), permitiendo estructurar su desarrollo de acuerdo con su nivel de importancia.
+### 5.1.1. General Style Guidelines
+Define las normas visuales fundamentales que rigen todo el producto. Incluye la definición de la paleta de **colores** (primarios, secundarios y de estado), la **tipografía** (fuentes, pesos y jerarquías visuales) y la **iconografía**, asegurando que cada elemento gráfico tenga un propósito claro y coherente.
 
-El propósito de esta clasificación es optimizar la implementación, enfocándose primero en aquellas funcionalidades que generan mayor valor. Entre ellas destacan la gestión de pacientes, el registro de tratamientos y síntomas, la configuración de recordatorios, así como la vinculación entre cuidadores y pacientes, además de otros componentes clave para el funcionamiento del sistema IoT. Asimismo, se considera el esfuerzo necesario para cada tarea mediante Story Points, facilitando una mejor planificación.
 
-De esta manera, se establece una guía clara para el equipo de desarrollo, asegurando que las funcionalidades críticas se aborden desde las etapas iniciales del proyecto.
+### 5.1.2. Web, Mobile and IoT Style Guidelines
+Establece reglas específicas adaptadas a cada plataforma. Se enfoca en la **adaptabilidad (responsive design)** para la web, patrones de **interacción táctil** para dispositivos móviles y interfaces simplificadas de alta visibilidad para dispositivos **IoT**, asegurando una experiencia óptima independientemente del hardware utilizado.
+
+## 5.2. Information Architecture
+La Arquitectura de la Información (IA) se centra en organizar, estructurar y etiquetar el contenido de forma efectiva. Su objetivo es ayudar a los usuarios a encontrar información y completar tareas con el menor esfuerzo cognitivo posible.
+
+### 5.2.1. Organization Systems
+Describe cómo se categoriza y agrupa la información dentro de la solución. Define si la estructura será **jerárquica** (árbol de decisiones), **secuencial** (paso a paso) o **matricial**, permitiendo que la navegación sea lógica y predecible para el usuario.
+
+### 5.2.2. Labeling Systems
+Se encarga de la terminología y el lenguaje utilizado en la interfaz. El sistema de etiquetado asegura que los nombres de los menús, botones y enlaces sean **claros, concisos y familiares** para el público objetivo, minimizando la ambigüedad y mejorando la usabilidad.
+
+<div align="center">
+
+<img src="./assets/images/Chapter-5/guide_1.png" alt="Guide 1" width="800"/>
+
+</div>
+
+### 5.3.1 Landing Page Wireframe.
+
+Wireframe Landing Page (Desktop)
+
+<p align="center">
+  <img src="assets/images/Chapter-5/cap1.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/cap2.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/cap3.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/cap4.png" width="700">
+</p>
+
+### 5.3.2 Landing Page Mock-up.
+
+## Mockups Landing Page (Desktop)
+
+Sección Principal de la landing page:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/lan-hero.png" width="700">
+
+</p>
+
+Sección Problemática y Características clave:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/lan-problema.png" width="700">
+  <img src="assets/images/Chapter-5/lan-caracteristicas.png" width="700">
+
+
+</p>
+
+Sección Beneficios:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/lan-beneficios.png" width="700">
+
+</p>
+
+Sección "Acerca de":
+
+<p align="center">
+  <img src="assets/images/Chapter-5/lan-nosotros.png" width="700">
+</p>
+
+
+Sección de Precios y Formulario de contacto:
+
+<p align="center">
+  <img src="assets/images/Chapter-5/lan-precios.png" width="700">
+  <img src="assets/images/Chapter-5/lan-contact.png" width="700">
+</p>
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/lan-contact.png" width="700">
+
+</p>
+
+Sección de Descargas de aplicación móvil y pie de página:
+
+<p align="center">
+
+  <img src="assets/images/Chapter-5/lan-footer.png" width="700">
+
+</p>
+
+## 5.4.1. Applications Wireframes
+
+### 5.4.1.2 Mobile Applications Wireframes
+
+Ciclista 
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m1.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m2.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m3.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m4.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m5.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/m6.png" width="700">
+</p>
+
+Arrendador 
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a1.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a2.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a3.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a4.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a5.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a6.png" width="700">
+</p>
+
+### 5.4.1.3 Desktop Applications Wireframes
+
+## 5.4.2. Applications Wireflow Diagrams
+
+Applications Wireflows Diagrams (Desktop)
+
+User Goal: Autenticación y gestión de cuenta
+
+![Wireflow del Usuario](assets/images/Chapter-5/registroo.png)
+
+User Goal: Alquiler de bicicleta
+
+![Wireflow del Usuario](assets/images/Chapter-5/arrendando.png)
+
+
+User goal: Historial de alquiler de bicicleta
+![Wireflow del Usuario](assets/images/Chapter-5/historial.png)
+
+
+User Goal: Finalización de bicicleta
+![Wireflow del Usuario](assets/images/Chapter-5/finalizar_carrera.png)
+
+User Goal:agregar bicicleta
+![Wireflow del Usuario](assets/images/Chapter-5/agregar_bici.jpeg)
+
+
+
+
+#### Versión móvil del usuario
+
+![User Flow Móvil 1](assets/images/Chapter-5/userflow1.png)
+
+![User Flow Móvil 2](assets/images/Chapter-5/userflow2.png)
+
+![User Flow Móvil 3](assets/images/Chapter-5/userflow3.png)
+
+![User Flow Móvil 4](assets/images/Chapter-5/userflow4.png)
+
+![User Flow Móvil 5](assets/images/Chapter-5/userflow5.png)
+
+<div style="page-break-after: always;"></div>
+
+
+![Arrendatario Flow Móvil 1](assets/images/Chapter-5/arrendatarioflow1.png)
+
+![Arrendatario Flow Móvil 2](assets/images/Chapter-5/arrendatarioflow2.png)
+
+![Arrendatario Flow Móvil 3](assets/images/Chapter-5/arrendatarioflow3.png)
+
+![Arrendatario Flow Móvil 4](assets/images/Chapter-5/arrendatarioflow4.png)
+
+![Arrendatario Flow Móvil 5](assets/images/Chapter-5/arrendatarioflow5.png)
+
+![Arrendatario Flow Móvil 6](assets/images/Chapter-5/arrendatarioflow6.png)
+
+<div style="page-break-after: always;"></div>
+
+## 5.4.3. Applications Mock-ups
+
+### 5.4.4.1 Mobile Applications Mock-ups
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a1.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a2.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a3.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a4.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a5.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a6.png" width="700">
+</p>
+
+### 5.4.4.2 Desktop Applications Mock-ups
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d6.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d7.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d8.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d9.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d10.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d11.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d12.png" width="700">
+</p>
+
+## 5.4.4. Applications User Flow Diagrams
+
+Esta sección presenta los diagramas de User Flow, organizados por rol y centrados en los objetivos principales del usuario. Cada flujo muestra la ruta de éxito (happy path), las decisiones críticas y las rutas alternativas ante casos de error o cancelación.
+
+#### User Flow del Cliente: Alquilar una Bicicleta
+
+![User Goal del Cliente](assets/images/Chapter-5/usuario%20goal.png)
+
+##### Descripción
+
+El flujo de usuario cliente se estructura alrededor del objetivo central: alquilar una bicicleta de forma rápida y segura. El diagrama incluye el acceso al sistema, la búsqueda y selección de bicicleta, el pago, la ejecución del viaje y el cierre del alquiler con comprobante.
+
+##### Explicación del flujo
+
+**Objetivo principal:** El visitante se registra o inicia sesión para poder acceder a la plataforma y comenzar a usar el servicio de alquiler de bicicletas.
+
+**Ruta principal (Happy Path):** Registrarse o iniciar sesión → Acceder a la plataforma → Explorar bicicletas disponibles → Seleccionar una bicicleta → Confirmar condiciones → Realizar pago → Desbloquear bicicleta → Usar la bicicleta → Finalizar el alquiler.
+
+**Rutas alternativas:**
+- Si no tiene cuenta, primero debe registrarse y luego acceder.
+- Si el pago falla, debe reintentarlo antes de continuar.
+- Si rechaza las condiciones, puede volver a explorar otras bicicletas.
+
+---
+
+#### User Goal 1: Registrarse e iniciar sesión en la aplicación
+
+![User Goal Móvil 1](assets/images/Chapter-5/usergoalmobile1.png)
+
+**Descripción:** El estudiante desea crear una cuenta para acceder a las funcionalidades del sistema y gestionar sus alquileres de forma personalizada.
+
+**Flujo:** El usuario abre la aplicación y selecciona la opción “Registrarse”. Ingresa sus datos personales y confirma el registro. Luego inicia sesión con sus credenciales y accede a su panel principal.
+
+**Pantallas involucradas:**
+- Registro de usuario
+- Inicio de sesión
+- Panel principal
+
+**Comportamientos adicionales:** Si los datos ingresados son inválidos, se muestra un mensaje de error y se solicita corrección. Una vez autenticado, el sistema guarda la sesión activa para próximos ingresos automáticos.
+
+<div style="page-break-after: always;"></div>
+
+#### User Goal 2: Buscar y filtrar vehículos cercanos
+
+![User Goal Móvil 2](assets/images/Chapter-5/usergoalmobile2.png)
+
+**Descripción:** El estudiante desea explorar las opciones disponibles de bicicletas o scooters cercanos, aplicando filtros por tipo, precio o distancia para encontrar la mejor alternativa.
+
+**Flujo:** El usuario accede al panel principal, abre la pantalla de búsqueda o mapa y aplica filtros para encontrar las opciones cercanas que mejor se ajusten a su necesidad.
+
+**Pantallas involucradas:**
+- Panel principal
+- Pantalla de búsqueda / mapa
+- Detalle del vehículo seleccionado
+
+**Comportamientos adicionales:** El sistema obtiene la ubicación actual del usuario y actualiza los resultados en tiempo real. Si no hay vehículos disponibles, se muestra un mensaje informativo con la opción de ampliar el rango de búsqueda.
+
+<div style="page-break-after: always;"></div>
+
+#### User Goal 3: Realizar y confirmar una reserva
+
+![User Goal Móvil 3](assets/images/Chapter-5/usergoalmobile3.png)
+
+**Descripción:** El estudiante selecciona un vehículo disponible, define el horario y confirma la reserva para garantizar su uso en el periodo deseado.
+
+**Flujo:** El usuario abre el detalle del vehículo, accede a la pantalla de reserva, define la fecha u horario y confirma la reserva.
+
+**Pantallas involucradas:**
+- Detalle del vehículo
+- Pantalla de reserva
+- Confirmación de reserva
+
+**Comportamientos adicionales:** Si otro usuario reserva el mismo vehículo antes de la confirmación, se notifica la indisponibilidad. Al confirmar, el estado del vehículo cambia automáticamente a “reservado”.
+
+<div style="page-break-after: always;"></div>
+
+#### User Goal 4: Pagar el alquiler y recibir confirmación
+
+![User Goal Móvil 4](assets/images/Chapter-5/usergoalmobile4.png)
+
+**Descripción:** El estudiante completa el pago del alquiler mediante la pasarela integrada y recibe una confirmación inmediata de la transacción.
+
+**Flujo:** El usuario accede a la pantalla de pago, ingresa el método de pago y confirma la transacción. Luego recibe el comprobante digital y la confirmación del alquiler.
+
+**Pantallas involucradas:**
+- Pantalla de pago
+- Confirmación de pago
+- Recibo o comprobante
+
+**Comportamientos adicionales:** Si el pago falla, el sistema permite reintentar o elegir otro método de pago. Tras un pago exitoso, se genera un comprobante digital y se actualiza el historial del usuario.
+
+<div style="page-break-after: always;"></div>
+
+#### User Goal 5: Ver y responder calificaciones y reseñas
+
+![User Goal Móvil 5](assets/images/Chapter-5/usergoalmobile5.png)
+
+**Descripción:** El estudiante consulta las valoraciones y comentarios realizados por otros usuarios sobre su servicio, y puede responder para mantener la comunicación.
+
+**Flujo:** El usuario abre la sección de reseñas, revisa los comentarios asociados a su actividad y responde cuando es necesario.
+
+**Pantallas involucradas:**
+- Pantalla de reseñas
+- Detalle de reseña
+- Panel principal
+
+**Comportamientos adicionales:** Al responder una reseña, el sistema notifica al usuario que su comentario fue atendido.
+
+<div style="page-break-after: always;"></div>
+
+#### User Goal 1: Registrarse como arrendador
+
+![Arrendatario User Goal 1](assets/images/Chapter-5/arrendatariousergoal1.png)
+
+**Descripción:** El arrendador crea una cuenta para ofrecer sus vehículos en la plataforma y administrar su disponibilidad.
+
+**Flujo:** El arrendador abre la aplicación, selecciona registrarse, completa los datos de contacto y confirma el alta del perfil.
+
+**Pantallas involucradas:**
+- Registro de arrendador
+- Inicio de sesión
+- Panel principal
+
+**Comportamientos adicionales:** El sistema valida los datos de contacto y activa el perfil tras la verificación del correo electrónico.
+
+<div style="page-break-after: always;"></div>
+
+#### User Goal 2: Gestionar vehículos publicados
+
+![Arrendatario User Goal 2](assets/images/Chapter-5/arrendatariousergoal2.png)
+
+**Descripción:** El arrendador puede agregar, editar o eliminar vehículos, además de cambiar su estado de disponibilidad según la situación.
+
+**Flujo:** El arrendador accede al panel principal, abre la sección de vehículos publicados y realiza las acciones de edición o actualización necesarias.
+
+**Pantallas involucradas:**
+- Panel principal
+- Pantalla “Mis vehículos”
+- Formulario de edición de vehículo
+
+**Comportamientos adicionales:** Los cambios se reflejan en la vista pública del catálogo. Si el vehículo está reservado, el sistema impide su eliminación hasta finalizar el alquiler activo.
+
+<div style="page-break-after: always;"></div>
+
+#### User Goal 3: Consultar historial de alquileres
+
+![Arrendatario User Goal 3](assets/images/Chapter-5/arrendatariousergoal3.png)
+
+**Descripción:** El arrendador revisa los registros de alquileres pasados para llevar control de sus operaciones y analizar la demanda de cada vehículo.
+
+**Flujo:** El arrendador accede al historial, revisa los alquileres almacenados y aplica filtros por fecha o vehículo.
+
+**Pantallas involucradas:**
+- Panel principal
+- Pantalla de historial de alquileres
+
+**Comportamientos adicionales:** Se permite filtrar el historial por rango de fechas o por vehículo.
+
+<div style="page-break-after: always;"></div>
+
+#### User Goal 4: Revisar ingresos automáticos
+
+![Arrendatario User Goal 4](assets/images/Chapter-5/arrendatariousergoal4.png)
+
+**Descripción:** El arrendador visualiza los ingresos generados por los alquileres, con la posibilidad de filtrarlos por periodo o por tipo de vehículo.
+
+**Flujo:** El arrendador entra a la sección de ingresos, consulta el resumen económico y revisa el detalle de transacciones cuando lo necesita.
+
+**Pantallas involucradas:**
+- Panel principal
+- Pantalla de ingresos
+- Detalle de transacciones
+
+**Comportamientos adicionales:** Los ingresos se actualizan en tiempo real conforme a nuevas reservas. Si no hay movimientos en el periodo seleccionado, el sistema muestra un mensaje informativo.
+
+<div style="page-break-after: always;"></div>
+
+#### User Goal 5: Ver y responder calificaciones y reseñas
+
+![Arrendatario User Goal 5](assets/images/Chapter-5/arrendatariousergoal5.png)
+
+**Descripción:** El arrendador consulta las valoraciones y comentarios realizados por los usuarios sobre sus vehículos, y puede responder para mantener una buena reputación.
+
+**Flujo:** El arrendador abre la sección de reseñas, revisa los comentarios recibidos y responde cuando es necesario.
+
+**Pantallas involucradas:**
+- Pantalla de reseñas
+- Detalle de reseña
+- Panel principal
+
+**Comportamientos adicionales:** Al responder una reseña, el sistema notifica al usuario que su comentario fue atendido.
+
+<div style="page-break-after: always;"></div>
+
+## 5.5. Applications Prototyping
+
+  <img src="assets/images/Chapter-5/proto.jpeg" width="700">
+
+Link Prototipo:[Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220219_upc_edu_pe/IQB-a0BnCjSUR4ZwVEeGGSbBAadbmXSWQ-wATjE8joK3vC4?e=3pUhev&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 <br>
+enlacees:<br>
+[Arrendador](https://stitch.withgoogle.com/preview/5914202302097093610?node-id=becd46efba38487c905a1fd753300f5c)<br>
+[Arrendatario](https://stitch.withgoogle.com/preview/5914202302097093610?node-id=b293857dd63f455cb7a9769a07d61c5d)<br>
+[Admin](https://stitch.withgoogle.com/preview/5914202302097093610?node-id=630eab06a50841eca5b4bc454a0a4975)<br>
 
 
-| Orden | User Story ID | Título                                     | Descripción                                                                          | Story Points (1/2/3/5/8) |
-| ----- | ------------- | ------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------ |
-| 1     | US01          | Registro de usuario estudiante             | Permitir a estudiantes crear una cuenta en la plataforma.                            | 5                        |
-| 2     | US02          | Registro de usuario arrendador             | Permitir a arrendadores registrarse para gestionar bicicletas.                       | 5                        |
-| 3     | TS01          | Autenticación (IAM)                        | Implementar endpoints para registro, login y gestión de autenticación.               | 8                        |
-| 4     | US03          | Iniciar sesión                             | Permitir a los usuarios acceder a la plataforma con sus credenciales.                | 3                        |
-| 5     | US04          | Recuperar contraseña                       | Permitir a los usuarios restablecer su contraseña.                                   | 3                        |
-| 6     | US05          | Editar perfil                              | Permitir a los usuarios modificar su información personal.                           | 3                        |
-| 7     | US06          | Cerrar sesión                              | Permitir a los usuarios cerrar su sesión de forma segura.                            | 2                        |
-| 8     | US07          | Registrar bicicleta IoT                    | Permitir registrar una bicicleta con sensores IoT en el sistema.                     | 5                        |
-| 9     | TS02          | Gestión de bicicletas                      | Desarrollar endpoints para administrar bicicletas registradas.                       | 8                        |
-| 10    | US08          | Editar bicicleta                           | Permitir modificar la información de una bicicleta.                                  | 3                        |
-| 11    | US09          | Disponibilidad de bicicleta                | Permitir marcar una bicicleta como disponible o no.                                  | 2                        |
-| 12    | US10          | Eliminar bicicleta                         | Permitir eliminar una bicicleta del sistema.                                         | 2                        |
-| 13    | US11          | Historial de alquileres                    | Permitir consultar alquileres realizados de bicicletas.                              | 3                        |
-| 14    | US12          | Buscar bicicletas por GPS                  | Permitir encontrar bicicletas cercanas usando geolocalización.                       | 5                        |
-| 15    | TS03          | Búsqueda geolocalizada                     | Implementar endpoints de búsqueda con ubicación.                                     | 5                        |
-| 16    | SPIKE01       | Evaluación de mapas                        | Analizar herramientas como Google Maps o Mapbox.                                     | 3                        |
-| 17    | US13          | Filtrar bicicletas                         | Permitir aplicar filtros en la búsqueda de bicicletas.                               | 3                        |
-| 18    | US14          | Ver detalles de bicicleta                  | Mostrar información detallada de una bicicleta.                                      | 3                        |
-| 19    | US15          | Reservar bicicleta                         | Permitir reservar una bicicleta disponible.                                          | 5                        |
-| 20    | TS04          | Gestión de reservas                        | Desarrollar endpoints para reservas y alquileres.                                    | 8                        |
-| 21    | US16          | Cancelar reserva                           | Permitir cancelar una reserva realizada.                                             | 3                        |
-| 22    | US17          | Inicio de alquiler                         | Permitir iniciar el uso de una bicicleta reservada.                                  | 5                        |
-| 23    | US18          | Finalizar alquiler                         | Permitir finalizar el alquiler de una bicicleta.                                     | 5                        |
-| 24    | US19          | Método de pago                             | Permitir registrar un método de pago.                                                | 3                        |
-| 25    | TS05          | Pagos y liquidaciones                      | Implementar endpoints para procesamiento de pagos.                                   | 8                        |
-| 26    | US20          | Pago automático                            | Realizar cobros automáticos al finalizar el alquiler.                                | 5                        |
-| 27    | US21          | Confirmación de pago                       | Notificar al usuario que el pago fue realizado.                                      | 2                        |
-| 28    | US22          | Penalización por tiempo excedido           | Notificar y registrar penalizaciones por exceder el tiempo de alquiler.              | 3                        |
-| 29    | US23          | Historial de pagos                         | Permitir visualizar pagos realizados.                                                | 3                        |
-| 30    | SPIKE02       | Comunicación IoT                           | Evaluar protocolos como MQTT vs HTTP.                                                | 5                        |
-| 31    | TS06          | Integración Smart Lock                     | Implementar conexión con dispositivos de bloqueo inteligente.                        | 8                        |
-| 32    | US24          | Liquidación automática                     | Transferir automáticamente pagos a arrendadores.                                     | 5                        |
-| 33    | US25          | Desbloquear bicicleta                      | Permitir desbloquear la bicicleta desde la app.                                      | 8                        |
-| 34    | US26          | Bloqueo automático                         | Permitir el bloqueo automático tras finalizar uso.                                   | 5                        |
-| 35    | US27          | Inicio automático                          | Detectar inicio mediante sensores IoT.                                               | 5                        |
-| 36    | TS08          | Sensores IoT                               | Procesar datos provenientes de sensores.                                             | 8                        |
-| 37    | US28          | Detección de uso                           | Identificar cuando la bicicleta está en uso.                                         | 3                        |
-| 38    | SPIKE03       | Datos en tiempo real                       | Analizar procesamiento en tiempo real.                                               | 5                        |
-| 39    | TS07          | GPS en tiempo real                         | Implementar procesamiento de ubicación en tiempo real.                               | 8                        |
-| 40    | US29          | Ubicación en tiempo real                   | Mostrar la ubicación actual de la bicicleta.                                         | 8                        |
-| 41    | US30          | Seguimiento de recorrido                   | Permitir visualizar rutas recorridas.                                                | 5                        |
-| 42    | US31          | Estado de bicicleta                        | Mostrar estado actual disponible o en uso.                                           | 3                        |
-| 43    | US32          | Historial de rutas                         | Permitir consultar recorridos anteriores.                                            | 3                        |
-| 44    | SPIKE04       | Seguridad IoT                              | Evaluar riesgos y eventos de seguridad.                                              | 5                        |
-| 45    | SPIKE05       | Servicios de notificación                  | Evaluar herramientas de notificación.                                                | 3                        |
-| 46    | US33          | Notificaciones de reserva                  | Enviar alertas sobre reservas.                                                       | 2                        |
-| 47    | US34          | Notificaciones de inicio y fin de alquiler | Enviar alertas sobre el inicio, finalización y tiempo próximo a vencer del alquiler. | 2                        |
-| 48    | US35          | Notificaciones de pago                     | Enviar alertas sobre pagos realizados, pagos fallidos y penalizaciones.              | 2                        |
-| 49    | US36          | Notificaciones de incidencias o alertas    | Enviar alertas de incidencias o problemas detectados.                                | 3                        |
-| 50    | SPIKE06       | Escalabilidad cloud                        | Evaluar AWS o Azure.                                                                 | 5                        |
-| 51    | US37          | Panel de métricas                          | Mostrar indicadores del sistema.                                                     | 5                        |
-| 52    | US38          | Gestionar usuarios                         | Permitir administración de usuarios.                                                 | 3                        |
-| 53    | US39          | Gestionar bicicletas                       | Permitir administración de bicicletas.                                               | 3                        |
-| 54    | US40          | Monitoreo en tiempo real                   | Visualizar estado del sistema en vivo.                                               | 8                        |
-| 55    | SPIKE07       | Seguridad de datos                         | Evaluar protección de datos.                                                         | 5                        |
-| 56    | US41          | Landing page                               | Mostrar página principal informativa.                                                | 2                        |
-| 57    | US42          | Ver características y beneficios           | Mostrar características y beneficios del servicio para visitantes.                   | 2                        |
-| 58    | US43          | Acceso a login                             | Permitir ir al login desde landing.                                                  | 2                        |
-| 59    | US44          | Descargar app                              | Permitir descarga de la aplicación.                                                  | 2                        |
+## 5.6. IoT Device Design
 
+### Introducción y Criterios de Diseño
 
+Esta sección presenta la propuesta de diseño físico y diseño de circuito para el nodo IoT instalado en cada bicicleta de BiciSmartIOT. El objetivo del prototipo es validar, en entorno Wokwi, la interacción entre sensores, actuadores y lógica de control para cubrir tres funciones críticas del sistema: desbloqueo remoto, detección de uso y bloqueo seguro al cierre del alquiler.
 
+Los principales criterios para las decisiones de diseño del hardware son:
+
+- Seguridad operativa: el dispositivo debe responder de forma confiable a comandos de bloqueo y desbloqueo, manteniendo estados consistentes (`LOCKED`, `UNLOCKED`, `LOCKDOWN`).
+- Telemetría en tiempo real: el hardware debe capturar eventos de movimiento y estado para alimentar el monitoreo de uso de la bicicleta.
+- Bajo consumo y simplicidad de integración: se prioriza un microcontrolador con conectividad inalámbrica y soporte amplio de librerías para acelerar el prototipado.
+- Escalabilidad funcional: el diseño debe permitir añadir sensores y reglas (por ejemplo, batería baja o alerta por manipulación) sin rediseñar toda la arquitectura.
+- Viabilidad de simulación: los componentes seleccionados deben estar disponibles o ser representables en Wokwi para validar comportamiento antes del montaje físico.
+
+<div style="page-break-after: always;"></div>
+
+### Relación con la Arquitectura de Información y Guía de Estilos
+
+El diseño de la interfaz física IoT (IoT Device Physical Interfaces) se alinea con la arquitectura del bounded context IoT & Device Control. En este modelo:
+
+- La app y el backend envían comandos de control al dispositivo.
+- El dispositivo publica eventos de telemetría para tracking y monitoreo.
+- El estado físico de la bicicleta se refleja en la aplicación móvil en tiempo cercano a real.
+
+En la capa de experiencia de usuario, la semántica de estados del hardware se integra con la interfaz visual de la plataforma:
+
+- Estado seguro: indicador equivalente a operación correcta o bicicleta bloqueada.
+- Estado activo: indicador equivalente a bicicleta en uso o desbloqueada.
+- Estado de alerta: indicador equivalente a evento crítico (bloqueo remoto, manipulación o error de operación).
+
+<div style="page-break-after: always;"></div>
+
+### Propuesta de Diseño de Circuito (Hardware Schematic)
+
+Para la validación lógica de componentes y conexiones se propone un esquemático en Wokwi con un ESP32 como núcleo del sistema.
+
+Componentes recomendados para el prototipo en Wokwi (alineados a BiciSmartIOT):
+
+1. ESP32 DevKit v1: microcontrolador principal del dispositivo de bicicleta.
+2. Servo SG90: simulación del smart lock para comandos `unlock/lock/lockdown`.
+3. MPU6050: sensor de movimiento para detectar bicicleta en uso (US28).
+4. GPS simulado por Serial (coordenadas mock): tracking de ubicación en la simulación.
+5. LED RGB (o 3 LEDs): semaforo de estado operativo (`LOCKED`, `UNLOCKED`, `LOCKDOWN`).
+6. Pulsador opcional: simulacion de accion local de seguridad o emparejamiento inicial.
+
+<div style="page-break-after: always;"></div>
+
+#### Mapeo sugerido de pines (Wokwi)
+
+- `GPIO 21` -> SDA del MPU6050
+- `GPIO 22` -> SCL del MPU6050
+- `GPIO 18` (etiqueta `D18` en Wokwi) -> señal de control del servo (smart lock simulado)
+- `VIN` en Wokwi -> alimentacion del servo a 5V
+- `GPIO 4` -> canal rojo LED RGB (con resistencia de 220 ohm)
+- `GPIO 2` -> canal verde LED RGB (con resistencia de 220 ohm)
+- `GPIO 15` -> canal azul LED RGB (con resistencia de 220 ohm)
+- `GPIO 13` -> pulsador (modo `INPUT_PULLUP`)
+
+Notas de montaje en Wokwi:
+
+- Conectar `VCC` y `GND` de todos los módulos correctamente.
+- En Wokwi, usa `VIN` como referencia de 5V para el servo.
+- Si no usas LED RGB, reemplazar por tres LEDs individuales (uno por estado).
+- Usar eventos por monitor serial con formato `GPS:lat,lon` para simular tracking.
+
+<div style="page-break-after: always;"></div>
+
+### Configuración que debes poner en Wokwi
+
+Para que la simulacion represente tu arquitectura real (App -> Backend -> IoT Device Control), en Wokwi debes preparar lo siguiente:
+
+1. Crear un proyecto nuevo con placa `ESP32`.
+2. Agregar los componentes: `Servo`, `MPU6050`, `RGB LED` y `Pushbutton` opcional.
+3. Cablear según el mapeo de pines propuesto.
+4. Programar una maquina de estados minima del dispositivo:
+	- `LOCKED`
+	- `UNLOCKED`
+	- `LOCKDOWN`
+5. Simular comandos del backend por monitor serial (equivalente a MQTT):
+	- `CMD:UNLOCK` -> cambia a `UNLOCKED` y posiciona servo en apertura.
+	- `CMD:LOCK` -> cambia a `LOCKED` y cierra servo.
+	- `CMD:LOCKDOWN` -> fuerza bloqueo de seguridad.
+6. Definir reglas de telemetria alineadas a tus historias:
+	- US27 (inicio automatico): cuando llega `CMD:UNLOCK` y hay movimiento, registrar `RENTAL_STARTED`.
+	- US28 (bicicleta en uso): si MPU6050 supera umbral, publicar `MOTION_DETECTED`; si cae por debajo, `MOTION_IDLE`.
+	- Tracking: generar coordenadas mock y publicar `LOCATION_UPDATE` periodico.
+7. Imprimir todos los eventos en monitor serial para evidenciar trazabilidad de extremo a extremo.
+
+<div style="page-break-after: always;"></div>
+
+#### Estructura de mensajes recomendada en Wokwi (para que coincida con tu arquitectura)
+
+- Comandos de entrada simulados:
+  - `CMD:UNLOCK`
+  - `CMD:LOCK`
+  - `CMD:LOCKDOWN`
+- Eventos de salida del dispositivo:
+  - `EVT:LOCK_STATE=LOCKED|UNLOCKED|LOCKDOWN`
+  - `EVT:MOTION=DETECTED|IDLE`
+  - `EVT:GPS=-12.0464,-77.0428`
+  - `EVT:RENTAL=STARTED|PAUSED|CLOSED`
+
+<div style="page-break-after: always;"></div>
+
+### Flujos de Interacción del Prototipo IoT
+
+El hardware cubre interacciones físicas que se sincronizan con las vistas de la aplicación móvil, definiendo los siguientes flujos principales:
+
+<div style="page-break-after: always;"></div>
+
+#### 1. Flujo de Desbloqueo e Inicio de Alquiler
+
+- Paso 1: el backend emite comando `CMD:UNLOCK` (simulado por Serial en Wokwi).
+- Paso 2: el actuador cambia a `UNLOCKED` y el LED cambia a estado activo.
+- Paso 3: al detectar movimiento inicial, se publica `EVT:RENTAL=STARTED` (US27).
+
+<div style="page-break-after: always;"></div>
+
+#### 2. Flujo de Monitoreo de Uso
+
+- Paso 1: el MPU6050 reporta aceleracion sobre umbral y emite `EVT:MOTION=DETECTED`.
+- Paso 2: el dispositivo envia telemetria de uso y ubicacion (`EVT:GPS=...`).
+- Paso 3: si no hay movimiento por un tiempo definido, emite `EVT:MOTION=IDLE` (US28).
+
+<div style="page-break-after: always;"></div>
+
+#### 3. Flujo de Cierre y Bloqueo Seguro
+
+- Paso 1: el backend envia `CMD:LOCK` al finalizar alquiler.
+- Paso 2: el actuador retorna a `LOCKED`.
+- Paso 3: se publica `EVT:LOCK_STATE=LOCKED` y `EVT:RENTAL=CLOSED`.
+
+<div style="page-break-after: always;"></div>
+
+#### 4. Flujo de Seguridad (Lockdown)
+
+- Paso 1: ante evento critico o comando remoto, se envia `CMD:LOCKDOWN`.
+- Paso 2: el dispositivo activa estado `LOCKDOWN` y LED en rojo.
+- Paso 3: se publica `EVT:LOCK_STATE=LOCKDOWN` para alertar a la plataforma.
+
+<div style="page-break-after: always;"></div>
+
+### Evidencias (capturas de Wokwi)
+
+Para cerrar correctamente la sección 5.6, a continuación se insertan las capturas generadas en la simulación Wokwi que validan los flujos descritos:
+
+- Circuito y montaje del prototipo:
+
+	![Circuito completo](assets/images/Chapter-5/CMDUNLOCK.png)
+	*Figura — Montaje con ESP32, servo, sensor MPU6050, LED y pulsador.*
+
+- Desbloqueo remoto (comando → efecto):
+
+	![Desbloqueo (CMD:UNLOCK)](assets/images/Chapter-5/CMDUNLOCK.png)
+	*Figura — `CMD:UNLOCK` y `EVT:LOCK_STATE=UNLOCKED` (servo abierto / LED activo).* 
+
+- Detección de movimiento y registro de inicio de alquiler:
+
+	![Movimiento detectado (CMD:MOTION)](assets/images/Chapter-5/CMDMOTION.png)
+	*Figura — `EVT:MOTION=DETECTED` y `EVT:RENTAL=STARTED` como telemetría del MPU6050.*
+
+- Cierre de alquiler y bloqueo:
+
+	![Cierre (CMD:LOCK)](assets/images/Chapter-5/CMDLOCK.png)
+	*Figura — `CMD:LOCK` y `EVT:RENTAL=CLOSED` (servo en posición cerrada).*
+
+- Evento GPS simulado (tracking):
+
+	![GPS event](assets/images/Chapter-5/GPS.png)
+	*Figura — `EVT:GPS=...` (coordenadas mock enviadas por Serial para validar la integración de tracking).* 
+
+Estas capturas sirven como registro de prueba (equivalente a mensajes publicados en un broker MQTT) y deben acompañarse en el informe de las líneas del monitor serial que muestran los mensajes `CMD:*` y `EVT:*` para garantizar trazabilidad.
 
