@@ -197,7 +197,59 @@ User Goal:agregar bicicleta
 
 ### 5.4.4.1 Mobile Applications Mock-ups
 
+<p align="center">
+  <img src="assets/images/Chapter-5/a1.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a2.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a3.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a4.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a5.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/a6.png" width="700">
+</p>
+
 ### 5.4.4.2 Desktop Applications Mock-ups
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d6.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d7.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d8.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d9.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d10.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d11.png" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/images/Chapter-5/d12.png" width="700">
+</p>
 
 ## 5.4.4. Applications User Flow Diagrams
 
