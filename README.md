@@ -1,4 +1,41 @@
 # 6.2. Landing Page, Services & Applications Implementation.
+## 6.1. Software Configuration Management
+
+Requirements Management
+
+User Experience Design (UX/UI)
+
+Project Managment
+
+Discord y WhatsApp: Estas plataformas fueron esenciales para la comunicación interna del equipo, siendo WhatsApp especialmente útil por su facilidad para gestionar grupos de trabajo.
+
+Trello: Se utilizó para planificar y dar seguimiento al avance del proyecto mediante tableros que representaban el backlog del producto y otras tareas organizativas.
+
+Product UX/UI
+
+Figma: Herramienta principal para el diseño de wireframes y prototipos, tanto en versiones de escritorio como móviles.
+
+Miro: Apoyo en la creación de los escenarios mapping y escenario mapping en ambos casos para ambos segmentos del objetivo en el desarrollo del proyecto.
+
+Software Development
+
+Visual Studio Code: Editor principal utilizado para programar el landing page.
+
+Github y Git bash: Se emplearon para el control de versiones y el desarrollo colaborativo del repositorio del proyecto.
+
+3.HTML y CSS: Lenguajes fundamentales utilizados para la estructura (HTML) y el diseño visual (CSS) del landing page.
+
+Software Documentation
+
+Google Drive: Plataforma utilizada para el almacenamiento compartido de documentación e informes colaborativos.
+
+Google Meets y Zoom: Se usó Google Meets más que nada para las videoconferencias de reunión del equipo y el Zoom para las grabaciones de las entrevistas, y las presentaciones del trabajo en el desarrollo de este.
+
+LucidChart: Herramienta utilizada para diagramas de flujo y modelado visual del diseño de la aplicación, incluyendo diagramas de clases.
+
+Structuriz: Permite la creación del modelo C4 en sus tres niveles (contexto, contenedores, componentes), también trabajado en conjunto con Visual Studio Code.
+
+Vertabello: Se empleó para el diseño de la base de datos y sus respectivos diagramas lógicos.
 ## 6.2.1. Sprint 1
 ### 6.2.1.1. Sprint Planning 1.
 
