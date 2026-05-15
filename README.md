@@ -4715,7 +4715,7 @@ Depliegue:
 
 <div align="center">
 
-<img src="./assets/colab_1.png" alt="Colaboración 1" width="800"/>
+<img src="./assets/images/colab_1.png" alt="Colaboración 1" width="800"/>
 
 </div>
 
