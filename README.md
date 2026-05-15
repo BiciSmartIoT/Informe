@@ -3,13 +3,22 @@
 ## 5.1. Style Guidelines
 Esta sección establece las bases visuales y estéticas del proyecto. El objetivo de las guías de estilo es garantizar la consistencia visual en todas las interfaces, permitiendo que el usuario experimente una identidad de marca unificada, profesional y accesible.
 
+<div align="center">
+
+<img src="./assets/images/Chapter-5/guide_1.png" alt="Guide 1 PNG" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/Chapter-5/guide_1.jpeg" alt="Guide 1 JPEG" width="800"/>
+
+</div>
+
 ### 5.1.1. General Style Guidelines
 Define las normas visuales fundamentales que rigen todo el producto. Incluye la definición de la paleta de **colores** (primarios, secundarios y de estado), la **tipografía** (fuentes, pesos y jerarquías visuales) y la **iconografía**, asegurando que cada elemento gráfico tenga un propósito claro y coherente.
 
+
 ### 5.1.2. Web, Mobile and IoT Style Guidelines
 Establece reglas específicas adaptadas a cada plataforma. Se enfoca en la **adaptabilidad (responsive design)** para la web, patrones de **interacción táctil** para dispositivos móviles y interfaces simplificadas de alta visibilidad para dispositivos **IoT**, asegurando una experiencia óptima independientemente del hardware utilizado.
-
----
 
 ## 5.2. Information Architecture
 La Arquitectura de la Información (IA) se centra en organizar, estructurar y etiquetar el contenido de forma efectiva. Su objetivo es ayudar a los usuarios a encontrar información y completar tareas con el menor esfuerzo cognitivo posible.
@@ -20,7 +29,11 @@ Describe cómo se categoriza y agrupa la información dentro de la solución. De
 ### 5.2.2. Labeling Systems
 Se encarga de la terminología y el lenguaje utilizado en la interfaz. El sistema de etiquetado asegura que los nombres de los menús, botones y enlaces sean **claros, concisos y familiares** para el público objetivo, minimizando la ambigüedad y mejorando la usabilidad.
 
----
+<div align="center">
+
+<img src="./assets/images/Chapter-5/guide_1.png" alt="Guide 1" width="800"/>
+
+</div>
 
 ### 5.3.1 Landing Page Wireframe.
 
