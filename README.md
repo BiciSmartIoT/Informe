@@ -4713,8 +4713,11 @@ Depliegue:
 
 ### 6.2.1.9. Team Collaboration Insights during Sprint.
 
+<div align="center">
 
+<img src="./assets/colab_1.png" alt="Colaboración 1" width="800"/>
 
+</div>
 
 ## Conclusiones
 
