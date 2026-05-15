@@ -117,14 +117,35 @@ DDD presentados previamente.
 
 A continuación, se muestran las evidencias de ejecución de la landing page y de la primera versión de la aplicación web.
 
-Landing Page:
+Landing Page y App Web:
 
+<div align="center">
+
+<img src="./assets/images/landing_1.png" alt="Landing Page 1" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_2.png" alt="Landing Page 2" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_3.png" alt="Landing Page 3" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_4.png" alt="Landing Page 4" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_5.png" alt="Landing Page 5" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_6.png" alt="Landing Page 6" width="800"/>
+
+</div>
 
 Link de Video:https://youtu.be/g29aSgglfV0
-
-App Web:
-
-Link de Video:
 
 ### 6.2.1.7. Services Documentation Evidence for Sprint Review.
 
@@ -135,5 +156,33 @@ Para este sprint, no nos centramos en elaborar los servicios web, por lo tanto, 
 En este primer sprint, se desplegaron tanto la Landing Page como la primera versión de la aplicación web frontend utilizando Cloudflare Pages, un servicio de Cloudflare que permite publicar sitios web estáticos y aplicaciones frontend de manera rápida, segura y escalable. Para ambos despliegues, se vinculó el repositorio correspondiente desde GitHub hacia Cloudflare Pages, permitiendo que cada cambio realizado en la rama principal del proyecto pueda actualizarse automáticamente en el entorno desplegado. De esta manera, el equipo pudo contar con versiones públicas y accesibles del landing y del frontend para validar el avance del producto.
 
 De manera general, el proceso de despliegue consiste en ingresar a Cloudflare, seleccionar la opción Pages, conectar la cuenta de GitHub y escoger el repositorio del proyecto. Luego, se configura la rama principal desde donde se realizará el despliegue, se define el comando de construcción correspondiente si el proyecto lo requiere, y se indica la carpeta de salida generada por el build. Finalmente, Cloudflare Pages ejecuta el proceso de despliegue y genera una URL pública para acceder al sitio. Este procedimiento fue aplicado tanto para la Landing Page como para la aplicación web frontend.
+
+<div align="center">
+
+<img src="./assets/images/landing_1.png" alt="Landing Page 1" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_2.png" alt="Landing Page 2" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_3.png" alt="Landing Page 3" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_4.png" alt="Landing Page 4" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_5.png" alt="Landing Page 5" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/landing_6.png" alt="Landing Page 6" width="800"/>
+
+</div>
+
+
 
 ### 6.2.1.9. Team Collaboration Insights during Sprint.
