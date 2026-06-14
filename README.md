@@ -50,6 +50,7 @@ Lima - Mayo 2026
 |---|---|---|---|
 | AV1 | 13/04/2026 | - U20231A804 — Bustamante Leveau, Cameron Charllotte<br>- U202311745 — Uribe Livia, Renzo Sebastián<br>- U202311842 — Espinoza Quijandria, Oscar Leonardo<br>- U202311828 — Landauri Preciado, Stephano Mayrzon<br>- U202220219 — Belahonia Miranda, Fabrisio | Se incluyeron los siguientes capítulos:<br><br>- Capítulo I: Introducción<br>- Capítulo II: Requirements Elicitation & Analysis<br>- Capítulo III: Requirements Specification<br>- Capítulo IV: Solution Software Design |
 | TB1 | 14/05/2026 | - U20231A804 — Bustamante Leveau, Cameron Charllotte<br>- U202311745 — Uribe Livia, Renzo Sebastián<br>- U202311842 — Espinoza Quijandria, Oscar Leonardo<br>- U202311828 — Landauri Preciado, Stephano Mayrzon<br>- U202220219 — Belahonia Miranda, Fabrisio | Se realizaron correcciones y mejoras en los siguientes apartados:<br><br>- Capítulo IV: actualización de Context Mapping y diagramas de arquitectura con Structurizr.<br>- Capítulo V: desarrollo de Style Guidelines, Landing Page UI Design, Wireframes, Wireflow Diagrams, Mock-ups, User Flow Diagrams, Prototyping e IoT Device Design.<br>- Capítulo VI: incorporación de Software Configuration Management, Sprint Planning, Sprint Backlog, evidencias de desarrollo, ejecución, despliegue y colaboración del equipo durante el Sprint 1.<br>- Conclusiones de la entrega TB1. |
+| AV2 | 14/06/2026 | - U20231A804 — Bustamante Leveau, Cameron Charllotte<br>- U202311745 — Uribe Livia, Renzo Sebastián<br>- U202311842 — Espinoza Quijandria, Oscar Leonardo<br>- U202311828 — Landauri Preciado, Stephano Mayrzon<br>- U202220219 — Belahonia Miranda, Fabrisio | Se incorporó la documentación correspondiente al Sprint 2:<br><br>- Sprint Planning 2, Aspect Leaders and Collaborators y Sprint Backlog 2.<br>- Evidencias de desarrollo, testing, ejecución, documentación de servicios, despliegue y colaboración del equipo.<br>- Indicaciones de ubicación para las capturas requeridas por la guía del proyecto. |
 
 
 ## Student Outcome
@@ -58,6 +59,13 @@ Lima - Mayo 2026
 |---------------------|---------------------|--------------|
 | 5.c.1 Trabaja en equipo para proporcionar liderazgo en forma conjunta | **Bustamante Leveau, Cameron Charllotte:**<br>AV1:Contribuí en la fase de Requirements Elicitation & Analysis mediante el análisis competitivo, identificando oportunidades frente a competidores y apoyando la definición de estrategias. Participé y facilité el diseño, registro y análisis de entrevistas, obteniendo insights clave de los usuarios. Asimismo, colaboré en actividades de needfinding como User Personas y User Journey Mapping, promoviendo una mejor comprensión del usuario en el equipo. Finalmente, apoyé en la definición del bounded context de Payments, ayudando a clarificar responsabilidades y alineando al equipo.<br>**TB1:** Desarrollé la aplicación frontend y la landing page del proyecto, coordinando constantemente con el equipo para mantener coherencia entre el diseño UI/UX, los requerimientos funcionales y la estructura definida en los capítulos del documento. Asimismo, brindé apoyo técnico durante la implementación visual de las interfaces, contribuyendo en la toma conjunta de decisiones relacionadas con la organización de componentes, navegación y presentación del sistema, favoreciendo el trabajo colaborativo y el liderazgo compartido dentro del equipo. <br><br>**Uribe Livia, Renzo Sebastián:**<br>**AV1: Contribuí en el desarrollo del proyecto participando en la organización y estructuración de los requerimientos del sistema, apoyando en la identificación de funcionalidades clave y en la comprensión general del dominio. Asimismo, colaboré en el trabajo en equipo durante la elaboración de artefactos como el backlog y la definición inicial de componentes del sistema, manteniendo comunicación constante con el equipo para asegurar coherencia en el avance del proyecto.       TB1: Contribuí activamente en el liderazgo compartido del equipo durante la fase de IoT Device Design, asumiendo un rol proactivo en la definición de la arquitectura de hardware y la lógica de control. Participé en la toma de decisiones estratégicas para alinear el diseño del dispositivo con los objetivos del proyecto, aportando soluciones técnicas que facilitaron el consenso grupal. Mi participación permitió que el equipo avanzara de manera coordinada en la integración de sensores y actuadores, asegurando que las decisiones de diseño reflejaran una visión técnica conjunta y sólida.** <br><br>**Espinoza Quijandria, Oscar Leonardo:**<br>**AV1: Contribuí en la elaboración de la arquitectura del sistema, participando en el diseño de los Context Mapping y en la definición de los bounded contexts, especialmente en el análisis y estructuración del contexto de Tracking & Monitoring. Asimismo, apoyé en la construcción de los diagramas de arquitectura (Landscape, Context, Container y Deployment), asegurando la correcta integración entre componentes IoT, backend y aplicación. Además, colaboré en la organización técnica del proyecto, ayudando a alinear las decisiones de diseño con los requerimientos funcionales y promoviendo una estructura clara y escalable del sistema. **<br><br>**Landauri Preciado, Stephano Mayrzon:**<br>**AV1: Durante el desarrollo del AV1, impulsé un ambiente de trabajo donde cada integrante pudo aportar sus ideas en las distintas etapas del diseño estratégico. En las sesiones de EventStorming, me aseguré de que la dinámica fuera participativa, dando espacio para que el equipo debatiera y llegara a acuerdos sobre la estructura del dominio. Respecto a la planificación, establecimos en conjunto las tareas necesarias para completar el Candidate Context Discovery, el modelado de Domain Message Flows y los Bounded Context Canvases, distribuyendo responsabilidades de manera equitativa. El seguimiento constante de estos entregables nos permitió alcanzar los objetivos del sprint dentro de los tiempos acordados. ** <br><br>**Belahonia Miranda, Fabrisio**:<br> **AV1:Aporté liderazgo conjunto en la definición de User Stories, facilitando su estructuración y promoviendo la claridad en las necesidades del usuario, lo que permitió una mejor priorización de requerimientos. Co-lideré sesiones de Impact Mapping, contribuyendo a identificar objetivos, actores y resultados, alineando al equipo con el valor del negocio. Además, participé activamente en la construcción y priorización del Product Backlog, apoyando la toma de decisiones del equipo. Finalmente, colaboré en la definición de un bounded context, ayudando a delimitar responsabilidades del sistema y mejorando la organización y comunicación del equipo.<br> **TB1:** Aporté en la corrección y mejora de las User Stories, incluyendo la revisión de la User Story 42 y el ajuste del formato de las Spike Stories para mantener coherencia con la documentación del proyecto. Asimismo, colaboré en la actualización de la imagen del punto 3.2 Impact Mapping y en la revisión del apartado 3.3 Product Backlog, ordenando adecuadamente las listas para mejorar la claridad y presentación del contenido. Finalmente, desarrollé el punto 5.5 Applications Prototyping, integrando el prototipo de la aplicación y documentando su propósito dentro del diseño UI/UX del producto.| **AV1:** En conclusión, el equipo mostró un trabajo basado en la cooperación, la organización y el liderazgo compartido, donde cada miembro participó activamente en la definición de los bounded contexts, la aplicación del proceso Lean UX y el diseño de la arquitectura del sistema. La asignación equilibrada de responsabilidades, el intercambio constante de ideas y la validación conjunta de hipótesis fortalecieron la comunicación y la coordinación del grupo, permitiendo la toma de decisiones consensuadas y una mejor gestión de los desafíos técnicos. Gracias a esta colaboración, se logró estructurar adecuadamente los dominios del proyecto y avanzar de forma ordenada hacia el cumplimiento de los objetivos establecidos. <br>**TB1:** En conclusión, el equipo evidenció un trabajo colaborativo basado en la coordinación, la participación activa y el liderazgo compartido durante el desarrollo de los capítulos relacionados al diseño UI/UX, implementación y despliegue del producto. Cada integrante asumió responsabilidades específicas en actividades como la elaboración de wireframes, mock-ups, diagramas de flujo, prototipado, arquitectura de despliegue y documentación técnica, permitiendo una distribución equilibrada de tareas y una mejor organización del trabajo grupal. |
 | 5.c.2 Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos | **Bustamante Leveau, Cameron Charllotte:**<br> AV1:Contribuí a la creación de un entorno colaborativo durante la fase de Requirements Elicitation & Analysis, promoviendo la participación activa de todos los integrantes del equipo en entrevistas, needfinding y sesiones de análisis. Apoyé en la definición de metas claras para cada actividad, como la obtención de insights de usuarios y la identificación de oportunidades frente a competidores. Asimismo, colaboré en la planificación y organización de tareas del equipo, asegurando una distribución ordenada del trabajo en actividades como User Personas, User Journey Mapping y EventStorming. Finalmente, apoyé el cumplimiento de los objetivos establecidos, contribuyendo a la entrega ordenada de los artefactos del análisis.<br> **TB1:** Contribuí al cumplimiento de los objetivos del equipo mediante el desarrollo de la aplicación frontend y la landing page, siguiendo las metas y tareas definidas para la entrega TB1. Asimismo, mantuve una comunicación constante con los integrantes del grupo para coordinar aspectos visuales y funcionales de las interfaces, promoviendo un entorno de trabajo colaborativo y organizado. Gracias a ello, se logró avanzar de manera estructurada en la implementación del producto y en la integración de los entregables relacionados al diseño y experiencia de usuario. <br><br>**Uribe Livia, Renzo Sebastián:**<br>**AV1: Contribuí en la creación de un entorno colaborativo e inclusivo dentro del equipo, participando activamente en las reuniones de trabajo y aportando ideas durante la definición de requerimientos. Asimismo, apoyé en la planificación de tareas y en la organización del trabajo del equipo, manteniendo una comunicación constante para asegurar el cumplimiento de los objetivos establecidos en el proyecto. **<br>** TB1:  Fomenté un entorno de trabajo colaborativo e inclusivo mediante la creación y socialización de los Applications Wireflow Diagrams y los Applications User Flow Diagrams. Utilicé estos entregables como herramientas de planificación para establecer metas claras de desarrollo, organizando las tareas del equipo de manera estructurada. Gracias a una comunicación constante y a la definición precisa de los flujos de usuario, logré optimizar el flujo de trabajo grupal, asegurando el cumplimiento de los hitos establecidos y garantizando que todos los miembros tuvieran claridad sobre los objetivos del sistema. ** <br><br>**Espinoza Quijandria, Oscar Leonardo:**<br>**AV1: Contribuí en la creación de un entorno colaborativo e inclusivo mediante la participación activa en las sesiones de trabajo técnico, aportando en la definición de la arquitectura del sistema y en la elaboración de los diagramas (Context Mapping, Landscape, Context, Container y Deployment). Apoyé en la planificación de tareas relacionadas al diseño técnico, asegurando que los objetivos sean claros y alineados con los requerimientos del proyecto. Además, promoví la organización del trabajo dentro del equipo, facilitando la integración entre los componentes IoT y la arquitectura del sistema, lo que permitió cumplir con los objetivos establecidos. TFomenté un entorno de trabajo colaborativo e inclusivo mediante la creación y socialización de los Applications Wireflow Diagrams y los Applications User Flow Diagrams. Utilicé estos entregables como herramientas de planificación para establecer metas claras de desarrollo, organizando las tareas del equipo de manera estructurada. Gracias a una comunicación constante y a la definición precisa de los flujos de usuario, logré optimizar el flujo de trabajo grupal, asegurando el cumplimiento de los hitos establecidos y garantizando que todos los miembros tuvieran claridad sobre los objetivos del sistema.** <br><br>**Landauri Preciado, Stephano Mayrzon:**<br>**AV1: Contribuí en la creación de un entorno colaborativo e inclusivo participando activamente en las actividades del equipo y apoyando en la planificación y desarrollo de las tareas asignadas. Asimismo, colaboré en la organización del trabajo y en el seguimiento de los objetivos del proyecto, contribuyendo a mantener una adecuada coordinación entre los integrantes y al cumplimiento de los plazos establecidos. ** <br><br>**Belahonia Miranda, Fabrisio**:<br> AV1:Contribuí a la creación de un entorno colaborativo e inclusivo, promoviendo la participación activa de todos los integrantes del equipo y fomentando la comunicación abierta en las sesiones de trabajo. Apoyé en la definición de metas del sprint y en la planificación de tareas, asegurando que los objetivos sean claros y alcanzables. Además, facilité la organización del trabajo mediante la priorización del Product Backlog y el seguimiento del progreso del equipo, lo que permitió cumplir con los objetivos establecidos dentro de los plazos definidos.**TB1:** Contribuí a crear un entorno colaborativo mediante la revisión y corrección de las User Stories, incluyendo la User Story 42 y el formato de las Spike Stories, asegurando que el equipo mantuviera una documentación clara y uniforme. Además, apoyé en la organización de los apartados 3.2 Impact Mapping y 3.3 Product Backlog, ordenando las listas y mejorando la presentación de los entregables. Finalmente, cumplí con la tarea asignada del punto 5.5 Applications Prototyping, aportando al avance de los objetivos planificados para la entrega TB1. | **AV1:** En general, el equipo evidenció una dinámica de trabajo colaborativa e inclusiva, donde cada integrante contribuyó desde su rol al logro de los objetivos propuestos. Mediante el uso de enfoques como Lean UX y herramientas como empathy maps, user personas y bounded contexts, se logró identificar necesidades reales de los usuarios, definir objetivos concretos y organizar las tareas de forma estructurada con un adecuado seguimiento. La comunicación continua, la distribución justa de responsabilidades y la apertura a las ideas de todos los miembros fortalecieron el compromiso del grupo, permitiendo cumplir con los entregables dentro de los plazos establecidos y consolidando un flujo de trabajo eficiente y orientado a resultados.<br> **TB1:** Durante el desarrollo de la presente entrega, el equipo promovió un entorno de trabajo colaborativo e inclusivo, en el cual todos los integrantes participaron activamente en la planificación, desarrollo y revisión de las actividades asignadas. Se establecieron metas claras para cada capítulo y subapartado del documento, definiendo responsables, tiempos de avance y criterios de cumplimiento para asegurar una organización adecuada del trabajo.|
+
+### AV2 Student Outcome Update
+
+| Criterio específico | Acciones realizadas en AV2 | Conclusiones AV2 |
+|---------------------|----------------------------|------------------|
+| 5.c.1 Trabaja en equipo para proporcionar liderazgo en forma conjunta | Durante el Sprint 2, el equipo distribuyó liderazgos por aspecto técnico: backend services, web application, integración IoT, testing/documentación y deployment. Cada líder coordinó decisiones con los colaboradores para mantener coherencia entre implementación, evidencias y documentación del informe. | El equipo fortaleció el liderazgo compartido al organizar el trabajo por frentes técnicos y al relacionar cada responsabilidad con el Sprint Backlog 2. Esta dinámica permitió mantener trazabilidad entre tareas, evidencias, commits y entregables del sprint. |
+| 5.c.2 Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos | Se establecieron metas concretas para integrar servicios, documentar endpoints, validar flujos IoT y preparar evidencias de despliegue. La planificación del Sprint 2 permitió asignar tareas, registrar responsables y definir qué capturas debían adjuntarse como soporte de la revisión. | La colaboración del equipo se evidenció en una planificación más estructurada, con objetivos verificables y una matriz de líderes/colaboradores alineada al backlog. Como oportunidad de mejora, se identificó la necesidad de reemplazar oportunamente los marcadores del informe con commits, URLs y capturas reales. |
 
 # Project Report Collaboration Insights
 
@@ -114,6 +122,22 @@ Para el desarrollo del TB1, cada participante del equipo realizó las siguientes
 | Landauri Preciado, Stephano Mayrzon | - Correcciones del Chapter II <br> - Desarrollo de Landing Page UI Design, Wireframes y Mock-ups |
 | Belahonia Miranda, Fabrisio | - Corrección de User Stories y Product Backlog <br> - Organización de listas y diagramas <br> - Desarrollo de Applications Prototyping |
  
+<hr class="page-break">
+
+## **AV2**  
+
+**Tareas**
+
+Para el desarrollo del AV2, cada participante del equipo asumió responsabilidades alineadas al Sprint 2 y a la preparación de evidencias solicitadas para la revisión.
+
+| Integrantes                          | Tarea asignada |
+|--------------------------------------|----------------|
+| Bustamante Leveau, Cameron Charllotte | - Coordinación de despliegue <br> - Evidencias de configuración y publicación <br> - Apoyo en integración frontend/backend |
+| Uribe Livia, Renzo Sebastián | - Integración de vistas de aplicación web <br> - Evidencias de ejecución del flujo de reserva y tracking <br> - Actualización de documentación del Sprint 2 |
+| Espinoza Quijandria, Oscar Leonardo | - Liderazgo de backend services <br> - Documentación OpenAPI/Swagger <br> - Registro de endpoints y commits de servicios |
+| Landauri Preciado, Stephano Mayrzon | - Liderazgo de integración IoT <br> - Simulación de Smart Lock, GPS y sensores <br> - Evidencias de eventos `CMD:*` y `EVT:*` |
+| Belahonia Miranda, Fabrisio | - Apoyo en testing y documentación <br> - Diseño de escenarios BDD <br> - Organización de evidencias de colaboración |
+
 <hr class="page-break">
 
 
@@ -4718,6 +4742,286 @@ Depliegue:
 <img src="./assets/images/colab_1.png" alt="Colaboración 1" width="800"/>
 
 </div>
+
+## 6.2.2. Sprint 2
+
+El Sprint 2 se enfoca en consolidar la integración entre la aplicación, los servicios web y los componentes IoT de **BiciSmartIOT**. A diferencia del Sprint 1, que priorizó la primera versión visual del Landing Page y de la aplicación web, este sprint concentra el trabajo en endpoints backend, documentación OpenAPI, simulación de eventos IoT, pruebas funcionales, despliegue actualizado y evidencias de colaboración del equipo.
+
+### 6.2.2.1. Sprint Planning 2.
+
+El Sprint Planning 2 permitió organizar el trabajo necesario para avanzar desde una solución principalmente visual hacia una solución integrada. Se priorizaron las historias relacionadas con autenticación, gestión de bicicletas, reservas, control IoT, monitoreo GPS, alertas, notificaciones y panel administrativo. Además, se definieron tareas de documentación, testing y despliegue para cumplir con los criterios solicitados en la revisión del sprint.
+
+| Campo | Información |
+|---|---|
+| **Sprint #** | Sprint 2 |
+| **Sprint Planning Background** | Se parte de la versión desplegada del Landing Page y de la primera versión de la aplicación web desarrollada en Sprint 1. Para este sprint se prioriza la integración de servicios, documentación técnica, testing y evidencias de despliegue. |
+| **Date** | 2026-06-14 |
+| **Time** | 05:00 PM |
+| **Location** | Virtual (Discord y Google Meet) |
+| **Prepared By** | Oscar Espinoza, Stephano Landauri, Renzo Uribe, Cameron Bustamante, Fabrisio Belahoni |
+| **Attendees (to planning meeting)** | Oscar Espinoza, Stephano Landauri, Renzo Uribe, Cameron Bustamante, Fabrisio Belahoni |
+| **Sprint n - 1 Review Summary** | En Sprint 1 se logró publicar la primera versión del Landing Page y de la aplicación web, incluyendo navegación, vistas principales, catálogo, detalle de bicicletas, panel de usuario, tracking GPS simulado y despliegue en Cloudflare Pages. |
+| **Sprint n - 1 Retrospective Summary** | El equipo identificó como oportunidad de mejora distribuir con mayor claridad las tareas técnicas, documentar commits con mensajes más descriptivos, preparar evidencias visuales durante el desarrollo y adelantar la documentación de servicios para evitar concentrarla al final del sprint. |
+| **Sprint n Goal** | Integrar la aplicación frontend con servicios web y flujos IoT principales, documentar endpoints con OpenAPI, validar el funcionamiento mediante pruebas y publicar una versión actualizada del producto.<br><br>**Sprint Goal:**<br>Our focus is on integrating BiciSmartIOT's application with backend services and IoT workflows.<br>We believe it delivers a functional product increment where users can authenticate, manage bicycles, reserve rentals, interact with smart lock flows, monitor GPS information and receive system alerts.<br>This will be confirmed when the application consumes documented APIs, the IoT simulation sends control and telemetry events, and the updated deployment is accessible for Sprint Review. |
+| **Sprint n Velocity** | 95 Story Points |
+| **Sprint Goal & User Stories** | **User Stories / Technical Stories:**<br>TS01, TS02, TS03, TS04, TS06, TS07, TS08, TS09, TS10, TS11, US25, US26, US29, US31 |
+| **Sum of Story Points** | 95 Story Points |
+
+### 6.2.2.2. Aspect Leaders and Collaborators.
+
+Para este sprint se definieron aspectos de trabajo asociados a los productos y componentes que forman parte del incremento: servicios backend, aplicación web, integración IoT, documentación/testing y despliegue. La matriz permite identificar quién lidera cada aspecto y quiénes colaboran en su implementación.
+
+| Team Member (Last Name, First Name) | GitHub Username | Backend Services | Web Application | IoT Integration | Testing & Documentation | Deployment |
+|---|---|---|---|---|---|---|
+| Bustamante Leveau, Cameron Charlotte | CameronBustamanteLeveau2 | C | C | C | C | L |
+| Uribe Livia, Renzo Sebastián | JKOlimpo | C | L | C | C | C |
+| Espinoza Quijandría, Oscar Leonardo | Carbocnito5443 | L | C | C | L | C |
+| Landauri Preciado, Stephano Mayzron | Mayrzon02 | C | C | L | C | C |
+| Belahonia Miranda, Fabrisio | devfab17 | C | C | C | C | C |
+
+### 6.2.2.3. Sprint Backlog 2.
+
+El Sprint Backlog 2 consolida las tareas técnicas y funcionales necesarias para avanzar en la integración de **BiciSmartIOT**. El alcance se centra en construir servicios web para autenticación, bicicletas, reservas y monitoreo; conectar la experiencia de usuario con dichos servicios; procesar eventos IoT de smart lock, GPS y sensores; preparar pruebas y documentar endpoints para la revisión del sprint.
+
+**Imagen requerida:** colocar aquí una captura del board del Sprint 2 en la herramienta de gestión utilizada. Guardar la imagen como `assets/images/sprint2/sprint2_board.png`.
+
+<div align="center">
+
+<img src="./assets/images/sprint2/sprint2_board.png" alt="Sprint 2 Board" width="800"/>
+
+</div>
+
+**URL del Board:** Reemplazar con el enlace público del board de Sprint 2.
+
+| Sprint # | User Story | Work-Item / Task | Description | Estimation (Hours) | Assigned To | Status |
+|---|---|---|---|---|---|---|
+| Sprint 2 | TS01 | T29 - Implementar endpoints IAM | Crear endpoints de registro, login, validación de credenciales y emisión de token para usuarios del sistema. | 8 | Oscar (Backend) | Done |
+| Sprint 2 | TS02 | T30 - Implementar gestión de bicicletas | Crear operaciones CRUD para bicicletas registradas por arrendadores. | 8 | Oscar (Backend) | Done |
+| Sprint 2 | TS03 | T31 - Implementar búsqueda geolocalizada | Exponer endpoint para consultar bicicletas cercanas mediante coordenadas GPS. | 6 | Renzo (Frontend/Integration) | Done |
+| Sprint 2 | TS04 | T32 - Implementar reservas y alquileres | Crear endpoints para reservar, iniciar y finalizar alquileres. | 8 | Oscar (Backend) | Done |
+| Sprint 2 | TS06 | T33 - Integrar Smart Lock | Simular comandos `CMD:UNLOCK`, `CMD:LOCK` y eventos de estado del candado inteligente. | 7 | Stephano (IoT) | Done |
+| Sprint 2 | TS07 | T34 - Procesar GPS en tiempo real | Registrar eventos de ubicación y mostrarlos en la pantalla de seguimiento. | 7 | Stephano (IoT) | Done |
+| Sprint 2 | TS08 | T35 - Procesar eventos de sensores | Registrar eventos de movimiento, uso y estado del dispositivo IoT. | 6 | Stephano (IoT) | Done |
+| Sprint 2 | TS09 | T36 - Implementar alertas IoT | Definir eventos críticos como movimiento no autorizado, bloqueo y fin de alquiler. | 5 | Fabrisio (Alerts) | Done |
+| Sprint 2 | TS10 | T37 - Implementar notificaciones | Preparar notificaciones para reservas, alquileres, pagos e incidencias. | 5 | Fabrisio (Notifications) | Done |
+| Sprint 2 | TS11 | T38 - Actualizar panel admin | Incorporar métricas de usuarios, bicicletas, reservas y eventos IoT. | 6 | Renzo (Frontend) | Done |
+| Sprint 2 | US25 | T39 - Desbloquear bicicleta desde app | Conectar la acción de desbloqueo con el flujo de Smart Lock simulado. | 5 | Renzo (Frontend/IoT) | Done |
+| Sprint 2 | US26 | T40 - Bloquear bicicleta al finalizar | Ejecutar el flujo de bloqueo al cerrar el alquiler. | 5 | Stephano (IoT) | Done |
+| Sprint 2 | US29 | T41 - Mostrar ubicación en tiempo real | Visualizar la ubicación actual de la bicicleta en la pantalla de tracking. | 6 | Renzo (Frontend) | Done |
+| Sprint 2 | US31 | T42 - Mostrar estado de bicicleta | Actualizar el estado disponible, reservada, en uso o bloqueada. | 4 | Cameron (Integration) | Done |
+| Sprint 2 | TS01-TS11 | T43 - Documentar API con OpenAPI | Preparar documentación de endpoints, parámetros, ejemplos y respuestas. | 6 | Oscar (Documentation) | Done |
+| Sprint 2 | TS01-TS11 | T44 - Diseñar suite de pruebas | Definir pruebas unitarias, integración y aceptación para servicios críticos. | 5 | Fabrisio (Testing) | Done |
+| Sprint 2 | TS03-TS11 | T45 - Actualizar despliegue | Publicar nueva versión de Landing Page, Web Application y servicios relacionados. | 4 | Cameron (Deployment) | Done |
+
+### 6.2.2.4. Development Evidence for Sprint Review.
+
+Durante el Sprint 2 se avanzó en la integración entre la aplicación web, los servicios backend y la documentación del proyecto. Para evidenciar el trabajo desarrollado, se consideran los repositorios oficiales del equipo: **front-end**, **back-end** e **Informe**. Los commits listados muestran avances relacionados con la preparación del frontend para despliegue, conexión con backend, configuración de despliegue del backend, habilitación de CORS para el frontend publicado y actualización del informe con evidencias del producto.
+
+**Repositorios considerados:**
+
+- Front-end: [https://github.com/BiciSmartIoT/front-end](https://github.com/BiciSmartIoT/front-end)
+- Back-end: [https://github.com/BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end)
+- Informe: [https://github.com/BiciSmartIoT/Informe](https://github.com/BiciSmartIoT/Informe)
+
+**Resumen de avances por repositorio:**
+
+- **front-end:** se configuró la aplicación para exportación estática y despliegue en Cloudflare Pages, se apuntó el frontend hacia el backend desplegado y se realizaron mejoras visuales en la experiencia de usuario.
+- **back-end:** se preparó el backend para despliegue en Railway, se incorporó la configuración necesaria para aceptar el origen del frontend publicado y se consolidó el primer avance funcional del servicio backend.
+- **Informe:** se actualizaron evidencias, rutas de imágenes y contenido del reporte para mantener trazabilidad entre la implementación y la documentación final.
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| [BiciSmartIoT/front-end](https://github.com/BiciSmartIoT/front-end) | main | `f166e00ab069e4b41fe806a1fcb246c5088606cf` | Configure frontend for Cloudflare Pages static export | Configuración del frontend para generar una versión estática compatible con Cloudflare Pages y facilitar la publicación del producto. | 2026-05-15 |
+| [BiciSmartIoT/front-end](https://github.com/BiciSmartIoT/front-end) | main | `8f072c79424dc5c51ba5df86614a2329e9eddc60` | Point frontend to deployed backend | Actualización de la configuración del frontend para consumir el backend desplegado, permitiendo validar la integración entre aplicación y servicios. | 2026-05-15 |
+| [BiciSmartIoT/front-end](https://github.com/BiciSmartIoT/front-end) | main | `3a2de0a46362c5d39841e80086542472781e8400` | internalization | Ajustes internos de la aplicación frontend para mejorar la estructura y preparación de la experiencia de usuario. | 2026-05-14 |
+| [BiciSmartIoT/front-end](https://github.com/BiciSmartIoT/front-end) | main | `3e93998e98cc7a72b1a4323c7cd3bc75c2006a56` | mejoras visuales en dashboard | Mejora visual del dashboard para presentar de forma más clara la información relevante del sistema. | 2026-05-14 |
+| [BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end) | main | `3be2c444fd8edb403e53afd6fd461152b65ae479` | Allow Cloudflare frontend origin | Habilitación del origen del frontend publicado en Cloudflare para permitir peticiones al backend desde el entorno desplegado. | 2026-05-15 |
+| [BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end) | main | `2c2173c9c8c267f2bf7cfd96012179de3e801a9e` | Prepare backend for Railway deployment | Preparación del backend para despliegue en Railway, incluyendo configuración necesaria para ejecución en entorno cloud. | 2026-05-15 |
+| [BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end) | main | `1b39a0b8ba8c93d7c537454bb39eee271584fc1f` | Primer commit del backend | Registro inicial del proyecto backend, utilizado como base para la implementación de servicios de la solución. | 2026-05-12 |
+| [BiciSmartIoT/Informe](https://github.com/BiciSmartIoT/Informe) | main | `e6723b08f2ef7f56cf488ececcb5a4974726760d` | Update image path in Team Collaboration Insights section | Corrección de rutas de imágenes para asegurar que las evidencias de colaboración se visualicen correctamente en el informe. | 2026-05-15 |
+| [BiciSmartIoT/Informe](https://github.com/BiciSmartIoT/Informe) | main | `7675a42ae703db92906f25f38a31f2b98ddda820` | Update README.md | Actualización general del README del informe con ajustes de contenido y formato. | 2026-05-15 |
+| [BiciSmartIoT/Informe](https://github.com/BiciSmartIoT/Informe) | main | `97ebf4189ff709ebfd55b5ec4db37b6cc3725b18` | Chapter 5 | Incorporación de lineamientos UI/UX y wireframes de aplicaciones, relacionados con la evidencia visual del producto. | 2026-05-15 |
+
+### 6.2.2.5. Testing Suite Evidence for Sprint Review.
+
+Para el Sprint 2 se define una suite de pruebas orientada a validar los servicios web y los flujos críticos de integración entre aplicación, backend e IoT. Las pruebas incluyen validaciones unitarias para reglas de negocio, pruebas de integración para endpoints y pruebas de aceptación con escenarios BDD en lenguaje Gherkin.
+
+| Test Type | Related User Story / Technical Story | Scenario | Expected Result | Status |
+|---|---|---|---|---|
+| Unit Test | TS01 | Validación de credenciales de usuario | El servicio autentica credenciales válidas y rechaza credenciales inválidas. | Designed |
+| Unit Test | TS02 | Validación de bicicleta registrada | El sistema permite crear bicicletas con datos válidos y rechaza datos incompletos. | Designed |
+| Integration Test | TS04 | Reserva de bicicleta disponible | El endpoint crea una reserva solo si la bicicleta se encuentra disponible. | Designed |
+| Integration Test | TS06 | Comando de desbloqueo Smart Lock | El backend emite el comando de desbloqueo y registra el evento de estado. | Designed |
+| Integration Test | TS07 | Registro de ubicación GPS | El sistema recibe coordenadas y actualiza la ubicación de la bicicleta. | Designed |
+| Acceptance Test | US25 | Desbloqueo desde la aplicación | El usuario inicia alquiler y la bicicleta cambia a estado desbloqueado. | Designed |
+| Acceptance Test | US26 | Bloqueo al finalizar alquiler | El usuario finaliza el alquiler y la bicicleta cambia a estado bloqueado/disponible. | Designed |
+| Acceptance Test | US29 | Visualización de ubicación | El usuario visualiza la ubicación actual de la bicicleta en la pantalla de tracking. | Designed |
+
+**Ejemplo de escenario BDD:**
+
+```gherkin
+Feature: Smart Lock control during rental
+
+  Scenario: User unlocks a reserved bicycle
+    Given the user has an active reservation
+    And the bicycle is locked
+    When the user starts the rental from the application
+    Then the backend sends the command CMD:UNLOCK
+    And the bicycle status changes to in use
+    And the application displays the rental as active
+```
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| [BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end.git) | main | Reemplazar con Commit ID real | test: add service and integration tests | Pruebas para autenticación, bicicletas, reservas, Smart Lock y tracking GPS. | 14/06/2026 |
+| [BiciSmartIoT/front-end](https://github.com/BiciSmartIoT/front-end.git) | main | Reemplazar con Commit ID real | test: add acceptance flow validations | Validaciones de flujo para reservas, desbloqueo, bloqueo y seguimiento GPS. | 14/06/2026 |
+
+### 6.2.2.6. Execution Evidence for Sprint Review.
+
+En esta sección deben colocarse capturas de las principales vistas ejecutadas durante la revisión del Sprint 2. Las evidencias deben mostrar los flujos integrados: autenticación, catálogo conectado a datos, reserva, inicio de alquiler, desbloqueo, tracking GPS, finalización del alquiler, alertas y panel administrativo.
+
+**Imagen requerida:** guardar capturas en `assets/images/sprint2/` con los nombres indicados.
+
+<div align="center">
+
+<img src="./assets/images/sprint2/execution_login.png" alt="Sprint 2 - Login conectado a servicios" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/sprint2/execution_catalog.png" alt="Sprint 2 - Catálogo conectado a servicios" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/sprint2/execution_reservation.png" alt="Sprint 2 - Reserva de bicicleta" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/sprint2/execution_tracking.png" alt="Sprint 2 - Tracking GPS" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/sprint2/execution_admin_dashboard.png" alt="Sprint 2 - Panel administrativo" width="800"/>
+
+</div>
+
+**Link de video de ejecución:** Reemplazar con el enlace al video de Sprint Review publicado en YouTube, Microsoft Stream o Clipchamp.
+
+### 6.2.2.7. Services Documentation Evidence for Sprint Review.
+
+Durante el Sprint 2 se documentan los endpoints principales mediante OpenAPI/Swagger. Esta documentación permite probar las operaciones del backend con datos de muestra y validar que la aplicación pueda consumir los servicios requeridos para los flujos de alquiler, tracking e IoT.
+
+**URL de documentación OpenAPI/Swagger:** Reemplazar con la URL desplegada o local, por ejemplo `https://<backend-url>/swagger-ui/index.html`.
+
+| Endpoint | HTTP Verb | Syntax | Parameters | Sample Response | Related Story |
+|---|---|---|---|---|---|
+| Authentication - Login | POST | `/api/v1/auth/login` | `email`, `password` | `200 OK` con token JWT y datos básicos del usuario. | TS01 |
+| Users - Register | POST | `/api/v1/auth/register` | `name`, `email`, `password`, `role` | `201 Created` con usuario registrado. | TS01 |
+| Bicycles - List | GET | `/api/v1/bicycles` | `status`, `lat`, `lng`, `radius` | `200 OK` con lista de bicicletas disponibles. | TS02 / TS03 |
+| Bicycles - Create | POST | `/api/v1/bicycles` | `model`, `location`, `iotDeviceId`, `pricePerMinute` | `201 Created` con bicicleta registrada. | TS02 |
+| Rentals - Reserve | POST | `/api/v1/rentals/reservations` | `userId`, `bicycleId`, `startTime` | `201 Created` con reserva activa. | TS04 |
+| Rentals - Start | POST | `/api/v1/rentals/{rentalId}/start` | `rentalId` | `200 OK` con estado `IN_USE` y comando `CMD:UNLOCK`. | TS04 / US25 |
+| Rentals - Finish | POST | `/api/v1/rentals/{rentalId}/finish` | `rentalId` | `200 OK` con estado `CLOSED` y comando `CMD:LOCK`. | TS04 / US26 |
+| IoT - Telemetry | POST | `/api/v1/iot/telemetry` | `deviceId`, `lat`, `lng`, `motion`, `battery` | `202 Accepted` con evento registrado. | TS07 / TS08 |
+| IoT - Alerts | POST | `/api/v1/iot/alerts` | `deviceId`, `type`, `severity`, `timestamp` | `202 Accepted` con alerta procesada. | TS09 |
+| Notifications - List | GET | `/api/v1/notifications` | `userId`, `status` | `200 OK` con notificaciones del usuario. | TS10 |
+| Admin - Metrics | GET | `/api/v1/admin/metrics` | `dateFrom`, `dateTo` | `200 OK` con métricas de usuarios, bicicletas y alquileres. | TS11 |
+
+**Imagen requerida:** colocar capturas de Swagger/OpenAPI interactuando con datos de muestra.
+
+<div align="center">
+
+<img src="./assets/images/sprint2/swagger_auth.png" alt="Swagger - Auth endpoints" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/sprint2/swagger_rentals.png" alt="Swagger - Rentals endpoints" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/sprint2/swagger_iot.png" alt="Swagger - IoT endpoints" width="800"/>
+
+</div>
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| [BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end.git) | main | Reemplazar con Commit ID real | docs: add openapi documentation | Documentación de endpoints de autenticación, bicicletas, reservas, IoT, notificaciones y métricas. | 14/06/2026 |
+
+### 6.2.2.8. Software Deployment Evidence for Sprint Review.
+
+Durante el Sprint 2 se actualiza el despliegue del producto para incluir la nueva versión del Landing Page, Web Application y servicios relacionados. El proceso considera la publicación de frontend, configuración del backend, variables de entorno, conexión con base de datos, exposición de documentación Swagger y verificación de los flujos principales desde un entorno accesible para Sprint Review.
+
+Actividades realizadas:
+
+- Actualización del repositorio y rama principal para la nueva versión del frontend.
+- Configuración del build y publicación de la Web Application.
+- Configuración de variables de entorno para URL de API, ambiente y claves públicas.
+- Publicación o preparación del backend para exponer servicios REST y documentación Swagger.
+- Validación del flujo de navegación desde Landing Page hacia la aplicación.
+- Validación de endpoints críticos desde Swagger/Postman y desde la aplicación.
+
+**Imagen requerida:** colocar capturas del despliegue y configuración.
+
+<div align="center">
+
+<img src="./assets/images/sprint2/deploy_frontend.png" alt="Sprint 2 - Frontend deployment" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/sprint2/deploy_backend.png" alt="Sprint 2 - Backend deployment" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/sprint2/deploy_environment_variables.png" alt="Sprint 2 - Environment variables" width="800"/>
+
+<br><br>
+
+<img src="./assets/images/sprint2/deploy_success.png" alt="Sprint 2 - Successful deployment" width="800"/>
+
+</div>
+
+**URLs de despliegue:** reemplazar con las URLs reales.
+
+| Product | Deployment URL | Status |
+|---|---|---|
+| Landing Page | Reemplazar con URL real | Published |
+| Web Application | Reemplazar con URL real | Published |
+| Backend Services | Reemplazar con URL real | Published / Prepared |
+| OpenAPI Documentation | Reemplazar con URL real | Published / Prepared |
+
+### 6.2.2.9. Team Collaboration Insights during Sprint.
+
+Durante el Sprint 2, el equipo organizó el trabajo en torno a frentes técnicos claros: backend, frontend, IoT, testing, documentación y despliegue. Esta distribución permitió que cada integrante participe en actividades de implementación y que los avances puedan integrarse en una versión revisable del producto.
+
+La colaboración se apoyó en GitHub para el control de versiones, en reuniones virtuales para sincronizar decisiones técnicas y en el board de tareas para dar seguimiento al estado de cada work-item. Para la revisión final, deben incluirse capturas de los analíticos de GitHub que evidencien la participación del equipo mediante commits, pull requests, ramas y contribuciones.
+
+Las siguientes capturas corresponden a los analíticos de GitHub utilizados como evidencia de colaboración del Sprint 2: contribuciones por integrante, commits del repositorio del informe y network graph de ramas.
+
+<div align="center">
+
+<img src="./assets/images/sprint2/collaboration_contributors.png" alt="Sprint 2 - GitHub contributors" width="800"/>
+
+*Figura — Contributors del repositorio, con commits y contribuciones por integrante durante el periodo revisado.*
+
+<br><br>
+
+<img src="./assets/images/sprint2/collaboration_commits.png" alt="Sprint 2 - GitHub commits" width="800"/>
+
+*Figura — Commits over the last year del repositorio BiciSmartIoT/Informe.*
+
+<br><br>
+
+<img src="./assets/images/sprint2/collaboration_network.png" alt="Sprint 2 - GitHub network graph" width="800"/>
+
+*Figura — Network graph con ramas y merges recientes del repositorio.*
+
+</div>
+
+Interpretación de los analíticos:
+
+- Los commits del sprint deben demostrar participación distribuida entre los integrantes del equipo.
+- Las ramas o pull requests deben reflejar el trabajo por aspecto: backend, frontend, IoT, documentación, testing y despliegue.
+- La concentración de commits cerca del cierre del sprint debe analizarse como oportunidad de mejora para registrar avances de forma más continua.
+- La evidencia de colaboración debe relacionarse con la matriz de líderes y colaboradores definida en la sección 6.2.2.2.
 
 ## Conclusiones
 
