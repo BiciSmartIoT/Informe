@@ -4745,7 +4745,7 @@ Depliegue:
 
 ## 6.2.2. Sprint 2
 
-El Sprint 2 se enfoca en consolidar la integración entre la aplicación, los servicios web y los componentes IoT de **BiciSmartIOT**. A diferencia del Sprint 1, que priorizó la primera versión visual del Landing Page y de la aplicación web, este sprint concentra el trabajo en endpoints backend, documentación OpenAPI, simulación de eventos IoT, pruebas funcionales, despliegue actualizado y evidencias de colaboración del equipo.
+El Sprint 2 se enfoca en consolidar la integración entre la aplicación, los servicios web y los componentes IoT de **BiciSmartIOT**. A diferencia del Sprint 1, que priorizó la primera versión visual del Landing Page y de la aplicación web, este sprint concentra el trabajo en endpoints backend, la incorporación de un **Edge Gateway** para recibir y reenviar eventos IoT, documentación OpenAPI, simulación de eventos IoT, pruebas funcionales, despliegue actualizado y evidencias de colaboración del equipo.
 
 ### 6.2.2.1. Sprint Planning 2.
 
@@ -4762,7 +4762,7 @@ El Sprint Planning 2 permitió organizar el trabajo necesario para avanzar desde
 | **Attendees (to planning meeting)** | Oscar Espinoza, Stephano Landauri, Renzo Uribe, Cameron Bustamante, Fabrisio Belahoni |
 | **Sprint n - 1 Review Summary** | En Sprint 1 se logró publicar la primera versión del Landing Page y de la aplicación web, incluyendo navegación, vistas principales, catálogo, detalle de bicicletas, panel de usuario, tracking GPS simulado y despliegue en Cloudflare Pages. |
 | **Sprint n - 1 Retrospective Summary** | El equipo identificó como oportunidad de mejora distribuir con mayor claridad las tareas técnicas, documentar commits con mensajes más descriptivos, preparar evidencias visuales durante el desarrollo y adelantar la documentación de servicios para evitar concentrarla al final del sprint. |
-| **Sprint n Goal** | Integrar la aplicación frontend con servicios web y flujos IoT principales, documentar endpoints con OpenAPI, validar el funcionamiento mediante pruebas y publicar una versión actualizada del producto.<br><br>**Sprint Goal:**<br>Our focus is on integrating BiciSmartIOT's application with backend services and IoT workflows.<br>We believe it delivers a functional product increment where users can authenticate, manage bicycles, reserve rentals, interact with smart lock flows, monitor GPS information and receive system alerts.<br>This will be confirmed when the application consumes documented APIs, the IoT simulation sends control and telemetry events, and the updated deployment is accessible for Sprint Review. |
+| **Sprint n Goal** | Integrar la aplicación frontend con servicios web y flujos IoT principales, incorporar un Edge Gateway entre el dispositivo y el backend, documentar endpoints con OpenAPI, validar el funcionamiento mediante pruebas y publicar una versión actualizada del producto.<br><br>**Sprint Goal:**<br>Our focus is on integrating BiciSmartIOT's application with backend services, an Edge Gateway and IoT workflows.<br>We believe it delivers a functional product increment where users can authenticate, manage bicycles, reserve rentals, interact with smart lock flows, monitor GPS information and receive system alerts.<br>This will be confirmed when the application consumes documented APIs, the Edge Gateway receives and forwards IoT events, and the updated deployment is accessible for Sprint Review. |
 | **Sprint n Velocity** | 95 Story Points |
 | **Sprint Goal & User Stories** | **User Stories / Technical Stories:**<br>TS01, TS02, TS03, TS04, TS06, TS07, TS08, TS09, TS10, TS11, US25, US26, US29, US31 |
 | **Sum of Story Points** | 95 Story Points |
@@ -4771,13 +4771,13 @@ El Sprint Planning 2 permitió organizar el trabajo necesario para avanzar desde
 
 Para este sprint se definieron aspectos de trabajo asociados a los productos y componentes que forman parte del incremento: servicios backend, aplicación web, integración IoT, documentación/testing y despliegue. La matriz permite identificar quién lidera cada aspecto y quiénes colaboran en su implementación.
 
-| Team Member (Last Name, First Name) | GitHub Username | Backend Services | Web Application | IoT Integration | Testing & Documentation | Deployment |
-|---|---|---|---|---|---|---|
-| Bustamante Leveau, Cameron Charlotte | CameronBustamanteLeveau2 | C | C | C | C | L |
-| Uribe Livia, Renzo Sebastián | JKOlimpo | C | L | C | C | C |
-| Espinoza Quijandría, Oscar Leonardo | Carbocnito5443 | L | C | C | L | C |
-| Landauri Preciado, Stephano Mayzron | Mayrzon02 | C | C | L | C | C |
-| Belahonia Miranda, Fabrisio | devfab17 | C | C | C | C | C |
+| Team Member (Last Name, First Name) | GitHub Username | Backend Services | Edge Gateway | Web Application | IoT Integration | Testing & Documentation | Deployment |
+|---|---|---|---|---|---|---|---|
+| Bustamante Leveau, Cameron Charlotte | CameronBustamanteLeveau2 | C | C | C | C | C | L |
+| Uribe Livia, Renzo Sebastián | JKOlimpo | C | C | L | C | C | C |
+| Espinoza Quijandría, Oscar Leonardo | Carbocnito5443 | L | L | C | C | L | C |
+| Landauri Preciado, Stephano Mayzron | Mayrzon02 | C | C | C | L | C | C |
+| Belahonia Miranda, Fabrisio | devfab17 | C | C | C | C | C | C |
 
 ### 6.2.2.3. Sprint Backlog 2.
 
@@ -4805,6 +4805,7 @@ El Sprint Backlog 2 consolida las tareas técnicas y funcionales necesarias para
 | Sprint 2 | TS09 | T36 - Implementar alertas IoT | Definir eventos críticos como movimiento no autorizado, bloqueo y fin de alquiler. | 5 | Fabrisio (Alerts) | Done |
 | Sprint 2 | TS10 | T37 - Implementar notificaciones | Preparar notificaciones para reservas, alquileres, pagos e incidencias. | 5 | Fabrisio (Notifications) | Done |
 | Sprint 2 | TS11 | T38 - Actualizar panel admin | Incorporar métricas de usuarios, bicicletas, reservas y eventos IoT. | 6 | Renzo (Frontend) | Done |
+| Sprint 2 | TS08 / TS09 | T38.1 - Implementar Edge Gateway | Crear un gateway intermedio para recibir eventos del circuito ESP32 y reenviarlos de forma controlada hacia los servicios IoT del backend. | 6 | Oscar (Edge Gateway) | Done |
 | Sprint 2 | US25 | T39 - Desbloquear bicicleta desde app | Conectar la acción de desbloqueo con el flujo de Smart Lock simulado. | 5 | Renzo (Frontend/IoT) | Done |
 | Sprint 2 | US26 | T40 - Bloquear bicicleta al finalizar | Ejecutar el flujo de bloqueo al cerrar el alquiler. | 5 | Stephano (IoT) | Done |
 | Sprint 2 | US29 | T41 - Mostrar ubicación en tiempo real | Visualizar la ubicación actual de la bicicleta en la pantalla de tracking. | 6 | Renzo (Frontend) | Done |
@@ -4815,18 +4816,20 @@ El Sprint Backlog 2 consolida las tareas técnicas y funcionales necesarias para
 
 ### 6.2.2.4. Development Evidence for Sprint Review.
 
-Durante el Sprint 2 se avanzó en la integración entre la aplicación web, los servicios backend y la documentación del proyecto. Para evidenciar el trabajo desarrollado, se consideran los repositorios oficiales del equipo: **front-end**, **back-end** e **Informe**. Los commits listados muestran avances relacionados con la preparación del frontend para despliegue, conexión con backend, configuración de despliegue del backend, habilitación de CORS para el frontend publicado y actualización del informe con evidencias del producto.
+Durante el Sprint 2 se avanzó en la integración entre la aplicación web, los servicios backend, el Edge Gateway y la documentación del proyecto. Para evidenciar el trabajo desarrollado, se consideran los repositorios oficiales del equipo: **front-end**, **back-end**, **api-gateway** e **Informe**. Los commits listados muestran avances relacionados con la preparación del frontend para despliegue, conexión con backend, configuración de servicios cloud, incorporación del gateway para integración IoT y actualización del informe con evidencias del producto.
 
 **Repositorios considerados:**
 
 - Front-end: [https://github.com/BiciSmartIoT/front-end](https://github.com/BiciSmartIoT/front-end)
 - Back-end: [https://github.com/BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end)
+- Edge Gateway: [https://github.com/BiciSmartIoT/api-gateway](https://github.com/BiciSmartIoT/api-gateway)
 - Informe: [https://github.com/BiciSmartIoT/Informe](https://github.com/BiciSmartIoT/Informe)
 
 **Resumen de avances por repositorio:**
 
 - **front-end:** se configuró la aplicación para exportación estática y despliegue en Cloudflare Pages, se apuntó el frontend hacia el backend desplegado y se realizaron mejoras visuales en la experiencia de usuario.
 - **back-end:** se preparó el backend para despliegue en Railway, se incorporó la configuración necesaria para aceptar el origen del frontend publicado y se consolidó el primer avance funcional del servicio backend.
+- **api-gateway:** se incorporó el Edge Gateway encargado de recibir los eventos generados por el dispositivo IoT y reenviarlos hacia el backend, desacoplando la comunicación del ESP32 respecto de los servicios principales.
 - **Informe:** se actualizaron evidencias, rutas de imágenes y contenido del reporte para mantener trazabilidad entre la implementación y la documentación final.
 
 | Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
@@ -4838,6 +4841,7 @@ Durante el Sprint 2 se avanzó en la integración entre la aplicación web, los 
 | [BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end) | main | `3be2c444fd8edb403e53afd6fd461152b65ae479` | Allow Cloudflare frontend origin | Habilitación del origen del frontend publicado en Cloudflare para permitir peticiones al backend desde el entorno desplegado. | 2026-05-15 |
 | [BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end) | main | `2c2173c9c8c267f2bf7cfd96012179de3e801a9e` | Prepare backend for Railway deployment | Preparación del backend para despliegue en Railway, incluyendo configuración necesaria para ejecución en entorno cloud. | 2026-05-15 |
 | [BiciSmartIoT/back-end](https://github.com/BiciSmartIoT/back-end) | main | `1b39a0b8ba8c93d7c537454bb39eee271584fc1f` | Primer commit del backend | Registro inicial del proyecto backend, utilizado como base para la implementación de servicios de la solución. | 2026-05-12 |
+| [BiciSmartIoT/api-gateway](https://github.com/BiciSmartIoT/api-gateway) | main | `92a8de4249aa0337df0bc4e21c482cd17d594310` | Initial API gateway for IoT integration | Implementación inicial del Edge Gateway para recibir eventos del dispositivo IoT y enviarlos al backend de BiciSmartIOT. | 2026-06-19 |
 | [BiciSmartIoT/Informe](https://github.com/BiciSmartIoT/Informe) | main | `e6723b08f2ef7f56cf488ececcb5a4974726760d` | Update image path in Team Collaboration Insights section | Corrección de rutas de imágenes para asegurar que las evidencias de colaboración se visualicen correctamente en el informe. | 2026-05-15 |
 | [BiciSmartIoT/Informe](https://github.com/BiciSmartIoT/Informe) | main | `7675a42ae703db92906f25f38a31f2b98ddda820` | Update README.md | Actualización general del README del informe con ajustes de contenido y formato. | 2026-05-15 |
 | [BiciSmartIoT/Informe](https://github.com/BiciSmartIoT/Informe) | main | `97ebf4189ff709ebfd55b5ec4db37b6cc3725b18` | Chapter 5 | Incorporación de lineamientos UI/UX y wireframes de aplicaciones, relacionados con la evidencia visual del producto. | 2026-05-15 |
@@ -4878,29 +4882,37 @@ Feature: Smart Lock control during rental
 
 ### 6.2.2.6. Execution Evidence for Sprint Review.
 
-En esta sección deben colocarse capturas de las principales vistas ejecutadas durante la revisión del Sprint 2. Las evidencias deben mostrar los flujos integrados: autenticación, catálogo conectado a datos, reserva, inicio de alquiler, desbloqueo, tracking GPS, finalización del alquiler, alertas y panel administrativo.
-
-**Imagen requerida:** guardar capturas en `assets/images/sprint2/` con los nombres indicados.
+Las siguientes capturas evidencian la ejecución de la versión desplegada de la aplicación web durante el Sprint 2. Se muestran los flujos principales para seleccionar el tipo de usuario, explorar las unidades disponibles, supervisar una sesión activa, consultar la telemetría del dispositivo IoT y administrar la flota del proveedor.
 
 <div align="center">
 
-<img src="./assets/images/sprint2/execution_login.png" alt="Sprint 2 - Login conectado a servicios" width="800"/>
+<img src="./assets/images/sprint2/execution_role_selection.png" alt="Sprint 2 - Selección de rol" width="800"/>
+
+*Figura — Selección del rol Rider o Provider en la aplicación desplegada.*
 
 <br><br>
 
 <img src="./assets/images/sprint2/execution_catalog.png" alt="Sprint 2 - Catálogo conectado a servicios" width="800"/>
 
-<br><br>
-
-<img src="./assets/images/sprint2/execution_reservation.png" alt="Sprint 2 - Reserva de bicicleta" width="800"/>
+*Figura — Catálogo de bicicletas y vehículos disponibles, con estado, precio y acceso al detalle.*
 
 <br><br>
 
-<img src="./assets/images/sprint2/execution_tracking.png" alt="Sprint 2 - Tracking GPS" width="800"/>
+<img src="./assets/images/sprint2/execution_active_session.png" alt="Sprint 2 - Sesión activa y seguimiento GPS" width="800"/>
+
+*Figura — Sesión de alquiler activa con tiempo restante, batería, velocidad, rango y seguimiento GPS.*
 
 <br><br>
 
-<img src="./assets/images/sprint2/execution_admin_dashboard.png" alt="Sprint 2 - Panel administrativo" width="800"/>
+<img src="./assets/images/sprint2/execution_iot_dashboard.png" alt="Sprint 2 - Dashboard de telemetría IoT" width="800"/>
+
+*Figura — Dashboard IoT con conexión ESP32, estado de bloqueo, último evento e historial de alertas.*
+
+<br><br>
+
+<img src="./assets/images/sprint2/execution_fleet.png" alt="Sprint 2 - Gestión de flota" width="800"/>
+
+*Figura — Vista My Fleet para consultar métricas y registrar las unidades del proveedor.*
 
 </div>
 
@@ -4910,35 +4922,54 @@ En esta sección deben colocarse capturas de las principales vistas ejecutadas d
 
 Durante el Sprint 2 se documentan los endpoints principales mediante OpenAPI/Swagger. Esta documentación permite probar las operaciones del backend con datos de muestra y validar que la aplicación pueda consumir los servicios requeridos para los flujos de alquiler, tracking e IoT.
 
-**URL de documentación OpenAPI/Swagger:** Reemplazar con la URL desplegada o local, por ejemplo `https://<backend-url>/swagger-ui/index.html`.
+Adicionalmente, se incorporó un **Edge Gateway** alojado en el repositorio [BiciSmartIoT/api-gateway](https://github.com/BiciSmartIoT/api-gateway). Este componente actúa como punto de entrada para los eventos enviados por el circuito ESP32. Su responsabilidad es recibir la información generada en el borde, aplicar la configuración de comunicación correspondiente y reenviar los eventos hacia los endpoints IoT del backend. De esta manera, el dispositivo no necesita comunicarse directamente con todos los servicios internos y se mantiene una separación clara entre la capa física y la plataforma cloud.
+
+**URL de documentación OpenAPI/Swagger:** [https://back-end-production-7214.up.railway.app/swagger-ui/index.html](https://back-end-production-7214.up.railway.app/swagger-ui/index.html)
 
 | Endpoint | HTTP Verb | Syntax | Parameters | Sample Response | Related Story |
 |---|---|---|---|---|---|
-| Authentication - Login | POST | `/api/v1/auth/login` | `email`, `password` | `200 OK` con token JWT y datos básicos del usuario. | TS01 |
-| Users - Register | POST | `/api/v1/auth/register` | `name`, `email`, `password`, `role` | `201 Created` con usuario registrado. | TS01 |
-| Bicycles - List | GET | `/api/v1/bicycles` | `status`, `lat`, `lng`, `radius` | `200 OK` con lista de bicicletas disponibles. | TS02 / TS03 |
-| Bicycles - Create | POST | `/api/v1/bicycles` | `model`, `location`, `iotDeviceId`, `pricePerMinute` | `201 Created` con bicicleta registrada. | TS02 |
-| Rentals - Reserve | POST | `/api/v1/rentals/reservations` | `userId`, `bicycleId`, `startTime` | `201 Created` con reserva activa. | TS04 |
-| Rentals - Start | POST | `/api/v1/rentals/{rentalId}/start` | `rentalId` | `200 OK` con estado `IN_USE` y comando `CMD:UNLOCK`. | TS04 / US25 |
-| Rentals - Finish | POST | `/api/v1/rentals/{rentalId}/finish` | `rentalId` | `200 OK` con estado `CLOSED` y comando `CMD:LOCK`. | TS04 / US26 |
-| IoT - Telemetry | POST | `/api/v1/iot/telemetry` | `deviceId`, `lat`, `lng`, `motion`, `battery` | `202 Accepted` con evento registrado. | TS07 / TS08 |
-| IoT - Alerts | POST | `/api/v1/iot/alerts` | `deviceId`, `type`, `severity`, `timestamp` | `202 Accepted` con alerta procesada. | TS09 |
-| Notifications - List | GET | `/api/v1/notifications` | `userId`, `status` | `200 OK` con notificaciones del usuario. | TS10 |
-| Admin - Metrics | GET | `/api/v1/admin/metrics` | `dateFrom`, `dateTo` | `200 OK` con métricas de usuarios, bicicletas y alquileres. | TS11 |
+| Authentication - Login | POST | `/api/iam/auth/login` | Credenciales del usuario | `200 OK` con datos de autenticación del usuario. | TS01 |
+| Users - Register | POST | `/api/iam/auth/register` | Datos personales, credenciales y rol | `201 Created` con el nuevo usuario registrado. | TS01 |
+| Providers - Onboard | POST | `/api/iam/providers/onboard` | Información requerida para convertir al usuario en proveedor | `200 OK` con el perfil actualizado. | TS01 / TS02 |
+| Vehicles - List | GET | `/api/vehicles` | Autorización del usuario | `200 OK` con la lista de vehículos disponibles. | TS02 |
+| Vehicles - Search | GET | `/api/vehicles/search` | Coordenadas y criterios de búsqueda | `200 OK` con vehículos cercanos a una ubicación. | TS03 |
+| Vehicles - Create | POST | `/api/vehicles` | Datos, disponibilidad y propietario del vehículo | `201 Created` con el vehículo registrado. | TS02 |
+| Renting - Reserve | POST | `/api/renting/bookings` | Vehículo y datos de la reserva | `201 Created` con una nueva reserva. | TS04 |
+| Renting - Start | POST | `/api/renting/bookings/{bookingId}/start` | `bookingId` | `200 OK` con el alquiler iniciado. | TS04 / US25 |
+| Renting - Finish | POST | `/api/renting/bookings/{bookingId}/finish` | `bookingId` | `200 OK` con el alquiler finalizado. | TS04 / US26 |
+| Payments - Authorize | POST | `/api/payments/charges/authorize` | Datos del método de pago y monto | `200 OK` con el cargo autorizado. | TS05 |
+| Metrics - Overview | GET | `/api/metrics/overview` | Autorización del usuario | `200 OK` con estadísticas globales agregadas. | TS11 |
+| IoT - Events | GET | `/api/iot/events` | Autorización y filtros disponibles | `200 OK` con eventos IoT recientes. | TS07 / TS08 |
+| IoT - Register Event | POST | `/api/iot/events` | Datos enviados por el API Gateway o dispositivo | `201 Created` o `202 Accepted` con el evento registrado. | TS08 / TS09 |
+| IoT - Latest Event | GET | `/api/iot/events/latest` | Autorización del usuario | `200 OK` con el evento IoT más reciente. | TS07 / TS09 |
 
-**Imagen requerida:** colocar capturas de Swagger/OpenAPI interactuando con datos de muestra.
+**Flujo de integración del Edge Gateway:**
+
+1. El circuito ESP32 genera un evento de telemetría o seguridad.
+2. El Edge Gateway recibe el evento desde el dispositivo.
+3. El gateway estructura y reenvía la información al endpoint `POST /api/iot/events`.
+4. El backend registra el evento y lo expone mediante `GET /api/iot/events` y `GET /api/iot/events/latest`.
+5. La aplicación web consulta la información para actualizar el dashboard IoT y el historial de alertas.
+
+Las capturas siguientes muestran la documentación OpenAPI desplegada, organizada por bounded contexts y disponible para realizar pruebas interactivas de los servicios.
 
 <div align="center">
 
-<img src="./assets/images/sprint2/swagger_auth.png" alt="Swagger - Auth endpoints" width="800"/>
+<img src="./assets/images/sprint2/swagger_iam_providing.png" alt="Swagger - IAM y Providing" width="800"/>
+
+*Figura — Documentación Swagger de los bounded contexts IAM y Providing.*
 
 <br><br>
 
-<img src="./assets/images/sprint2/swagger_rentals.png" alt="Swagger - Rentals endpoints" width="800"/>
+<img src="./assets/images/sprint2/swagger_vehicles_renting_payments.png" alt="Swagger - Vehicles, Renting y Payments" width="800"/>
+
+*Figura — Endpoints de Vehicles, Renting y Payments para vehículos, reservas, alquileres y pagos.*
 
 <br><br>
 
-<img src="./assets/images/sprint2/swagger_iot.png" alt="Swagger - IoT endpoints" width="800"/>
+<img src="./assets/images/sprint2/swagger_metrics_iot.png" alt="Swagger - Metrics e IoT" width="800"/>
+
+*Figura — Endpoints de Metrics e IoT para estadísticas agregadas y eventos del circuito ESP32.*
 
 </div>
 
@@ -4956,6 +4987,8 @@ Actividades realizadas:
 - Configuración del build y publicación de la Web Application.
 - Configuración de variables de entorno para URL de API, ambiente y claves públicas.
 - Publicación o preparación del backend para exponer servicios REST y documentación Swagger.
+- Incorporación del Edge Gateway como punto de entrada para eventos del dispositivo IoT.
+- Configuración del gateway para reenviar los eventos recibidos hacia la URL desplegada del backend.
 - Validación del flujo de navegación desde Landing Page hacia la aplicación.
 - Validación de endpoints críticos desde Swagger/Postman y desde la aplicación.
 
@@ -4986,6 +5019,7 @@ Actividades realizadas:
 | Landing Page | Reemplazar con URL real | Published |
 | Web Application | Reemplazar con URL real | Published |
 | Backend Services | Reemplazar con URL real | Published / Prepared |
+| Edge Gateway | [Repositorio api-gateway](https://github.com/BiciSmartIoT/api-gateway) | Implemented |
 | OpenAPI Documentation | Reemplazar con URL real | Published / Prepared |
 
 ### 6.2.2.9. Team Collaboration Insights during Sprint.
