@@ -5056,6 +5056,30 @@ Interpretación de los analíticos:
 - Las ramas o pull requests deben reflejar el trabajo por aspecto: backend, frontend, IoT, documentación, testing y despliegue.
 - La concentración de commits cerca del cierre del sprint debe analizarse como oportunidad de mejora para registrar avances de forma más continua.
 - La evidencia de colaboración debe relacionarse con la matriz de líderes y colaboradores definida en la sección 6.2.2.2.
+## 6.3 Validation Interviews.
+Esta sección presenta las preguntas de la entrevista dirigidas a validar la solución BiciSmartIoT, enfocada en el alquiler de bicicletas, gestión de pagos, visualización del catálogo de bicicletas y monitoreo GPS en tiempo real. El objetivo es evaluar la experiencia del usuario en la landing page y el frontend de la aplicación web.
+## 6.3.1. Diseño de Entrevistas.
+#### **Preguntas de la entrevista**
+
+1. ¿Qué tan claro le resulta el propósito de la plataforma al ingresar a la landing page?
+
+2. ¿Qué opinión tiene del diseño visual de la página (colores, estructura y presentación general)?
+
+3. ¿Considera que la información mostrada sobre el servicio de alquiler de bicicletas es suficiente para entender cómo funciona?
+
+4. ¿Qué tan fácil le resulta identificar las bicicletas disponibles para alquiler dentro de la plataforma?
+
+5. ¿El proceso de alquiler de una bicicleta le parece claro e intuitivo desde la selección hasta la confirmación?
+
+6. ¿La información mostrada en cada bicicleta (precio, estado, ubicación) le parece clara y útil para tomar una decisión?
+
+7. ¿Qué tan confiable le parece la sección de pagos dentro de la plataforma?
+
+8. ¿Considera útil la funcionalidad de rastreo GPS en tiempo real de las bicicletas? ¿Por qué?
+
+9. ¿Qué tan fácil es navegar entre las secciones de bicicletas, alquileres, pagos y monitoreo dentro de la aplicación?
+
+10. ¿Qué mejoras o funcionalidades adicionales le gustaría que tenga la plataforma para mejorar su experiencia?
 
 ## Conclusiones
 
