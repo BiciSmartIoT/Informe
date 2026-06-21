@@ -5081,6 +5081,19 @@ Esta sección presenta las preguntas de la entrevista dirigidas a validar la sol
 
 10. ¿Qué mejoras o funcionalidades adicionales le gustaría que tenga la plataforma para mejorar su experiencia?
 
+## 6.3.2. Registro de Entrevistas.
+
+
+| Segmento Objetivo | Usuarios de la plataforma |
+| ----- | ----- |
+| **Número de registro** | **Datos del entrevistado** |
+| 01 | **Nombre:** Sebastian Escobar <br> **Edad:** 22 <br> **Profesión:** Estudiante Universitario <br> **Distrito:** Lima <br> **Inicio - Duración:** 0:00 - 3:10 |
+|  | **Resumen:** La entrevista evidencia una percepción muy positiva hacia la plataforma, destacando principalmente el landing page. La usuaria menciona que el diseño es atractivo, claro y fácil de entender, logrando comunicar correctamente el propósito del servicio de alquiler de bicicletas. Además, indica que la propuesta le genera confianza y le resulta interesante para un uso potencial en trayectos cortos. |
+| 02 | **Nombre:** Sebastian Silva <br> **Edad:** 23 <br> **Profesión:** Estudiante Universitario <br> **Distrito:** Santiago de Surco <br> **Inicio - Duración:** 3:10 - 6:20 |
+|  | **Resumen:** El entrevistado resalta principalmente la innovación tecnológica de la plataforma. Considera que la integración de GPS, pagos digitales y sistema de alquiler representa una solución moderna y útil para la movilidad urbana. Destaca el valor de la tecnología IoT aplicada a bicicletas como un factor diferenciador frente a otros servicios tradicionales. |
+| 03 | **Nombre:** Jesus Uribe <br> **Edad:** 25 <br> **Profesión:** Estudiante / Trabajador <br> **Distrito:** San Juan de Lurigancho <br> **Inicio - Duración:** 6:20 - 9:45 |
+|  | **Resumen:** El entrevistado expresa una observación importante respecto a la sección de perfil de usuario. Señala que la opción de “eliminar cuenta” no debería estar enfocada directamente en borrar la cuenta, sino en la gestión de suscripciones o datos personales, ya que considera que la información del usuario debe manejarse con mayor control y transparencia. Sugiere mejorar esta sección para evitar confusiones y reforzar la confianza en el manejo de datos. |
+
 ## Conclusiones
 
 El desarrollo de BiciSmartIoT aborda una problemática real de la micromovilidad mediante la aplicación de tecnologías del Internet de las Cosas (IoT), permitiendo la interconexión entre dispositivos físicos y sistemas digitales para mejorar la seguridad de los ciclistas. A través de sensores, conectividad y procesamiento de datos en tiempo real, se logra un monitoreo continuo del estado y ubicación de la bicicleta.
