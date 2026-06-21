@@ -5165,7 +5165,7 @@ La opción de “Eliminar cuenta” puede generar confusión en los usuarios, ya
 - Incluir confirmaciones adicionales antes de eliminar datos.
 - Separar claramente acciones destructivas de acciones administrativas.
 
-<img src="./assets/images/sprint2/heu_1.png" alt="Sprint 2 Board" width="800"/>
+<img src="./assets/images/sprint2/heu_1.png" alt="Sprint 2 rar" width="800"/>
 
 
 #### Problema #2: Sincronización IoT en tiempo real inestable
