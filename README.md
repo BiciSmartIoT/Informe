@@ -5093,6 +5093,109 @@ Esta sección presenta las preguntas de la entrevista dirigidas a validar la sol
 |  | **Resumen:** El entrevistado resalta principalmente la innovación tecnológica de la plataforma. Considera que la integración de GPS, pagos digitales y sistema de alquiler representa una solución moderna y útil para la movilidad urbana. Destaca el valor de la tecnología IoT aplicada a bicicletas como un factor diferenciador frente a otros servicios tradicionales. |
 | 03 | **Nombre:** Jesus Uribe <br> **Edad:** 25 <br> **Profesión:** Estudiante / Trabajador <br> **Distrito:** San Juan de Lurigancho <br> **Inicio - Duración:** 6:20 - 9:45 |
 |  | **Resumen:** El entrevistado expresa una observación importante respecto a la sección de perfil de usuario. Señala que la opción de “eliminar cuenta” no debería estar enfocada directamente en borrar la cuenta, sino en la gestión de suscripciones o datos personales, ya que considera que la información del usuario debe manejarse con mayor control y transparencia. Sugiere mejorar esta sección para evitar confusiones y reforzar la confianza en el manejo de datos. |
+| Link a las entrevistas  | [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310601_upc_edu_pe/ESS8nMNW8DtHtgz9a86ulzQBBr3fUWxfJBCfo8i_5RCgIw?e=Opy84t&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D](https://youtu.be/wyN0GJSErww)  |
+
+## 6.3.3.  Evaluaciones según heurísticas.
+
+**App a evaluar:** BiciSmartIoT – Web Application for Bike Rental & IoT Monitoring  
+
+### Tareas a evaluar
+
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+#### Web Application
+
+| ID | Tarea |
+|----|------|
+| 1 | Visualización de bicicletas disponibles |
+| 2 | Proceso de alquiler de bicicleta |
+| 3 | Gestión de perfil de usuario |
+| 4 | Historial de alquileres |
+| 5 | Integración y monitoreo GPS de bicicletas IoT |
+| 6 | Visualización de pagos y transacciones |
+
+
+
+#### Web Landing Page
+
+| ID | Tarea |
+|----|------|
+| 1 | Redireccionamiento a la aplicación web |
+| 2 | Presentación del servicio de alquiler |
+| 3 | Información sobre seguridad y GPS IoT |
+| 4 | Formulario de contacto |
+
+
+
+### Escala de severidad
+
+| Nivel | Descripción |
+|------|-------------|
+| 1 | Problema superficial: puede ser fácilmente superado por el usuario o ocurre con muy poca frecuencia. No requiere corrección inmediata. |
+| 2 | Problema menor: ocurre ocasionalmente o afecta ligeramente la experiencia. Prioridad baja. |
+| 3 | Problema mayor: afecta la experiencia del usuario de forma frecuente. Debe corregirse con prioridad alta. |
+| 4 | Problema crítico: impide el uso correcto del sistema. Debe corregirse antes del despliegue. |
+
+
+
+### Tabla resumen
+
+| # | Problema | Severidad | Heurística / Principio violado |
+|--|----------|-----------|--------------------------------|
+| 1 | La opción de eliminar cuenta no está claramente diferenciada y puede generar confusión frente a la gestión de suscripción o datos del usuario | 3 | Control y libertad del usuario |
+| 2 | La sincronización en tiempo real con el dispositivo IoT (GPS de bicicletas) presenta inconsistencias o retrasos en la actualización de la ubicación | 4 | Visibilidad del estado del sistema |
+| 3 | Falta de claridad en el estado de conexión del dispositivo IoT (no se muestra si la bicicleta está activa, desconectada o sin señal) | 3 | Correspondencia entre el sistema y el mundo real |
+
+
+
+### Detalle de los problemas
+
+
+
+#### Problema #1: Confusión en la opción “Eliminar cuenta”
+
+**Severidad:** 3  
+**Heurística violada:** Control y libertad del usuario  
+
+**Problema:**  
+La opción de “Eliminar cuenta” puede generar confusión en los usuarios, ya que no diferencia claramente entre eliminar la cuenta permanentemente o gestionar la suscripción o datos personales. Esto puede provocar acciones no deseadas y pérdida de confianza en la plataforma.
+
+**Recomendaciones:**
+- Reemplazar “Eliminar cuenta” por “Gestionar cuenta” o “Gestión de suscripción”.
+- Incluir confirmaciones adicionales antes de eliminar datos.
+- Separar claramente acciones destructivas de acciones administrativas.
+
+<img src="./assets/images/sprint2/heu_1.png" alt="Sprint 2 Board" width="800"/>
+
+
+#### Problema #2: Sincronización IoT en tiempo real inestable
+
+**Severidad:** 4  
+**Heurística violada:** Visibilidad del estado del sistema  
+
+**Problema:**  
+La sincronización entre la aplicación web y el dispositivo IoT (GPS de las bicicletas) no siempre refleja en tiempo real la ubicación o estado del vehículo. Esto genera incertidumbre en el usuario sobre la disponibilidad y ubicación real de la bicicleta.
+
+**Recomendaciones:**
+- Implementar actualización en tiempo real (WebSockets o polling optimizado).
+- Mostrar estado de conexión del dispositivo (activo / sin señal / desconectado).
+- Agregar indicador de última actualización de ubicación.
+
+<img src="./assets/images/sprint2/heu_2.png" alt="Sprint 2 Board" width="800"/>
+
+
+#### Problema #3: Falta de claridad en el estado del dispositivo IoT
+
+**Severidad:** 3  
+**Heurística violada:** Correspondencia entre el sistema y el mundo real  
+
+**Problema:**  
+La interfaz no muestra de forma clara el estado del dispositivo IoT asociado a cada bicicleta (por ejemplo: activa, en movimiento, sin señal o fuera de línea), lo que dificulta la interpretación del estado real del vehículo.
+
+**Recomendaciones:**
+- Incluir estados visuales claros (iconos o etiquetas de estado).
+- Agregar información de “última conexión”.
+- Usar colores o indicadores para diferenciar estados del dispositivo.
 
 ## Conclusiones
 
