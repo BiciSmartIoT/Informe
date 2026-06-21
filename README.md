@@ -4783,8 +4783,6 @@ Para este sprint se definieron aspectos de trabajo asociados a los productos y c
 
 El Sprint Backlog 2 consolida las tareas técnicas y funcionales necesarias para avanzar en la integración de **BiciSmartIOT**. El alcance se centra en construir servicios web para autenticación, bicicletas, reservas y monitoreo; conectar la experiencia de usuario con dichos servicios; procesar eventos IoT de smart lock, GPS y sensores; preparar pruebas y documentar endpoints para la revisión del sprint.
 
-**Imagen requerida:** colocar aquí una captura del board del Sprint 2 en la herramienta de gestión utilizada. Guardar la imagen como `assets/images/sprint2/sprint2_board.png`.
-
 <div align="center">
 
 <img src="./assets/images/sprint2/sprint2_board.png" alt="Sprint 2 Board" width="800"/>
